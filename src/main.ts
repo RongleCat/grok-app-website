@@ -62,6 +62,7 @@ function applyI18n(locale: Locale): void {
 
   const desc = t(table, descKey);
   setMeta('meta[name="description"]', desc);
+  setMeta('meta[name="keywords"]', t(table, "meta.keywords"));
   setMeta('meta[property="og:title"]', t(table, titleKey));
   setMeta('meta[property="og:description"]', desc);
   setMeta('meta[property="og:locale"]', ogLocale(locale));

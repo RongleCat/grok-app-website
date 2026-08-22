@@ -1,13 +1,13 @@
 import type { MessageKey } from "./zh";
 
 export const en: Record<MessageKey, string> = {
-  "meta.title": "Grok App · Open-source desktop workbench",
+  "meta.title": "Open-source Grok App · desktop workbench",
   "meta.description":
-    "Unofficial open-source desktop workbench for the local Grok Build CLI. Projects, sessions, permissions, and media preview. Not an official xAI product.",
-  "brand.disclaimer":
-    "Grok App is not an official xAI product. It turns the local Grok Build CLI into a desktop workbench.",
+    "A desktop GUI for the local Grok Build CLI. Projects, sessions, permissions, and media preview.",
+  "meta.keywords":
+    "Grok App, Grok Desktop, Grok GUI, Grok Build GUI, Grok Build desktop, Grok 桌面客户端",
   "brand.definition":
-    "Grok App is an unofficial open-source desktop workbench for the local Grok Build CLI. It is not an official xAI product.",
+    "Open-source Grok App is a desktop workbench for the local Grok Build CLI.",
   "nav.product": "Product",
   "nav.features": "Features",
   "nav.download": "Download",
@@ -23,7 +23,7 @@ export const en: Record<MessageKey, string> = {
   "theme.light": "Light",
   "theme.system": "System",
   "hero.title": "Let Grok actually get to work",
-  "hero.subtitle": "The open-source desktop workbench built for Grok Build",
+  "hero.subtitle": "An open-source desktop GUI for the Grok Build CLI",
   "hero.ctaPrimary": "Download Free",
   "hero.ctaGithub": "GitHub",
   "pill.models.title": "Multi-model",
@@ -64,21 +64,21 @@ export const en: Record<MessageKey, string> = {
   "skins.kicker": "Change the theme. Change the room.",
   "oss.title": "Open, visible, still moving",
   "oss.body":
-    "Grok App is MIT-licensed. The code is public, the community ships with it, and your reports make the next cut better.",
+    "Open-source Grok App is a desktop GUI for the local Grok Build CLI. The code is public; your reports make the next cut better.",
   "oss.cta": "Open GitHub",
   "oss.more": "Meet the project and contributors",
   "oss.page.title": "Open Source · Grok App",
-  "oss.page.desc": "The Grok App repo, author 铁柱 AGI, and people who shipped PRs.",
+  "oss.page.desc": "The open-source Grok App repo, author 铁柱 AGI, and people who shipped PRs.",
   "oss.hero.kicker": "Open source",
   "oss.hero.title": "The code is public. Come build with it.",
   "oss.hero.body":
-    "Grok App is an MIT-licensed desktop workbench. It turns the local Grok Build CLI into projects, sessions, permissions, and media preview. File issues. Open PRs. Stay.",
+    "Open-source Grok App is an MIT-licensed desktop GUI. It turns the local Grok Build CLI into projects, sessions, permissions, and media preview. File issues. Open PRs.",
   "oss.repo.cta": "Open the GitHub repo",
   "oss.author.kicker": "Author",
   "oss.author.name": "铁柱 AGI",
   "oss.author.role": "Grok App · Wanxiang AI Lab",
   "oss.author.bio":
-    "Hands-on Agent work. n8n, agents, and AIGC systems that actually run — plus the mistakes. Grok App is not an official xAI product.",
+    "Hands-on Agent work. n8n, agents, and AIGC systems that actually run — plus the mistakes.",
   "oss.author.x": "Follow @cgnot996 on X",
   "oss.author.wechat": "WeChat 铁柱AGI",
   "oss.author.wechatFriend": "Add on WeChat",
@@ -116,13 +116,13 @@ export const en: Record<MessageKey, string> = {
   "footer.changelog": "Changelog",
   "menu.open": "Open menu",
   "menu.close": "Close menu",
-  "faq.page.title": "FAQ · Grok App",
+  "faq.page.title": "FAQ · Open-source Grok App",
   "faq.page.desc":
-    "Grok App install platforms, macOS Gatekeeper, the local Grok Build CLI requirement, and downloads on GitHub Releases. Not an official xAI product.",
+    "Downloads, install, and what Grok App is. People also search Grok Desktop and Grok GUI.",
   "faq.hero.kicker": "FAQ",
   "faq.hero.title": "Download, install, and what this is",
   "faq.hero.body":
-    "Grok App is an unofficial open-source desktop workbench for the local Grok Build CLI. It is not an official xAI product. These are the questions visitors ask first.",
+    "Open-source Grok App is a desktop GUI for the local Grok Build CLI. Downloads, install, and common searches.",
   "faq.q1": "Which platforms does Grok App support?",
   "faq.a1":
     "Installers are available for macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). Pick your platform on the homepage download section, or get the files from GitHub Releases.",
@@ -131,14 +131,20 @@ export const en: Record<MessageKey, string> = {
     "That is a common Gatekeeper prompt for apps outside the App Store. Allow it in System Settings → Privacy & Security, or Control-click the app icon and choose Open. Only download installers from GitHub Releases.",
   "faq.q3": "Do I need the local Grok Build CLI?",
   "faq.a3":
-    "Yes. Grok App is a desktop workbench for the local Grok Build CLI. It does not replace the CLI. Install Grok Build on your machine first, then use the app.",
-  "faq.q4": "Is Grok App an official xAI product?",
+    "Yes. Grok App is a desktop GUI for the local Grok Build CLI. It does not replace the CLI. Install Grok Build on your machine first, then use the app.",
+  "faq.q4": "Looking for Grok Desktop or Grok GUI?",
   "faq.a4":
-    "No. Grok App is an unofficial, MIT-licensed open-source desktop workbench by 铁柱 AGI. It turns the local Grok Build CLI into a multi-project bench and is not an official xAI product.",
+    "The product name is Grok App. It is a community open-source desktop workbench — a GUI / desktop client for the local Grok Build CLI. People also search for Grok Desktop, Grok Build Desktop, Grok CLI GUI, or GUI for Grok Build. We are one community workbench: RongleCat/grok-app.",
   "faq.q5": "Where do I download the installers?",
   "faq.a5":
     "Installers live only on GitHub Releases. The website buttons point at those release assets. This site does not host or proxy installer files.",
   "faq.q6": "Where is the source, and what is the license?",
   "faq.a6":
     "The source is the RongleCat/grok-app repository on GitHub, licensed MIT. Issues and PRs are welcome. The author 铁柱 AGI is @cgnot996 on X.",
+  "faq.q7": "Is this a GUI for the Grok Build CLI?",
+  "faq.a7":
+    "Yes. Open-source Grok App turns the local Grok Build CLI into a desktop GUI: projects, sessions, permissions, and media preview, so you are not stuck in the terminal. Install Grok Build on your machine first.",
+  "faq.q8": "Is this a grok.com chat wrapper?",
+  "faq.a8":
+    "No. Grok App is for the local Grok Build CLI (the coding agent), not a wrapper around grok.com chat or a PWA. For web chat, go to grok.com.",
 };

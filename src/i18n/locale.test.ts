@@ -75,4 +75,9 @@ describe("catalogs", () => {
     expect(zhTW["pill.speed.desc"]).not.toMatch(/1\.2/);
     expect(en["pill.speed.desc"]).not.toMatch(/1\.2/);
   });
+
+  it("catalogs do not use unofficial disclaimers", () => {
+    const blob = `${Object.values(zh).join("\n")}\n${Object.values(zhTW).join("\n")}\n${Object.values(en).join("\n")}`;
+    expect(blob).not.toMatch(/非官方|unofficial|not an official|不是 xAI 官方|並非 xAI 官方/i);
+  });
 });

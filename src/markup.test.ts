@@ -77,6 +77,12 @@ describe("faq/index.html", () => {
     expect(faqHtml).toContain('id="faq-main"');
     expect(faqHtml).toContain('data-i18n="faq.q1"');
     expect(faqHtml).toContain('data-i18n="faq.q6"');
+    expect(faqHtml).toContain('data-i18n="faq.q4"');
+    expect(faqHtml).toContain('data-i18n="faq.q7"');
+    expect(faqHtml).toContain('data-i18n="faq.q8"');
+    expect(faqHtml).toContain(zh["faq.q4"]);
+    expect(faqHtml).toContain(zh["faq.q7"]);
+    expect(faqHtml).toContain(zh["faq.q8"]);
     expect(faqHtml).toContain('aria-current="page"');
     expect(faqHtml).toContain('href="/faq/"');
     expect(faqHtml).toContain('"@type": "FAQPage"');
@@ -103,9 +109,11 @@ describe("SEO / GEO foundation", () => {
     expect(sitemap).toContain("<priority>1.0</priority>");
   });
 
-  it("ships llms.txt with unofficial positioning and real URLs", () => {
-    expect(llms).toContain("unofficial open-source desktop workbench");
-    expect(llms).toContain("not an official xAI product");
+  it("ships llms.txt with Desktop/GUI aliases and real URLs", () => {
+    expect(llms).toMatch(/Also known as/i);
+    expect(llms).toContain("The product name is **Grok App**");
+    expect(llms).toContain("Grok Desktop");
+    expect(llms).toContain("Grok GUI");
     expect(llms).toContain("https://grok-app.com/");
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
     expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
@@ -132,6 +140,9 @@ describe("SEO / GEO foundation", () => {
     } else {
       expect(app?.softwareVersion).toBeUndefined();
     }
+    expect(app?.alternateName).toEqual(
+      expect.arrayContaining(["Grok Desktop", "Grok GUI", "Grok Build GUI"]),
+    );
     const blob = JSON.stringify(data);
     expect(blob).toContain("https://github.com/RongleCat/grok-app");
     expect(blob).toContain("https://x.com/cgnot996");
@@ -158,5 +169,16 @@ describe("SEO / GEO foundation", () => {
         expect(blob).not.toContain(phrase);
       }
     }
+  });
+
+  it("does not use unofficial disclaimers in user-facing copy", () => {
+    const catalogs = [zh, zhTW, en].map((table) => Object.values(table).join("\n"));
+    const banned = /非官方|unofficial|not an official|不是 xAI 官方|並非 xAI 官方/i;
+    for (const blob of [...publicPages, llms, ...catalogs]) {
+      expect(blob).not.toMatch(banned);
+    }
+    expect(zh).not.toHaveProperty("brand.disclaimer");
+    expect(html).toContain('name="keywords"');
+    expect(zh["meta.keywords"]).toContain("Grok Desktop");
   });
 });

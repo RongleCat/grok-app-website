@@ -3,15 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Grok App · 开源桌面工作台</title>
+    <title>开源 Grok App · 桌面工作台</title>
     <meta
       name="description"
-      content="本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。"
+      content="本机 Grok Build CLI 的桌面 GUI。多项目、多会话、权限与媒体预览。"
+    />
+    <meta
+      name="keywords"
+      content="Grok App, Grok Desktop, Grok GUI, Grok Build GUI, Grok Build desktop, Grok 桌面客户端"
     />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#070708" />
     <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="https://grok-app.com/" />
+    <link rel="alternate" type="text/plain" href="https://grok-app.com/llms.txt" title="LLM brief" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/" />
@@ -21,10 +26,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Grok App" />
     <meta property="og:url" content="https://grok-app.com/" />
-    <meta property="og:title" content="Grok App · 开源桌面工作台" />
+    <meta property="og:title" content="开源 Grok App · 桌面工作台" />
     <meta
       property="og:description"
-      content="本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。"
+      content="本机 Grok Build CLI 的桌面 GUI。多项目、多会话、权限与媒体预览。"
     />
     <meta property="og:image" content="https://grok-app.com/images/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -35,10 +40,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@cgnot996" />
     <meta name="twitter:creator" content="@cgnot996" />
-    <meta name="twitter:title" content="Grok App · 开源桌面工作台" />
+    <meta name="twitter:title" content="开源 Grok App · 桌面工作台" />
     <meta
       name="twitter:description"
-      content="本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。"
+      content="本机 Grok Build CLI 的桌面 GUI。多项目、多会话、权限与媒体预览。"
     />
     <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
     <script type="application/ld+json">
@@ -67,6 +72,13 @@
             "@type": "SoftwareApplication",
             "@id": "https://grok-app.com/#app",
             "name": "Grok App",
+            "alternateName": [
+              "Grok Desktop",
+              "Grok GUI",
+              "Grok Build GUI",
+              "Grok Build Desktop",
+              "Grok 桌面客户端"
+            ],
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "macOS, Windows, Linux",
             "url": "https://grok-app.com/",
@@ -74,7 +86,7 @@
             "license": "https://github.com/RongleCat/grok-app/blob/main/LICENSE",
             "softwareVersion": "v0.2.24",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "description": "Unofficial open-source desktop workbench for the local Grok Build CLI. Not an official xAI product.",
+            "description": "A desktop GUI for the local Grok Build CLI. Projects, sessions, permissions, and media preview.",
             "author": { "@type": "Person", "name": "铁柱 AGI", "url": "https://x.com/cgnot996" },
             "publisher": { "@id": "https://grok-app.com/#organization" },
             "sameAs": [
@@ -91,20 +103,20 @@
         var KEY_T = "grok-app-site.theme";
         var META = {
           zh: {
-            title: "Grok App · 开源桌面工作台",
-            desc: "本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。",
+            title: "开源 Grok App · 桌面工作台",
+            desc: "本机 Grok Build CLI 的桌面 GUI。多项目、多会话、权限与媒体预览。",
             lang: "zh-CN",
             og: "zh_CN",
           },
           "zh-TW": {
-            title: "Grok App · 開源桌面工作臺",
-            desc: "本機 Grok Build CLI 的開源桌面工作臺。多專案、多會話、權限與媒體預覽。Grok App 並非 xAI 官方產品。",
+            title: "開源 Grok App · 桌面工作臺",
+            desc: "本機 Grok Build CLI 的桌面 GUI。多專案、多會話、權限與媒體預覽。",
             lang: "zh-TW",
             og: "zh_TW",
           },
           en: {
-            title: "Grok App · Open-source desktop workbench",
-            desc: "Unofficial open-source desktop workbench for the local Grok Build CLI. Projects, sessions, permissions, and media preview. Not an official xAI product.",
+            title: "Open-source Grok App · desktop workbench",
+            desc: "A desktop GUI for the local Grok Build CLI. Projects, sessions, permissions, and media preview.",
             lang: "en",
             og: "en_US",
           },
@@ -251,11 +263,11 @@
 
     <main>
       <p class="visually-hidden" data-i18n="brand.definition">
-        Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。
+        开源 Grok App 是本机 Grok Build CLI 的桌面工作台。
       </p>
       <section id="product" class="hero">
         <h1 class="hero-title" data-i18n="hero.title" data-i18n-html>让 Grok 真正开始工作</h1>
-        <p class="hero-sub" data-i18n="hero.subtitle">为 Grok Build 打造的开源桌面工作台</p>
+        <p class="hero-sub" data-i18n="hero.subtitle">为 Grok Build CLI 打造的开源桌面 GUI</p>
         <div class="hero-cta">
           <a class="btn btn-solid" href="#download">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -586,7 +598,7 @@
             <div>
               <h2 data-i18n="oss.title">开源、透明，持续进化</h2>
               <p data-i18n="oss.body">
-                Grok App 基于开源协议构建，代码公开、社区共建、持续迭代。你的反馈与贡献，让它变得更好。
+                开源 Grok App 是给本机 Grok Build CLI 用的桌面 GUI。代码公开、社区共建。你的反馈与贡献，让它变得更好。
               </p>
             </div>
           </div>
@@ -683,8 +695,8 @@
         <span class="footer-sep">·</span>
         <a href="/faq/" data-i18n="nav.faq">问答</a>
       </p>
-      <p class="footer-disclaimer" data-i18n="brand.disclaimer">
-        Grok App 不是 xAI 官方产品。它把本机 Grok Build CLI 收成桌面工作台。
+      <p class="footer-disclaimer" data-i18n="brand.definition">
+        开源 Grok App 是本机 Grok Build CLI 的桌面工作台。
       </p>
     </footer>
     <script type="module" src="/src/main.ts"></script>

@@ -2,10 +2,13 @@
 
 ## 这是什么
 
-**Grok App** 是给本机 [Grok Build](https://x.ai) CLI（`grok agent stdio`）用的开源桌面工作台：多项目、多会话、权限、媒体预览、自动化。  
+**Grok App** 是给本机 [Grok Build](https://x.ai) CLI（`grok agent stdio`）用的开源桌面工作台 / GUI：多项目、多会话、权限、媒体预览、自动化。  
+对外短称：**开源 Grok App** / **open-source Grok App**。不要把产品改名为 Grok Desktop。  
 技术栈（产品仓）：Tauri 2 + Rust · React + TypeScript + Vite。
 
-**Grok App 不是 xAI 官方产品。** 站点页脚或次要位置必须有一句非官方说明，不能让访客以为这是 xAI.com 的官网。
+站点不要写「非官方 / unofficial / 不是 xAI 官方产品」。需要定位时，只写它是本机 Grok Build CLI 的桌面工作台 / GUI。不要留一句只为声明身份的免责声明。  
+不要自称唯一客户端；写明是社区工作台之一（`RongleCat/grok-app`）。  
+不要抢纯「Grok 下载」网页聊天 / PWA 意图。
 
 作者公开身份：铁柱 AGI（X `@cgnot996`）。开源协议：MIT。  
 产品仓：`https://github.com/RongleCat/grok-app`。  
@@ -30,10 +33,12 @@
 
 效果图已定稿：
 
-- 主标题：让 Grok 真正开始工作
-- 副标题：为 Grok Build 打造的开源桌面工作台
+- 主标题：让 Grok 真正开始工作（锁定，不要改）
+- 副标题：为 Grok Build CLI 打造的开源桌面 GUI
+- 页脚 / 隐藏定义：开源 Grok App 是本机 Grok Build CLI 的桌面工作台。
 
-不要改成「AI 聊天客户端」或「xAI 官方桌面版」。
+标题保持短（`开源 Grok App · 桌面工作台` / `Open-source Grok App · desktop workbench`）。  
+不要改成「AI 聊天客户端」或「Grok 桌面版 / 官方桌面端」。Grok Desktop / Grok GUI 只作为搜索别名出现在 meta / FAQ / `llms.txt`。
 
 ## 访客要完成的事
 

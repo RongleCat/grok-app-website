@@ -1,7 +1,7 @@
 {
   "name": "Grok App",
   "short_name": "Grok App",
-  "description": "Open-source desktop workbench for Grok Build.",
+  "description": "Open-source Grok App — a desktop GUI for the local Grok Build CLI.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#070708",

@@ -4,6 +4,24 @@
 
 ---
 
+## 2026-08-22 · 覆盖 Grok Desktop / GUI 搜索意图并改短称语气
+
+- **操作者**：agent
+- **触发**：优化 grok-app.com 对 Grok Desktop / GUI / 桌面客户端的搜索覆盖；作者铁柱 AGI 改口：短称「开源 Grok App」，全站去掉非官方免责声明，直接推 main
+- **改动**：
+  - 叠在 Phase 0 抓取基础之上：www 301、sitemap、`@graph` JSON-LD、Actions 部署保留
+  - 三语 `meta.title` 改为短称（`开源 Grok App · 桌面工作台` / `Open-source Grok App · desktop workbench`）；description 只写本机 Grok Build CLI 的桌面 GUI
+  - 删除 `brand.disclaimer` 与所有「非官方 / unofficial / 不是 xAI 官方产品」用户文案；页脚与隐藏定义改为 `brand.definition`
+  - Hero 副标题与 OSS 横条轻写 GUI；主标题未改
+  - FAQ 用 q4/q7/q8 回答 Grok Desktop、Grok Build GUI、不是 grok.com 套壳；去掉「是官方产品吗」
+  - SoftwareApplication 加 `alternateName`；`llms.txt` 增加 Also known as
+  - `meta.keywords` 短列表：Grok App, Grok Desktop, Grok GUI, Grok Build GUI, Grok Build desktop, Grok 桌面客户端
+- **Wiki**：content / product / seo / status / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：有新 Issues 投稿时按 contributors.md 更新再上线；产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-22 · GitHub Actions 推 main 部署 Pages
 
 - **操作者**：agent (grok)

@@ -1,11 +1,9 @@
 export const zh = {
-  "meta.title": "Grok App · 开源桌面工作台",
-  "meta.description":
-    "本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。",
-  "brand.disclaimer":
-    "Grok App 不是 xAI 官方产品。它把本机 Grok Build CLI 收成桌面工作台。",
-  "brand.definition":
-    "Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。",
+  "meta.title": "开源 Grok App · 桌面工作台",
+  "meta.description": "本机 Grok Build CLI 的桌面 GUI。多项目、多会话、权限与媒体预览。",
+  "meta.keywords":
+    "Grok App, Grok Desktop, Grok GUI, Grok Build GUI, Grok Build desktop, Grok 桌面客户端",
+  "brand.definition": "开源 Grok App 是本机 Grok Build CLI 的桌面工作台。",
   "nav.product": "产品",
   "nav.features": "功能",
   "nav.download": "下载",
@@ -21,7 +19,7 @@ export const zh = {
   "theme.light": "亮色",
   "theme.system": "跟随系统",
   "hero.title": "让 Grok 真正开始工作",
-  "hero.subtitle": "为 Grok Build 打造的开源桌面工作台",
+  "hero.subtitle": "为 Grok Build CLI 打造的开源桌面 GUI",
   "hero.ctaPrimary": "免费下载",
   "hero.ctaGithub": "GitHub 开源",
   "pill.models.title": "多模型支持",
@@ -60,21 +58,21 @@ export const zh = {
   "skins.kicker": "换一种主题，工作台也换一种状态",
   "oss.title": "开源、透明，持续进化",
   "oss.body":
-    "Grok App 基于开源协议构建，代码公开、社区共建、持续迭代。你的反馈与贡献，让它变得更好。",
+    "开源 Grok App 是给本机 Grok Build CLI 用的桌面 GUI。代码公开、社区共建。你的反馈与贡献，让它变得更好。",
   "oss.cta": "前往 GitHub",
   "oss.more": "认识项目与贡献者",
   "oss.page.title": "开源 · Grok App",
-  "oss.page.desc": "Grok App 开源仓库、作者铁柱 AGI，以及提过 PR 的贡献者。",
+  "oss.page.desc": "开源 Grok App 仓库、作者铁柱 AGI，以及提过 PR 的贡献者。",
   "oss.hero.kicker": "开源",
   "oss.hero.title": "代码公开，一起把它做下去",
   "oss.hero.body":
-    "Grok App 是 MIT 协议的开源桌面工作台。把本机 Grok Build CLI 收成多项目、多会话、带权限与媒体预览的工作台。欢迎提 issue、开 PR、一起修。",
+    "开源 Grok App 是 MIT 协议的桌面 GUI。把本机 Grok Build CLI 收成多项目、多会话、带权限与媒体预览的工作台。欢迎提 issue、开 PR。",
   "oss.repo.cta": "打开 GitHub 仓库",
   "oss.author.kicker": "作者",
   "oss.author.name": "铁柱 AGI",
   "oss.author.role": "Grok App 作者 · 万象 AI 实验室技术支持",
   "oss.author.bio":
-    "AI Agent 实战派。用 n8n、Agent 和 AIGC 搭能跑的自动化系统，分享真实落地、踩坑和能抄的作业。Grok App 不是 xAI 官方产品。",
+    "AI Agent 实战派。用 n8n、Agent 和 AIGC 搭能跑的自动化系统，分享真实落地、踩坑和能抄的作业。",
   "oss.author.x": "关注 X @cgnot996",
   "oss.author.wechat": "公众号「铁柱AGI」",
   "oss.author.wechatFriend": "添加微信好友",
@@ -112,13 +110,13 @@ export const zh = {
   "footer.changelog": "更新日志",
   "menu.open": "打开菜单",
   "menu.close": "关闭菜单",
-  "faq.page.title": "常见问题 · Grok App",
+  "faq.page.title": "常见问题 · 开源 Grok App",
   "faq.page.desc":
-    "Grok App 安装平台、macOS Gatekeeper、本机 Grok Build CLI，以及安装包只在 GitHub Releases。不是 xAI 官方产品。",
+    "开源 Grok App 的下载、安装与常见问题。也有人搜 Grok Desktop、Grok GUI。",
   "faq.hero.kicker": "常见问题",
   "faq.hero.title": "下载、安装与定位",
   "faq.hero.body":
-    "Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。下面是访客最常问的几件事。",
+    "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是下载、安装和常见搜索。",
   "faq.q1": "Grok App 支持哪些系统？",
   "faq.a1":
     "提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。",
@@ -127,16 +125,22 @@ export const zh = {
     "这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。",
   "faq.q3": "需要先安装本机 Grok Build CLI 吗？",
   "faq.a3":
-    "需要。Grok App 是给本机 Grok Build CLI 用的桌面工作台，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。",
-  "faq.q4": "Grok App 是 xAI 官方产品吗？",
+    "需要。Grok App 是给本机 Grok Build CLI 用的桌面 GUI，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。",
+  "faq.q4": "在找 Grok Desktop 或 Grok GUI？",
   "faq.a4":
-    "不是。Grok App 是 MIT 协议的开源桌面工作台，作者为铁柱 AGI。它把本机 Grok Build CLI 收成多项目工作台，与 xAI 没有官方从属关系。",
+    "产品名是 Grok App。它是社区开源的桌面工作台，给本机 Grok Build CLI 用的 GUI / 客户端。搜索 Grok Desktop、Grok Build Desktop、Grok CLI GUI、Grok 桌面、Grok 客户端的人，通常是在找这个。我们是其中一种社区工作台，仓库 RongleCat/grok-app。",
   "faq.q5": "安装包在哪里下载？",
   "faq.a5":
     "安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。",
   "faq.q6": "源码和开源协议是什么？",
   "faq.a6":
     "源码在 GitHub 仓库 RongleCat/grok-app，协议为 MIT。欢迎提 issue 与 PR。作者铁柱 AGI 的 X 是 @cgnot996。",
+  "faq.q7": "这是 Grok Build CLI 的图形界面吗？",
+  "faq.a7":
+    "是。开源 Grok App 把本机 Grok Build CLI 收成桌面 GUI：多项目、多会话、权限与媒体预览，不用一直盯着终端。先在本机装好 Grok Build，再打开本应用。",
+  "faq.q8": "这是 grok.com 网页聊天的套壳吗？",
+  "faq.a8":
+    "不是。Grok App 面向 Grok Build（编码 Agent）的本机 CLI，不是 grok.com 聊天页或 PWA 的包装。网页聊天请去 grok.com。",
 } as const;
 
 export type MessageKey = keyof typeof zh;

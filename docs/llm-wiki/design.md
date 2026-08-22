@@ -133,7 +133,7 @@
 
 独立开源页：`/opensource/`。含仓库地址与介绍、作者铁柱 AGI（X + 公众号 / 添加微信好友二维码弹窗）、以及 Issues 投稿的贡献者墙（当前 8 人，数据 `src/generated/contributors.json`，名单见 [contributors.md](./contributors.md)）。`oss.wall.body` 与卡片网格之间有 28px 间隔。卡片链到投稿留下的主页。明暗主题与落地页共用 token。
 
-独立 FAQ 页：`/faq/`。6 条问答（平台、macOS Gatekeeper、本机 Grok Build CLI、非官方声明、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏第五项「问答」链到此页，页脚也有同链。SEO 契约见 [seo.md](./seo.md)。
+独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏第五项「问答」链到此页，页脚也有同链。SEO 契约见 [seo.md](./seo.md)。
 
 二维码弹窗：`#qr-dialog`。公众号图 `public/images/wechat/mp-search-scan.png`（产品仓 README 搜一搜图）；好友码 `public/images/wechat/community-group-qr.png`（产品仓 `assets/wechat/` 第二张个人码，按钮文案按用户要求写成添加好友）。
 
