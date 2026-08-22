@@ -10,6 +10,7 @@ export const zhTW: Record<MessageKey, string> = {
   "nav.features": "功能",
   "nav.download": "下載",
   "nav.opensource": "開源",
+  "nav.themes": "主題",
   "nav.faq": "問答",
   "cta.download": "免費下載",
   "locale.zh": "簡體",
@@ -58,6 +59,8 @@ export const zhTW: Record<MessageKey, string> = {
   "cap.auto.body":
     "透過計畫和觸發器自動執行任務，讓重複工作交給 Grok。",
   "skins.kicker": "換一種主題，工作臺也換一種狀態",
+  "skins.note": "社群外觀包，給桌面端用。在畫廊裡點 Apply 會打開本機預覽。",
+  "skins.cta": "瀏覽社群主題",
   "oss.title": "開源、透明，持續進化",
   "oss.body":
     "開源 Grok App 是給本機 Grok Build CLI 用的桌面 GUI。程式碼公開、社群共建。你的回饋與貢獻，讓它變得更好。",

@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-08-22 · 顶栏页脚加上社区皮肤画廊
+
+- **操作者**：agent
+- **触发**：用户要求 grok-app.com 增加 Themes / 皮肤入口，链到 `https://ronglecat.github.io/grok-app-skin/`，直接推 main
+- **改动**：
+  - 三语 key `nav.themes`（皮肤 / 主題 / Themes）、`skins.note`、`skins.cta`
+  - 首页 / 开源 / FAQ 顶栏与页脚外链画廊，`rel="noreferrer"`
+  - 功能卡、皮肤区、开源页 hero 增加同一画廊入口；语气：社区外观包，Apply 打开本机预览
+  - `public/llms.txt` 增加画廊 URL；胶囊导航 6 项后收紧 laptop padding
+  - 本仓仍不实现 `grok://` Apply
+- **Wiki**：content / product / design / theme / seo / sources / status / AGENTS / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：本站继续只外链画廊；产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-22 · 覆盖 Grok Desktop / GUI 搜索意图并改短称语气
 
 - **操作者**：agent

@@ -14,14 +14,14 @@
 
 | 顺序 | Section | 效果图上的内容 |
 |------|---------|----------------|
-| 1 | `header` | 内容限宽左右分布：左为产品仓 Grok 标 + 「Grok App」+ 文字 `简 / 繁 / EN`；中胶囊导航（产品 / 功能 / 下载 / 开源 / 问答）；右月亮/太阳主题图标 + 「免费下载」 |
+| 1 | `header` | 内容限宽左右分布：左为产品仓 Grok 标 + 「Grok App」+ 文字 `简 / 繁 / EN`；中胶囊导航（产品 / 功能 / 下载 / 开源 / 皮肤 / 问答）；右月亮/太阳主题图标 + 「免费下载」 |
 | 2 | `hero` `#product` | 主标题、副标题、双 CTA、三枚浮动能力胶囊、工作台窗口截图 |
 | 3 | `value` | 胶囊标题「不只是聊天，更是完整的工作台」+ 三张大卡 |
 | 4 | `capabilities` `#features` | 胶囊标题「更强大的能力，更自由的生产力」+ 六张能力卡 |
-| 5 | `skins` | 胶囊标题「换一种主题，工作台也换一种状态」+ 四枚皮肤预览（当前选中带勾） |
+| 5 | `skins` | 胶囊标题「换一种主题，工作台也换一种状态」+ 四枚皮肤预览（当前选中带勾）+ 社区画廊 CTA |
 | 6 | `opensource` | 落地页只留短横条，链到独立页 `/opensource/` |
 | 7 | `download` `#download` | 收尾标题 + macOS / Windows / Linux 三主按钮 |
-| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志 |
+| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、问答、皮肤 |
 
 效果图导航第四项「开源」滚到 `opensource` 或外链 GitHub。不要做成独立长页。
 
@@ -66,6 +66,8 @@
 | 更新日志 | 产品仓 CHANGELOG 或 Releases |
 
 版权年效果图写 `© 2024`。实现用当前年 **2026**（或构建时年份），不要照抄 2024。
+
+社区皮肤画廊（外链，`rel="noreferrer"`）：`https://ronglecat.github.io/grok-app-skin/`。出现在顶栏「皮肤 / 主題 / Themes」、页脚、功能卡「丰富皮肤配置」、皮肤区 CTA。本站不实现 Apply。
 
 ## 视觉约束
 
@@ -133,7 +135,7 @@
 
 独立开源页：`/opensource/`。含仓库地址与介绍、作者铁柱 AGI（X + 公众号 / 添加微信好友二维码弹窗）、以及 Issues 投稿的贡献者墙（当前 8 人，数据 `src/generated/contributors.json`，名单见 [contributors.md](./contributors.md)）。`oss.wall.body` 与卡片网格之间有 28px 间隔。卡片链到投稿留下的主页。明暗主题与落地页共用 token。
 
-独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏第五项「问答」链到此页，页脚也有同链。SEO 契约见 [seo.md](./seo.md)。
+独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」外链社区画廊。SEO 契约见 [seo.md](./seo.md)。
 
 二维码弹窗：`#qr-dialog`。公众号图 `public/images/wechat/mp-search-scan.png`（产品仓 README 搜一搜图）；好友码 `public/images/wechat/community-group-qr.png`（产品仓 `assets/wechat/` 第二张个人码，按钮文案按用户要求写成添加好友）。
 
@@ -143,7 +145,7 @@
 
 允许的偏差（产品要求，不是漏做）：
 
-1. 顶栏增加文字语言切换 `简 / 繁 / EN`（在 Logo 右侧，不是圆形按钮）；主题改为月亮/太阳图标，不用效果图三圆点。胶囊导航多一项「问答」链到 `/faq/`（效果图没有）。
+1. 顶栏增加文字语言切换 `简 / 繁 / EN`（在 Logo 右侧，不是圆形按钮）；主题改为月亮/太阳图标，不用效果图三圆点。胶囊导航多「问答」链到 `/faq/`、多「皮肤」外链社区画廊（效果图都没有）。
 2. 页脚版权年 **2026**，不抄效果图 2024。
 3. 速度胶囊文案为 `pill.speed.desc`（本机直连 Grok Build），不写 1.2s。
 4. 主标题里的 **Grok** 与全站英文用非衬线，不用衬线对比字。

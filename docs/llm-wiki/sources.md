@@ -39,6 +39,7 @@
 |------|------|
 | 目标站点 | `https://grok-app.com` |
 | 开源页 | `https://grok-app.com/opensource/` |
+| 社区皮肤画廊 | `https://ronglecat.github.io/grok-app-skin/` |
 | 贡献者投稿 | 产品仓 Issues（标题含「贡献者信息」及同期投稿）；整理规则见 [contributors.md](./contributors.md) |
 | 最新下载前缀 | `https://github.com/RongleCat/grok-app/releases/latest/download/` |
 | Releases 列表 | `https://github.com/RongleCat/grok-app/releases` |

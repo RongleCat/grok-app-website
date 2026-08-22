@@ -12,6 +12,7 @@ export const en: Record<MessageKey, string> = {
   "nav.features": "Features",
   "nav.download": "Download",
   "nav.opensource": "Open Source",
+  "nav.themes": "Themes",
   "nav.faq": "FAQ",
   "cta.download": "Download Free",
   "locale.zh": "Simplified",
@@ -62,6 +63,9 @@ export const en: Record<MessageKey, string> = {
   "cap.auto.body":
     "Plans and triggers take the repetitive work so Grok can run it.",
   "skins.kicker": "Change the theme. Change the room.",
+  "skins.note":
+    "Community appearance packs for the desktop app. Apply opens a local preview.",
+  "skins.cta": "Browse community themes",
   "oss.title": "Open, visible, still moving",
   "oss.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. The code is public; your reports make the next cut better.",

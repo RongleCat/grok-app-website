@@ -41,7 +41,7 @@
 
 禁止：亮色只反转 `--bg` 却留下白字；禁止亮色 Hero 仍显示暗色工作台图。
 
-产品仓皮肤 id（`default | rose | gothic | mist | ocean | ember`）是 **App 内皮肤**，不是站点主题。站点 v1 只做 light/dark。预览条上的绿/琥珀是示意，不要做成可 Apply 的皮肤商店。
+产品仓皮肤 id（`default | rose | gothic | mist | ocean | ember`）是 **App 内皮肤**，不是站点主题。站点 v1 只做 light/dark。预览条上的绿/琥珀是示意，不要做成可 Apply 的皮肤商店。社区外观包画廊在站外：`https://ronglecat.github.io/grok-app-skin/`。
 
 ## 资源约定
 

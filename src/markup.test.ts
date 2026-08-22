@@ -19,6 +19,7 @@ const meta = JSON.parse(
 ) as { tag: string | null; fallback: boolean };
 const publicPages = [html, ossHtml, faqHtml];
 const FORBIDDEN = ["官方桌面端", "Grok 桌面版"];
+const THEME_GALLERY = "https://ronglecat.github.io/grok-app-skin/";
 
 describe("shipped index.html", () => {
   it("exposes all seven installer hooks plus Releases fallback", () => {
@@ -72,6 +73,25 @@ describe("opensource/index.html", () => {
   });
 });
 
+describe("community theme gallery", () => {
+  it("links nav and footer on every public page to the external gallery", () => {
+    for (const page of publicPages) {
+      expect(page).toContain(THEME_GALLERY);
+      expect(page).toContain('data-i18n="nav.themes"');
+      expect(page).toContain('data-footer="themes"');
+      expect(page).toMatch(
+        /href="https:\/\/ronglecat\.github\.io\/grok-app-skin\/"[^>]*rel="noreferrer"/,
+      );
+    }
+    expect(html).toContain('data-i18n="skins.note"');
+    expect(html).toContain('data-i18n="skins.cta"');
+    expect(ossHtml).toContain('data-i18n="skins.cta"');
+    expect(zh["nav.themes"]).toBe("皮肤");
+    expect(zhTW["nav.themes"]).toBe("主題");
+    expect(en["nav.themes"]).toBe("Themes");
+  });
+});
+
 describe("faq/index.html", () => {
   it("ships six static FAQs and a nav current page", () => {
     expect(faqHtml).toContain('id="faq-main"');
@@ -115,6 +135,7 @@ describe("SEO / GEO foundation", () => {
     expect(llms).toContain("Grok Desktop");
     expect(llms).toContain("Grok GUI");
     expect(llms).toContain("https://grok-app.com/");
+    expect(llms).toContain("https://ronglecat.github.io/grok-app-skin/");
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
     expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
     expect(llms).toContain("MIT");

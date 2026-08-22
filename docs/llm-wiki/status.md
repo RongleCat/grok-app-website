@@ -4,7 +4,7 @@
 
 ## 一句话
 
-官网已上线。推 `main` 走 GitHub Actions 构建并部署 Cloudflare Pages。搜索意图覆盖 Grok Desktop / Grok GUI / 桌面客户端，品牌短称「开源 Grok App」。站点不再写非官方免责声明。SEO/GEO 基础（www→apex 301、sitemap、`llms.txt`、JSON-LD、`/faq/`）已在。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
+官网已上线。推 `main` 走 GitHub Actions 构建并部署 Cloudflare Pages。搜索意图覆盖 Grok Desktop / Grok GUI / 桌面客户端，品牌短称「开源 Grok App」。站点不再写非官方免责声明。SEO/GEO 基础（www→apex 301、sitemap、`llms.txt`、JSON-LD、`/faq/`）已在。顶栏 / 页脚 / 皮肤区外链社区画廊 `https://ronglecat.github.io/grok-app-skin/`。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
 
 ## Goal 航道表
 
@@ -43,7 +43,8 @@
 | GitHub Actions 发版 | 推 `main` / `workflow_dispatch` 构建并部署 Pages | `.github/workflows/deploy-pages.yml` |
 | CF 部署权限 | 仓库 Secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`；聊天令牌视为已暴露 | 见 [deploy.md](./deploy.md)；令牌不入库 |
 | 站点明暗主题 | 已实现 | 月亮/太阳图标；Hero/皮肤主图换 `workbench-*.webp` |
-| 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/` |
+| 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/`；皮肤外链社区画廊 |
+| 社区皮肤画廊 | 已外链 | 顶栏 / 页脚 / 功能卡 / 皮肤区 / 开源页 → `https://ronglecat.github.io/grok-app-skin/`（`rel="noreferrer"`）；本站不实现 Apply |
 | 开源页 | 已实现 | `opensource/index.html`；墙 8 人见 [contributors.md](./contributors.md)；投稿 Issues 已关；公众号 / 微信好友点开 `#qr-dialog` |
 | FAQ 页 | 已实现 | `faq/index.html`；8 问三语（含 Desktop / GUI / 套壳）+ `FAQPage` JSON-LD；顶栏/页脚有链 |
 | www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex |
@@ -66,4 +67,4 @@
 
 ## 下一步（给下一任 Agent）
 
-有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。
+有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。本站继续只外链皮肤画廊，不要在本仓实现 `grok://` Apply。

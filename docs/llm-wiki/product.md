@@ -24,10 +24,10 @@
 | 简体 / 繁體 / English，跟系统或记住手动选择 | 只做一种语言、或用浏览器翻译凑数 |
 | 下载按钮 / 可选短链 302 | 托管或反代安装包 |
 | 构建时拉 `downloads.json` | 浏览器直拉 GitHub API / JSON |
-| 工作台明暗截图展示 | 在官网里实现皮肤编辑器 |
+| 工作台明暗截图展示；外链社区皮肤画廊 | 在官网里实现皮肤编辑器或 `grok://` Apply |
 | Cloudflare Pages 静态站 | 应用内自动更新（`grok-desktop-latest`） |
 
-皮肤目录 `OFFICIAL_SKIN_CATALOG_URL` 在产品仓仍是空串。官网 **v1 不做** `.grokskin` / `grok://` Apply。以后要做必须先改本页范围，再改产品仓契约。
+官网顶栏、页脚、功能卡与皮肤区外链到社区画廊 `https://ronglecat.github.io/grok-app-skin/`（`rel="noreferrer"`）。画廊里点 Apply 打开本机预览。本仓仍不实现 `.grokskin` / `grok://` Apply。产品仓 `OFFICIAL_SKIN_CATALOG_URL` 以产品仓为准。
 
 ## 一句话定位（站点主标题用这个）
 
@@ -47,6 +47,7 @@
 3. 能去 GitHub 看源码 / Release / 文档。
 4. 能在站点上切换明暗，并看到对应工作台画面。
 5. 系统语言或手动选择下，整页文案是简体、繁體或 English 之一。
+6. 能从导航或页脚进入社区皮肤画廊。
 
 ## 与产品仓的关系
 

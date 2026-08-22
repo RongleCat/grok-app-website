@@ -7,6 +7,15 @@
     width: min(var(--max), calc(100% - 56px));
   }
 
+  .header-inner {
+    gap: 12px;
+  }
+
+  .pill-nav a {
+    padding: 0 7px;
+    font-size: 13px;
+  }
+
   .hero-stage {
     display: grid;
     gap: 10px;

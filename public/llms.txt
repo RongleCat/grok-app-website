@@ -18,6 +18,7 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 - Downloads: https://github.com/RongleCat/grok-app/releases
 - Open source page: https://grok-app.com/opensource/
 - FAQ: https://grok-app.com/faq/
+- Community theme gallery: https://ronglecat.github.io/grok-app-skin/
 
 ## Facts
 
@@ -33,7 +34,7 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 - Parallel sessions for concurrent work
 - Fine-grained permission modes (allow / ask / deny)
 - In-session file and media preview
-- Skins and appearance controls
+- Skins and appearance controls, plus community appearance packs at https://ronglecat.github.io/grok-app-skin/ (Apply opens a local preview)
 - Automations via plans and triggers
 - Local-first: talks to Grok Build on your machine
 

@@ -71,6 +71,19 @@
   line-height: 1.65;
 }
 
+.card-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 560;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  text-decoration: underline;
+}
+
 .skin-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -126,6 +139,23 @@ html[data-theme="light"] .skin-check {
 
 .skin-card--light {
   background: #f4f4f5 url("/images/workbench-light.webp") left center / cover no-repeat;
+}
+
+.skins-more {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.skins-more p {
+  max-width: 40em;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.skins-more .btn {
+  margin-top: 14px;
 }
 
 .oss-bar {

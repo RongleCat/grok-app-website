@@ -8,6 +8,7 @@ export const zh = {
   "nav.features": "功能",
   "nav.download": "下载",
   "nav.opensource": "开源",
+  "nav.themes": "皮肤",
   "nav.faq": "问答",
   "cta.download": "免费下载",
   "locale.zh": "简体",
@@ -56,6 +57,8 @@ export const zh = {
   "cap.auto.body":
     "通过计划和触发器自动执行任务，让重复工作交给 Grok。",
   "skins.kicker": "换一种主题，工作台也换一种状态",
+  "skins.note": "社区外观包，给桌面端用。在画廊里点 Apply 会打开本机预览。",
+  "skins.cta": "浏览社区皮肤",
   "oss.title": "开源、透明，持续进化",
   "oss.body":
     "开源 Grok App 是给本机 Grok Build CLI 用的桌面 GUI。代码公开、社区共建。你的反馈与贡献，让它变得更好。",

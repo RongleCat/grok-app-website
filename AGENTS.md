@@ -58,7 +58,7 @@
 - **禁止**用 Pages / Cloudflare 反代安装包字节。
 - **禁止**按钮指向 `grok-desktop-latest`、`*.app.tar.gz`、`*.sig`、`latest.json`。
 - **禁止**在浏览器里 `fetch` GitHub `downloads.json`（无 CORS）。构建时拉，或写死稳定 URL。
-- 官网是产品门面，不是桌面端功能实现。皮肤 Apply / `grok://` 深链不在当前范围（见产品仓 appearance 设计；`OFFICIAL_SKIN_CATALOG_URL` 现为空）。
+- 官网是产品门面，不是桌面端功能实现。皮肤 Apply / `grok://` 深链不在本仓实现；顶栏 / 页脚外链社区画廊 `https://ronglecat.github.io/grok-app-skin/`（画廊里点 Apply 打开本机预览）。
 
 ---
 

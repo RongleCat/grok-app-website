@@ -37,6 +37,7 @@
 | `nav.features` | 功能 | 功能 | Features |
 | `nav.download` | 下载 | 下載 | Download |
 | `nav.opensource` | 开源 | 開源 | Open Source |
+| `nav.themes` | 皮肤 | 主題 | Themes |
 | `nav.faq` | 问答 | 問答 | FAQ |
 | `cta.download` | 免费下载 | 免費下載 | Download Free |
 | `locale.zh` | 简体 | 簡體 | Simplified |
@@ -102,6 +103,13 @@
 ## skins
 
 `skins.kicker`：换一种主题，工作台也换一种状态 / 換一種主題，工作臺也換一種狀態 / Change the theme. Change the room.
+
+社区画廊外链：`https://ronglecat.github.io/grok-app-skin/`。顶栏、页脚用 `nav.themes`。Apply 只在画廊打开本机预览，本站不实现 `grok://`。
+
+| key | zh | zh-TW | en |
+|-----|----|-------|-----|
+| `skins.note` | 社区外观包，给桌面端用。在画廊里点 Apply 会打开本机预览。 | 社群外觀包，給桌面端用。在畫廊裡點 Apply 會打開本機預覽。 | Community appearance packs for the desktop app. Apply opens a local preview. |
+| `skins.cta` | 浏览社区皮肤 | 瀏覽社群主題 | Browse community themes |
 
 ## opensource
 
@@ -196,4 +204,4 @@
 | `footer.docs` | 文档 | 文件 | Docs |
 | `footer.changelog` | 更新日志 | 更新紀錄 | Changelog |
 
-页脚链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
+页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，外链社区画廊）。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。

@@ -21,6 +21,8 @@
 | `/opensource/` | `opensource/index.html` | 开源 / 作者 / 贡献者墙 |
 | `/faq/` | `faq/index.html` | 8 条 FAQ + `FAQPage` JSON-LD |
 
+社区皮肤画廊是**站外**页 `https://ronglecat.github.io/grok-app-skin/`，不要写进本站 sitemap。`llms.txt` 可以列这条 URL。
+
 `public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
 
 `public/robots.txt` 指向 `https://grok-app.com/sitemap.xml`。
@@ -85,6 +87,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - Also known as：Grok Desktop、Grok GUI、Grok Build desktop client 等
 - 不是什么：不是 grok.com 聊天套壳或 PWA；不能替代本机 Grok Build CLI
 - 平台、MIT、规范站 `https://grok-app.com/`、产品仓、Releases、作者 铁柱AGI `https://x.com/cgnot996`
+- 社区皮肤画廊：`https://ronglecat.github.io/grok-app-skin/`（Apply 打开本机预览）
 - 5–8 条真实能力，不编评分
 
 禁止其它 Grok 产品名、禁止「官方桌面端」「Grok 桌面版」、禁止写 unofficial。
