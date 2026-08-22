@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-08-22 · GitHub Actions 推 main 部署 Pages
+
+- **操作者**：agent (grok)
+- **触发**：用户要求每推 `main` 构建并部署 grok-app.com 到 Cloudflare Pages；直接推 main，不走 PR
+- **改动**：
+  - 新增 `.github/workflows/deploy-pages.yml`：`push`/`workflow_dispatch`，pnpm + Node 22，`pnpm install --frozen-lockfile`、`pnpm test`、`pnpm build`，`cloudflare/wrangler-action@v3` 执行 `pages deploy dist --project-name=grok-app`
+  - `concurrency` 取消进行中的同 ref 部署；`permissions.contents: read`
+  - Secrets 只用名字 `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`，不入库
+- **Wiki**：deploy / status / 本条
+- **结果**：推荐发版改为推 `main` 走 Actions；本机 `wrangler pages deploy` 仍作兜底。本推也会把 SEO Phase 0 静态文件发上 Pages
+- **未做 / 下一步**：产品仓 `repository_dispatch` 触发官网重建尚未做
+
+---
+
 ## 2026-08-22 · SEO/GEO Phase 0 技术基础进 main
 
 - **操作者**：agent

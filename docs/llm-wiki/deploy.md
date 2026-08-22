@@ -33,8 +33,10 @@
 
 ## 令牌
 
-- **禁止**把令牌写入本仓。本机用 `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`。
-- 2026-08-17 用户提供过 User Token。本轮聊天又出现一张，用于创建 `grok-app` Pages、部署、绑域、写 DNS；**聊天里出现过的令牌视为已暴露**，建议 Dashboard 轮换，只把新值放进环境变量。禁止写入本仓。
+- **禁止**把令牌写入本仓（含 workflow、Wiki、`.env.example` 真值、commit message）。
+- GitHub Actions 读仓库 Secrets：`CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`（只记名字，不记值）。
+- 本机兜底同样用这两个环境变量名。
+- 2026-08-17 用户提供过 User Token。本轮聊天又出现一张，用于创建 `grok-app` Pages、部署、绑域、写 DNS；**聊天里出现过的令牌视为已暴露**，建议 Dashboard 轮换，只把新值放进 Secrets / 环境变量。禁止写入本仓。
 - 官网部署最低权限：
   - Account · Cloudflare Pages · **Edit**
   - Account · Workers Scripts · **Edit**（备用）
@@ -45,15 +47,28 @@
 
 ## 推荐发版方式
 
-1. 本仓是 Vite 静态站：`pnpm build` 产出 `dist/`。
-2. CI 或本机：`wrangler pages deploy dist` / Pages Direct Upload。
-3. 绑 `grok-app.com` + `www.grok-app.com`。
-4. 打开 Always HTTPS（区设置可写）。
-5. 构建步按 [downloads.md](./downloads.md) 拉 `downloads.json`；404 则用稳定 URL 回退。
+**推 `main`（或手动 `workflow_dispatch`）走 GitHub Actions。** 工作流：`.github/workflows/deploy-pages.yml`。
 
-已做：Pages 项目 `grok-app`、`wrangler pages deploy dist`、绑 `grok-app.com` / `www`、Always HTTPS、源码仓 `RongleCat/grok-app-website`（`main` 公开）。  
-`public/_redirects`：`www.grok-app.com/*` 301 到 `https://grok-app.com/:splat`；`/opensource` → `/opensource/`；`/faq` → `/faq/`。规范域是 apex。细则见 [seo.md](./seo.md)。  
-尚未做：GitHub Actions、产品仓 `repository_dispatch` 触发官网重建。当前发版仍是本机 `wrangler pages deploy dist`。本轮 SEO 改动已进 `main`，线上要等下一次 `wrangler pages deploy dist`。
+1. 本仓是 Vite 静态站：CI 里 `pnpm test` 后 `pnpm build` 产出 `dist/`（`prebuild` 按 [downloads.md](./downloads.md) 拉 `downloads.json`；404 则用稳定 URL 回退）。
+2. `cloudflare/wrangler-action@v3` 执行 `pages deploy dist --project-name=grok-app`。
+3. 重叠的 `main` 部署会 `cancel-in-progress`。
+4. 自定义域 `grok-app.com` / `www.grok-app.com` 与 Always HTTPS 已绑好，不必每发一版再绑。
+
+`public/_redirects`：`www.grok-app.com/*` 301 到 `https://grok-app.com/:splat`；`/opensource` → `/opensource/`；`/faq` → `/faq/`。规范域是 apex。细则见 [seo.md](./seo.md)。
+
+### 本机兜底（CI 不可用时）
+
+```bash
+export CLOUDFLARE_API_TOKEN=...
+export CLOUDFLARE_ACCOUNT_ID=...
+pnpm install --frozen-lockfile
+pnpm test
+pnpm build
+npx wrangler pages deploy dist --project-name=grok-app
+```
+
+已做：Pages 项目 `grok-app`、自定义域、Always HTTPS、源码仓 `RongleCat/grok-app-website`（`main` 公开）、GitHub Actions 推 `main` 自动发版。  
+尚未做：产品仓 `repository_dispatch` 触发官网重建。
 
 ## 禁止
 
