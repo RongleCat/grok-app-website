@@ -3,13 +3,16 @@ import type { MessageKey } from "./zh";
 export const zhTW: Record<MessageKey, string> = {
   "meta.title": "Grok App · 開源桌面工作臺",
   "meta.description":
-    "為 Grok Build 打造的開源桌面工作臺。多專案、多會話、權限與媒體預覽。",
+    "本機 Grok Build CLI 的開源桌面工作臺。多專案、多會話、權限與媒體預覽。Grok App 並非 xAI 官方產品。",
   "brand.disclaimer":
     "Grok App 並非 xAI 官方產品。它把本機 Grok Build CLI 收成桌面工作臺。",
+  "brand.definition":
+    "Grok App 是本機 Grok Build CLI 的開源桌面工作臺，並非 xAI 官方產品。",
   "nav.product": "產品",
   "nav.features": "功能",
   "nav.download": "下載",
   "nav.opensource": "開源",
+  "nav.faq": "問答",
   "cta.download": "免費下載",
   "locale.zh": "簡體",
   "locale.zhTW": "繁體",
@@ -111,4 +114,29 @@ export const zhTW: Record<MessageKey, string> = {
   "footer.changelog": "更新紀錄",
   "menu.open": "開啟選單",
   "menu.close": "關閉選單",
+  "faq.page.title": "常見問題 · Grok App",
+  "faq.page.desc":
+    "Grok App 安裝平台、macOS Gatekeeper、本機 Grok Build CLI，以及安裝包只在 GitHub Releases。並非 xAI 官方產品。",
+  "faq.hero.kicker": "常見問題",
+  "faq.hero.title": "下載、安裝與定位",
+  "faq.hero.body":
+    "Grok App 是本機 Grok Build CLI 的開源桌面工作臺，並非 xAI 官方產品。下面是訪客最常問的幾件事。",
+  "faq.q1": "Grok App 支援哪些系統？",
+  "faq.a1":
+    "提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）和 Linux（AppImage / DEB / RPM）安裝包。在首頁下載區選擇對應平台，或到 GitHub Releases 取包。",
+  "faq.q2": "macOS 提示無法打開或來自身分不明的開發者怎麼辦？",
+  "faq.a2":
+    "這是 macOS Gatekeeper 對非 App Store 應用的常見攔截。可在「系統設定 → 隱私權與安全性」裡允許打開，或按住 Control 點按應用圖示後選擇「打開」。只從 GitHub Releases 取得安裝包。",
+  "faq.q3": "需要先安裝本機 Grok Build CLI 嗎？",
+  "faq.a3":
+    "需要。Grok App 是給本機 Grok Build CLI 用的桌面工作臺，不會替代 CLI 本身。請先在本機裝好 Grok Build，再使用本應用。",
+  "faq.q4": "Grok App 是 xAI 官方產品嗎？",
+  "faq.a4":
+    "不是。Grok App 是 MIT 授權的開源桌面工作臺，作者為鐵柱 AGI。它把本機 Grok Build CLI 收成多專案工作臺，與 xAI 沒有官方從屬關係。",
+  "faq.q5": "安裝包在哪裡下載？",
+  "faq.a5":
+    "安裝包只託管在 GitHub Releases。官網按鈕指向這些發布資產，本站不託管、也不反代安裝包檔案。",
+  "faq.q6": "源碼和開源授權是什麼？",
+  "faq.a6":
+    "源碼在 GitHub 倉庫 RongleCat/grok-app，授權為 MIT。歡迎提 issue 與 PR。作者鐵柱 AGI 的 X 是 @cgnot996。",
 };

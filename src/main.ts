@@ -40,6 +40,7 @@ import "./styles/download.css";
 import "./styles/footer.css";
 import "./styles/responsive.css";
 import "./styles/opensource.css";
+import "./styles/faq.css";
 import contributors from "./generated/contributors.json";
 
 const HTML_KEYS = new Set(["hero.title", "dl.title"]);
@@ -52,15 +53,19 @@ function applyI18n(locale: Locale): void {
   const table = catalogs[locale];
   document.documentElement.lang = htmlLang(locale);
   document.documentElement.setAttribute("data-locale", locale);
-  const onOss = /opensource/.test(location.pathname);
-  document.title = t(table, onOss ? "oss.page.title" : "meta.title");
+  const kind = pageKind(location.pathname);
+  const titleKey =
+    kind === "oss" ? "oss.page.title" : kind === "faq" ? "faq.page.title" : "meta.title";
+  const descKey =
+    kind === "oss" ? "oss.page.desc" : kind === "faq" ? "faq.page.desc" : "meta.description";
+  document.title = t(table, titleKey);
 
-  const desc = t(table, onOss ? "oss.page.desc" : "meta.description");
+  const desc = t(table, descKey);
   setMeta('meta[name="description"]', desc);
-  setMeta('meta[property="og:title"]', t(table, "meta.title"));
+  setMeta('meta[property="og:title"]', t(table, titleKey));
   setMeta('meta[property="og:description"]', desc);
   setMeta('meta[property="og:locale"]', ogLocale(locale));
-  setMeta('meta[name="twitter:title"]', t(table, "meta.title"));
+  setMeta('meta[name="twitter:title"]', t(table, titleKey));
   setMeta('meta[name="twitter:description"]', desc);
 
   for (const el of document.querySelectorAll<HTMLElement>("[data-i18n]")) {
@@ -97,6 +102,12 @@ function readVars(el: HTMLElement): Record<string, string> | undefined {
   } catch {
     return undefined;
   }
+}
+
+function pageKind(pathname: string): "home" | "oss" | "faq" {
+  if (pathname.includes("opensource")) return "oss";
+  if (pathname.includes("faq")) return "faq";
+  return "home";
 }
 
 function setMeta(selector: string, value: string): void {
@@ -190,7 +201,7 @@ function bindNav(): void {
     burger.setAttribute("aria-expanded", String(!open));
   });
 
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  document.querySelectorAll("nav a, .header-download").forEach((link) => {
     link.addEventListener("click", () => {
       header?.setAttribute("data-nav-open", "false");
       burger?.setAttribute("aria-expanded", "false");

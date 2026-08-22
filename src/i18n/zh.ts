@@ -1,13 +1,16 @@
 export const zh = {
   "meta.title": "Grok App · 开源桌面工作台",
   "meta.description":
-    "为 Grok Build 打造的开源桌面工作台。多项目、多会话、权限与媒体预览。",
+    "本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。",
   "brand.disclaimer":
     "Grok App 不是 xAI 官方产品。它把本机 Grok Build CLI 收成桌面工作台。",
+  "brand.definition":
+    "Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。",
   "nav.product": "产品",
   "nav.features": "功能",
   "nav.download": "下载",
   "nav.opensource": "开源",
+  "nav.faq": "问答",
   "cta.download": "免费下载",
   "locale.zh": "简体",
   "locale.zhTW": "繁體",
@@ -109,6 +112,31 @@ export const zh = {
   "footer.changelog": "更新日志",
   "menu.open": "打开菜单",
   "menu.close": "关闭菜单",
+  "faq.page.title": "常见问题 · Grok App",
+  "faq.page.desc":
+    "Grok App 安装平台、macOS Gatekeeper、本机 Grok Build CLI，以及安装包只在 GitHub Releases。不是 xAI 官方产品。",
+  "faq.hero.kicker": "常见问题",
+  "faq.hero.title": "下载、安装与定位",
+  "faq.hero.body":
+    "Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。下面是访客最常问的几件事。",
+  "faq.q1": "Grok App 支持哪些系统？",
+  "faq.a1":
+    "提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。",
+  "faq.q2": "macOS 提示无法打开或来自身份不明的开发者怎么办？",
+  "faq.a2":
+    "这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。",
+  "faq.q3": "需要先安装本机 Grok Build CLI 吗？",
+  "faq.a3":
+    "需要。Grok App 是给本机 Grok Build CLI 用的桌面工作台，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。",
+  "faq.q4": "Grok App 是 xAI 官方产品吗？",
+  "faq.a4":
+    "不是。Grok App 是 MIT 协议的开源桌面工作台，作者为铁柱 AGI。它把本机 Grok Build CLI 收成多项目工作台，与 xAI 没有官方从属关系。",
+  "faq.q5": "安装包在哪里下载？",
+  "faq.a5":
+    "安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。",
+  "faq.q6": "源码和开源协议是什么？",
+  "faq.a6":
+    "源码在 GitHub 仓库 RongleCat/grok-app，协议为 MIT。欢迎提 issue 与 PR。作者铁柱 AGI 的 X 是 @cgnot996。",
 } as const;
 
 export type MessageKey = keyof typeof zh;

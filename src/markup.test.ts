@@ -10,6 +10,15 @@ import { zhTW } from "./i18n/zh-TW";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(join(root, "index.html"), "utf8");
 const ossHtml = readFileSync(join(root, "opensource/index.html"), "utf8");
+const faqHtml = readFileSync(join(root, "faq/index.html"), "utf8");
+const sitemap = readFileSync(join(root, "public/sitemap.xml"), "utf8");
+const redirects = readFileSync(join(root, "public/_redirects"), "utf8");
+const llms = readFileSync(join(root, "public/llms.txt"), "utf8");
+const meta = JSON.parse(
+  readFileSync(join(root, "src/generated/downloads-meta.json"), "utf8"),
+) as { tag: string | null; fallback: boolean };
+const publicPages = [html, ossHtml, faqHtml];
+const FORBIDDEN = ["官方桌面端", "Grok 桌面版"];
 
 describe("shipped index.html", () => {
   it("exposes all seven installer hooks plus Releases fallback", () => {
@@ -32,6 +41,7 @@ describe("shipped index.html", () => {
     expect(html).toContain('id="download"');
     expect(html).toContain('id="opensource"');
     expect(html).toContain('href="/opensource/"');
+    expect(html).toContain('href="/faq/"');
     expect(html).toContain('id="locale-switcher"');
     expect(html).toContain('viewBox="0 0 35 33"');
     expect(html).toContain('data-theme-set="dark"');
@@ -59,5 +69,94 @@ describe("opensource/index.html", () => {
     expect(zh).toHaveProperty("oss.author.wechatFriend");
     expect(zh).toHaveProperty("oss.qr.mp.title");
     expect(zh).toHaveProperty("oss.qr.friend.title");
+  });
+});
+
+describe("faq/index.html", () => {
+  it("ships six static FAQs and a nav current page", () => {
+    expect(faqHtml).toContain('id="faq-main"');
+    expect(faqHtml).toContain('data-i18n="faq.q1"');
+    expect(faqHtml).toContain('data-i18n="faq.q6"');
+    expect(faqHtml).toContain('aria-current="page"');
+    expect(faqHtml).toContain('href="/faq/"');
+    expect(faqHtml).toContain('"@type": "FAQPage"');
+    expect(zh).toHaveProperty("faq.page.title");
+    expect(en).toHaveProperty("nav.faq");
+  });
+});
+
+describe("SEO / GEO foundation", () => {
+  it("301s www to apex and keeps trailing-slash rules", () => {
+    expect(redirects).toMatch(
+      /https:\/\/www\.grok-app\.com\/\*\s+https:\/\/grok-app\.com\/:splat\s+301/,
+    );
+    expect(redirects).toMatch(/\/opensource\s+\/opensource\/\s+301/);
+    expect(redirects).toMatch(/\/faq\s+\/faq\/\s+301/);
+  });
+
+  it("lists every public URL in sitemap.xml with lastmod", () => {
+    expect(sitemap).toContain("<loc>https://grok-app.com/</loc>");
+    expect(sitemap).toContain("<loc>https://grok-app.com/opensource/</loc>");
+    expect(sitemap).toContain("<loc>https://grok-app.com/faq/</loc>");
+    expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
+    expect(sitemap).toContain("<changefreq>weekly</changefreq>");
+    expect(sitemap).toContain("<priority>1.0</priority>");
+  });
+
+  it("ships llms.txt with unofficial positioning and real URLs", () => {
+    expect(llms).toContain("unofficial open-source desktop workbench");
+    expect(llms).toContain("not an official xAI product");
+    expect(llms).toContain("https://grok-app.com/");
+    expect(llms).toContain("https://github.com/RongleCat/grok-app");
+    expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
+    expect(llms).toContain("MIT");
+    expect(llms).toContain("铁柱AGI");
+    expect(llms).toContain("https://x.com/cgnot996");
+  });
+
+  it("enriches homepage JSON-LD without invented ratings", () => {
+    const match = html.match(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+    );
+    expect(match).not.toBeNull();
+    const data = JSON.parse(match![1]) as {
+      "@graph": Array<Record<string, unknown>>;
+    };
+    const types = data["@graph"].map((node) => node["@type"]);
+    expect(types).toEqual(
+      expect.arrayContaining(["SoftwareApplication", "Organization", "WebSite"]),
+    );
+    const app = data["@graph"].find((node) => node["@type"] === "SoftwareApplication");
+    if (!meta.fallback && meta.tag) {
+      expect(app?.softwareVersion).toBe(meta.tag);
+    } else {
+      expect(app?.softwareVersion).toBeUndefined();
+    }
+    const blob = JSON.stringify(data);
+    expect(blob).toContain("https://github.com/RongleCat/grok-app");
+    expect(blob).toContain("https://x.com/cgnot996");
+    expect(blob).not.toMatch(/aggregateRating|reviewCount/);
+  });
+
+  it("puts robots, twitter, and absolute og:image on every public page", () => {
+    for (const page of publicPages) {
+      expect(page).toContain('name="robots" content="index,follow"');
+      expect(page).toContain('name="twitter:site" content="@cgnot996"');
+      expect(page).toContain('name="twitter:creator" content="@cgnot996"');
+      expect(page).toContain(
+        'property="og:image" content="https://grok-app.com/images/og.jpg"',
+      );
+    }
+    expect(html).toContain(zh["brand.definition"]);
+    expect(html).toContain(zh["meta.description"]);
+  });
+
+  it("does not use forbidden product-comparison phrases", () => {
+    const catalogs = [zh, zhTW, en].map((table) => Object.values(table).join("\n"));
+    for (const blob of [...publicPages, sitemap, llms, ...catalogs]) {
+      for (const phrase of FORBIDDEN) {
+        expect(blob).not.toContain(phrase);
+      }
+    }
   });
 });

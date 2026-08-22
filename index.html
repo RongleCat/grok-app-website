@@ -6,8 +6,9 @@
     <title>Grok App · 开源桌面工作台</title>
     <meta
       name="description"
-      content="为 Grok Build 打造的开源桌面工作台。多项目、多会话、权限与媒体预览。"
+      content="本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。"
     />
+    <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#070708" />
     <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="https://grok-app.com/" />
@@ -23,7 +24,7 @@
     <meta property="og:title" content="Grok App · 开源桌面工作台" />
     <meta
       property="og:description"
-      content="为 Grok Build 打造的开源桌面工作台。多项目、多会话、权限与媒体预览。"
+      content="本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。"
     />
     <meta property="og:image" content="https://grok-app.com/images/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -32,25 +33,56 @@
     <meta property="og:locale:alternate" content="zh_TW" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@cgnot996" />
+    <meta name="twitter:creator" content="@cgnot996" />
     <meta name="twitter:title" content="Grok App · 开源桌面工作台" />
     <meta
       name="twitter:description"
-      content="为 Grok Build 打造的开源桌面工作台。多项目、多会话、权限与媒体预览。"
+      content="本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。"
     />
     <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Grok App",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "macOS, Windows, Linux",
-        "url": "https://grok-app.com/",
-        "downloadUrl": "https://github.com/RongleCat/grok-app/releases",
-        "license": "https://github.com/RongleCat/grok-app/blob/main/LICENSE",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "description": "Open-source desktop workbench for Grok Build.",
-        "author": { "@type": "Person", "name": "铁柱 AGI", "url": "https://x.com/cgnot996" }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://grok-app.com/#organization",
+            "name": "Grok App",
+            "url": "https://grok-app.com/",
+            "sameAs": [
+              "https://github.com/RongleCat/grok-app",
+              "https://x.com/cgnot996"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://grok-app.com/#website",
+            "name": "Grok App",
+            "url": "https://grok-app.com/",
+            "publisher": { "@id": "https://grok-app.com/#organization" },
+            "inLanguage": ["zh-CN", "zh-TW", "en"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://grok-app.com/#app",
+            "name": "Grok App",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "macOS, Windows, Linux",
+            "url": "https://grok-app.com/",
+            "downloadUrl": "https://github.com/RongleCat/grok-app/releases",
+            "license": "https://github.com/RongleCat/grok-app/blob/main/LICENSE",
+            "softwareVersion": "v0.2.24",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "description": "Unofficial open-source desktop workbench for the local Grok Build CLI. Not an official xAI product.",
+            "author": { "@type": "Person", "name": "铁柱 AGI", "url": "https://x.com/cgnot996" },
+            "publisher": { "@id": "https://grok-app.com/#organization" },
+            "sameAs": [
+              "https://github.com/RongleCat/grok-app",
+              "https://x.com/cgnot996"
+            ]
+          }
+        ]
       }
     </script>
     <script>
@@ -60,19 +92,19 @@
         var META = {
           zh: {
             title: "Grok App · 开源桌面工作台",
-            desc: "为 Grok Build 打造的开源桌面工作台。多项目、多会话、权限与媒体预览。",
+            desc: "本机 Grok Build CLI 的开源桌面工作台。多项目、多会话、权限与媒体预览。Grok App 不是 xAI 官方产品。",
             lang: "zh-CN",
             og: "zh_CN",
           },
           "zh-TW": {
             title: "Grok App · 開源桌面工作臺",
-            desc: "為 Grok Build 打造的開源桌面工作臺。多專案、多會話、權限與媒體預覽。",
+            desc: "本機 Grok Build CLI 的開源桌面工作臺。多專案、多會話、權限與媒體預覽。Grok App 並非 xAI 官方產品。",
             lang: "zh-TW",
             og: "zh_TW",
           },
           en: {
             title: "Grok App · Open-source desktop workbench",
-            desc: "Open-source desktop workbench for Grok Build. Projects, sessions, permissions, and media preview.",
+            desc: "Unofficial open-source desktop workbench for the local Grok Build CLI. Projects, sessions, permissions, and media preview. Not an official xAI product.",
             lang: "en",
             og: "en_US",
           },
@@ -173,6 +205,7 @@
             <a href="#features" data-i18n="nav.features">功能</a>
             <a href="#download" data-i18n="nav.download">下载</a>
             <a href="/opensource/" data-i18n="nav.opensource">开源</a>
+            <a href="/faq/" data-i18n="nav.faq">问答</a>
           </nav>
           <button
             type="button"
@@ -217,6 +250,9 @@
     </header>
 
     <main>
+      <p class="visually-hidden" data-i18n="brand.definition">
+        Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。
+      </p>
       <section id="product" class="hero">
         <h1 class="hero-title" data-i18n="hero.title" data-i18n-html>让 Grok 真正开始工作</h1>
         <p class="hero-sub" data-i18n="hero.subtitle">为 Grok Build 打造的开源桌面工作台</p>
@@ -644,6 +680,8 @@
         <a data-footer="docs" data-i18n="footer.docs" href="https://github.com/RongleCat/grok-app/blob/main/README_ZH.md">文档</a>
         <span class="footer-sep">·</span>
         <a data-footer="changelog" data-i18n="footer.changelog" href="https://github.com/RongleCat/grok-app/blob/main/CHANGELOG.md">更新日志</a>
+        <span class="footer-sep">·</span>
+        <a href="/faq/" data-i18n="nav.faq">问答</a>
       </p>
       <p class="footer-disclaimer" data-i18n="brand.disclaimer">
         Grok App 不是 xAI 官方产品。它把本机 Grok Build CLI 收成桌面工作台。

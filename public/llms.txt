@@ -1,0 +1,37 @@
+# Grok App
+
+> Grok App is an unofficial open-source desktop workbench for the local Grok Build CLI.
+
+Grok App is not an official xAI product. It is a community MIT-licensed desktop app that turns the local Grok Build CLI into a multi-project, multi-session workbench with permissions and media preview.
+
+## Canonical URLs
+
+- Site: https://grok-app.com/
+- Source: https://github.com/RongleCat/grok-app
+- Website source: https://github.com/RongleCat/grok-app-website
+- Downloads: https://github.com/RongleCat/grok-app/releases
+- Open source page: https://grok-app.com/opensource/
+- FAQ: https://grok-app.com/faq/
+
+## Facts
+
+- License: MIT
+- Platforms: macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), Linux (AppImage / DEB / RPM)
+- Installers live on GitHub Releases only. This website does not host or proxy installer binaries.
+- Author / contact: 铁柱AGI — https://x.com/cgnot996
+
+## Key features
+
+- Multi-project workbench with isolated context, files, and sessions
+- Parallel sessions for concurrent work
+- Fine-grained permission modes (allow / ask / deny)
+- In-session file and media preview
+- Skins and appearance controls
+- Automations via plans and triggers
+- Local-first: talks to Grok Build on your machine
+
+## What it is not
+
+- Not an official xAI product
+- Not a hosted web chat
+- Not a substitute for installing the local Grok Build CLI

@@ -4,7 +4,7 @@
 
 ## 一句话
 
-官网已上线。`/opensource/` 贡献者墙现为 8 人。投稿 Issues #637 #638 #639 #640 #642 #643 #649 #678 已关并致谢（曾被产品仓按「保持打开」再打开，2026-08-18 再次关闭）。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
+官网已上线。SEO/GEO Phase 0 已进 `main`：www→apex 301、sitemap `lastmod`、`llms.txt`、JSON-LD、meta、`/faq/`。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。线上静态站要等下一次 Pages deploy 才带上本轮文件。
 
 ## Goal 航道表
 
@@ -36,14 +36,20 @@
 | AGENTS.md 回写规则 | 已写 | 仓库根 `AGENTS.md` §0 |
 | 效果图入库 | 已收 | `docs/llm-wiki/assets/` 三张 PNG |
 | 产品仓下载契约 | 已吸收到消费侧 | [downloads.md](./downloads.md) |
-| `downloads.json` 现网 | 构建时可拉到 `v0.2.21`；失败回退稳定 URL | `src/generated/downloads-meta.json` + `scripts/fetch-downloads.mjs` |
+| `downloads.json` 现网 | 构建时可拉到 `v0.2.24`；失败回退稳定 URL | `src/generated/downloads-meta.json` + `scripts/fetch-downloads.mjs` |
 | 域名 `grok-app.com` | 已绑 Pages，HTTPS 200 | Zone `2618ef7b6b819900070711e42a3c9db8` |
 | DNS 记录 | 2 条 CNAME（apex + www → `grok-app.pages.dev`，橙色云） | 2026-08-17 API |
 | Pages 正式项目 | `grok-app` | https://grok-app.pages.dev |
 | CF 部署权限 | 本轮聊天令牌可写 Pages/DNS；视为已暴露 | 见 [deploy.md](./deploy.md)；令牌不入库 |
 | 站点明暗主题 | 已实现 | 月亮/太阳图标；Hero/皮肤主图换 `workbench-*.webp` |
-| 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/` |
+| 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/` |
 | 开源页 | 已实现 | `opensource/index.html`；墙 8 人见 [contributors.md](./contributors.md)；投稿 Issues 已关；公众号 / 微信好友点开 `#qr-dialog` |
+| FAQ 页 | 已实现 | `faq/index.html`；6 问三语 + `FAQPage` JSON-LD；顶栏/页脚有链 |
+| www 规范化 | 源码已写 | `public/_redirects`：`www.grok-app.com/*` 301 → apex；等下次 deploy 生效 |
+| sitemap | 已实现 | `public/sitemap.xml` 含 `/` `/opensource/` `/faq/` + `lastmod`（内容日） |
+| llms.txt | 已实现 | `public/llms.txt`；非官方、MIT、Releases、铁柱AGI |
+| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite；`softwareVersion` 跟 `downloads-meta.json`；`twitter:site` `@cgnot996`；`robots=index,follow` |
+| SEO 契约 | 已写 | [seo.md](./seo.md) |
 | 三语 i18n | 已实现 | [i18n.md](./i18n.md) [content.md](./content.md)；键 `grok-app-site.locale` |
 | 窄屏自适应 | 已实现 | 1440 / 1280 / 1024 / 768 / 390 无横溢；汉堡三杠收紧，下拉贴按钮右下角打开 |
 | 多 Agent Goal | C1 + C2 过关 | 本页 + `src/**/*.test.ts` |
@@ -53,9 +59,9 @@
 
 ## 阻塞
 
-1. 稳定下载别名已能拉到 `downloads.json`（本机构建见 `v0.2.21`）。若下次 404，按钮仍走写死的 `latest/download` 稳定名 + Releases 兜底。
+1. 稳定下载别名已能拉到 `downloads.json`（本机构建见 `v0.2.24`）。若下次 404，按钮仍走写死的 `latest/download` 稳定名 + Releases 兜底。
 2. 本轮聊天里出现过 CF User Token，视为已暴露；下次发版前在 Dashboard 轮换，只把新值放进环境变量。
 
 ## 下一步（给下一任 Agent）
 
-有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、deploy，然后关 Issue。聊天里出现过的 CF token 仍建议轮换。GitHub Actions / 产品仓 `repository_dispatch` 触发官网重建尚未做。
+把本轮 `main` 做一次 `wrangler pages deploy dist`，让 www 301、`/faq/`、`llms.txt` 上到 grok-app.com。有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新墙。GitHub Actions / 产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。

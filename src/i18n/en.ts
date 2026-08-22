@@ -3,13 +3,16 @@ import type { MessageKey } from "./zh";
 export const en: Record<MessageKey, string> = {
   "meta.title": "Grok App · Open-source desktop workbench",
   "meta.description":
-    "Open-source desktop workbench for Grok Build. Projects, sessions, permissions, and media preview.",
+    "Unofficial open-source desktop workbench for the local Grok Build CLI. Projects, sessions, permissions, and media preview. Not an official xAI product.",
   "brand.disclaimer":
     "Grok App is not an official xAI product. It turns the local Grok Build CLI into a desktop workbench.",
+  "brand.definition":
+    "Grok App is an unofficial open-source desktop workbench for the local Grok Build CLI. It is not an official xAI product.",
   "nav.product": "Product",
   "nav.features": "Features",
   "nav.download": "Download",
   "nav.opensource": "Open Source",
+  "nav.faq": "FAQ",
   "cta.download": "Download Free",
   "locale.zh": "Simplified",
   "locale.zhTW": "Traditional",
@@ -113,4 +116,29 @@ export const en: Record<MessageKey, string> = {
   "footer.changelog": "Changelog",
   "menu.open": "Open menu",
   "menu.close": "Close menu",
+  "faq.page.title": "FAQ · Grok App",
+  "faq.page.desc":
+    "Grok App install platforms, macOS Gatekeeper, the local Grok Build CLI requirement, and downloads on GitHub Releases. Not an official xAI product.",
+  "faq.hero.kicker": "FAQ",
+  "faq.hero.title": "Download, install, and what this is",
+  "faq.hero.body":
+    "Grok App is an unofficial open-source desktop workbench for the local Grok Build CLI. It is not an official xAI product. These are the questions visitors ask first.",
+  "faq.q1": "Which platforms does Grok App support?",
+  "faq.a1":
+    "Installers are available for macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). Pick your platform on the homepage download section, or get the files from GitHub Releases.",
+  "faq.q2": "macOS says the app can’t be opened or is from an unidentified developer. What now?",
+  "faq.a2":
+    "That is a common Gatekeeper prompt for apps outside the App Store. Allow it in System Settings → Privacy & Security, or Control-click the app icon and choose Open. Only download installers from GitHub Releases.",
+  "faq.q3": "Do I need the local Grok Build CLI?",
+  "faq.a3":
+    "Yes. Grok App is a desktop workbench for the local Grok Build CLI. It does not replace the CLI. Install Grok Build on your machine first, then use the app.",
+  "faq.q4": "Is Grok App an official xAI product?",
+  "faq.a4":
+    "No. Grok App is an unofficial, MIT-licensed open-source desktop workbench by 铁柱 AGI. It turns the local Grok Build CLI into a multi-project bench and is not an official xAI product.",
+  "faq.q5": "Where do I download the installers?",
+  "faq.a5":
+    "Installers live only on GitHub Releases. The website buttons point at those release assets. This site does not host or proxy installer files.",
+  "faq.q6": "Where is the source, and what is the license?",
+  "faq.a6":
+    "The source is the RongleCat/grok-app repository on GitHub, licensed MIT. Issues and PRs are welcome. The author 铁柱 AGI is @cgnot996 on X.",
 };

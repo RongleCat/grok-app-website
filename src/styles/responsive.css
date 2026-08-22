@@ -2,7 +2,8 @@
   .section,
   .hero,
   .site-footer,
-  .header-inner {
+  .header-inner,
+  .faq-page {
     width: min(var(--max), calc(100% - 56px));
   }
 
@@ -129,7 +130,8 @@
   .section,
   .hero,
   .site-footer,
-  .header-inner {
+  .header-inner,
+  .faq-page {
     width: calc(100% - 32px);
   }
 

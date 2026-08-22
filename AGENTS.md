@@ -44,6 +44,7 @@
 | 多 Agent 落地 Goal | [docs/plans/GOAL-official-site.md](docs/plans/GOAL-official-site.md) |
 | 下载按钮 / 版本号 / 短链 | [downloads.md](docs/llm-wiki/downloads.md) |
 | Cloudflare / 域名 / 发版上线 | [deploy.md](docs/llm-wiki/deploy.md) |
+| sitemap / llms.txt / JSON-LD / www 跳转 | [seo.md](docs/llm-wiki/seo.md) |
 | 产品定位 / 范围 / 禁止事项 | [product.md](docs/llm-wiki/product.md) |
 | 外部权威从哪来 | [sources.md](docs/llm-wiki/sources.md) |
 | 开源页贡献者墙 / Issues 投稿 | [contributors.md](docs/llm-wiki/contributors.md) |

@@ -19,6 +19,7 @@ export default defineConfig({
       input: {
         main: "index.html",
         opensource: "opensource/index.html",
+        faq: "faq/index.html",
       },
       output: {
         entryFileNames: "assets/app.[hash].js",

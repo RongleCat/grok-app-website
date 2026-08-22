@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-08-22 · SEO/GEO Phase 0 技术基础进 main
+
+- **操作者**：agent
+- **触发**：用户要求官网可抓取 / AI 引用基础，并直接推 `main`（不要开 PR 等人审）
+- **改动**：
+  - `public/_redirects`：`www.grok-app.com/*` 301 → `https://grok-app.com/:splat`；保留 `/opensource` 与新增 `/faq` 去尾斜线规则
+  - `public/sitemap.xml` 含 `/` `/opensource/` `/faq/`，带 `lastmod`（2026-08-22）
+  - `public/llms.txt`：非官方本机 Grok Build CLI 工作台、MIT、平台、Releases、铁柱AGI
+  - 首页 JSON-LD `@graph`：SoftwareApplication（`softwareVersion` 跟 `downloads-meta.json` 的 `v0.2.24`）+ Organization + WebSite；`sameAs` 仅 GitHub 与 `https://x.com/cgnot996`
+  - 公开页补 `robots=index,follow`、`twitter:site` / `twitter:creator` `@cgnot996`；加强 `meta.description` 与静态 `brand.definition`
+  - 新增 `/faq/` 六问三语 + `FAQPage` JSON-LD + 顶栏/页脚链接
+- **Wiki**：seo.md（新）/ content / design / deploy / i18n / status / README / AGENTS / 本条
+- **结果**：源码在 `main`；`pnpm test` 与 `pnpm build` 通过。线上要等下次 Pages deploy
+- **未做 / 下一步**：本机 `wrangler pages deploy dist` 上线本轮静态文件；未加 Search Console 验证码、未加分析跟踪
+
+---
+
 ## 2026-08-22 · 官网仓推送到 GitHub
 
 - **操作者**：agent (grok)

@@ -3,28 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>开源 · Grok App</title>
+    <title>常见问题 · Grok App</title>
     <meta
       name="description"
-      content="Grok App 开源仓库、作者铁柱 AGI，以及提过 PR 的贡献者。"
+      content="Grok App 安装平台、macOS Gatekeeper、本机 Grok Build CLI，以及安装包只在 GitHub Releases。不是 xAI 官方产品。"
     />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#070708" />
     <meta name="color-scheme" content="dark light" />
-    <link rel="canonical" href="https://grok-app.com/opensource/" />
+    <link rel="canonical" href="https://grok-app.com/faq/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/opensource/" />
-    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/opensource/" />
-    <link rel="alternate" hreflang="en" href="https://grok-app.com/opensource/" />
-    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/opensource/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/faq/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/faq/" />
+    <link rel="alternate" hreflang="en" href="https://grok-app.com/faq/" />
+    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/faq/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Grok App" />
-    <meta property="og:url" content="https://grok-app.com/opensource/" />
-    <meta property="og:title" content="开源 · Grok App" />
+    <meta property="og:url" content="https://grok-app.com/faq/" />
+    <meta property="og:title" content="常见问题 · Grok App" />
     <meta
       property="og:description"
-      content="Grok App 开源仓库、作者铁柱 AGI，以及提过 PR 的贡献者。"
+      content="Grok App 安装平台、macOS Gatekeeper、本机 Grok Build CLI，以及安装包只在 GitHub Releases。不是 xAI 官方产品。"
     />
     <meta property="og:image" content="https://grok-app.com/images/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -33,40 +33,65 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@cgnot996" />
     <meta name="twitter:creator" content="@cgnot996" />
-    <meta name="twitter:title" content="开源 · Grok App" />
+    <meta name="twitter:title" content="常见问题 · Grok App" />
     <meta
       name="twitter:description"
-      content="Grok App 开源仓库、作者铁柱 AGI，以及提过 PR 的贡献者。"
+      content="Grok App 安装平台、macOS Gatekeeper、本机 Grok Build CLI，以及安装包只在 GitHub Releases。不是 xAI 官方产品。"
     />
     <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@graph": [
+        "@type": "FAQPage",
+        "url": "https://grok-app.com/faq/",
+        "mainEntity": [
           {
-            "@type": "Organization",
-            "@id": "https://grok-app.com/#organization",
-            "name": "Grok App",
-            "url": "https://grok-app.com/",
-            "sameAs": [
-              "https://github.com/RongleCat/grok-app",
-              "https://x.com/cgnot996"
-            ]
+            "@type": "Question",
+            "name": "Grok App 支持哪些系统？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。"
+            }
           },
           {
-            "@type": "WebSite",
-            "@id": "https://grok-app.com/#website",
-            "name": "Grok App",
-            "url": "https://grok-app.com/",
-            "publisher": { "@id": "https://grok-app.com/#organization" }
+            "@type": "Question",
+            "name": "macOS 提示无法打开或来自身份不明的开发者怎么办？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。"
+            }
           },
           {
-            "@type": "WebPage",
-            "@id": "https://grok-app.com/opensource/#webpage",
-            "url": "https://grok-app.com/opensource/",
-            "name": "开源 · Grok App",
-            "isPartOf": { "@id": "https://grok-app.com/#website" },
-            "about": { "@id": "https://grok-app.com/#organization" }
+            "@type": "Question",
+            "name": "需要先安装本机 Grok Build CLI 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "需要。Grok App 是给本机 Grok Build CLI 用的桌面工作台，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Grok App 是 xAI 官方产品吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不是。Grok App 是 MIT 协议的开源桌面工作台，作者为铁柱 AGI。它把本机 Grok Build CLI 收成多项目工作台，与 xAI 没有官方从属关系。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "安装包在哪里下载？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "源码和开源协议是什么？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "源码在 GitHub 仓库 RongleCat/grok-app，协议为 MIT。欢迎提 issue 与 PR。作者铁柱 AGI 的 X 是 @cgnot996。"
+            }
           }
         ]
       }
@@ -77,20 +102,20 @@
         var KEY_T = "grok-app-site.theme";
         var META = {
           zh: {
-            title: "开源 · Grok App",
-            desc: "Grok App 开源仓库、作者铁柱 AGI，以及提过 PR 的贡献者。",
+            title: "常见问题 · Grok App",
+            desc: "Grok App 安装平台、macOS Gatekeeper、本机 Grok Build CLI，以及安装包只在 GitHub Releases。不是 xAI 官方产品。",
             lang: "zh-CN",
             og: "zh_CN",
           },
           "zh-TW": {
-            title: "開源 · Grok App",
-            desc: "Grok App 開源倉庫、作者鐵柱 AGI，以及提過 PR 的貢獻者。",
+            title: "常見問題 · Grok App",
+            desc: "Grok App 安裝平台、macOS Gatekeeper、本機 Grok Build CLI，以及安裝包只在 GitHub Releases。並非 xAI 官方產品。",
             lang: "zh-TW",
             og: "zh_TW",
           },
           en: {
-            title: "Open Source · Grok App",
-            desc: "The Grok App repo, author 铁柱 AGI, and people who shipped PRs.",
+            title: "FAQ · Grok App",
+            desc: "Grok App install platforms, macOS Gatekeeper, the local Grok Build CLI requirement, and downloads on GitHub Releases. Not an official xAI product.",
             lang: "en",
             og: "en_US",
           },
@@ -131,6 +156,10 @@
         if (od) od.setAttribute("content", m.desc);
         var ol = document.querySelector('meta[property="og:locale"]');
         if (ol) ol.setAttribute("content", m.og);
+        var tt = document.querySelector('meta[name="twitter:title"]');
+        if (tt) tt.setAttribute("content", m.title);
+        var td = document.querySelector('meta[name="twitter:description"]');
+        if (td) td.setAttribute("content", m.desc);
         var theme = "dark";
         var ts = null;
         try {
@@ -146,7 +175,7 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#oss-main">Skip to content</a>
+    <a class="skip-link" href="#faq-main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <div class="header-start">
@@ -176,8 +205,8 @@
             <a href="/#product" data-i18n="nav.product">产品</a>
             <a href="/#features" data-i18n="nav.features">功能</a>
             <a href="/#download" data-i18n="nav.download">下载</a>
-            <a href="/opensource/" data-i18n="nav.opensource" aria-current="page">开源</a>
-            <a href="/faq/" data-i18n="nav.faq">问答</a>
+            <a href="/opensource/" data-i18n="nav.opensource">开源</a>
+            <a href="/faq/" data-i18n="nav.faq" aria-current="page">问答</a>
           </nav>
           <button
             type="button"
@@ -218,60 +247,50 @@
       </div>
     </header>
 
-    <main id="oss-main" class="oss-page">
-      <section class="oss-hero">
-        <p class="section-kicker" data-i18n="oss.hero.kicker">开源</p>
-        <h1 data-i18n="oss.hero.title">代码公开，一起把它做下去</h1>
-        <p class="oss-hero-lead" data-i18n="oss.hero.body">
-          Grok App 是 MIT 协议的开源桌面工作台。把本机 Grok Build CLI 收成多项目、多会话、带权限与媒体预览的工作台。欢迎提 issue、开 PR、一起修。
-        </p>
-        <p class="oss-repo">github.com/RongleCat/grok-app · MIT</p>
-        <div class="oss-hero-actions">
-          <a
-            class="btn btn-solid"
-            href="https://github.com/RongleCat/grok-app"
-            rel="noopener noreferrer"
-          >
-            <span data-i18n="oss.repo.cta">打开 GitHub 仓库</span>
-          </a>
+    <main id="faq-main" class="faq-page">
+      <p class="section-kicker" data-i18n="faq.hero.kicker">常见问题</p>
+      <h1 data-i18n="faq.hero.title">下载、安装与定位</h1>
+      <p class="faq-lead" data-i18n="faq.hero.body">
+        Grok App 是本机 Grok Build CLI 的开源桌面工作台，不是 xAI 官方产品。下面是访客最常问的几件事。
+      </p>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q1">Grok App 支持哪些系统？</h2></dt>
+          <dd data-i18n="faq.a1">
+            提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。
+          </dd>
         </div>
-      </section>
-
-      <section class="oss-author">
-        <p class="section-kicker" data-i18n="oss.author.kicker">作者</p>
-        <article class="author-card">
-          <img src="/images/tiezhu.jpg" alt="" width="240" height="240" />
-          <div>
-            <h2 data-i18n="oss.author.name">铁柱 AGI</h2>
-            <p class="author-role" data-i18n="oss.author.role">
-              Grok App 作者 · 万象 AI 实验室技术支持
-            </p>
-            <p class="author-bio" data-i18n="oss.author.bio">
-              AI Agent 实战派。用 n8n、Agent 和 AIGC 搭能跑的自动化系统，分享真实落地、踩坑和能抄的作业。Grok App 不是 xAI 官方产品。
-            </p>
-            <div class="author-actions">
-              <a class="btn btn-solid" href="https://x.com/cgnot996" rel="noopener noreferrer">
-                <span data-i18n="oss.author.x">关注 X @cgnot996</span>
-              </a>
-              <button type="button" class="btn btn-ghost" data-qr-open="mp">
-                <span data-i18n="oss.author.wechat">公众号「铁柱AGI」</span>
-              </button>
-              <button type="button" class="btn btn-ghost" data-qr-open="friend">
-                <span data-i18n="oss.author.wechatFriend">添加微信好友</span>
-              </button>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section class="oss-wall">
-        <p class="section-kicker" data-i18n="oss.wall.kicker">贡献者</p>
-        <h2 class="dl-title" data-i18n="oss.wall.title">提过 PR 的同学</h2>
-        <p class="dl-sub" data-i18n="oss.wall.body">
-          资料来自仓库 Issues 投稿。点卡片打开他们留下的主页。
-        </p>
-        <div class="contrib-grid" data-contributor-wall></div>
-      </section>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q2">macOS 提示无法打开或来自身份不明的开发者怎么办？</h2></dt>
+          <dd data-i18n="faq.a2">
+            这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q3">需要先安装本机 Grok Build CLI 吗？</h2></dt>
+          <dd data-i18n="faq.a3">
+            需要。Grok App 是给本机 Grok Build CLI 用的桌面工作台，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q4">Grok App 是 xAI 官方产品吗？</h2></dt>
+          <dd data-i18n="faq.a4">
+            不是。Grok App 是 MIT 协议的开源桌面工作台，作者为铁柱 AGI。它把本机 Grok Build CLI 收成多项目工作台，与 xAI 没有官方从属关系。
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q5">安装包在哪里下载？</h2></dt>
+          <dd data-i18n="faq.a5">
+            安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q6">源码和开源协议是什么？</h2></dt>
+          <dd data-i18n="faq.a6">
+            源码在 GitHub 仓库 RongleCat/grok-app，协议为 MIT。欢迎提 issue 与 PR。作者铁柱 AGI 的 X 是 @cgnot996。
+          </dd>
+        </div>
+      </dl>
     </main>
 
     <footer class="site-footer">
@@ -294,13 +313,6 @@
         Grok App 不是 xAI 官方产品。它把本机 Grok Build CLI 收成桌面工作台。
       </p>
     </footer>
-    <dialog id="qr-dialog" class="qr-dialog" aria-labelledby="qr-dialog-title">
-      <div class="qr-dialog-inner">
-        <p id="qr-dialog-title" class="qr-dialog-title" data-qr-title></p>
-        <img data-qr-img alt="" width="420" height="420" />
-        <button type="button" class="btn btn-ghost" data-qr-close data-i18n="oss.qr.close">关闭</button>
-      </div>
-    </dialog>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

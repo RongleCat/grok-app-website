@@ -52,7 +52,8 @@
 5. 构建步按 [downloads.md](./downloads.md) 拉 `downloads.json`；404 则用稳定 URL 回退。
 
 已做：Pages 项目 `grok-app`、`wrangler pages deploy dist`、绑 `grok-app.com` / `www`、Always HTTPS、源码仓 `RongleCat/grok-app-website`（`main` 公开）。  
-尚未做：GitHub Actions、产品仓 `repository_dispatch` 触发官网重建。当前发版仍是本机 `wrangler pages deploy dist`。
+`public/_redirects`：`www.grok-app.com/*` 301 到 `https://grok-app.com/:splat`；`/opensource` → `/opensource/`；`/faq` → `/faq/`。规范域是 apex。细则见 [seo.md](./seo.md)。  
+尚未做：GitHub Actions、产品仓 `repository_dispatch` 触发官网重建。当前发版仍是本机 `wrangler pages deploy dist`。本轮 SEO 改动已进 `main`，线上要等下一次 `wrangler pages deploy dist`。
 
 ## 禁止
 
