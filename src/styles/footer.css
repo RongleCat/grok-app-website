@@ -1,0 +1,33 @@
+.site-footer {
+  width: min(var(--max), calc(100% - 80px));
+  margin: 0 auto;
+  padding: 28px 0 calc(40px + env(safe-area-inset-bottom));
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.site-footer p + p {
+  margin-top: 8px;
+}
+
+.site-footer a {
+  color: var(--text-secondary);
+}
+
+.site-footer a:hover {
+  color: var(--text-primary);
+}
+
+.footer-sep {
+  margin: 0 8px;
+  color: var(--text-muted);
+}
+
+.footer-disclaimer {
+  max-width: 52em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  line-height: 1.6;
+}

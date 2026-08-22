@@ -1,0 +1,233 @@
+.oss-page {
+  padding-bottom: 48px;
+}
+
+.oss-hero {
+  width: min(var(--max), calc(100% - 80px));
+  margin: 0 auto;
+  padding: 56px 0 8px;
+}
+
+.oss-hero .section-kicker {
+  margin-left: 0;
+}
+
+.oss-hero h1 {
+  max-width: 16em;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 640;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+}
+
+.oss-hero-lead {
+  max-width: 40em;
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.oss-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.oss-repo {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.oss-author {
+  width: min(var(--max), calc(100% - 80px));
+  margin: 48px auto 0;
+}
+
+.author-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+.author-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  object-fit: cover;
+  background: var(--bg-icon);
+}
+
+.author-card h2 {
+  margin-top: 8px;
+  font-size: 26px;
+  font-weight: 640;
+  letter-spacing: -0.03em;
+}
+
+.author-role {
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.author-bio {
+  margin-top: 12px;
+  max-width: 46em;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.author-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.oss-wall {
+  width: min(var(--max), calc(100% - 80px));
+  margin: 64px auto 0;
+}
+
+.oss-wall .contrib-grid {
+  margin-top: 28px;
+}
+
+.contrib-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.qr-dialog {
+  width: min(420px, calc(100vw - 32px));
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.qr-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.qr-dialog-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 24px 20px;
+}
+
+.qr-dialog-title {
+  font-size: 16px;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.qr-dialog img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.qr-dialog[data-qr="friend"] {
+  width: min(320px, calc(100vw - 32px));
+}
+
+.qr-dialog[data-qr="friend"] img {
+  max-width: 240px;
+  border-radius: 12px;
+}
+
+.contrib-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 180px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--ease), border-color var(--ease);
+}
+
+.contrib-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.contrib-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: var(--bg-icon);
+}
+
+.contrib-card strong {
+  font-size: 16px;
+  font-weight: 620;
+}
+
+.contrib-card span {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1023px) {
+  .contrib-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .author-card {
+    grid-template-columns: 88px 1fr;
+    gap: 18px;
+  }
+
+  .author-card img {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 719px) {
+  .oss-hero,
+  .oss-author,
+  .oss-wall {
+    width: calc(100% - 32px);
+  }
+
+  .contrib-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .author-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contrib-card:hover {
+    transform: none;
+  }
+}

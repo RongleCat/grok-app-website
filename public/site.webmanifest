@@ -1,0 +1,17 @@
+{
+  "name": "Grok App",
+  "short_name": "Grok App",
+  "description": "Open-source desktop workbench for Grok Build.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#070708",
+  "theme_color": "#070708",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

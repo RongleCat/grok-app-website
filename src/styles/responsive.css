@@ -1,0 +1,186 @@
+@media (max-width: 1279px) {
+  .section,
+  .hero,
+  .site-footer,
+  .header-inner {
+    width: min(var(--max), calc(100% - 56px));
+  }
+
+  .hero-stage {
+    display: grid;
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  .float-pill {
+    position: static;
+    width: 100%;
+  }
+
+  .hero-window {
+    order: -1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .card-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .value .card-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .skin-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .oss-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dl-platforms {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 768 is a required C2 width: desktop header cannot keep nav + tools + CTA on one 72px row. */
+@media (max-width: 768px) {
+  .header-inner {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "brand download burger"
+      "locale theme theme";
+    height: auto;
+    min-height: 60px;
+    padding: 10px 0;
+    row-gap: 4px;
+    column-gap: 8px;
+  }
+
+  .header-start,
+  .header-end {
+    display: contents;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .locale-switcher {
+    grid-area: locale;
+    justify-self: start;
+  }
+
+  .theme-toggle {
+    grid-area: theme;
+    justify-self: end;
+  }
+
+  .header-download {
+    grid-area: download;
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-cluster {
+    grid-area: burger;
+    position: relative;
+    justify-self: end;
+  }
+
+  .nav-toggle {
+    display: grid;
+  }
+
+  .pill-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
+    z-index: 50;
+    min-width: 168px;
+    width: max-content;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 8px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .site-header[data-nav-open="true"] .pill-nav {
+    display: flex;
+  }
+
+  .pill-nav a {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 719px) {
+  .section,
+  .hero,
+  .site-footer,
+  .header-inner {
+    width: calc(100% - 32px);
+  }
+
+  .hero {
+    padding-top: 36px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .card-grid--3,
+  .skin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card--value,
+  .card--cap {
+    text-align: left;
+  }
+
+  .card--value .card-icon {
+    margin: 0;
+  }
+
+  .oss-copy {
+    flex-direction: column;
+  }
+
+  .site-footer p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 0;
+  }
+
+  .footer-sep {
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-title {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,117 @@
+.download {
+  padding-top: 88px;
+  padding-bottom: 48px;
+  text-align: center;
+}
+
+.dl-title {
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 640;
+  letter-spacing: -0.03em;
+}
+
+.dl-title em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.dl-sub {
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.dl-version {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.dl-platforms {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.dl-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--bg-card);
+}
+
+.dl-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 88px;
+  padding: 18px 20px;
+}
+
+.dl-os {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  color: var(--text-primary);
+}
+
+.dl-card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 620;
+}
+
+.dl-card small {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.dl-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 18px;
+  margin: 0 20px 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.dl-menu a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.dl-menu a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.dl-fallback {
+  display: inline-flex;
+  margin-top: 22px;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.dl-fallback:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}

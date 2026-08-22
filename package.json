@@ -1,0 +1,31 @@
+{
+  "name": "grok-app-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Official site for Grok App — static Cloudflare Pages build",
+  "homepage": "https://grok-app.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RongleCat/grok-app-website.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/fetch-downloads.mjs",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5",
+    "vitest": "^3.2.4"
+  }
+}
