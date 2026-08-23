@@ -6,8 +6,8 @@
   --g-dock: #f6f7f4;
   --g-max: 1180px;
   --chrome-bg: #0d0d0d;
-  --chrome-sidebar: rgba(16, 16, 16, 0.48);
-  --chrome-main: rgba(21, 21, 21, 0.7);
+  --chrome-sidebar-solid: #101010;
+  --chrome-main-solid: #151515;
   --chrome-user: #2a2a2e;
   --chrome-ai: rgba(255, 255, 255, 0.08);
   --chrome-border: rgba(255, 255, 255, 0.1);
@@ -15,9 +15,11 @@
   --chrome-text: rgba(255, 255, 255, 0.7);
   --chrome-text-dim: rgba(255, 255, 255, 0.28);
   --chrome-accent: #8aa4ff;
-  --chrome-scrim:
-    linear-gradient(180deg, rgba(13, 13, 13, 0.06), transparent 30%, rgba(13, 13, 13, 0.42) 100%),
-    linear-gradient(90deg, rgba(13, 13, 13, 0.28), transparent 38%);
+  --wallpaper-scrim-opacity: 1;
+  --wallpaper-mix-sidebar: 58%;
+  --wallpaper-mix-main: 70%;
+  --wallpaper-mix-aside: 70%;
+  --wallpaper-sidebar-blur: 22px;
   position: relative;
   isolation: isolate;
 }
@@ -28,8 +30,8 @@ html[data-theme="light"] .gallery-page {
   --g-ice: #0b6f86;
   --g-line: rgba(20, 19, 15, 0.1);
   --chrome-bg: #f4f4f6;
-  --chrome-sidebar: rgba(255, 255, 255, 0.46);
-  --chrome-main: rgba(255, 255, 255, 0.84);
+  --chrome-sidebar-solid: #ececef;
+  --chrome-main-solid: #ffffff;
   --chrome-user: #e8e8ed;
   --chrome-ai: rgba(255, 255, 255, 0.55);
   --chrome-border: rgba(0, 0, 0, 0.08);
@@ -37,9 +39,6 @@ html[data-theme="light"] .gallery-page {
   --chrome-text: rgba(20, 20, 20, 0.7);
   --chrome-text-dim: rgba(20, 20, 20, 0.22);
   --chrome-accent: #3d5fd9;
-  --chrome-scrim:
-    linear-gradient(180deg, rgba(244, 244, 246, 0.1), transparent 30%, rgba(20, 20, 20, 0.26) 100%),
-    linear-gradient(90deg, rgba(20, 20, 20, 0.14), transparent 38%);
 }
 
 .gallery-space {
@@ -324,20 +323,25 @@ html[data-theme="light"] .gallery-space-grid {
 .g-card-scrim {
   position: absolute;
   inset: 0;
-  background: var(--chrome-scrim);
   pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--chrome-bg) 88%, transparent) 0%,
+    color-mix(in srgb, var(--chrome-bg) 62%, transparent) 42%,
+    color-mix(in srgb, var(--chrome-bg) 28%, transparent) 78%,
+    color-mix(in srgb, var(--chrome-bg) 12%, transparent) 100%
+  );
+  opacity: var(--wallpaper-scrim-opacity);
 }
 
 .g-chrome {
   position: absolute;
-  inset: 8% 7% 10% 7%;
+  inset: 0;
   z-index: 2;
   display: flex;
-  border-radius: 10px;
+  border-radius: inherit;
   overflow: hidden;
-  border: 1px solid var(--chrome-border);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-  background: color-mix(in srgb, var(--chrome-bg) 35%, transparent);
+  background: transparent;
   pointer-events: none;
 }
 
@@ -348,8 +352,8 @@ html[data-theme="light"] .gallery-space-grid {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  background: var(--chrome-sidebar);
-  backdrop-filter: blur(16px) saturate(1.2);
+  background: color-mix(in srgb, var(--chrome-sidebar-solid) var(--wallpaper-mix-sidebar), transparent);
+  backdrop-filter: blur(var(--wallpaper-sidebar-blur)) saturate(1.25);
   border-right: 1px solid var(--chrome-border-soft);
 }
 
@@ -424,8 +428,7 @@ html[data-theme="light"] .gallery-space-grid {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  background: var(--chrome-main);
-  backdrop-filter: blur(10px) saturate(1.15);
+  background: color-mix(in srgb, var(--chrome-main-solid) var(--wallpaper-mix-main), transparent);
 }
 
 .g-chrome-bar {
@@ -650,10 +653,6 @@ html[data-theme="light"] .gallery-space-grid {
     );
     padding: 12px 12px 10px;
   }
-
-  .g-chrome {
-    inset: 7% 6% 28% 6%;
-  }
 }
 
 .gallery-note {
@@ -755,10 +754,6 @@ html[data-theme="light"] .gallery-space-grid {
     min-height: 30px;
     padding: 0 8px;
     font-size: 11px;
-  }
-
-  .g-chrome {
-    inset: 7% 6% 34% 6%;
   }
 
   .g-chrome-rail {

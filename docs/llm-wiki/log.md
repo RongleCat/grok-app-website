@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-08-23 · 皮肤卡 chrome 铺满并跟 App wallpaper scrim 公式
+
+- **操作者**：agent
+- **触发**：卡片里模拟 App UI 有内边距，壁纸成一圈框；透明度要跟桌面端 `themeSkin.ts` / `skins.css` 一致。直接推 main
+- **改动**：
+  - `src/skins.ts`：`wallpaperFromScrim` / `wallpaperCssVars` / `applyWallpaperCssVars`；每张 `.g-card-stage` 读 `pack.scrim`（缺省 100）写 `--wallpaper-*` 与 `data-scrim`
+  - `src/styles/gallery.css`：`.g-chrome { inset: 0; border-radius: inherit }`；去掉桌面 / `hover: none` / 窄屏内缩；侧栏 `color-mix` + `blur(var(--wallpaper-sidebar-blur)) saturate(1.25)`；主区 `color-mix`；`.g-card-scrim` 改为 App 左重 105deg 渐变，`opacity: var(--wallpaper-scrim-opacity)`
+  - `src/skins.test.ts` 覆盖 scrim→mix/blur 与 edge-to-edge CSS
+- **Wiki**：skins / theme / status / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-23 · 皮肤卡 dock 半径与 scrim 贴边
 
 - **操作者**：agent

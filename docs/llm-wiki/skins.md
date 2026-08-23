@@ -16,18 +16,27 @@
 
 ## 工作台剪影（跟站点主题 + 真 App）
 
-皮肤包本身不锁亮暗。剪影必须跟 `html[data-theme]` 走，颜色走 `--chrome-*` 变量（站点主题切换即时重绘）。Dock 的 Apply / 下载仍用站点 lime。
+皮肤包本身不锁亮暗。剪影必须跟 `html[data-theme]` 走，颜色走 `--chrome-*` 实色（站点主题切换即时重绘）。Dock 的 Apply / 下载仍用站点 lime。`.g-chrome` **铺满** `.g-card-stage`：`inset: 0; border-radius: inherit`（约 18px）。禁止再给 chrome 留内边距（含 `hover: none` / 窄屏）；dock 用更高 `z-index` 盖在剪影上，不靠缩小 chrome 给底条让位。
 
 | Token | `data-theme=dark` | `data-theme=light` |
 |-------|-------------------|--------------------|
-| `--chrome-bg` | `#0d0d0d` | `#f4f4f6` |
-| `--chrome-sidebar` | `rgba(16,16,16,0.4–0.55)` 毛玻璃 | `rgba(255,255,255,0.38–0.55)` 毛玻璃 |
-| `--chrome-main` | `rgba(21,21,21,0.7)` | `rgba(255,255,255,0.78–0.9)` |
+| `--chrome-bg`（App `--bg-app`） | `#0d0d0d` | `#f4f4f6` |
+| `--chrome-sidebar-solid` | `#101010` | `#ececef` |
+| `--chrome-main-solid` | `#151515` | `#ffffff` |
 | `--chrome-user` | `#2a2a2e` | `#e8e8ed` |
 | `--chrome-border` | `rgba(255,255,255,0.08–0.12)` | `rgba(0,0,0,0.06–0.1)` |
 | `--chrome-accent` | `#8aa4ff` | `#3d5fd9` |
 
-剪影：左侧栏约 22%（品牌菱形 + 新建 pill + 3–4 行会话 + 头像）；主区细顶栏、右侧用户泡、左侧 AI 行、底栏 composer（加号 \| 输入 \| 发送）。壁纸上叠 `backdrop-filter` 霜玻璃；左侧偏重的软 scrim，不要整块黑罩。对照产品仓 `src/styles/tokens.css` + `skins.css`。
+每张卡读 `pack.scrim`（缺省 100），由 `wallpaperFromScrim` 写成 CSS 变量（`t = clamp(scrim,0,100)/100`）：
+
+| 变量 | 公式 |
+|------|------|
+| `--wallpaper-scrim-opacity` | `t` |
+| `--wallpaper-mix-sidebar` | `round(58 * t)%` |
+| `--wallpaper-mix-main` / `--wallpaper-mix-aside` | `round(70 * t)%` |
+| `--wallpaper-sidebar-blur` | `(22 * t)px` |
+
+侧栏：`color-mix(in srgb, var(--chrome-sidebar-solid) var(--wallpaper-mix-sidebar), transparent)` + `blur(var(--wallpaper-sidebar-blur)) saturate(1.25)`。主区：`color-mix(in srgb, var(--chrome-main-solid) var(--wallpaper-mix-main), transparent)`。`.g-card-scrim` 是 App 左重渐变（`105deg`，`--chrome-bg` 88%→12%）且 `opacity: var(--wallpaper-scrim-opacity)`。`scrim=0` 时玻璃全透明。对照产品仓 `src/lib/themeSkin.ts` + `skins.css`。剪影结构：左侧栏约 22%（品牌菱形 + 新建 pill + 3–4 行会话 + 头像）；主区细顶栏、右侧用户泡、左侧 AI 行、底栏 composer。
 
 ## 卡片 hover overlay
 
@@ -36,7 +45,7 @@
 - Dock 是铺满 `.g-card-stage` 的层：`position: absolute; inset: 0; border-radius: inherit`。禁止底条左右留缝。
 - 软 scrim（上浅下深的暗渐变）盖在壁纸和剪影上，文字和按钮仍可读。
 - `@media (hover: hover)`：默认 `opacity: 0` / `visibility: hidden`；`.g-card:hover .g-card-dock` 与 `.g-card:focus-within .g-card-dock` 才显示。`.g-card-stage` 有 `tabindex="0"`，键盘能先落到卡再落到按钮。
-- `@media (hover: none)`：始终露出底部紧凑条（仍全宽贴边），剪影 `inset` 底部让出空间。
+- `@media (hover: none)`：始终露出底部紧凑条（仍全宽贴边）。剪影保持 `inset: 0`，不缩小。
 - 文案：左边皮肤名 + 作者；最多一枚 `gallery.featured` chip（仅 `pack.featured`）；右边 `gallery.apply` + `gallery.download`。不渲染 `gallery.skin` / `gallery.wallpaper` / `gallery.video`。
 - Apply 短标签：zh `应用`、zh-TW `套用`、en `Apply`。下载仍是 `下载` / `Download`。
 

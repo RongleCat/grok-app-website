@@ -7,6 +7,7 @@ import { zh } from "./i18n/zh";
 import { zhTW } from "./i18n/zh-TW";
 import {
   applyHref,
+  applyWallpaperCssVars,
   CATALOG_FALLBACK,
   CATALOG_PRIMARY,
   dockChipKeys,
@@ -17,6 +18,8 @@ import {
   parseCatalog,
   shouldBlockMobileApply,
   wallPosition,
+  wallpaperCssVars,
+  wallpaperFromScrim,
 } from "./skins";
 
 const galleryCss = readFileSync(
@@ -113,6 +116,79 @@ describe("gallery density CSS", () => {
     expect(galleryCss).toContain(".g-card:focus-within .g-card-dock");
     expect(galleryCss).toContain("@media (hover: none)");
   });
+
+  it("fills the card edge-to-edge with App wallpaper mix math", () => {
+    expect(galleryCss).toMatch(/\.g-chrome\s*\{[^}]*inset:\s*0/);
+    expect(galleryCss).toMatch(/\.g-chrome\s*\{[^}]*border-radius:\s*inherit/);
+    expect(galleryCss).not.toMatch(/inset:\s*8%\s*7%\s*10%\s*7%/);
+    expect(galleryCss).not.toMatch(/inset:\s*7%\s*6%\s*28%\s*6%/);
+    expect(galleryCss).not.toMatch(/inset:\s*7%\s*6%\s*34%\s*6%/);
+    expect(galleryCss).toContain("var(--wallpaper-mix-sidebar)");
+    expect(galleryCss).toContain("var(--wallpaper-mix-main)");
+    expect(galleryCss).toContain("var(--wallpaper-sidebar-blur)");
+    expect(galleryCss).toContain("linear-gradient(");
+    expect(galleryCss).toContain("105deg");
+    expect(galleryCss).toContain("var(--wallpaper-scrim-opacity)");
+    expect(galleryCss).not.toContain("--chrome-scrim");
+    expect(galleryCss).toMatch(/\.g-card-dock\s*\{[^}]*z-index:\s*4/);
+    expect(galleryCss).toMatch(/\.g-chrome\s*\{[^}]*z-index:\s*2/);
+  });
+});
+
+describe("wallpaperFromScrim", () => {
+  it("maps pack.scrim onto App mix / blur / opacity", () => {
+    expect(wallpaperFromScrim(100)).toEqual({
+      t: 1,
+      opacity: 1,
+      mixSidebar: 58,
+      mixMain: 70,
+      mixAside: 70,
+      sidebarBlurPx: 22,
+    });
+    expect(wallpaperFromScrim(undefined)).toEqual(wallpaperFromScrim(100));
+    expect(wallpaperFromScrim(null)).toEqual(wallpaperFromScrim(100));
+    expect(wallpaperFromScrim(0)).toEqual({
+      t: 0,
+      opacity: 0,
+      mixSidebar: 0,
+      mixMain: 0,
+      mixAside: 0,
+      sidebarBlurPx: 0,
+    });
+    expect(wallpaperFromScrim(50)).toEqual({
+      t: 0.5,
+      opacity: 0.5,
+      mixSidebar: 29,
+      mixMain: 35,
+      mixAside: 35,
+      sidebarBlurPx: 11,
+    });
+    expect(wallpaperFromScrim(150)).toEqual(wallpaperFromScrim(100));
+    expect(wallpaperFromScrim(-4)).toEqual(wallpaperFromScrim(0));
+  });
+
+  it("emits CSS variables and data-scrim on the card stage", () => {
+    expect(wallpaperCssVars(100)).toEqual({
+      "--wallpaper-scrim-opacity": "1",
+      "--wallpaper-mix-sidebar": "58%",
+      "--wallpaper-mix-main": "70%",
+      "--wallpaper-mix-aside": "70%",
+      "--wallpaper-sidebar-blur": "22px",
+    });
+    const props: Record<string, string> = {};
+    const el = {
+      style: {
+        setProperty(name: string, value: string) {
+          props[name] = value;
+        },
+      },
+      dataset: {} as DOMStringMap,
+    };
+    applyWallpaperCssVars(el, undefined);
+    expect(el.dataset.scrim).toBe("100");
+    expect(props["--wallpaper-mix-sidebar"]).toBe("58%");
+    expect(props["--wallpaper-scrim-opacity"]).toBe("1");
+  });
 });
 
 describe("parseCatalog", () => {
@@ -123,6 +199,15 @@ describe("parseCatalog", () => {
     });
     expect(catalog.packs).toHaveLength(1);
     expect(catalog.packs[0]?.id).toBe("white-chair-meadow");
+    expect(catalog.packs[0]?.scrim).toBeUndefined();
+  });
+
+  it("keeps pack.scrim when the catalog sends a number", () => {
+    const catalog = parseCatalog({
+      schemaVersion: 1,
+      packs: [{ ...sample.packs[0], scrim: 100 }],
+    });
+    expect(catalog.packs[0]?.scrim).toBe(100);
   });
 
   it("rejects a missing or wrong schema", () => {

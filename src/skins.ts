@@ -77,6 +77,54 @@ export function wallPosition(pack: Pick<SkinPack, "focus">): string {
   return "50% 40%";
 }
 
+/** Pack `scrim` is 0–100. Missing / non-finite values use the App default of 100. */
+export const DEFAULT_SCRIM = 100;
+
+export type WallpaperScrim = {
+  t: number;
+  opacity: number;
+  mixSidebar: number;
+  mixMain: number;
+  mixAside: number;
+  sidebarBlurPx: number;
+};
+
+/** Maps pack.scrim onto the desktop App wallpaper mix / blur / opacity. */
+export function wallpaperFromScrim(scrim?: number | null): WallpaperScrim {
+  const n = typeof scrim === "number" && Number.isFinite(scrim) ? scrim : DEFAULT_SCRIM;
+  const t = Math.min(100, Math.max(0, n)) / 100;
+  return {
+    t,
+    opacity: t,
+    mixSidebar: Math.round(58 * t),
+    mixMain: Math.round(70 * t),
+    mixAside: Math.round(70 * t),
+    sidebarBlurPx: 22 * t,
+  };
+}
+
+export function wallpaperCssVars(scrim?: number | null): Record<string, string> {
+  const w = wallpaperFromScrim(scrim);
+  return {
+    "--wallpaper-scrim-opacity": String(w.opacity),
+    "--wallpaper-mix-sidebar": `${w.mixSidebar}%`,
+    "--wallpaper-mix-main": `${w.mixMain}%`,
+    "--wallpaper-mix-aside": `${w.mixAside}%`,
+    "--wallpaper-sidebar-blur": `${w.sidebarBlurPx}px`,
+  };
+}
+
+export function applyWallpaperCssVars(
+  el: { style: { setProperty(name: string, value: string): void }; dataset: DOMStringMap },
+  scrim?: number | null,
+): void {
+  const w = wallpaperFromScrim(scrim);
+  el.dataset.scrim = String(Math.round(w.t * 100));
+  for (const [name, value] of Object.entries(wallpaperCssVars(scrim))) {
+    el.style.setProperty(name, value);
+  }
+}
+
 export function packName(pack: SkinPack, locale: Locale): string {
   if (locale === "en") return pack.nameEn || pack.name;
   return pack.name;
@@ -260,6 +308,7 @@ function cardEl(pack: SkinPack): HTMLElement {
   const stage = document.createElement("article");
   stage.className = "g-card-stage";
   stage.tabIndex = 0;
+  applyWallpaperCssVars(stage, pack.scrim);
 
   const img = document.createElement("img");
   img.className = "g-card-wall";

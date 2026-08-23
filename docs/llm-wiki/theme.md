@@ -41,7 +41,7 @@
 
 禁止：亮色只反转 `--bg` 却留下白字；禁止亮色 Hero 仍显示暗色工作台图。
 
-产品仓皮肤 id（`default | rose | gothic | mist | ocean | ember`）是 **App 内皮肤**，不是站点主题。站点 v1 只做 light/dark。首页预览条上的绿/琥珀是示意。社区外观包画廊在 `/skins/`：卡片上的工作台剪影跟 `html[data-theme]` 走（`--chrome-*`，暗壳 `#0d0d0d` / 亮壳 `#f4f4f6`），不是永远暗色玻璃。皮肤包本身不锁亮暗。Apply 契约见 [skins.md](./skins.md)。
+产品仓皮肤 id（`default | rose | gothic | mist | ocean | ember`）是 **App 内皮肤**，不是站点主题。站点 v1 只做 light/dark。首页预览条上的绿/琥珀是示意。社区外观包画廊在 `/skins/`：卡片剪影铺满舞台，跟 `html[data-theme]` 走（暗 `--bg-app` `#0d0d0d` / 亮 `#f4f4f6`），霜玻璃强度跟包字段 `scrim`（`wallpaperFromScrim`）。皮肤包本身不锁亮暗。Apply 契约见 [skins.md](./skins.md)。
 
 ## 资源约定
 
