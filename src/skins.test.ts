@@ -107,6 +107,7 @@ describe("gallery density CSS", () => {
 
   it("uses a full-bleed hover overlay and a compact coarse-pointer bar", () => {
     expect(galleryCss).toMatch(/\.g-card-dock\s*\{[^}]*inset:\s*0/);
+    expect(galleryCss).toContain("width: 100%");
     expect(galleryCss).toContain("@media (hover: hover)");
     expect(galleryCss).toContain(".g-card:hover .g-card-dock");
     expect(galleryCss).toContain(".g-card:focus-within .g-card-dock");

@@ -4,6 +4,17 @@
 
 ---
 
+## 2026-08-23 · 皮肤卡 dock 半径与 scrim 贴边
+
+- **操作者**：agent
+- **触发**：预览里 hover overlay 仍像底条；补强铺满整卡的 scrim
+- **改动**：`.g-card-dock` 显式 `width/height: 100%`、`border-radius: 18px`（跟 stage）；hover 层 scrim 更匀；`hover: none` 底条渐变贴左右底边
+- **Wiki**：本条（skins 契约未变）
+- **结果**：跟在 `e589081` 后继续推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-23 · 皮肤卡铺满 hover overlay、精选单 chip、短 Apply
 
 - **操作者**：agent
