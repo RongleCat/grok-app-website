@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-08-23 · 皮肤卡铺满 hover overlay、精选单 chip、短 Apply
+
+- **操作者**：agent
+- **触发**：`/skins/` 卡片 dock 有内缩缝；名字/chips/按钮应默认隐藏、hover 才出；精选 / 皮肤 default / 含壁纸太挤。直接推 main
+- **改动**：
+  - `src/styles/gallery.css`：`.g-card-dock` 改为 `inset: 0` 铺满 `.g-card-stage`；`@media (hover: hover)` 默认隐藏，`.g-card:hover` / `:focus-within` 显示；`@media (hover: none)` 露出底部紧凑条
+  - `src/skins.ts`：`dockChipKeys` 只在 `pack.featured` 时给 `gallery.featured`；`.g-card-stage` `tabindex="0"`
+  - 三语 `gallery.apply` 改为 应用 / 套用 / Apply
+  - `src/skins.test.ts` 覆盖短标签、chip 策略、full-bleed hover CSS
+- **Wiki**：skins / content / status / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-23 · 皮肤画廊加密网格、主题剪影、手机 Apply 闸门
 
 - **操作者**：agent

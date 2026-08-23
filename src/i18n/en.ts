@@ -172,7 +172,7 @@ export const en: Record<MessageKey, string> = {
   "gallery.loading": "Loading the skin catalog…",
   "gallery.loadFail": "Could not load the catalog",
   "gallery.retry": "Retry",
-  "gallery.apply": "Apply in Grok App",
+  "gallery.apply": "Apply",
   "gallery.download": "Download",
   "gallery.footer": "Community skin catalog. The desktop app is required to apply.",
   "gallery.applyHint":

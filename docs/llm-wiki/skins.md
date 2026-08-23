@@ -1,6 +1,6 @@
 # 社区皮肤画廊
 
-独立页：`/skins/`（`skins/index.html`）。视觉移植自 `ronglecat.github.io/grok-app-skin`：暗色优先、细网格底、等大 16:9 卡（壁纸铺满 + 跟站点主题走的毛玻璃工作台剪影 + 底栏名字 / chips / Apply / 下载）。精选只靠 badge / chip，不占整行。不要 iframe github.io。
+独立页：`/skins/`（`skins/index.html`）。视觉移植自 `ronglecat.github.io/grok-app-skin`：暗色优先、细网格底、等大 16:9 卡（壁纸铺满 + 跟站点主题走的毛玻璃工作台剪影）。默认态只有壁纸和剪影；名字 / 精选 chip / 应用 / 下载叠在铺满整卡的 `.g-card-dock` 上，桌面 hover 或键盘 `:focus-within` 才出现。精选只靠一枚 chip，不占整行。不要 iframe github.io。
 
 ## 卡片网格
 
@@ -12,7 +12,7 @@
 - 窄屏（`≤640px`）：**最少 2 列** `repeat(2, minmax(0, 1fr))`
 - 禁止 `.g-card-featured { grid-column: 1 / -1 }`。精选与其它卡同尺寸。
 - 内容宽约 `min(1180px, 100% - 48px)`，Hero / 主区 padding 收紧，避免单卡四周空一圈。
-- 2 列手机：底栏 chips 隐藏，Apply / 下载并排、字号缩小，保证可点。
+- 2 列手机：精选 chip 隐藏，应用 / 下载并排、字号缩小，保证可点。
 
 ## 工作台剪影（跟站点主题 + 真 App）
 
@@ -28,6 +28,17 @@
 | `--chrome-accent` | `#8aa4ff` | `#3d5fd9` |
 
 剪影：左侧栏约 22%（品牌菱形 + 新建 pill + 3–4 行会话 + 头像）；主区细顶栏、右侧用户泡、左侧 AI 行、底栏 composer（加号 \| 输入 \| 发送）。壁纸上叠 `backdrop-filter` 霜玻璃；左侧偏重的软 scrim，不要整块黑罩。对照产品仓 `src/styles/tokens.css` + `skins.css`。
+
+## 卡片 hover overlay
+
+实现：`src/styles/gallery.css` 的 `.g-card-dock`。
+
+- Dock 是铺满 `.g-card-stage` 的层：`position: absolute; inset: 0; border-radius: inherit`。禁止底条左右留缝。
+- 软 scrim（上浅下深的暗渐变）盖在壁纸和剪影上，文字和按钮仍可读。
+- `@media (hover: hover)`：默认 `opacity: 0` / `visibility: hidden`；`.g-card:hover .g-card-dock` 与 `.g-card:focus-within .g-card-dock` 才显示。`.g-card-stage` 有 `tabindex="0"`，键盘能先落到卡再落到按钮。
+- `@media (hover: none)`：始终露出底部紧凑条（仍全宽贴边），剪影 `inset` 底部让出空间。
+- 文案：左边皮肤名 + 作者；最多一枚 `gallery.featured` chip（仅 `pack.featured`）；右边 `gallery.apply` + `gallery.download`。不渲染 `gallery.skin` / `gallery.wallpaper` / `gallery.video`。
+- Apply 短标签：zh `应用`、zh-TW `套用`、en `Apply`。下载仍是 `下载` / `Download`。
 
 ## 目录（运行时拉，不打进构建）
 

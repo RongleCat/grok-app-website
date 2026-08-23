@@ -165,7 +165,7 @@ export const zhTW: Record<MessageKey, string> = {
   "gallery.loading": "正在讀取皮膚目錄…",
   "gallery.loadFail": "目錄載入失敗",
   "gallery.retry": "重試",
-  "gallery.apply": "套用到 Grok App",
+  "gallery.apply": "套用",
   "gallery.download": "下載",
   "gallery.footer": "社群皮膚倉庫。需要桌面版才能喚起套用。",
   "gallery.applyHint":

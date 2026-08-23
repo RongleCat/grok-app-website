@@ -122,7 +122,7 @@
 | `gallery.hero.body` | 每张卡片是 16:9 主题预览：壁纸铺满，上面叠一层开源 Grok App 的侧栏和对话。点应用只打开确认，不会改你现在的样子。 | 每張卡片是 16:9 主題預覽：壁紙鋪滿，上面疊一層開源 Grok App 的側欄和對話。點套用只打開確認，不會改你現在的樣子。 | Each card is a 16:9 theme preview: wallpaper fills the frame, with a translucent Open-source Grok App chrome on top. Apply opens a confirm dialog. It does not change your current look. |
 | `gallery.copy` | 复制目录地址 | 複製目錄地址 | Copy catalog URL |
 | `gallery.submit` | 提交一套 | 提交一套 | Submit a pack |
-| `gallery.apply` | 应用到 Grok App | 套用到 Grok App | Apply in Grok App |
+| `gallery.apply` | 应用 | 套用 | Apply |
 | `gallery.applyMobile` | 暂不支持手机端，请在电脑端尝试应用皮肤。 | 暫不支援手機端，請在電腦端嘗試套用皮膚。 | Mobile isn’t supported yet — try applying the skin on desktop. |
 | `gallery.download` | 下载 | 下載 | Download |
 | `gallery.loading` | 正在读取皮肤目录… | 正在讀取皮膚目錄… | Loading the skin catalog… |

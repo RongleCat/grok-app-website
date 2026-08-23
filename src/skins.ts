@@ -240,6 +240,11 @@ function chromeEl(): HTMLElement {
   return root;
 }
 
+/** Card dock shows at most the Featured chip. Skin / wallpaper / video chips stay off the card. */
+export function dockChipKeys(pack: Pick<SkinPack, "featured">): readonly "gallery.featured"[] {
+  return pack.featured === true ? (["gallery.featured"] as const) : [];
+}
+
 function chip(text: string, extra?: string): HTMLElement {
   const el = document.createElement("span");
   el.className = extra ? `g-chip ${extra}` : "g-chip";
@@ -254,6 +259,7 @@ function cardEl(pack: SkinPack): HTMLElement {
 
   const stage = document.createElement("article");
   stage.className = "g-card-stage";
+  stage.tabIndex = 0;
 
   const img = document.createElement("img");
   img.className = "g-card-wall";
@@ -278,14 +284,13 @@ function cardEl(pack: SkinPack): HTMLElement {
   const meta = document.createElement("p");
   meta.className = "g-card-meta";
   meta.textContent = t(messages, "gallery.author", { name: pack.author || "—" });
-  const chips = document.createElement("div");
-  chips.className = "g-chips";
-  if (pack.featured) chips.append(chip(t(messages, "gallery.featured"), "g-chip-hot"));
-  chips.append(chip(t(messages, "gallery.skin", { id: pack.skin || "default" })));
-  if (pack.hasWallpaper) {
-    chips.append(
-      chip(pack.kind === "video" ? t(messages, "gallery.video") : t(messages, "gallery.wallpaper")),
-    );
+  const chipKeys = dockChipKeys(pack);
+  const chips = chipKeys.length ? document.createElement("div") : null;
+  if (chips) {
+    chips.className = "g-chips";
+    for (const key of chipKeys) {
+      chips.append(chip(t(messages, key), key === "gallery.featured" ? "g-chip-hot" : undefined));
+    }
   }
 
   const actions = document.createElement("div");
@@ -312,7 +317,8 @@ function cardEl(pack: SkinPack): HTMLElement {
   download.textContent = t(messages, "gallery.download");
 
   actions.append(apply, download);
-  idBox.append(name, meta, chips);
+  idBox.append(name, meta);
+  if (chips) idBox.append(chips);
   dock.append(idBox, actions);
   stage.append(img, scrim, chromeEl(), dock);
   li.append(stage);

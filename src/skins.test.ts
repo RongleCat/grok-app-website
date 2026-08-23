@@ -9,6 +9,7 @@ import {
   applyHref,
   CATALOG_FALLBACK,
   CATALOG_PRIMARY,
+  dockChipKeys,
   fetchCatalog,
   MOBILE_APPLY_QUERY,
   mobileApplyBlocked,
@@ -79,6 +80,20 @@ describe("mobile apply gate", () => {
       "Mobile isn’t supported yet — try applying the skin on desktop.",
     );
   });
+
+  it("ships short Apply labels", () => {
+    expect(zh["gallery.apply"]).toBe("应用");
+    expect(zhTW["gallery.apply"]).toBe("套用");
+    expect(en["gallery.apply"]).toBe("Apply");
+  });
+});
+
+describe("dock chips", () => {
+  it("keeps at most the Featured chip", () => {
+    expect(dockChipKeys({ featured: true })).toEqual(["gallery.featured"]);
+    expect(dockChipKeys({ featured: false })).toEqual([]);
+    expect(dockChipKeys({})).toEqual([]);
+  });
 });
 
 describe("gallery density CSS", () => {
@@ -88,6 +103,14 @@ describe("gallery density CSS", () => {
     expect(galleryCss).not.toMatch(/\.g-card-featured\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/);
     expect(galleryCss).toContain("--chrome-bg:");
     expect(galleryCss).toContain("html[data-theme=\"light\"] .gallery-page");
+  });
+
+  it("uses a full-bleed hover overlay and a compact coarse-pointer bar", () => {
+    expect(galleryCss).toMatch(/\.g-card-dock\s*\{[^}]*inset:\s*0/);
+    expect(galleryCss).toContain("@media (hover: hover)");
+    expect(galleryCss).toContain(".g-card:hover .g-card-dock");
+    expect(galleryCss).toContain(".g-card:focus-within .g-card-dock");
+    expect(galleryCss).toContain("@media (hover: none)");
   });
 });
 

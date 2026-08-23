@@ -237,6 +237,7 @@ html[data-theme="light"] .gallery-space-grid {
 
 .gallery-search input:focus-visible,
 .g-btn:focus-visible,
+.g-card-stage:focus-visible,
 .g-card-stage:focus-within {
   outline: 2px solid color-mix(in srgb, var(--g-accent) 70%, transparent);
   outline-offset: 2px;
@@ -329,7 +330,8 @@ html[data-theme="light"] .gallery-space-grid {
 
 .g-chrome {
   position: absolute;
-  inset: 8% 7% 28% 7%;
+  inset: 8% 7% 10% 7%;
+  z-index: 2;
   display: flex;
   border-radius: 10px;
   overflow: hidden;
@@ -535,17 +537,23 @@ html[data-theme="light"] .gallery-space-grid {
 
 .g-card-dock {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 4;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 8px;
-  padding: 12px 12px 10px;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7) 68%);
+  gap: 10px;
+  padding: 18px 16px 14px;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 8, 10, 0.28) 0%,
+      rgba(8, 8, 10, 0.1) 38%,
+      rgba(8, 8, 10, 0.78) 100%
+    );
   color: var(--g-dock);
+  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
 }
 
 .g-card-id {
@@ -609,6 +617,34 @@ html[data-theme="light"] .gallery-space-grid {
 .g-card:focus-within .g-card-stage::before,
 .g-card:focus-within .g-card-stage::after {
   opacity: 1;
+}
+
+@media (hover: hover) {
+  .g-card-dock {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+  }
+
+  .g-card:hover .g-card-dock,
+  .g-card:focus-within .g-card-dock {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+}
+
+@media (hover: none) {
+  .g-card-dock {
+    background: linear-gradient(180deg, transparent 42%, rgba(8, 8, 10, 0.82) 100%);
+    padding: 12px 12px 10px;
+  }
+
+  .g-chrome {
+    inset: 7% 6% 28% 6%;
+  }
 }
 
 .gallery-note {
@@ -686,7 +722,7 @@ html[data-theme="light"] .gallery-space-grid {
     flex-wrap: wrap;
     align-items: flex-end;
     gap: 6px;
-    padding: 8px 8px 8px;
+    padding: 10px 8px 8px;
   }
 
   .g-card-name {
@@ -737,8 +773,10 @@ html[data-theme="light"] .gallery-space-grid {
     transform: none;
   }
 
-  .g-card-stage {
+  .g-card-stage,
+  .g-card-dock {
     transition: none;
+    transform: none;
   }
 }
 

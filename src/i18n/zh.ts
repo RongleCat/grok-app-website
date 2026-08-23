@@ -163,7 +163,7 @@ export const zh = {
   "gallery.loading": "正在读取皮肤目录…",
   "gallery.loadFail": "目录加载失败",
   "gallery.retry": "重试",
-  "gallery.apply": "应用到 Grok App",
+  "gallery.apply": "应用",
   "gallery.download": "下载",
   "gallery.footer": "社区皮肤仓库。需要桌面版才能唤起套用。",
   "gallery.applyHint":
