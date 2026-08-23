@@ -144,6 +144,35 @@ export const zh = {
   "faq.q8": "这是 grok.com 网页聊天的套壳吗？",
   "faq.a8":
     "不是。Grok App 面向 Grok Build（编码 Agent）的本机 CLI，不是 grok.com 聊天页或 PWA 的包装。网页聊天请去 grok.com。",
+  "gallery.page.title": "皮肤 · 开源 Grok App",
+  "gallery.page.desc": "社区外观包。先看见工作台上的样子，再套用到开源 Grok App。",
+  "gallery.kicker": "皮肤仓库",
+  "gallery.hero.title": "先看见工作台上的样子",
+  "gallery.hero.body":
+    "每张卡片是 16:9 主题预览：壁纸铺满，上面叠一层开源 Grok App 的侧栏和对话。点应用只打开确认，不会改你现在的样子。",
+  "gallery.copy": "复制目录地址",
+  "gallery.copied": "目录地址已复制",
+  "gallery.copyFail": "复制失败，请手动选中地址",
+  "gallery.submit": "提交一套",
+  "gallery.catalogHow": "在 App 里：设置 → 外观 → 皮肤源，加上这条 HTTPS。",
+  "gallery.search": "搜索皮肤",
+  "gallery.searchPh": "搜索名字、作者、标签",
+  "gallery.all": "全部皮肤",
+  "gallery.count": "{n} 套",
+  "gallery.empty": "没有匹配的皮肤",
+  "gallery.loading": "正在读取皮肤目录…",
+  "gallery.loadFail": "目录加载失败",
+  "gallery.retry": "重试",
+  "gallery.apply": "应用到 Grok App",
+  "gallery.download": "下载",
+  "gallery.footer": "社区皮肤仓库。需要桌面版才能唤起套用。",
+  "gallery.applyHint":
+    "已请求打开 Grok App。若没有反应，确认已安装桌面版，或改用下载。套用前会先预览。",
+  "gallery.featured": "精选",
+  "gallery.author": "作者 {name}",
+  "gallery.skin": "皮肤 {id}",
+  "gallery.wallpaper": "含壁纸",
+  "gallery.video": "视频壁纸",
 } as const;
 
 export type MessageKey = keyof typeof zh;

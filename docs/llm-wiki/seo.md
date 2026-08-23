@@ -20,10 +20,9 @@
 | `/` | `index.html` | 落地页 |
 | `/opensource/` | `opensource/index.html` | 开源 / 作者 / 贡献者墙 |
 | `/faq/` | `faq/index.html` | 8 条 FAQ + `FAQPage` JSON-LD |
+| `/skins/` | `skins/index.html` | 社区皮肤画廊 + `CollectionPage` JSON-LD |
 
-社区皮肤画廊是**站外**页 `https://ronglecat.github.io/grok-app-skin/`，不要写进本站 sitemap。`llms.txt` 可以列这条 URL。
-
-`public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
+`public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，皮肤 `0.7` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
 
 `public/robots.txt` 指向 `https://grok-app.com/sitemap.xml`。
 
@@ -34,6 +33,7 @@
 ```text
 /opensource  /opensource/  301
 /faq  /faq/  301
+/skins  /skins/  301
 https://www.grok-app.com/*  https://grok-app.com/:splat  301
 ```
 
@@ -61,6 +61,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 | `/` | 开源 Grok App · 桌面工作台 | 本机 Grok Build CLI 的桌面 GUI。多项目、多会话、权限与媒体预览。 |
 | `/opensource/` | 开源 · Grok App | 仓库与贡献者，短 |
 | `/faq/` | 常见问题 · 开源 Grok App | 下载、安装与常见问题；轻提 Grok Desktop / Grok GUI |
+| `/skins/` | 皮肤 · 开源 Grok App | 社区外观包；先看见工作台上的样子 |
 
 `meta.keywords`（低权重，短列表，三语同一串）：
 
@@ -87,7 +88,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - Also known as：Grok Desktop、Grok GUI、Grok Build desktop client 等
 - 不是什么：不是 grok.com 聊天套壳或 PWA；不能替代本机 Grok Build CLI
 - 平台、MIT、规范站 `https://grok-app.com/`、产品仓、Releases、作者 铁柱AGI `https://x.com/cgnot996`
-- 社区皮肤画廊：`https://ronglecat.github.io/grok-app-skin/`（Apply 打开本机预览）
+- 社区皮肤画廊：`https://grok-app.com/skins/`（Apply 发 `grok://skin/import`）
 - 5–8 条真实能力，不编评分
 
 禁止其它 Grok 产品名、禁止「官方桌面端」「Grok 桌面版」、禁止写 unofficial。
@@ -99,11 +100,12 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - `name`: Grok App
 - `alternateName`: Grok Desktop, Grok GUI, Grok Build GUI, Grok Build Desktop, Grok 桌面客户端
 - `sameAs` 只放真实 URL：`https://github.com/RongleCat/grok-app`、`https://x.com/cgnot996`
-- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.24`）。`fallback: true` 时不要写版本
+- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.25`）。`fallback: true` 时不要写版本
 - `description` 与 `meta.description` 同向，不要写 unofficial
 - **禁止**编造 `aggregateRating` / `reviewCount`
 - 开源页：`Organization` + `WebSite` + `WebPage`
 - FAQ 页：`FAQPage`（与静态 HTML 简体问答一致，含 Desktop / GUI / 套壳三题）
+- 皮肤页：`Organization` + `WebSite` + `CollectionPage`
 
 `downloads-meta.json` 的 tag 变了，同步改首页 JSON-LD 的 `softwareVersion`（`src/markup.test.ts` 会核对）。
 

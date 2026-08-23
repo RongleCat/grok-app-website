@@ -11,15 +11,17 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(join(root, "index.html"), "utf8");
 const ossHtml = readFileSync(join(root, "opensource/index.html"), "utf8");
 const faqHtml = readFileSync(join(root, "faq/index.html"), "utf8");
+const skinsHtml = readFileSync(join(root, "skins/index.html"), "utf8");
 const sitemap = readFileSync(join(root, "public/sitemap.xml"), "utf8");
 const redirects = readFileSync(join(root, "public/_redirects"), "utf8");
 const llms = readFileSync(join(root, "public/llms.txt"), "utf8");
 const meta = JSON.parse(
   readFileSync(join(root, "src/generated/downloads-meta.json"), "utf8"),
 ) as { tag: string | null; fallback: boolean };
-const publicPages = [html, ossHtml, faqHtml];
+const publicPages = [html, ossHtml, faqHtml, skinsHtml];
 const FORBIDDEN = ["官方桌面端", "Grok 桌面版"];
 const THEME_GALLERY = "https://ronglecat.github.io/grok-app-skin/";
+const SKINS_ROUTE = "/skins/";
 
 describe("shipped index.html", () => {
   it("exposes all seven installer hooks plus Releases fallback", () => {
@@ -74,13 +76,12 @@ describe("opensource/index.html", () => {
 });
 
 describe("community theme gallery", () => {
-  it("links nav and footer on every public page to the external gallery", () => {
+  it("links nav and footer on every public page to the internal /skins/ route", () => {
     for (const page of publicPages) {
-      expect(page).toContain(THEME_GALLERY);
+      expect(page).toContain(`href="${SKINS_ROUTE}"`);
       expect(page).toContain('data-i18n="nav.themes"');
-      expect(page).toContain('data-footer="themes"');
-      expect(page).toMatch(
-        /href="https:\/\/ronglecat\.github\.io\/grok-app-skin\/"[^>]*rel="noreferrer"/,
+      expect(page).not.toMatch(
+        /href="https:\/\/ronglecat\.github\.io\/grok-app-skin\/"/,
       );
     }
     expect(html).toContain('data-i18n="skins.note"');
@@ -89,6 +90,28 @@ describe("community theme gallery", () => {
     expect(zh["nav.themes"]).toBe("皮肤");
     expect(zhTW["nav.themes"]).toBe("主題");
     expect(en["nav.themes"]).toBe("Themes");
+  });
+});
+
+describe("skins/index.html", () => {
+  it("ships a runtime gallery shell without baked packs", () => {
+    expect(skinsHtml).toContain('id="gallery-main"');
+    expect(skinsHtml).toContain('id="gallery-grid"');
+    expect(skinsHtml).toContain('id="gallery-status"');
+    expect(skinsHtml).toContain('data-i18n="gallery.loading"');
+    expect(skinsHtml).toContain('data-i18n="gallery.hero.title"');
+    expect(skinsHtml).toContain(zh["gallery.hero.title"]);
+    expect(skinsHtml).toContain(THEME_GALLERY + "catalog.json");
+    expect(skinsHtml).toContain(
+      "https://github.com/RongleCat/grok-app-skin/blob/main/CONTRIBUTING.md",
+    );
+    expect(skinsHtml).toContain('href="/skins/"');
+    expect(skinsHtml).toContain('aria-current="page"');
+    expect(skinsHtml).toContain('"@type": "CollectionPage"');
+    expect(skinsHtml).not.toContain("white-chair-meadow");
+    expect(skinsHtml).not.toContain("草原白椅");
+    expect(zh).toHaveProperty("gallery.page.title");
+    expect(en).toHaveProperty("gallery.apply");
   });
 });
 
@@ -118,12 +141,14 @@ describe("SEO / GEO foundation", () => {
     );
     expect(redirects).toMatch(/\/opensource\s+\/opensource\/\s+301/);
     expect(redirects).toMatch(/\/faq\s+\/faq\/\s+301/);
+    expect(redirects).toMatch(/\/skins\s+\/skins\/\s+301/);
   });
 
   it("lists every public URL in sitemap.xml with lastmod", () => {
     expect(sitemap).toContain("<loc>https://grok-app.com/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/opensource/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/faq/</loc>");
+    expect(sitemap).toContain("<loc>https://grok-app.com/skins/</loc>");
     expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
     expect(sitemap).toContain("<changefreq>weekly</changefreq>");
     expect(sitemap).toContain("<priority>1.0</priority>");
@@ -135,7 +160,7 @@ describe("SEO / GEO foundation", () => {
     expect(llms).toContain("Grok Desktop");
     expect(llms).toContain("Grok GUI");
     expect(llms).toContain("https://grok-app.com/");
-    expect(llms).toContain("https://ronglecat.github.io/grok-app-skin/");
+    expect(llms).toContain("https://grok-app.com/skins/");
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
     expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
     expect(llms).toContain("MIT");

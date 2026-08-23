@@ -12,7 +12,7 @@
 | 发版流程 | `docs/llm-wiki/release.md` |
 | 清单生成脚本 | `scripts/publish-website-downloads.py` |
 | 设计 token | `docs/design-tokens.md` |
-| 皮肤 / Apply（官网 v1 不做） | `docs/plans/2026-08-15-appearance-skin-share-design.md` |
+| 皮肤 / Apply 上游设计 | `docs/plans/2026-08-15-appearance-skin-share-design.md` |
 | 中文 README | `README_ZH.md` |
 | Agent 规则 | `AGENTS.md` |
 | 工作台截图（产品自带） | `assets/screenshots/` |
@@ -39,7 +39,10 @@
 |------|------|
 | 目标站点 | `https://grok-app.com` |
 | 开源页 | `https://grok-app.com/opensource/` |
-| 社区皮肤画廊 | `https://ronglecat.github.io/grok-app-skin/` |
+| 社区皮肤画廊 | `https://grok-app.com/skins/` |
+| 皮肤目录（主源） | `https://cdn.jsdelivr.net/gh/RongleCat/grok-app-skin@main/docs/catalog.json` |
+| 皮肤目录（回退 / 给 App 复制） | `https://ronglecat.github.io/grok-app-skin/catalog.json` |
+| 皮肤投稿 | `https://github.com/RongleCat/grok-app-skin/blob/main/CONTRIBUTING.md` |
 | 贡献者投稿 | 产品仓 Issues（标题含「贡献者信息」及同期投稿）；整理规则见 [contributors.md](./contributors.md) |
 | 最新下载前缀 | `https://github.com/RongleCat/grok-app/releases/latest/download/` |
 | Releases 列表 | `https://github.com/RongleCat/grok-app/releases` |

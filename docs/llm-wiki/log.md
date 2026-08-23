@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-08-23 · 社区皮肤画廊迁到 /skins/
+
+- **操作者**：agent
+- **触发**：把 github.io 社区画廊 UI 迁到官网 `/skins/`，运行时拉目录，Apply 发 `grok://`，直接推 main
+- **改动**：
+  - 新页 `skins/index.html` + `src/skins.ts` + `src/styles/gallery.css`：16:9 卡、毛玻璃工作台剪影、精选通栏、搜索、loading/空/失败态
+  - 目录主源 jsDelivr `docs/catalog.json`，回退 github.io `catalog.json`；不把 packs 打进构建
+  - Apply：`grok://skin/import?url=` + encodeURIComponent(downloadUrl)；投稿外链皮肤仓 CONTRIBUTING
+  - 首页 / 开源 / FAQ 顶栏、页脚、功能卡、皮肤区 CTA 全部改为 `/skins/`
+  - sitemap / `_redirects` / `llms.txt` / CollectionPage JSON-LD；Vite 入口加 `skins`
+  - 三语 `gallery.*` keys
+- **Wiki**：skins / content / design / theme / seo / product / sources / i18n / status / AGENTS / README / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做；目录字段变了先改 [skins.md](./skins.md)
+
+---
+
 ## 2026-08-22 · 顶栏页脚加上社区皮肤画廊
 
 - **操作者**：agent

@@ -104,12 +104,27 @@
 
 `skins.kicker`：换一种主题，工作台也换一种状态 / 換一種主題，工作臺也換一種狀態 / Change the theme. Change the room.
 
-社区画廊外链：`https://ronglecat.github.io/grok-app-skin/`。顶栏、页脚用 `nav.themes`。Apply 只在画廊打开本机预览，本站不实现 `grok://`。
+社区画廊在本站 `/skins/`。顶栏、页脚用 `nav.themes`。Apply 发 `grok://skin/import?url=`。契约见 [skins.md](./skins.md)。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
 | `skins.note` | 社区外观包，给桌面端用。在画廊里点 Apply 会打开本机预览。 | 社群外觀包，給桌面端用。在畫廊裡點 Apply 會打開本機預覽。 | Community appearance packs for the desktop app. Apply opens a local preview. |
 | `skins.cta` | 浏览社区皮肤 | 瀏覽社群主題 | Browse community themes |
+
+## gallery（`/skins/`）
+
+| key | zh | zh-TW | en |
+|-----|----|-------|-----|
+| `gallery.page.title` | 皮肤 · 开源 Grok App | 皮膚 · 開源 Grok App | Skins · Open-source Grok App |
+| `gallery.page.desc` | 社区外观包。先看见工作台上的样子，再套用到开源 Grok App。 | 社群外觀包。先看見工作臺上的樣子，再套用到開源 Grok App。 | Community appearance packs. See them on the workbench, then apply in Open-source Grok App. |
+| `gallery.kicker` | 皮肤仓库 | 皮膚倉庫 | Skin catalog |
+| `gallery.hero.title` | 先看见工作台上的样子 | 先看見工作臺上的樣子 | See the workbench wearing the skin |
+| `gallery.hero.body` | 每张卡片是 16:9 主题预览：壁纸铺满，上面叠一层开源 Grok App 的侧栏和对话。点应用只打开确认，不会改你现在的样子。 | 每張卡片是 16:9 主題預覽：壁紙鋪滿，上面疊一層開源 Grok App 的側欄和對話。點套用只打開確認，不會改你現在的樣子。 | Each card is a 16:9 theme preview: wallpaper fills the frame, with a translucent Open-source Grok App chrome on top. Apply opens a confirm dialog. It does not change your current look. |
+| `gallery.copy` | 复制目录地址 | 複製目錄地址 | Copy catalog URL |
+| `gallery.submit` | 提交一套 | 提交一套 | Submit a pack |
+| `gallery.apply` | 应用到 Grok App | 套用到 Grok App | Apply in Grok App |
+| `gallery.download` | 下载 | 下載 | Download |
+| `gallery.loading` | 正在读取皮肤目录… | 正在讀取皮膚目錄… | Loading the skin catalog… |
 
 ## opensource
 
@@ -204,4 +219,4 @@
 | `footer.docs` | 文档 | 文件 | Docs |
 | `footer.changelog` | 更新日志 | 更新紀錄 | Changelog |
 
-页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，外链社区画廊）。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
+页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。

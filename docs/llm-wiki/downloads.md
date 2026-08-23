@@ -16,7 +16,7 @@
 | 按钮怎么写 | `href` 指向 GitHub；或本站短链 **302** 到 GitHub。禁止反代、禁止把包装进 Pages |
 | 怎么永远最新 | 稳定文件名 + `/releases/latest/download/…` |
 | 版本号从哪来 | 构建时拉 `downloads.json`，不要浏览器现拉（CORS） |
-| 现网（2026-08-22 核对） | 本机构建已拉到 `downloads.json` tag `v0.2.24`。若下次 404，按钮仍走写死的稳定 URL |
+| 现网（2026-08-23 核对） | 本机构建已拉到 `downloads.json` tag `v0.2.25`。若下次 404，按钮仍走写死的稳定 URL |
 
 不要链到：
 
@@ -135,6 +135,6 @@ https://github.com/RongleCat/grok-app/releases
 - [x] Mac 两个架构都在，默认不明显导向 Intel
 - [x] Windows 主按钮是 setup.exe，绿色版是次入口
 - [x] Linux 能看到 AppImage + deb + rpm
-- [x] 若构建时拉了清单，页面版本号与 `downloads.json` 的 `tag` 一致（本机构建见 `v0.2.24`）
+- [x] 若构建时拉了清单，页面版本号与 `downloads.json` 的 `tag` 一致（本机构建见 `v0.2.25`）
 - [x] 国内访问失败时仍有 GitHub Releases 兜底
 - [x] 没有链到 `grok-desktop-latest`

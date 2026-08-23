@@ -151,4 +151,35 @@ export const en: Record<MessageKey, string> = {
   "faq.q8": "Is this a grok.com chat wrapper?",
   "faq.a8":
     "No. Grok App is for the local Grok Build CLI (the coding agent), not a wrapper around grok.com chat or a PWA. For web chat, go to grok.com.",
+  "gallery.page.title": "Skins · Open-source Grok App",
+  "gallery.page.desc":
+    "Community appearance packs. See them on the workbench, then apply in Open-source Grok App.",
+  "gallery.kicker": "Skin catalog",
+  "gallery.hero.title": "See the workbench wearing the skin",
+  "gallery.hero.body":
+    "Each card is a 16:9 theme preview: wallpaper fills the frame, with a translucent Open-source Grok App chrome on top. Apply opens a confirm dialog. It does not change your current look.",
+  "gallery.copy": "Copy catalog URL",
+  "gallery.copied": "Catalog URL copied",
+  "gallery.copyFail": "Could not copy. Select the URL instead.",
+  "gallery.submit": "Submit a pack",
+  "gallery.catalogHow":
+    "In the app: Settings → Appearance → skin sources, then add this HTTPS URL.",
+  "gallery.search": "Search packs",
+  "gallery.searchPh": "Search name, author, tags",
+  "gallery.all": "All packs",
+  "gallery.count": "{n} pack(s)",
+  "gallery.empty": "No packs match",
+  "gallery.loading": "Loading the skin catalog…",
+  "gallery.loadFail": "Could not load the catalog",
+  "gallery.retry": "Retry",
+  "gallery.apply": "Apply in Grok App",
+  "gallery.download": "Download",
+  "gallery.footer": "Community skin catalog. The desktop app is required to apply.",
+  "gallery.applyHint":
+    "Asked Grok App to open. If nothing happens, install the desktop app or use Download. Apply always asks first.",
+  "gallery.featured": "Featured",
+  "gallery.author": "by {name}",
+  "gallery.skin": "skin {id}",
+  "gallery.wallpaper": "wallpaper",
+  "gallery.video": "video wallpaper",
 };

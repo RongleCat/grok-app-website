@@ -15,6 +15,7 @@ Agent 维护本官网的**可执行知识库**。改页面、下载、部署或�
 | [theme.md](./theme.md) | 明暗主题、截图切换、设计 token |
 | [content.md](./content.md) | 站点文案：zh / zh-TW / en 全 key |
 | [contributors.md](./contributors.md) | 开源页贡献者墙：Issues 拉取、字段、当前名单 |
+| [skins.md](./skins.md) | 社区皮肤画廊 `/skins/`：目录 fetch、Apply 深链、卡片视觉 |
 | [i18n.md](./i18n.md) | 三语、系统语言探测、手动切换持久化 |
 | [downloads.md](./downloads.md) | 与 GitHub Release 的下载契约 |
 | [../plans/GOAL-official-site.md](../plans/GOAL-official-site.md) | 多 Agent 同步落地的 Goal 合同 |

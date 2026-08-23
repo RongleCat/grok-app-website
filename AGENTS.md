@@ -48,6 +48,7 @@
 | 产品定位 / 范围 / 禁止事项 | [product.md](docs/llm-wiki/product.md) |
 | 外部权威从哪来 | [sources.md](docs/llm-wiki/sources.md) |
 | 开源页贡献者墙 / Issues 投稿 | [contributors.md](docs/llm-wiki/contributors.md) |
+| 社区皮肤画廊 / 目录 fetch / Apply 深链 | [skins.md](docs/llm-wiki/skins.md) |
 
 ---
 
@@ -58,7 +59,7 @@
 - **禁止**用 Pages / Cloudflare 反代安装包字节。
 - **禁止**按钮指向 `grok-desktop-latest`、`*.app.tar.gz`、`*.sig`、`latest.json`。
 - **禁止**在浏览器里 `fetch` GitHub `downloads.json`（无 CORS）。构建时拉，或写死稳定 URL。
-- 官网是产品门面，不是桌面端功能实现。皮肤 Apply / `grok://` 深链不在本仓实现；顶栏 / 页脚外链社区画廊 `https://ronglecat.github.io/grok-app-skin/`（画廊里点 Apply 打开本机预览）。
+- 官网是产品门面，不是桌面端功能实现。社区画廊在 `/skins/`：运行时拉目录，Apply 只发 `grok://skin/import?url=` 深链。禁止 iframe github.io，禁止把 packs 打进构建。投稿外链 `https://github.com/RongleCat/grok-app-skin`。
 
 ---
 

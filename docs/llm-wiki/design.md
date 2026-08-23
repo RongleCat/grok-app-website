@@ -67,7 +67,7 @@
 
 版权年效果图写 `© 2024`。实现用当前年 **2026**（或构建时年份），不要照抄 2024。
 
-社区皮肤画廊（外链，`rel="noreferrer"`）：`https://ronglecat.github.io/grok-app-skin/`。出现在顶栏「皮肤 / 主題 / Themes」、页脚、功能卡「丰富皮肤配置」、皮肤区 CTA。本站不实现 Apply。
+社区皮肤画廊在 `/skins/`。出现在顶栏「皮肤 / 主題 / Themes」、页脚、功能卡「丰富皮肤配置」、皮肤区 CTA、开源页 hero。Apply 只在画廊页发 `grok://` 深链。详见 [skins.md](./skins.md)。
 
 ## 视觉约束
 
@@ -135,7 +135,9 @@
 
 独立开源页：`/opensource/`。含仓库地址与介绍、作者铁柱 AGI（X + 公众号 / 添加微信好友二维码弹窗）、以及 Issues 投稿的贡献者墙（当前 8 人，数据 `src/generated/contributors.json`，名单见 [contributors.md](./contributors.md)）。`oss.wall.body` 与卡片网格之间有 28px 间隔。卡片链到投稿留下的主页。明暗主题与落地页共用 token。
 
-独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」外链社区画廊。SEO 契约见 [seo.md](./seo.md)。
+独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」进 `/skins/`。SEO 契约见 [seo.md](./seo.md)。
+
+独立皮肤画廊：`/skins/`。16:9 卡 + 运行时目录 + Apply 深链。样式 `src/styles/gallery.css`，契约 [skins.md](./skins.md)。
 
 二维码弹窗：`#qr-dialog`。公众号图 `public/images/wechat/mp-search-scan.png`（产品仓 README 搜一搜图）；好友码 `public/images/wechat/community-group-qr.png`（产品仓 `assets/wechat/` 第二张个人码，按钮文案按用户要求写成添加好友）。
 
@@ -145,7 +147,7 @@
 
 允许的偏差（产品要求，不是漏做）：
 
-1. 顶栏增加文字语言切换 `简 / 繁 / EN`（在 Logo 右侧，不是圆形按钮）；主题改为月亮/太阳图标，不用效果图三圆点。胶囊导航多「问答」链到 `/faq/`、多「皮肤」外链社区画廊（效果图都没有）。
+1. 顶栏增加文字语言切换 `简 / 繁 / EN`（在 Logo 右侧，不是圆形按钮）；主题改为月亮/太阳图标，不用效果图三圆点。胶囊导航多「问答」链到 `/faq/`、多「皮肤」链到 `/skins/`（效果图都没有）。
 2. 页脚版权年 **2026**，不抄效果图 2024。
 3. 速度胶囊文案为 `pill.speed.desc`（本机直连 Grok Build），不写 1.2s。
 4. 主标题里的 **Grok** 与全站英文用非衬线，不用衬线对比字。

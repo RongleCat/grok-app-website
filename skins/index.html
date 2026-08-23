@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>常见问题 · 开源 Grok App</title>
+    <title>皮肤 · 开源 Grok App</title>
     <meta
       name="description"
-      content="开源 Grok App 的下载、安装与常见问题。也有人搜 Grok Desktop、Grok GUI。"
+      content="社区外观包。先看见工作台上的样子，再套用到开源 Grok App。"
     />
     <meta
       name="keywords"
@@ -15,20 +15,20 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#070708" />
     <meta name="color-scheme" content="dark light" />
-    <link rel="canonical" href="https://grok-app.com/faq/" />
+    <link rel="canonical" href="https://grok-app.com/skins/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/faq/" />
-    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/faq/" />
-    <link rel="alternate" hreflang="en" href="https://grok-app.com/faq/" />
-    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/faq/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/skins/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/skins/" />
+    <link rel="alternate" hreflang="en" href="https://grok-app.com/skins/" />
+    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/skins/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Grok App" />
-    <meta property="og:url" content="https://grok-app.com/faq/" />
-    <meta property="og:title" content="常见问题 · 开源 Grok App" />
+    <meta property="og:url" content="https://grok-app.com/skins/" />
+    <meta property="og:title" content="皮肤 · 开源 Grok App" />
     <meta
       property="og:description"
-      content="开源 Grok App 的下载、安装与常见问题。也有人搜 Grok Desktop、Grok GUI。"
+      content="社区外观包。先看见工作台上的样子，再套用到开源 Grok App。"
     />
     <meta property="og:image" content="https://grok-app.com/images/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -37,81 +37,41 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@cgnot996" />
     <meta name="twitter:creator" content="@cgnot996" />
-    <meta name="twitter:title" content="常见问题 · 开源 Grok App" />
+    <meta name="twitter:title" content="皮肤 · 开源 Grok App" />
     <meta
       name="twitter:description"
-      content="开源 Grok App 的下载、安装与常见问题。也有人搜 Grok Desktop、Grok GUI。"
+      content="社区外观包。先看见工作台上的样子，再套用到开源 Grok App。"
     />
     <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "url": "https://grok-app.com/faq/",
-        "mainEntity": [
+        "@graph": [
           {
-            "@type": "Question",
-            "name": "Grok App 支持哪些系统？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。"
-            }
+            "@type": "Organization",
+            "@id": "https://grok-app.com/#organization",
+            "name": "Grok App",
+            "url": "https://grok-app.com/",
+            "sameAs": [
+              "https://github.com/RongleCat/grok-app",
+              "https://x.com/cgnot996"
+            ]
           },
           {
-            "@type": "Question",
-            "name": "macOS 提示无法打开或来自身份不明的开发者怎么办？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。"
-            }
+            "@type": "WebSite",
+            "@id": "https://grok-app.com/#website",
+            "name": "Grok App",
+            "url": "https://grok-app.com/",
+            "publisher": { "@id": "https://grok-app.com/#organization" }
           },
           {
-            "@type": "Question",
-            "name": "需要先安装本机 Grok Build CLI 吗？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "需要。Grok App 是给本机 Grok Build CLI 用的桌面 GUI，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "在找 Grok Desktop 或 Grok GUI？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "产品名是 Grok App。它是社区开源的桌面工作台，给本机 Grok Build CLI 用的 GUI / 客户端。搜索 Grok Desktop、Grok Build Desktop、Grok CLI GUI、Grok 桌面、Grok 客户端的人，通常是在找这个。我们是其中一种社区工作台，仓库 RongleCat/grok-app。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "这是 Grok Build CLI 的图形界面吗？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "是。开源 Grok App 把本机 Grok Build CLI 收成桌面 GUI：多项目、多会话、权限与媒体预览，不用一直盯着终端。先在本机装好 Grok Build，再打开本应用。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "这是 grok.com 网页聊天的套壳吗？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "不是。Grok App 面向 Grok Build（编码 Agent）的本机 CLI，不是 grok.com 聊天页或 PWA 的包装。网页聊天请去 grok.com。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "安装包在哪里下载？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "源码和开源协议是什么？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "源码在 GitHub 仓库 RongleCat/grok-app，协议为 MIT。欢迎提 issue 与 PR。作者铁柱 AGI 的 X 是 @cgnot996。"
-            }
+            "@type": "CollectionPage",
+            "@id": "https://grok-app.com/skins/#webpage",
+            "url": "https://grok-app.com/skins/",
+            "name": "皮肤 · 开源 Grok App",
+            "description": "社区外观包。先看见工作台上的样子，再套用到开源 Grok App。",
+            "isPartOf": { "@id": "https://grok-app.com/#website" },
+            "about": { "@id": "https://grok-app.com/#organization" }
           }
         ]
       }
@@ -122,20 +82,20 @@
         var KEY_T = "grok-app-site.theme";
         var META = {
           zh: {
-            title: "常见问题 · 开源 Grok App",
-            desc: "开源 Grok App 的下载、安装与常见问题。也有人搜 Grok Desktop、Grok GUI。",
+            title: "皮肤 · 开源 Grok App",
+            desc: "社区外观包。先看见工作台上的样子，再套用到开源 Grok App。",
             lang: "zh-CN",
             og: "zh_CN",
           },
           "zh-TW": {
-            title: "常見問題 · 開源 Grok App",
-            desc: "開源 Grok App 的下載、安裝與常見問題。也有人搜 Grok Desktop、Grok GUI。",
+            title: "皮膚 · 開源 Grok App",
+            desc: "社群外觀包。先看見工作臺上的樣子，再套用到開源 Grok App。",
             lang: "zh-TW",
             og: "zh_TW",
           },
           en: {
-            title: "FAQ · Open-source Grok App",
-            desc: "Downloads, install, and what Grok App is. People also search Grok Desktop and Grok GUI.",
+            title: "Skins · Open-source Grok App",
+            desc: "Community appearance packs. See them on the workbench, then apply in Open-source Grok App.",
             lang: "en",
             og: "en_US",
           },
@@ -194,8 +154,12 @@
       })();
     </script>
   </head>
-  <body>
-    <a class="skip-link" href="#faq-main">Skip to content</a>
+  <body class="gallery-page">
+    <div class="gallery-space" aria-hidden="true">
+      <div class="gallery-space-glow"></div>
+      <div class="gallery-space-grid"></div>
+    </div>
+    <a class="skip-link" href="#gallery-main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <div class="header-start">
@@ -226,8 +190,8 @@
             <a href="/#features" data-i18n="nav.features">功能</a>
             <a href="/#download" data-i18n="nav.download">下载</a>
             <a href="/opensource/" data-i18n="nav.opensource">开源</a>
-            <a href="/skins/" data-i18n="nav.themes">皮肤</a>
-            <a href="/faq/" data-i18n="nav.faq" aria-current="page">问答</a>
+            <a href="/skins/" data-i18n="nav.themes" aria-current="page">皮肤</a>
+            <a href="/faq/" data-i18n="nav.faq">问答</a>
           </nav>
           <button
             type="button"
@@ -268,63 +232,73 @@
       </div>
     </header>
 
-    <main id="faq-main" class="faq-page">
-      <p class="section-kicker" data-i18n="faq.hero.kicker">常见问题</p>
-      <h1 data-i18n="faq.hero.title">下载、安装与定位</h1>
-      <p class="faq-lead" data-i18n="faq.hero.body">
-        开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是下载、安装和常见搜索。
-      </p>
-      <dl class="faq-list">
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q1">Grok App 支持哪些系统？</h2></dt>
-          <dd data-i18n="faq.a1">
-            提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。
-          </dd>
+    <main id="gallery-main" class="gallery-main">
+      <section class="gallery-hero">
+        <p class="section-kicker gallery-kicker" data-i18n="gallery.kicker">皮肤仓库</p>
+        <h1 data-i18n="gallery.hero.title">先看见工作台上的样子</h1>
+        <p class="gallery-lead" data-i18n="gallery.hero.body">
+          每张卡片是 16:9 主题预览：壁纸铺满，上面叠一层开源 Grok App 的侧栏和对话。点应用只打开确认，不会改你现在的样子。
+        </p>
+        <div class="gallery-actions">
+          <button type="button" class="g-btn g-btn-accent" id="gallery-copy" data-i18n="gallery.copy">
+            复制目录地址
+          </button>
+          <a
+            class="g-btn g-btn-ghost"
+            href="https://github.com/RongleCat/grok-app-skin/blob/main/CONTRIBUTING.md"
+            rel="noopener noreferrer"
+            data-i18n="gallery.submit"
+          >提交一套</a>
         </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q2">macOS 提示无法打开或来自身份不明的开发者怎么办？</h2></dt>
-          <dd data-i18n="faq.a2">
-            这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。
-          </dd>
+        <p class="gallery-hint">
+          <span data-i18n="gallery.catalogHow">在 App 里：设置 → 外观 → 皮肤源，加上这条 HTTPS。</span>
+          <code id="gallery-catalog-url">https://ronglecat.github.io/grok-app-skin/catalog.json</code>
+        </p>
+      </section>
+
+      <section class="gallery-board" aria-live="polite">
+        <div class="gallery-toolbar">
+          <h2 data-i18n="gallery.all">全部皮肤</h2>
+          <div class="gallery-tools">
+            <p class="gallery-count" id="gallery-count"></p>
+            <label class="gallery-search">
+              <span class="visually-hidden" data-i18n="gallery.search">搜索皮肤</span>
+              <input
+                id="gallery-filter"
+                type="search"
+                data-i18n-placeholder="gallery.searchPh"
+                placeholder="搜索名字、作者、标签"
+              />
+            </label>
+          </div>
         </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q3">需要先安装本机 Grok Build CLI 吗？</h2></dt>
-          <dd data-i18n="faq.a3">
-            需要。Grok App 是给本机 Grok Build CLI 用的桌面 GUI，不会替代 CLI 本身。请先在本机装好 Grok Build，再使用本应用。
-          </dd>
-        </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q4">在找 Grok Desktop 或 Grok GUI？</h2></dt>
-          <dd data-i18n="faq.a4">
-            产品名是 Grok App。它是社区开源的桌面工作台，给本机 Grok Build CLI 用的 GUI / 客户端。搜索 Grok Desktop、Grok Build Desktop、Grok CLI GUI、Grok 桌面、Grok 客户端的人，通常是在找这个。我们是其中一种社区工作台，仓库 RongleCat/grok-app。
-          </dd>
-        </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q7">这是 Grok Build CLI 的图形界面吗？</h2></dt>
-          <dd data-i18n="faq.a7">
-            是。开源 Grok App 把本机 Grok Build CLI 收成桌面 GUI：多项目、多会话、权限与媒体预览，不用一直盯着终端。先在本机装好 Grok Build，再打开本应用。
-          </dd>
-        </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q8">这是 grok.com 网页聊天的套壳吗？</h2></dt>
-          <dd data-i18n="faq.a8">
-            不是。Grok App 面向 Grok Build（编码 Agent）的本机 CLI，不是 grok.com 聊天页或 PWA 的包装。网页聊天请去 grok.com。
-          </dd>
-        </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q5">安装包在哪里下载？</h2></dt>
-          <dd data-i18n="faq.a5">
-            安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。
-          </dd>
-        </div>
-        <div class="faq-item">
-          <dt><h2 data-i18n="faq.q6">源码和开源协议是什么？</h2></dt>
-          <dd data-i18n="faq.a6">
-            源码在 GitHub 仓库 RongleCat/grok-app，协议为 MIT。欢迎提 issue 与 PR。作者铁柱 AGI 的 X 是 @cgnot996。
-          </dd>
-        </div>
-      </dl>
+        <p class="gallery-status" id="gallery-status" data-i18n="gallery.loading">正在读取皮肤目录…</p>
+        <button
+          type="button"
+          class="g-btn g-btn-ghost g-btn-tiny gallery-retry"
+          id="gallery-retry"
+          hidden
+          data-i18n="gallery.retry"
+        >
+          重试
+        </button>
+        <ul class="gallery-grid" id="gallery-grid"></ul>
+      </section>
     </main>
+
+    <p class="gallery-note">
+      <span data-i18n="gallery.footer">社区皮肤仓库。需要桌面版才能唤起套用。</span>
+      <span class="footer-sep">·</span>
+      <a href="/">开源 Grok App</a>
+      <span class="footer-sep">·</span>
+      <a href="https://github.com/RongleCat/grok-app-skin" rel="noopener noreferrer">GitHub</a>
+      <span class="footer-sep">·</span>
+      <a
+        href="https://github.com/RongleCat/grok-app-skin/blob/main/CONTRIBUTING.md"
+        rel="noopener noreferrer"
+        data-i18n="gallery.submit"
+      >提交一套</a>
+    </p>
 
     <footer class="site-footer">
       <p>
@@ -348,6 +322,7 @@
         开源 Grok App 是本机 Grok Build CLI 的桌面工作台。
       </p>
     </footer>
+    <p class="gallery-toast" id="gallery-toast" hidden></p>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

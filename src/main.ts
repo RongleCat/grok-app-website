@@ -41,7 +41,9 @@ import "./styles/footer.css";
 import "./styles/responsive.css";
 import "./styles/opensource.css";
 import "./styles/faq.css";
+import "./styles/gallery.css";
 import contributors from "./generated/contributors.json";
+import { bindGallery, syncGalleryLocale } from "./skins";
 
 const HTML_KEYS = new Set(["hero.title", "dl.title"]);
 
@@ -55,9 +57,21 @@ function applyI18n(locale: Locale): void {
   document.documentElement.setAttribute("data-locale", locale);
   const kind = pageKind(location.pathname);
   const titleKey =
-    kind === "oss" ? "oss.page.title" : kind === "faq" ? "faq.page.title" : "meta.title";
+    kind === "oss"
+      ? "oss.page.title"
+      : kind === "faq"
+        ? "faq.page.title"
+        : kind === "skins"
+          ? "gallery.page.title"
+          : "meta.title";
   const descKey =
-    kind === "oss" ? "oss.page.desc" : kind === "faq" ? "faq.page.desc" : "meta.description";
+    kind === "oss"
+      ? "oss.page.desc"
+      : kind === "faq"
+        ? "faq.page.desc"
+        : kind === "skins"
+          ? "gallery.page.desc"
+          : "meta.description";
   document.title = t(table, titleKey);
 
   const desc = t(table, descKey);
@@ -91,8 +105,14 @@ function applyI18n(locale: Locale): void {
     if (key) el.setAttribute("alt", t(table, key));
   }
 
+  for (const el of document.querySelectorAll<HTMLElement>("[data-i18n-placeholder]")) {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (key) el.setAttribute("placeholder", t(table, key));
+  }
+
   syncLocaleControls(locale);
   syncOpenQrDialog();
+  syncGalleryLocale(locale);
 }
 
 function readVars(el: HTMLElement): Record<string, string> | undefined {
@@ -105,9 +125,10 @@ function readVars(el: HTMLElement): Record<string, string> | undefined {
   }
 }
 
-function pageKind(pathname: string): "home" | "oss" | "faq" {
+function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" {
   if (pathname.includes("opensource")) return "oss";
   if (pathname.includes("faq")) return "faq";
+  if (pathname.includes("skins")) return "skins";
   return "home";
 }
 
@@ -326,6 +347,7 @@ function boot(): void {
   bindFooterLinks();
   bindContributors();
   bindQrDialog();
+  bindGallery(currentLocale());
   document.documentElement.setAttribute("data-ready", "true");
 }
 

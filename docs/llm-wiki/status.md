@@ -1,10 +1,10 @@
 # 当前状态
 
-最后更新：2026-08-22。本页必须与仓库事实一致。
+最后更新：2026-08-23。本页必须与仓库事实一致。
 
 ## 一句话
 
-官网已上线。推 `main` 走 GitHub Actions 构建并部署 Cloudflare Pages。搜索意图覆盖 Grok Desktop / Grok GUI / 桌面客户端，品牌短称「开源 Grok App」。站点不再写非官方免责声明。SEO/GEO 基础（www→apex 301、sitemap、`llms.txt`、JSON-LD、`/faq/`）已在。顶栏 / 页脚 / 皮肤区外链社区画廊 `https://ronglecat.github.io/grok-app-skin/`。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
+官网已上线。推 `main` 走 GitHub Actions 构建并部署 Cloudflare Pages。搜索意图覆盖 Grok Desktop / Grok GUI / 桌面客户端，品牌短称「开源 Grok App」。站点不再写非官方免责声明。SEO/GEO 基础（www→apex 301、sitemap、`llms.txt`、JSON-LD、`/faq/`）已在。社区皮肤画廊在 `/skins/`，运行时拉目录，Apply 发 `grok://skin/import?url=`。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
 
 ## Goal 航道表
 
@@ -30,27 +30,27 @@
 
 | 项 | 状态 | 证据 |
 |----|------|------|
-| 本仓代码 | 已落地单页 | `index.html` + `src/` + `public/` |
+| 本仓代码 | 已落地多页 | `index.html` + `opensource/` + `faq/` + `skins/` + `src/` + `public/` |
 | 栈 | Vite + TypeScript + 原生 CSS | 无 React、无 Tailwind |
 | llm-wiki | 已建 | `docs/llm-wiki/` |
 | AGENTS.md 回写规则 | 已写 | 仓库根 `AGENTS.md` §0 |
 | 效果图入库 | 已收 | `docs/llm-wiki/assets/` 三张 PNG |
 | 产品仓下载契约 | 已吸收到消费侧 | [downloads.md](./downloads.md) |
-| `downloads.json` 现网 | 构建时可拉到 `v0.2.24`；失败回退稳定 URL | `src/generated/downloads-meta.json` + `scripts/fetch-downloads.mjs` |
+| `downloads.json` 现网 | 构建时可拉到 `v0.2.25`；失败回退稳定 URL | `src/generated/downloads-meta.json` + `scripts/fetch-downloads.mjs` |
 | 域名 `grok-app.com` | 已绑 Pages，HTTPS 200 | Zone `2618ef7b6b819900070711e42a3c9db8` |
 | DNS 记录 | 2 条 CNAME（apex + www → `grok-app.pages.dev`，橙色云） | 2026-08-17 API |
 | Pages 正式项目 | `grok-app` | https://grok-app.pages.dev |
 | GitHub Actions 发版 | 推 `main` / `workflow_dispatch` 构建并部署 Pages | `.github/workflows/deploy-pages.yml` |
 | CF 部署权限 | 仓库 Secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`；聊天令牌视为已暴露 | 见 [deploy.md](./deploy.md)；令牌不入库 |
 | 站点明暗主题 | 已实现 | 月亮/太阳图标；Hero/皮肤主图换 `workbench-*.webp` |
-| 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/`；皮肤外链社区画廊 |
-| 社区皮肤画廊 | 已外链 | 顶栏 / 页脚 / 功能卡 / 皮肤区 / 开源页 → `https://ronglecat.github.io/grok-app-skin/`（`rel="noreferrer"`）；本站不实现 Apply |
+| 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/`；皮肤进 `/skins/` |
+| 社区皮肤画廊 | 已落地 `/skins/` | `skins/index.html` + `src/skins.ts` + `src/styles/gallery.css`；运行时 jsDelivr → github.io；Apply = `grok://skin/import?url=`；投稿外链 CONTRIBUTING |
 | 开源页 | 已实现 | `opensource/index.html`；墙 8 人见 [contributors.md](./contributors.md)；投稿 Issues 已关；公众号 / 微信好友点开 `#qr-dialog` |
 | FAQ 页 | 已实现 | `faq/index.html`；8 问三语（含 Desktop / GUI / 套壳）+ `FAQPage` JSON-LD；顶栏/页脚有链 |
-| www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex |
-| sitemap | 已实现 | `public/sitemap.xml` 含 `/` `/opensource/` `/faq/` + `lastmod`（内容日） |
-| llms.txt | 已实现 | `public/llms.txt`；Also known as + 产品名 Grok App；MIT、Releases、铁柱AGI |
-| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite；`alternateName`；`softwareVersion` 跟 `downloads-meta.json`；短 title；`twitter:site` `@cgnot996` |
+| www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex；`/skins` 301 → `/skins/` |
+| sitemap | 已实现 | `public/sitemap.xml` 含 `/` `/opensource/` `/faq/` `/skins/` + `lastmod` |
+| llms.txt | 已实现 | `public/llms.txt`；Also known as + 产品名 Grok App；画廊 URL 为本站 `/skins/` |
+| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite；皮肤页 CollectionPage；`alternateName`；`softwareVersion` 跟 `downloads-meta.json`；短 title；`twitter:site` `@cgnot996` |
 | 站点语气 | 短称开源 Grok App | 无「非官方 / unofficial」；[product.md](./product.md) [content.md](./content.md) [seo.md](./seo.md) |
 | SEO 契约 | 已写 | [seo.md](./seo.md) |
 | 三语 i18n | 已实现 | [i18n.md](./i18n.md) [content.md](./content.md)；键 `grok-app-site.locale` |
@@ -62,9 +62,9 @@
 
 ## 阻塞
 
-1. 稳定下载别名已能拉到 `downloads.json`（本机构建见 `v0.2.24`）。若下次 404，按钮仍走写死的 `latest/download` 稳定名 + Releases 兜底。
+1. 稳定下载别名已能拉到 `downloads.json`（本机构建见 `v0.2.25`）。若下次 404，按钮仍走写死的 `latest/download` 稳定名 + Releases 兜底。
 2. 本轮聊天里出现过 CF User Token，视为已暴露；下次发版前在 Dashboard 轮换，只把新值放进环境变量。
 
 ## 下一步（给下一任 Agent）
 
-有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。本站继续只外链皮肤画廊，不要在本仓实现 `grok://` Apply。
+有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。皮肤目录或卡片字段变了，先对 [skins.md](./skins.md) 再改 `src/skins.ts`。
