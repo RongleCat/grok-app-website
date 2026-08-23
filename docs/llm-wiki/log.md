@@ -4,6 +4,17 @@
 
 ---
 
+## 2026-08-23 · 去掉皮肤卡 HUD 角标
+
+- **操作者**：agent
+- **触发**：去掉卡片左上 / 右下直角装饰线。直接推 main
+- **改动**：删除 `src/styles/gallery.css` 里 `.g-card-stage::before` / `::after` 及 hover/focus 加亮规则；`src/skins.test.ts` 断言不再出现
+- **Wiki**：skins / status / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-23 · 皮肤卡 chrome 铺满并跟 App wallpaper scrim 公式
 
 - **操作者**：agent

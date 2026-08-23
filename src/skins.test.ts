@@ -132,6 +132,8 @@ describe("gallery density CSS", () => {
     expect(galleryCss).not.toContain("--chrome-scrim");
     expect(galleryCss).toMatch(/\.g-card-dock\s*\{[^}]*z-index:\s*4/);
     expect(galleryCss).toMatch(/\.g-chrome\s*\{[^}]*z-index:\s*2/);
+    expect(galleryCss).not.toContain(".g-card-stage::before");
+    expect(galleryCss).not.toContain(".g-card-stage::after");
   });
 });
 

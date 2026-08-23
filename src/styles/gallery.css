@@ -285,32 +285,6 @@ html[data-theme="light"] .gallery-space-grid {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.g-card-stage::before,
-.g-card-stage::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  z-index: 5;
-  pointer-events: none;
-  border: 1.5px solid color-mix(in srgb, var(--g-accent) 80%, white);
-  opacity: 0.55;
-}
-
-.g-card-stage::before {
-  top: 10px;
-  left: 10px;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.g-card-stage::after {
-  right: 10px;
-  bottom: 10px;
-  border-left: 0;
-  border-top: 0;
-}
-
 .g-card-wall {
   position: absolute;
   inset: 0;
@@ -616,13 +590,6 @@ html[data-theme="light"] .gallery-space-grid {
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.38),
     0 0 0 1px color-mix(in srgb, var(--g-accent) 35%, transparent);
-}
-
-.g-card:hover .g-card-stage::before,
-.g-card:hover .g-card-stage::after,
-.g-card:focus-within .g-card-stage::before,
-.g-card:focus-within .g-card-stage::after {
-  opacity: 1;
 }
 
 @media (hover: hover) {

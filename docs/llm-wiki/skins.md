@@ -1,6 +1,6 @@
 # 社区皮肤画廊
 
-独立页：`/skins/`（`skins/index.html`）。视觉移植自 `ronglecat.github.io/grok-app-skin`：暗色优先、细网格底、等大 16:9 卡（壁纸铺满 + 跟站点主题走的毛玻璃工作台剪影）。默认态只有壁纸和剪影；名字 / 精选 chip / 应用 / 下载叠在铺满整卡的 `.g-card-dock` 上，桌面 hover 或键盘 `:focus-within` 才出现。精选只靠一枚 chip，不占整行。不要 iframe github.io。
+独立页：`/skins/`（`skins/index.html`）。视觉移植自 `ronglecat.github.io/grok-app-skin`：暗色优先、细网格底、等大 16:9 卡（壁纸铺满 + 跟站点主题走的毛玻璃工作台剪影）。默认态只有壁纸和剪影，**没有** HUD 直角角标（不要 `.g-card-stage::before` / `::after` 装饰线）。名字 / 精选 chip / 应用 / 下载叠在铺满整卡的 `.g-card-dock` 上，桌面 hover 或键盘 `:focus-within` 才出现。精选只靠一枚 chip，不占整行。不要 iframe github.io。
 
 ## 卡片网格
 
