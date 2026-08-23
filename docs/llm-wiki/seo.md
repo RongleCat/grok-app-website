@@ -88,7 +88,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - Also known as：Grok Desktop、Grok GUI、Grok Build desktop client 等
 - 不是什么：不是 grok.com 聊天套壳或 PWA；不能替代本机 Grok Build CLI
 - 平台、MIT、规范站 `https://grok-app.com/`、产品仓、Releases、作者 铁柱AGI `https://x.com/cgnot996`
-- 社区皮肤画廊：`https://grok-app.com/skins/`（Apply 发 `grok://skin/import`）
+- 社区皮肤画廊：`https://grok-app.com/skins/`（桌面 Apply 发 `grok://skin/import`；手机 toast）
 - 5–8 条真实能力，不编评分
 
 禁止其它 Grok 产品名、禁止「官方桌面端」「Grok 桌面版」、禁止写 unofficial。

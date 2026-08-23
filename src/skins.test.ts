@@ -1,13 +1,27 @@
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it, vi } from "vitest";
+import { en } from "./i18n/en";
+import { zh } from "./i18n/zh";
+import { zhTW } from "./i18n/zh-TW";
 import {
   applyHref,
   CATALOG_FALLBACK,
   CATALOG_PRIMARY,
   fetchCatalog,
+  MOBILE_APPLY_QUERY,
+  mobileApplyBlocked,
   packMatches,
   parseCatalog,
+  shouldBlockMobileApply,
   wallPosition,
 } from "./skins";
+
+const galleryCss = readFileSync(
+  join(dirname(fileURLToPath(import.meta.url)), "styles/gallery.css"),
+  "utf8",
+);
 
 const sample = {
   schemaVersion: 1,
@@ -32,6 +46,48 @@ describe("applyHref", () => {
   it("builds a grok skin import deep link from the pack download URL", () => {
     const url = "https://ronglecat.github.io/grok-app-skin/packs/white-chair-meadow.grokskin";
     expect(applyHref(url)).toBe(`grok://skin/import?url=${encodeURIComponent(url)}`);
+  });
+});
+
+describe("mobile apply gate", () => {
+  it("blocks only when the media query matches", () => {
+    expect(shouldBlockMobileApply(true)).toBe(true);
+    expect(shouldBlockMobileApply(false)).toBe(false);
+  });
+
+  it("reads the documented matchMedia query", () => {
+    const matchMedia = vi.fn(() => ({ matches: true }));
+    expect(mobileApplyBlocked(matchMedia)).toBe(true);
+    expect(matchMedia).toHaveBeenCalledWith(MOBILE_APPLY_QUERY);
+    expect(MOBILE_APPLY_QUERY).toContain("max-width: 768px");
+    expect(MOBILE_APPLY_QUERY).toContain("(hover: none) and (pointer: coarse)");
+  });
+
+  it("does not block when matchMedia is missing or throws", () => {
+    expect(mobileApplyBlocked(undefined)).toBe(false);
+    expect(
+      mobileApplyBlocked(() => {
+        throw new Error("no matchMedia");
+      }),
+    ).toBe(false);
+  });
+
+  it("ships three-locale mobile toast copy", () => {
+    expect(zh["gallery.applyMobile"]).toBe("暂不支持手机端，请在电脑端尝试应用皮肤。");
+    expect(zhTW["gallery.applyMobile"]).toBe("暫不支援手機端，請在電腦端嘗試套用皮膚。");
+    expect(en["gallery.applyMobile"]).toBe(
+      "Mobile isn’t supported yet — try applying the skin on desktop.",
+    );
+  });
+});
+
+describe("gallery density CSS", () => {
+  it("keeps equal-size cards and a 2-col mobile floor", () => {
+    expect(galleryCss).toContain("repeat(auto-fill, minmax(min(100%, 240px), 1fr))");
+    expect(galleryCss).toContain("repeat(2, minmax(0, 1fr))");
+    expect(galleryCss).not.toMatch(/\.g-card-featured\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/);
+    expect(galleryCss).toContain("--chrome-bg:");
+    expect(galleryCss).toContain("html[data-theme=\"light\"] .gallery-page");
   });
 });
 

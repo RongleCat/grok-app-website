@@ -170,6 +170,7 @@ export const zhTW: Record<MessageKey, string> = {
   "gallery.footer": "社群皮膚倉庫。需要桌面版才能喚起套用。",
   "gallery.applyHint":
     "已請求打開 Grok App。若沒有反應，確認已安裝桌面版，或改用下載。套用前會先預覽。",
+  "gallery.applyMobile": "暫不支援手機端，請在電腦端嘗試套用皮膚。",
   "gallery.featured": "精選",
   "gallery.author": "作者 {name}",
   "gallery.skin": "皮膚 {id}",

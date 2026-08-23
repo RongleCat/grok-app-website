@@ -46,6 +46,29 @@ export function applyHref(downloadUrl: string): string {
   return `grok://skin/import?url=${encodeURIComponent(downloadUrl)}`;
 }
 
+/** Mobile / coarse-pointer heuristic: do not fire grok:// from phones. */
+export const MOBILE_APPLY_QUERY =
+  "(max-width: 768px), (hover: none) and (pointer: coarse)";
+
+export function shouldBlockMobileApply(matches: boolean): boolean {
+  return matches === true;
+}
+
+export function mobileApplyBlocked(
+  matchMediaFn?: (query: string) => { matches: boolean },
+): boolean {
+  const query = matchMediaFn
+    ?? (typeof window !== "undefined" && typeof window.matchMedia === "function"
+      ? (q: string) => window.matchMedia(q)
+      : undefined);
+  if (!query) return false;
+  try {
+    return shouldBlockMobileApply(query(MOBILE_APPLY_QUERY).matches);
+  } catch {
+    return false;
+  }
+}
+
 export function wallPosition(pack: Pick<SkinPack, "focus">): string {
   const focus = pack.focus;
   if (focus && Number.isFinite(focus.cx) && Number.isFinite(focus.cy)) {
@@ -210,6 +233,7 @@ function chromeEl(): HTMLElement {
     '<div class="g-chrome-chat">' +
     '<div class="g-bubble g-bubble-user"><span></span></div>' +
     '<div class="g-bubble g-bubble-ai"><b></b><b></b><b></b></div>' +
+    '<div class="g-bubble g-bubble-ai g-bubble-ai-short"><b></b></div>' +
     "</div>" +
     '<div class="g-chrome-composer"><span class="g-chrome-plus"></span><span class="g-chrome-field"></span><span class="g-chrome-send"></span></div>' +
     "</div>";
@@ -271,7 +295,12 @@ function cardEl(pack: SkinPack): HTMLElement {
   apply.className = "g-btn g-btn-accent g-btn-tiny";
   apply.href = applyHref(pack.downloadUrl);
   apply.textContent = t(messages, "gallery.apply");
-  apply.addEventListener("click", () => {
+  apply.addEventListener("click", (event) => {
+    if (mobileApplyBlocked()) {
+      event.preventDefault();
+      toast(t(messages, "gallery.applyMobile"));
+      return;
+    }
     toast(t(messages, "gallery.applyHint"));
   });
 

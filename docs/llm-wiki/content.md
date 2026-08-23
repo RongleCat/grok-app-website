@@ -104,7 +104,7 @@
 
 `skins.kicker`：换一种主题，工作台也换一种状态 / 換一種主題，工作臺也換一種狀態 / Change the theme. Change the room.
 
-社区画廊在本站 `/skins/`。顶栏、页脚用 `nav.themes`。Apply 发 `grok://skin/import?url=`。契约见 [skins.md](./skins.md)。
+社区画廊在本站 `/skins/`。顶栏、页脚用 `nav.themes`。桌面 Apply 发 `grok://skin/import?url=`；手机 / 窄屏 toast `gallery.applyMobile`，不发深链。契约见 [skins.md](./skins.md)。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
@@ -123,6 +123,7 @@
 | `gallery.copy` | 复制目录地址 | 複製目錄地址 | Copy catalog URL |
 | `gallery.submit` | 提交一套 | 提交一套 | Submit a pack |
 | `gallery.apply` | 应用到 Grok App | 套用到 Grok App | Apply in Grok App |
+| `gallery.applyMobile` | 暂不支持手机端，请在电脑端尝试应用皮肤。 | 暫不支援手機端，請在電腦端嘗試套用皮膚。 | Mobile isn’t supported yet — try applying the skin on desktop. |
 | `gallery.download` | 下载 | 下載 | Download |
 | `gallery.loading` | 正在读取皮肤目录… | 正在讀取皮膚目錄… | Loading the skin catalog… |
 

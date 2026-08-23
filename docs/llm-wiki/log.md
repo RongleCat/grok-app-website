@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-08-23 · 皮肤画廊加密网格、主题剪影、手机 Apply 闸门
+
+- **操作者**：agent
+- **触发**：`/skins/` 精选卡通栏 + `minmax(420px)` 太空；剪影永远暗玻璃；手机 Apply 不该发 `grok://`。直接推 main
+- **改动**：
+  - `src/styles/gallery.css`：等大卡，`auto-fill minmax(240px)`；宽 4 列 / 中 3 列 / ≤640px 最少 2 列；去掉 featured `grid-column: 1 / -1`；收紧内容宽与 Hero padding
+  - 剪影 `--chrome-*` 跟 `html[data-theme]`：暗壳 `#0d0d0d` / 亮壳 `#f4f4f6`，侧栏与主区霜玻璃、用户泡、App 蓝强调；Dock CTA 仍用站点 lime
+  - `src/skins.ts`：`shouldBlockMobileApply` / `mobileApplyBlocked`；手机 toast `gallery.applyMobile`，不发深链；桌面仍 `grok://skin/import?url=`
+  - 三语 `gallery.applyMobile`；`src/skins.test.ts` 覆盖闸门与网格 CSS
+- **Wiki**：skins / theme / content / product / design / seo / status / AGENTS / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-23 · 社区皮肤画廊迁到 /skins/
 
 - **操作者**：agent

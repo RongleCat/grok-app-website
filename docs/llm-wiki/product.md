@@ -27,7 +27,7 @@
 | 工作台明暗截图展示；`/skins/` 运行时画廊 + Apply 深链 | 皮肤编辑器、`.grokskin` 解析、桌面端逻辑 |
 | Cloudflare Pages 静态站 | 应用内自动更新（`grok-desktop-latest`） |
 
-官网顶栏、页脚、功能卡与皮肤区链到 `/skins/`。画廊运行时拉目录；Apply 发 `grok://skin/import?url=`。投稿外链皮肤仓 CONTRIBUTING。产品仓 `OFFICIAL_SKIN_CATALOG_URL` 以产品仓为准。契约见 [skins.md](./skins.md)。
+官网顶栏、页脚、功能卡与皮肤区链到 `/skins/`。画廊运行时拉目录；桌面 Apply 发 `grok://skin/import?url=`，手机 / 窄屏只 toast、不发深链。投稿外链皮肤仓 CONTRIBUTING。产品仓 `OFFICIAL_SKIN_CATALOG_URL` 以产品仓为准。契约见 [skins.md](./skins.md)。
 
 ## 一句话定位（站点主标题用这个）
 

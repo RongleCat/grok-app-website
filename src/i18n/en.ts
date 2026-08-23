@@ -177,6 +177,8 @@ export const en: Record<MessageKey, string> = {
   "gallery.footer": "Community skin catalog. The desktop app is required to apply.",
   "gallery.applyHint":
     "Asked Grok App to open. If nothing happens, install the desktop app or use Download. Apply always asks first.",
+  "gallery.applyMobile":
+    "Mobile isn’t supported yet — try applying the skin on desktop.",
   "gallery.featured": "Featured",
   "gallery.author": "by {name}",
   "gallery.skin": "skin {id}",

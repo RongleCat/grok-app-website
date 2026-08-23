@@ -168,6 +168,7 @@ export const zh = {
   "gallery.footer": "社区皮肤仓库。需要桌面版才能唤起套用。",
   "gallery.applyHint":
     "已请求打开 Grok App。若没有反应，确认已安装桌面版，或改用下载。套用前会先预览。",
+  "gallery.applyMobile": "暂不支持手机端，请在电脑端尝试应用皮肤。",
   "gallery.featured": "精选",
   "gallery.author": "作者 {name}",
   "gallery.skin": "皮肤 {id}",
