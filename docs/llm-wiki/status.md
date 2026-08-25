@@ -1,6 +1,6 @@
 # 当前状态
 
-最后更新：2026-08-23。本页必须与仓库事实一致。
+最后更新：2026-08-25。本页必须与仓库事实一致。
 
 ## 一句话
 
@@ -36,7 +36,7 @@
 | AGENTS.md 回写规则 | 已写 | 仓库根 `AGENTS.md` §0 |
 | 效果图入库 | 已收 | `docs/llm-wiki/assets/` 三张 PNG |
 | 产品仓下载契约 | 已吸收到消费侧 | [downloads.md](./downloads.md) |
-| `downloads.json` 现网 | 构建时可拉到 `v0.2.25`；失败回退稳定 URL | `src/generated/downloads-meta.json` + `scripts/fetch-downloads.mjs` |
+| `downloads.json` 现网 | 构建时可拉到 `v0.2.26`；失败回退稳定 URL | `src/generated/downloads-meta.json` + `scripts/fetch-downloads.mjs` |
 | 域名 `grok-app.com` | 已绑 Pages，HTTPS 200 | Zone `2618ef7b6b819900070711e42a3c9db8` |
 | DNS 记录 | 2 条 CNAME（apex + www → `grok-app.pages.dev`，橙色云） | 2026-08-17 API |
 | Pages 正式项目 | `grok-app` | https://grok-app.pages.dev |
@@ -44,13 +44,14 @@
 | CF 部署权限 | 仓库 Secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`；聊天令牌视为已暴露 | 见 [deploy.md](./deploy.md)；令牌不入库 |
 | 站点明暗主题 | 已实现 | 月亮/太阳图标；Hero/皮肤主图换 `workbench-*.webp` |
 | 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/`；皮肤进 `/skins/` |
+| 页脚友情链接 | 已落地 | 四页页脚链 `https://usegrokbot.com/`，文案 `footer.grokbot` = Grok Bot；`rel="noopener noreferrer"`，无 `nofollow`；不进正文 / `llms.txt` |
 | 社区皮肤画廊 | 已落地 `/skins/` | 等大网格（宽 4 / 中 3 / ≤640 最少 2）；精选不跨列；无 HUD 角标；`.g-chrome` `inset: 0` 铺满卡；`pack.scrim` → `wallpaperFromScrim` 写 `--wallpaper-*`（侧栏 mix 58%、主区 70%、blur 22px @100）；左重 105deg scrim；桌面 hover / 键盘才露出铺满整卡的 dock（精选一枚 chip + 短 Apply）；`hover: none` 露出底部紧凑条且不缩小 chrome；桌面 `grok://skin/import?url=`，手机 `gallery.applyMobile` toast；投稿外链 CONTRIBUTING |
 | 开源页 | 已实现 | `opensource/index.html`；墙 8 人见 [contributors.md](./contributors.md)；投稿 Issues 已关；公众号 / 微信好友点开 `#qr-dialog` |
 | FAQ 页 | 已实现 | `faq/index.html`；8 问三语（含 Desktop / GUI / 套壳）+ `FAQPage` JSON-LD；顶栏/页脚有链 |
 | www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex；`/skins` 301 → `/skins/` |
-| sitemap | 已实现 | `public/sitemap.xml` 含 `/` `/opensource/` `/faq/` `/skins/` + `lastmod` |
+| sitemap | 已实现 | `public/sitemap.xml` 含 `/` `/opensource/` `/faq/` `/skins/` + `lastmod` 2026-08-25 |
 | llms.txt | 已实现 | `public/llms.txt`；Also known as + 产品名 Grok App；画廊 URL 为本站 `/skins/` |
-| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite；皮肤页 CollectionPage；`alternateName`；`softwareVersion` 跟 `downloads-meta.json`；短 title；`twitter:site` `@cgnot996` |
+| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite；皮肤页 CollectionPage；`alternateName`；`softwareVersion` 跟 `downloads-meta.json`（`v0.2.26`）；短 title；`twitter:site` `@cgnot996` |
 | 站点语气 | 短称开源 Grok App | 无「非官方 / unofficial」；[product.md](./product.md) [content.md](./content.md) [seo.md](./seo.md) |
 | SEO 契约 | 已写 | [seo.md](./seo.md) |
 | 三语 i18n | 已实现 | [i18n.md](./i18n.md) [content.md](./content.md)；键 `grok-app-site.locale` |
@@ -62,7 +63,7 @@
 
 ## 阻塞
 
-1. 稳定下载别名已能拉到 `downloads.json`（本机构建见 `v0.2.25`）。若下次 404，按钮仍走写死的 `latest/download` 稳定名 + Releases 兜底。
+1. 稳定下载别名已能拉到 `downloads.json`（本机构建见 `v0.2.26`）。若下次 404，按钮仍走写死的 `latest/download` 稳定名 + Releases 兜底。
 2. 本轮聊天里出现过 CF User Token，视为已暴露；下次发版前在 Dashboard 轮换，只把新值放进环境变量。
 
 ## 下一步（给下一任 Agent）

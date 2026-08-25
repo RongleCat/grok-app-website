@@ -231,6 +231,8 @@ function bindNav(): void {
   });
 }
 
+const GROK_BOT_URL = "https://usegrokbot.com/";
+
 function bindFooterLinks(): void {
   const map: Record<string, string> = {
     license: LICENSE_URL,
@@ -238,6 +240,7 @@ function bindFooterLinks(): void {
     terms: README_URL,
     docs: README_ZH_URL,
     changelog: CHANGELOG_URL,
+    grokbot: GROK_BOT_URL,
   };
   for (const [key, href] of Object.entries(map)) {
     document.querySelectorAll<HTMLAnchorElement>(`[data-footer="${key}"]`).forEach((a) => {

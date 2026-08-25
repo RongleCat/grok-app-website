@@ -111,6 +111,7 @@ export const zh = {
   "footer.terms": "使用条款",
   "footer.docs": "文档",
   "footer.changelog": "更新日志",
+  "footer.grokbot": "Grok Bot",
   "menu.open": "打开菜单",
   "menu.close": "关闭菜单",
   "faq.page.title": "常见问题 · 开源 Grok App",

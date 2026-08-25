@@ -21,7 +21,7 @@
 | 5 | `skins` | 胶囊标题「换一种主题，工作台也换一种状态」+ 四枚皮肤预览（当前选中带勾）+ 社区画廊 CTA |
 | 6 | `opensource` | 落地页只留短横条，链到独立页 `/opensource/` |
 | 7 | `download` `#download` | 收尾标题 + macOS / Windows / Linux 三主按钮 |
-| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、问答、皮肤 |
+| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、问答、皮肤、Grok Bot 友情链接 |
 
 效果图导航第四项「开源」滚到 `opensource` 或外链 GitHub。不要做成独立长页。
 
@@ -64,6 +64,9 @@
 | 使用条款 | 尚未实现；可先链 README 说明或占内部路由并在 status 标明 |
 | 文档 | 产品仓 README_ZH |
 | 更新日志 | 产品仓 CHANGELOG 或 Releases |
+| 问答 | 本站 `/faq/` |
+| 皮肤 | 本站 `/skins/` |
+| Grok Bot | `https://usegrokbot.com/`（友情链接，只在页脚；`rel="noopener noreferrer"`，不加 `nofollow`） |
 
 版权年效果图写 `© 2024`。实现用当前年 **2026**（或构建时年份），不要照抄 2024。
 

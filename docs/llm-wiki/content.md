@@ -219,5 +219,6 @@
 | `footer.terms` | 使用条款 | 使用條款 | Terms |
 | `footer.docs` | 文档 | 文件 | Docs |
 | `footer.changelog` | 更新日志 | 更新紀錄 | Changelog |
+| `footer.grokbot` | Grok Bot | Grok Bot | Grok Bot |
 
-页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
+页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。`footer.grokbot` 是友情链接，三语同一专名，只出现在页脚链接行，不进 Hero / FAQ / `llms.txt` / JSON-LD。`href` 固定 `https://usegrokbot.com/`，`rel="noopener noreferrer"`，不加 `nofollow`。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。

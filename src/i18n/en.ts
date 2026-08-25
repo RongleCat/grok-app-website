@@ -118,6 +118,7 @@ export const en: Record<MessageKey, string> = {
   "footer.terms": "Terms",
   "footer.docs": "Docs",
   "footer.changelog": "Changelog",
+  "footer.grokbot": "Grok Bot",
   "menu.open": "Open menu",
   "menu.close": "Close menu",
   "faq.page.title": "FAQ · Open-source Grok App",

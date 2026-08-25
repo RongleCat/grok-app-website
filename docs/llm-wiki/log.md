@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-08-25 · 页脚 Grok Bot 友情链接 + 版本同步 v0.2.26
+
+- **操作者**：agent
+- **触发**：页脚加 `https://usegrokbot.com/`；站点版本从 v0.2.25 同步到最新 Release v0.2.26。直接推 main
+- **改动**：
+  - 四页页脚（`index.html` / `opensource/index.html` / `faq/index.html` / `skins/index.html`）在皮肤链后加 `footer.grokbot`，`href` 固定 `https://usegrokbot.com/`，`rel="noopener noreferrer"`，不加 `nofollow`
+  - 三语 `footer.grokbot` = `Grok Bot`；`src/main.ts` `bindFooterLinks` 写入同一 URL
+  - `src/generated/downloads-meta.json` 与首页 JSON-LD `softwareVersion` → `v0.2.26`（现网 `downloads.json` 已是该 tag；`scripts/fetch-downloads.mjs` 下次构建会再拉）
+  - `src/markup.test.ts` 锁友情链接；`public/sitemap.xml` `lastmod` 2026-08-25
+- **Wiki**：content / design / downloads / seo / status / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-23 · 去掉皮肤卡 HUD 角标
 
 - **操作者**：agent

@@ -75,6 +75,27 @@ describe("opensource/index.html", () => {
   });
 });
 
+describe("site footer", () => {
+  it("puts the Grok Bot friend link on every public page", () => {
+    for (const page of publicPages) {
+      expect(page).toContain('href="https://usegrokbot.com/"');
+      expect(page).toContain('data-i18n="footer.grokbot"');
+      expect(page).toContain('data-footer="grokbot"');
+      expect(page).toMatch(
+        /<a data-footer="grokbot"[^>]*rel="noopener noreferrer"/,
+      );
+      expect(page).not.toMatch(
+        /<a data-footer="grokbot"[^>]*nofollow/,
+      );
+    }
+    expect(zh["footer.grokbot"]).toBe("Grok Bot");
+    expect(zhTW["footer.grokbot"]).toBe("Grok Bot");
+    expect(en["footer.grokbot"]).toBe("Grok Bot");
+    expect(llms).not.toContain("usegrokbot.com");
+    expect(llms).not.toContain("Grok Bot");
+  });
+});
+
 describe("community theme gallery", () => {
   it("links nav and footer on every public page to the internal /skins/ route", () => {
     for (const page of publicPages) {

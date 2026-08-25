@@ -113,6 +113,7 @@ export const zhTW: Record<MessageKey, string> = {
   "footer.terms": "使用條款",
   "footer.docs": "文件",
   "footer.changelog": "更新紀錄",
+  "footer.grokbot": "Grok Bot",
   "menu.open": "開啟選單",
   "menu.close": "關閉選單",
   "faq.page.title": "常見問題 · 開源 Grok App",

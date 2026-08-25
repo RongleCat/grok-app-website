@@ -100,7 +100,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - `name`: Grok App
 - `alternateName`: Grok Desktop, Grok GUI, Grok Build GUI, Grok Build Desktop, Grok 桌面客户端
 - `sameAs` 只放真实 URL：`https://github.com/RongleCat/grok-app`、`https://x.com/cgnot996`
-- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.25`）。`fallback: true` 时不要写版本
+- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.26`）。`fallback: true` 时不要写版本
 - `description` 与 `meta.description` 同向，不要写 unofficial
 - **禁止**编造 `aggregateRating` / `reviewCount`
 - 开源页：`Organization` + `WebSite` + `WebPage`
