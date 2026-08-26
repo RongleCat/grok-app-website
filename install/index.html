@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>安装 · 开源 Grok App</title>
+    <meta
+      name="description"
+      content="macOS、Windows、Linux 下载与安装。首次启动与本机 Grok Build CLI 登录。"
+    />
+    <meta
+      name="keywords"
+      content="Grok App, Grok Desktop, Grok GUI, Grok Build GUI, Grok Build desktop, Grok 桌面客户端"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#070708" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="canonical" href="https://grok-app.com/install/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/install/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/install/" />
+    <link rel="alternate" hreflang="en" href="https://grok-app.com/install/" />
+    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/install/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Grok App" />
+    <meta property="og:url" content="https://grok-app.com/install/" />
+    <meta property="og:title" content="安装 · 开源 Grok App" />
+    <meta
+      property="og:description"
+      content="macOS、Windows、Linux 下载与安装。首次启动与本机 Grok Build CLI 登录。"
+    />
+    <meta property="og:image" content="https://grok-app.com/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@cgnot996" />
+    <meta name="twitter:creator" content="@cgnot996" />
+    <meta name="twitter:title" content="安装 · 开源 Grok App" />
+    <meta
+      name="twitter:description"
+      content="macOS、Windows、Linux 下载与安装。首次启动与本机 Grok Build CLI 登录。"
+    />
+    <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
+    <!-- 2026-08-26 · add · HowTo JSON-LD：步骤与静态简体正文一致，不写评分/日期 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://grok-app.com/#organization",
+            "name": "Grok App",
+            "url": "https://grok-app.com/",
+            "sameAs": [
+              "https://github.com/RongleCat/grok-app",
+              "https://x.com/cgnot996"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://grok-app.com/#website",
+            "name": "Grok App",
+            "url": "https://grok-app.com/",
+            "publisher": { "@id": "https://grok-app.com/#organization" }
+          },
+          {
+            "@type": "HowTo",
+            "@id": "https://grok-app.com/install/#howto",
+            "url": "https://grok-app.com/install/",
+            "name": "安装开源 Grok App",
+            "description": "从 GitHub Releases 下载当前发行包，在 macOS、Windows 或 Linux 安装，并完成本机 Grok Build CLI 登录。",
+            "inLanguage": ["zh-CN", "zh-TW", "en"],
+            "isPartOf": { "@id": "https://grok-app.com/#website" },
+            "about": { "@id": "https://grok-app.com/#organization" },
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "选择系统并下载",
+                "text": "从 GitHub Releases 下载当前发行包。Apple Silicon 用 Grok_mac_aarch64.dmg，Intel Mac 用 Grok_mac_x64.dmg，Windows 用 Grok_windows_x64-setup.exe 或绿色版 zip，Linux 用 AppImage、DEB 或 RPM。本站不托管安装包。"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "按系统安装",
+                "text": "macOS 打开 DMG 并把 Grok 拖进应用程序。Windows 运行 setup.exe，或解压绿色版 zip。Linux 给 AppImage 加执行权限，或安装 DEB / RPM。"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "首次启动与本机 CLI",
+                "text": "打开应用。向导会检查本机 Grok Build CLI。登录官方账号、填写 API Key，或选择使用现有 CLI 登录。然后信任一个项目目录，选择 Ask 或 YOLO 权限模式。"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "验收",
+                "text": "能打开名为 Grok 的应用，CLI 可用或已复用现有登录，已信任项目目录，并能发出第一条消息。"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script>
+      (function () {
+        var KEY_L = "grok-app-site.locale";
+        var KEY_T = "grok-app-site.theme";
+        var META = {
+          zh: {
+            title: "安装 · 开源 Grok App",
+            desc: "macOS、Windows、Linux 下载与安装。首次启动与本机 Grok Build CLI 登录。",
+            lang: "zh-CN",
+            og: "zh_CN",
+          },
+          "zh-TW": {
+            title: "安裝 · 開源 Grok App",
+            desc: "macOS、Windows、Linux 下載與安裝。首次啟動與本機 Grok Build CLI 登入。",
+            lang: "zh-TW",
+            og: "zh_TW",
+          },
+          en: {
+            title: "Install · Open-source Grok App",
+            desc: "Download and install on macOS, Windows, and Linux. First launch and local Grok Build CLI sign-in.",
+            lang: "en",
+            og: "en_US",
+          },
+        };
+        function fromSys() {
+          var langs = navigator.languages || [navigator.language || "en"];
+          for (var i = 0; i < langs.length; i++) {
+            var t = String(langs[i] || "")
+              .toLowerCase()
+              .replace(/_/g, "-");
+            if (
+              t.indexOf("zh-hant") === 0 ||
+              t.indexOf("zh-tw") === 0 ||
+              t.indexOf("zh-hk") === 0 ||
+              t.indexOf("zh-mo") === 0
+            )
+              return "zh-TW";
+            if (t === "zh" || t.indexOf("zh-") === 0) return "zh";
+            if (t === "en" || t.indexOf("en-") === 0) return "en";
+          }
+          return "en";
+        }
+        var stored = null;
+        try {
+          stored = localStorage.getItem(KEY_L);
+        } catch (e) {}
+        var loc =
+          stored === "zh" || stored === "zh-TW" || stored === "en" ? stored : fromSys();
+        var m = META[loc];
+        document.documentElement.lang = m.lang;
+        document.documentElement.setAttribute("data-locale", loc);
+        document.title = m.title;
+        var d = document.querySelector('meta[name="description"]');
+        if (d) d.setAttribute("content", m.desc);
+        var ot = document.querySelector('meta[property="og:title"]');
+        if (ot) ot.setAttribute("content", m.title);
+        var od = document.querySelector('meta[property="og:description"]');
+        if (od) od.setAttribute("content", m.desc);
+        var ol = document.querySelector('meta[property="og:locale"]');
+        if (ol) ol.setAttribute("content", m.og);
+        var tt = document.querySelector('meta[name="twitter:title"]');
+        if (tt) tt.setAttribute("content", m.title);
+        var td = document.querySelector('meta[name="twitter:description"]');
+        if (td) td.setAttribute("content", m.desc);
+        var theme = "dark";
+        var ts = null;
+        try {
+          ts = localStorage.getItem(KEY_T);
+        } catch (e) {}
+        if (ts === "light" || ts === "dark") theme = ts;
+        else if (ts === "system")
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#install-main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-start">
+          <a class="brand" href="/" aria-label="Grok App">
+            <svg class="brand-mark" viewBox="0 0 35 33" width="28" height="26" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M13.2371 21.0407L24.3186 12.8506C24.8619 12.4491 25.6384 12.6057 25.8973 13.2294C27.2597 16.5185 26.651 20.4712 23.9403 23.1851C21.2297 25.8989 17.4581 26.4941 14.0108 25.1386L10.2449 26.8843C15.6463 30.5806 22.2053 29.6665 26.304 25.5601C29.5551 22.3051 30.562 17.8683 29.6205 13.8673L29.629 13.8758C28.2637 7.99809 29.9647 5.64871 33.449 0.844576C33.5314 0.730667 33.6139 0.616757 33.6964 0.5L29.1113 5.09055V5.07631L13.2343 21.0436"
+              />
+              <path
+                fill="currentColor"
+                d="M10.9503 23.0313C7.07343 19.3235 7.74185 13.5853 11.0498 10.2763C13.4959 7.82722 17.5036 6.82767 21.0021 8.2971L24.7595 6.55998C24.0826 6.07017 23.215 5.54334 22.2195 5.17313C17.7198 3.31926 12.3326 4.24192 8.67479 7.90126C5.15635 11.4239 4.0499 16.8403 5.94992 21.4622C7.36924 24.9165 5.04257 27.3598 2.69884 29.826C1.86829 30.7002 1.0349 31.5745 0.36364 32.5L10.9474 23.0341"
+              />
+            </svg>
+            <span class="brand-name">Grok App</span>
+          </a>
+          <div id="locale-switcher" class="locale-switcher" role="group" data-i18n-aria="locale.switcher">
+            <button type="button" data-locale-set="zh">简</button>
+            <span class="locale-sep" aria-hidden="true">/</span>
+            <button type="button" data-locale-set="zh-TW">繁</button>
+            <span class="locale-sep" aria-hidden="true">/</span>
+            <button type="button" data-locale-set="en">EN</button>
+          </div>
+        </div>
+        <div class="nav-cluster">
+          <nav class="pill-nav" id="primary-nav" aria-label="Primary">
+            <a href="/#product" data-i18n="nav.product">产品</a>
+            <a href="/#features" data-i18n="nav.features">功能</a>
+            <a href="/#download" data-i18n="nav.download">下载</a>
+            <a href="/install/" data-i18n="nav.install" aria-current="page">安装</a>
+            <a href="/opensource/" data-i18n="nav.opensource">开源</a>
+            <a href="/skins/" data-i18n="nav.themes">皮肤</a>
+            <a href="/faq/" data-i18n="nav.faq">问答</a>
+          </nav>
+          <button
+            type="button"
+            id="nav-toggle"
+            class="nav-toggle"
+            data-i18n-aria="menu.open"
+            aria-label="打开菜单"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+        <div class="header-end">
+          <div class="theme-toggle" role="group" aria-label="Theme">
+            <button type="button" data-theme-set="dark" data-i18n-aria="theme.dark" aria-label="暗色">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M13.1 3.1a9 9 0 1 0 7.8 14.3 7.2 7.2 0 0 1-7.8-14.3Z" />
+              </svg>
+            </button>
+            <button type="button" data-theme-set="light" data-i18n-aria="theme.light" aria-label="亮色">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  d="M12 3v1.6M12 19.4V21M4.9 4.9l1.1 1.1M18 18l1.1 1.1M3 12h1.6M19.4 12H21M4.9 19.1 6 18M18 6l1.1-1.1"
+                />
+              </svg>
+            </button>
+          </div>
+          <a class="btn btn-solid btn-sm header-download" href="/#download">
+            <span data-i18n="cta.download">免费下载</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="install-main" class="install-page">
+      <p class="section-kicker" data-i18n="install.hero.kicker">安装指南</p>
+      <h1 data-i18n="install.hero.title">下载、安装、第一次打开</h1>
+      <p class="install-lead" data-i18n="install.hero.body">
+        开源 Grok App 是本机 Grok Build CLI 的桌面工作台。从 GitHub Releases 取当前发行包，按系统装好，再完成本机 CLI 登录。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。
+      </p>
+      <nav class="install-toc" aria-label="Sections">
+        <a href="#install-download" data-i18n="install.toc.download">选系统 / 下载</a>
+        <a href="#install-mac" data-i18n="install.toc.mac">macOS</a>
+        <a href="#install-win" data-i18n="install.toc.win">Windows</a>
+        <a href="#install-linux" data-i18n="install.toc.linux">Linux</a>
+        <a href="#install-first" data-i18n="install.toc.first">首次启动</a>
+        <a href="#install-verify" data-i18n="install.toc.verify">验收</a>
+        <a href="#install-fix" data-i18n="install.toc.fix">排查</a>
+        <a href="#install-next" data-i18n="install.toc.next">下一步</a>
+      </nav>
+
+      <section id="install-download" class="install-section download">
+        <h2 data-i18n="install.download.title">选择系统并下载</h2>
+        <p data-i18n="install.download.body">
+          安装包只在 GitHub Releases。下面按钮指向 latest/download 稳定文件名；版本号来自构建时清单。本站不托管、也不反代安装包。预编译包不需要 Node.js、pnpm 或 Rust。应用包名是 Grok。
+        </p>
+        <p class="dl-version" data-version></p>
+        <div class="dl-platforms">
+          <article class="dl-card" data-dl-platform="mac">
+            <a class="dl-main" data-installer="mac-aarch64">
+              <span class="dl-os" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26">
+                  <path
+                    fill="currentColor"
+                    d="M16.4 12.7c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-1.9-1.5-.2-3 .9-3.7.9s-2-.9-3.3-.9c-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.3 2.5 1.3 0 1.8-.8 3.4-.8s2 .8 3.4.8 2.3-1.3 3.1-2.5c1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.3ZM14.8 6.3c.7-.9 1.2-2.1 1.1-3.3-1 .1-2.3.7-3 .1 1.6-.7 1.2 1.6 1.9 2.6Z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <strong data-i18n="dl.mac.title">下载 macOS</strong>
+                <small data-i18n="dl.mac.sub">Apple Silicon / Intel</small>
+              </span>
+            </a>
+            <div class="dl-menu">
+              <a data-installer="mac-aarch64" data-i18n="dl.macArm">Apple Silicon</a>
+              <a data-installer="mac-x64" data-i18n="dl.macIntel">Intel</a>
+            </div>
+          </article>
+          <article class="dl-card" data-dl-platform="win">
+            <a class="dl-main" data-installer="windows-x64">
+              <span class="dl-os" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="currentColor" d="M3 5.1 10.4 4v7.1H3V5.1Zm8.2-.9L21 3v8.1h-9.8V4.2ZM3 13.1h7.4V20L3 19v-5.9Zm8.2.1H21V21l-9.8-1.3v-6.5Z" />
+                </svg>
+              </span>
+              <span>
+                <strong data-i18n="dl.win.title">下载 Windows</strong>
+                <small data-i18n="dl.win.sub">Windows 10/11 (64-bit)</small>
+              </span>
+            </a>
+            <div class="dl-menu">
+              <a data-installer="windows-x64" data-i18n="dl.winSetup">安装版</a>
+              <a data-installer="windows-x64-portable" data-i18n="dl.winPortable">绿色版</a>
+            </div>
+          </article>
+          <article class="dl-card" data-dl-platform="linux">
+            <a class="dl-main" data-installer="linux-x64-appimage">
+              <span class="dl-os" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <path
+                    fill="currentColor"
+                    d="M12.2 2.4c-.9 0-2.2 1.1-2.4 3.3-.1.8 0 1.6.2 2.4-.9.4-1.6 1.1-2.1 2-.9 1.6-1.2 3.6-.6 5.5.4 1.4 1.2 2.5 2.3 3.2-.2.5-.4 1.2-.3 1.8.1.8.6 1.4 1.4 1.6.4.1.8 0 1.1-.2.3.4.8.7 1.4.8.7.1 1.4-.2 1.8-.8.3.1.6.2.9.1.8-.1 1.4-.7 1.5-1.5.1-.7-.2-1.4-.5-2 1-.7 1.8-1.8 2.1-3.2.5-1.9.2-3.9-.7-5.5-.5-.9-1.2-1.6-2.1-2 .2-.8.3-1.6.2-2.4-.2-2.2-1.5-3.3-2.4-3.3Zm-1.7 4.2c.4 0 .8.1 1.2.3.3-.3.8-.5 1.3-.5s1 .2 1.3.5c.4-.2.8-.3 1.2-.3.2 1.4-.3 2.6-1.1 3.1-.5.3-1 .4-1.4.4s-.9-.1-1.4-.4c-.8-.5-1.3-1.7-1.1-3.1Z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <strong data-i18n="dl.linux.title">下载 Linux</strong>
+                <small data-i18n="dl.linux.sub">AppImage / DEB / RPM</small>
+              </span>
+            </a>
+            <div class="dl-menu">
+              <a data-installer="linux-x64-appimage" data-i18n="dl.linuxAppImage">AppImage（通用 / Arch）</a>
+              <a data-installer="linux-x64-deb" data-i18n="dl.linuxDeb">Debian / Ubuntu</a>
+              <a data-installer="linux-x64-rpm" data-i18n="dl.linuxRpm">Fedora / RHEL</a>
+            </div>
+          </article>
+        </div>
+        <a class="dl-fallback" data-releases href="https://github.com/RongleCat/grok-app/releases">
+          <span data-i18n="dl.allReleases">所有版本（GitHub Releases）</span>
+        </a>
+      </section>
+
+      <section id="install-mac" class="install-section">
+        <h2 data-i18n="install.mac.title">在 macOS 上安装</h2>
+        <p data-i18n="install.mac.body">
+          Apple Silicon（M1–M4）用 aarch64 DMG，Intel Mac 用 x64 DMG。不要把 ARM 机默认导向 Intel 包。
+        </p>
+        <ol class="install-steps">
+          <li data-i18n="install.mac.s1">
+            下载对应架构的 DMG（稳定名 Grok_mac_aarch64.dmg 或 Grok_mac_x64.dmg）。
+          </li>
+          <li data-i18n="install.mac.s2">打开 DMG，把 Grok 拖进「应用程序」。</li>
+          <li data-i18n="install.mac.s3">
+            从「应用程序」打开 Grok。自 v0.2.19 起，正式 Release 已 Apple Developer ID 签名并完成公证。
+          </li>
+        </ol>
+      </section>
+
+      <section id="install-win" class="install-section">
+        <h2 data-i18n="install.win.title">在 Windows 上安装</h2>
+        <p data-i18n="install.win.body">
+          提供 Windows 10/11 的 64 位安装版与绿色版。没有 Windows ARM 包。
+        </p>
+        <ol class="install-steps">
+          <li data-i18n="install.win.s1">主按钮下载安装版 Grok_windows_x64-setup.exe 并运行。</li>
+          <li data-i18n="install.win.s2">
+            不想写入系统可用绿色版 Grok_windows_x64-portable.zip，解压后运行。
+          </li>
+          <li data-i18n="install.win.s3">
+            需要 WebView2 Runtime。Windows 11 通常已有；若缺失，安装包会引导安装。
+          </li>
+        </ol>
+      </section>
+
+      <section id="install-linux" class="install-section">
+        <h2 data-i18n="install.linux.title">在 Linux 上安装</h2>
+        <p data-i18n="install.linux.body">
+          x64 提供 AppImage（通用 / Arch）、DEB（Debian / Ubuntu / Mint / Pop!_OS）和 RPM（Fedora / RHEL / openSUSE）。没有 Linux aarch64、AUR、Flatpak 或 Snap。
+        </p>
+        <ol class="install-steps">
+          <li data-i18n="install.linux.s1">
+            通用 / Arch：下载 Grok_linux_x64.AppImage，chmod +x 后运行。
+          </li>
+          <li data-i18n="install.linux.s2">Debian 系：安装 Grok_linux_x64.deb。</li>
+          <li data-i18n="install.linux.s3">Fedora / RHEL 系：安装 Grok_linux_x64.rpm。</li>
+        </ol>
+        <p data-i18n="install.linux.libs">
+          官方 AppImage 不打包宿主 EGL / WebKit / 托盘库。干净的 Debian / Ubuntu 上可能一启动就因缺少 libEGL.so.1 退出。先装运行时库，再 chmod +x 运行。
+        </p>
+        <pre class="install-code"><code>sudo apt-get install -y libegl1 libgles2 libwebkit2gtk-4.1-0 libayatana-appindicator3-1
+chmod +x Grok_linux_x64.AppImage
+./Grok_linux_x64.AppImage</code></pre>
+      </section>
+
+      <section id="install-first" class="install-section">
+        <h2 data-i18n="install.first.title">首次启动与本机 CLI</h2>
+        <p data-i18n="install.first.body">
+          完整能力需要本机已安装并登录的 Grok Build CLI。应用不会替代 CLI。首次向导可协助检测和安装 CLI。
+        </p>
+        <ol class="install-steps">
+          <li data-i18n="install.first.s1">打开应用。向导会检查本机是否已有 Grok Build CLI（支持多源快速安装）。</li>
+          <li data-i18n="install.first.s2">
+            登录官方账号、填写 API Key，或配置自定义中转。若本机 grok 已登录，选「使用现有 CLI 登录」。
+          </li>
+          <li data-i18n="install.first.s3">选择并信任一个项目工作目录。</li>
+          <li data-i18n="install.first.s4">连接 Agent，选择 Ask 或 YOLO 权限模式，开始工作。</li>
+        </ol>
+        <p data-i18n="install.first.req">
+          需要 Grok Build CLI（grok）0.2.112 或更高。可在终端运行 grok update。网络受限时，到「设置 → 运行环境 → 网络」配置 HTTP/SOCKS 代理并点「测试连接」。
+        </p>
+      </section>
+
+      <section id="install-verify" class="install-section">
+        <h2 data-i18n="install.verify.title">怎么确认装好了</h2>
+        <p data-i18n="install.verify.body">
+          能打开名为 Grok 的应用；向导确认 CLI 可用，或已选「使用现有 CLI 登录」；已信任一个项目目录；能发出第一条消息（Ask 模式下会弹出权限确认）。
+        </p>
+      </section>
+
+      <section id="install-hash" class="install-section">
+        <h2 data-i18n="install.hash.title">校验安装包</h2>
+        <p data-i18n="install.hash.body">
+          每个 Release 带 SHA256SUMS。下载后可按下面命令核对，不要把 SHA256SUMS 当成「下载 App」。
+        </p>
+        <p class="install-code-label" data-i18n="install.hash.unix">macOS / Linux</p>
+        <pre class="install-code"><code>shasum -a 256 -c SHA256SUMS --ignore-missing</code></pre>
+        <p class="install-code-label" data-i18n="install.hash.win">Windows（PowerShell）</p>
+        <pre class="install-code"><code>Get-FileHash .\Grok_*_x64-setup.exe -Algorithm SHA256</code></pre>
+      </section>
+
+      <section id="install-fix" class="install-section">
+        <h2 data-i18n="install.fix.title">常见卡住</h2>
+        <p data-i18n="install.fix.mac">
+          macOS 提示无法打开或「已损坏」：到「系统设置 → 隐私与安全性」允许打开，或按住 Control 点按图标选「打开」。也可清除隔离属性后再打开。只从 GitHub Releases 取包。
+        </p>
+        <pre class="install-code"><code>xattr -cr /Applications/Grok.app
+open /Applications/Grok.app</code></pre>
+        <p data-i18n="install.fix.win">
+          Windows SmartScreen 提示未知发布者：点「更多信息 → 仍要运行」。可用 SHA256SUMS 核对哈希。确认已有 WebView2。
+        </p>
+        <p data-i18n="install.fix.linux">
+          AppImage 报缺 libEGL.so.1：先装宿主运行时库。Wayland（如 Hyprland + AMD）显示异常时，优先用 .deb / .rpm；或加 WEBKIT_DISABLE_DMABUF_RENDERER=1 再运行 AppImage。
+        </p>
+        <pre class="install-code"><code>WEBKIT_DISABLE_DMABUF_RENDERER=1 ./Grok_linux_x64.AppImage</code></pre>
+        <p data-i18n="install.fix.sandbox">
+          Ubuntu 24.04+ 上 Agent 沙箱起不来：可启用非特权用户命名空间，或在「设置 → 运行环境 → 沙箱」关掉沙箱。
+        </p>
+        <pre class="install-code"><code>sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+echo 'kernel.apparmor_restrict_unprivileged_userns=0' | sudo tee /etc/sysctl.d/99-userns.conf</code></pre>
+      </section>
+
+      <section id="install-next" class="install-section">
+        <h2 data-i18n="install.next.title">接下来</h2>
+        <p data-i18n="install.next.body">装好之后可以看问答、Release 说明、源码，或给工作台换皮肤。</p>
+        <p class="install-next">
+          <a href="/faq/" data-i18n="install.next.faq">常见问题</a>
+          <a data-releases href="https://github.com/RongleCat/grok-app/releases" data-i18n="install.next.releases">GitHub Releases</a>
+          <a href="https://github.com/RongleCat/grok-app" rel="noopener noreferrer" data-i18n="install.next.github">源码仓库</a>
+          <a href="/skins/" data-i18n="install.next.skins">社区皮肤</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span data-i18n="footer.copy">© 2026 Grok App · 开源协议：MIT</span>
+        <span class="footer-sep">·</span>
+        <a data-footer="license" href="https://github.com/RongleCat/grok-app/blob/main/LICENSE">MIT</a>
+        <span class="footer-sep">·</span>
+        <a data-footer="privacy" data-i18n="footer.privacy" href="https://github.com/RongleCat/grok-app/blob/main/SECURITY.md">隐私政策</a>
+        <span class="footer-sep">·</span>
+        <a data-footer="terms" data-i18n="footer.terms" href="https://github.com/RongleCat/grok-app#readme">使用条款</a>
+        <span class="footer-sep">·</span>
+        <a data-footer="docs" data-i18n="footer.docs" href="https://github.com/RongleCat/grok-app/blob/main/README_ZH.md">文档</a>
+        <span class="footer-sep">·</span>
+        <a data-footer="changelog" data-i18n="footer.changelog" href="https://github.com/RongleCat/grok-app/blob/main/CHANGELOG.md">更新日志</a>
+        <span class="footer-sep">·</span>
+        <a href="/install/" data-i18n="nav.install" aria-current="page">安装</a>
+        <span class="footer-sep">·</span>
+        <a href="/faq/" data-i18n="nav.faq">问答</a>
+        <span class="footer-sep">·</span>
+        <a href="/skins/" data-i18n="nav.themes">皮肤</a>
+        <span class="footer-sep">·</span>
+        <a data-footer="grokbot" data-i18n="footer.grokbot" href="https://usegrokbot.com/" rel="noopener noreferrer">Grok Bot</a>
+      </p>
+      <p class="footer-disclaimer" data-i18n="brand.definition">
+        开源 Grok App 是本机 Grok Build CLI 的桌面工作台。
+      </p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

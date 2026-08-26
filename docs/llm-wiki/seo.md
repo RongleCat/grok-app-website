@@ -21,8 +21,9 @@
 | `/opensource/` | `opensource/index.html` | 开源 / 作者 / 贡献者墙 |
 | `/faq/` | `faq/index.html` | 8 条 FAQ + `FAQPage` JSON-LD |
 | `/skins/` | `skins/index.html` | 社区皮肤画廊 + `CollectionPage` JSON-LD |
+| `/install/` | `install/index.html` | 三端安装指南 + `HowTo` JSON-LD |
 
-`public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，皮肤 `0.7` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
+`public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，安装 `0.8` weekly，皮肤 `0.7` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
 
 `public/robots.txt` 指向 `https://grok-app.com/sitemap.xml`。
 
@@ -34,6 +35,7 @@
 /opensource  /opensource/  301
 /faq  /faq/  301
 /skins  /skins/  301
+/install  /install/  301
 https://www.grok-app.com/*  https://grok-app.com/:splat  301
 ```
 
@@ -62,6 +64,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 | `/opensource/` | 开源 · Grok App | 仓库与贡献者，短 |
 | `/faq/` | 常见问题 · 开源 Grok App | 下载、安装与常见问题；轻提 Grok Desktop / Grok GUI |
 | `/skins/` | 皮肤 · 开源 Grok App | 社区外观包；先看见工作台上的样子 |
+| `/install/` | 安装 · 开源 Grok App | macOS / Windows / Linux 下载与安装；首次启动与本机 CLI |
 
 `meta.keywords`（低权重，短列表，三语同一串）：
 
@@ -89,6 +92,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - 不是什么：不是 grok.com 聊天套壳或 PWA；不能替代本机 Grok Build CLI
 - 平台、MIT、规范站 `https://grok-app.com/`、产品仓、Releases、作者 铁柱AGI `https://x.com/cgnot996`
 - 社区皮肤画廊：`https://grok-app.com/skins/`（桌面 Apply 发 `grok://skin/import`；手机 toast）
+- 安装指南：`https://grok-app.com/install/`（三端下载、首次启动、本机 CLI、常见卡住）
 - 5–8 条真实能力，不编评分
 
 禁止其它 Grok 产品名、禁止「官方桌面端」「Grok 桌面版」、禁止写 unofficial。
@@ -106,6 +110,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - 开源页：`Organization` + `WebSite` + `WebPage`
 - FAQ 页：`FAQPage`（与静态 HTML 简体问答一致，含 Desktop / GUI / 套壳三题）
 - 皮肤页：`Organization` + `WebSite` + `CollectionPage`
+- 安装页：`Organization` + `WebSite` + `HowTo`（步骤与静态简体正文一致；**禁止** `aggregateRating` / 假日期）
 
 `downloads-meta.json` 的 tag 变了，同步改首页 JSON-LD 的 `softwareVersion`（`src/markup.test.ts` 会核对）。
 

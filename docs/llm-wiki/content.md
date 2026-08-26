@@ -39,6 +39,7 @@
 | `nav.opensource` | 开源 | 開源 | Open Source |
 | `nav.themes` | 皮肤 | 主題 | Themes |
 | `nav.faq` | 问答 | 問答 | FAQ |
+| `nav.install` | 安装 | 安裝 | Install |
 | `cta.download` | 免费下载 | 免費下載 | Download Free |
 | `locale.zh` | 简体 | 簡體 | Simplified |
 | `locale.zhTW` | 繁體 | 繁體 | Traditional |
@@ -187,6 +188,20 @@
 
 站点文案、meta、`llms.txt`、FAQ、schema **禁止**写「官方桌面端」「Grok 桌面版」，也不提其它 Grok 产品名做对比。不要写「非官方 / unofficial」。
 
+## install
+
+`/install/` 静态安装指南。JSON-LD `HowTo` 用简体默认句，与 HTML 首屏一致。搜索别名只在导语轻提一次。版本号走 `data-version` + `downloads-meta.json`，正文不写死当前 tag。命令与文件名以产品仓 README / 本仓 [downloads.md](./downloads.md) 为准。
+
+| key | zh | zh-TW | en |
+|-----|----|-------|-----|
+| `install.page.title` | 安装 · 开源 Grok App | 安裝 · 開源 Grok App | Install · Open-source Grok App |
+| `install.page.desc` | macOS、Windows、Linux 下载与安装。首次启动与本机 Grok Build CLI 登录。 | macOS、Windows、Linux 下載與安裝。首次啟動與本機 Grok Build CLI 登入。 | Download and install on macOS, Windows, and Linux. First launch and local Grok Build CLI sign-in. |
+| `install.hero.kicker` | 安装指南 | 安裝指南 | Install guide |
+| `install.hero.title` | 下载、安装、第一次打开 | 下載、安裝、第一次打開 | Download, install, first launch |
+| `install.hero.body` | 开源 Grok App 是本机 Grok Build CLI 的桌面工作台。从 GitHub Releases 取当前发行包，按系统装好，再完成本机 CLI 登录。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。 | 開源 Grok App 是本機 Grok Build CLI 的桌面工作臺。從 GitHub Releases 取目前發行包，依系統裝好，再完成本機 CLI 登入。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。 | Open-source Grok App is a desktop workbench for the local Grok Build CLI. Get the current release from GitHub Releases, install it for your OS, then finish local CLI sign-in. People also search Grok Desktop, Grok GUI, or desktop client. |
+
+其余 `install.*` 键（目录、三端步骤、首次启动、验收、校验、排查、下一步）与 `src/i18n/{zh,zh-TW,en}.ts` 同步。命令原文（`xattr`、`shasum`、`Get-FileHash`、`apt-get`、`WEBKIT_DISABLE_DMABUF_RENDERER`、`sysctl`）写在 HTML `<pre>` 里，不进 i18n。页脚另有 `nav.install`。
+
 ## download
 
 | key | zh | zh-TW | en |
@@ -209,6 +224,7 @@
 | `dl.allReleases` | 所有版本（GitHub Releases） | 所有版本（GitHub Releases） | All releases on GitHub |
 | `dl.version` | 当前版本 {tag} | 目前版本 {tag} | Current version {tag} |
 | `dl.versionFallback` | 见 GitHub Releases | 見 GitHub Releases | See GitHub Releases |
+| `dl.installGuide` | 安装指南 | 安裝指南 | Install guide |
 
 ## footer
 

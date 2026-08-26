@@ -42,6 +42,7 @@ import "./styles/responsive.css";
 import "./styles/opensource.css";
 import "./styles/faq.css";
 import "./styles/gallery.css";
+import "./styles/install.css";
 import contributors from "./generated/contributors.json";
 import { bindGallery, syncGalleryLocale } from "./skins";
 
@@ -56,6 +57,7 @@ function applyI18n(locale: Locale): void {
   document.documentElement.lang = htmlLang(locale);
   document.documentElement.setAttribute("data-locale", locale);
   const kind = pageKind(location.pathname);
+  /* 2026-08-26 · add · 安装页用独立 title/description，避免套首页 meta */
   const titleKey =
     kind === "oss"
       ? "oss.page.title"
@@ -63,7 +65,9 @@ function applyI18n(locale: Locale): void {
         ? "faq.page.title"
         : kind === "skins"
           ? "gallery.page.title"
-          : "meta.title";
+          : kind === "install"
+            ? "install.page.title"
+            : "meta.title";
   const descKey =
     kind === "oss"
       ? "oss.page.desc"
@@ -71,7 +75,9 @@ function applyI18n(locale: Locale): void {
         ? "faq.page.desc"
         : kind === "skins"
           ? "gallery.page.desc"
-          : "meta.description";
+          : kind === "install"
+            ? "install.page.desc"
+            : "meta.description";
   document.title = t(table, titleKey);
 
   const desc = t(table, descKey);
@@ -125,10 +131,11 @@ function readVars(el: HTMLElement): Record<string, string> | undefined {
   }
 }
 
-function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" {
+function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" | "install" {
   if (pathname.includes("opensource")) return "oss";
   if (pathname.includes("faq")) return "faq";
   if (pathname.includes("skins")) return "skins";
+  if (pathname.includes("install")) return "install";
   return "home";
 }
 

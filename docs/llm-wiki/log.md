@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-08-26 · 新增 `/install/` 三端安装指南
+
+- **操作者**：agent
+- **触发**：Weekly GEO/content expansion：可抓取安装指南；直接推 main
+- **改动**：
+  - 新增 `install/index.html`：简体首屏可抓取 + 三语 `data-i18n`；复用七个 `data-installer` 与 `data-version`
+  - 章节：选系统 / macOS / Windows / Linux / 首次 CLI / 验收 / SHA256 / 排查 / 下一步（FAQ、Releases、GitHub、皮肤）
+  - SEO：canonical、hreflang、OG/Twitter、`HowTo` JSON-LD（无评分/假日期）；`public/sitemap.xml` 加 `/install/`；`_redirects` `/install`→`/install/` 301；`llms.txt` 加安装 URL
+  - 五页顶栏胶囊与页脚加 `nav.install`；首页下载区加 `dl.installGuide`
+  - `src/main.ts` `pageKind` 认 `/install/`；Vite 多页入口加 `install`
+  - `src/markup.test.ts` 锁路由 / HowTo / 七个安装钩子 / 禁词
+- **Wiki**：content / seo / i18n / design / product / sources / status / 本条
+- **结果**：`pnpm test` + `pnpm build` 通过后推 `main`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-25 · 页脚 Grok Bot 友情链接 + 版本同步 v0.2.26
 
 - **操作者**：agent

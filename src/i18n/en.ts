@@ -14,6 +14,7 @@ export const en: Record<MessageKey, string> = {
   "nav.opensource": "Open Source",
   "nav.themes": "Themes",
   "nav.faq": "FAQ",
+  "nav.install": "Install",
   "cta.download": "Download Free",
   "locale.zh": "Simplified",
   "locale.zhTW": "Traditional",
@@ -113,6 +114,7 @@ export const en: Record<MessageKey, string> = {
   "dl.allReleases": "All releases on GitHub",
   "dl.version": "Current version {tag}",
   "dl.versionFallback": "See GitHub Releases",
+  "dl.installGuide": "Install guide",
   "footer.copy": "© 2026 Grok App · MIT License",
   "footer.privacy": "Privacy",
   "footer.terms": "Terms",
@@ -185,4 +187,82 @@ export const en: Record<MessageKey, string> = {
   "gallery.skin": "skin {id}",
   "gallery.wallpaper": "wallpaper",
   "gallery.video": "video wallpaper",
+  "install.page.title": "Install · Open-source Grok App",
+  "install.page.desc":
+    "Download and install on macOS, Windows, and Linux. First launch and local Grok Build CLI sign-in.",
+  "install.hero.kicker": "Install guide",
+  "install.hero.title": "Download, install, first launch",
+  "install.hero.body":
+    "Open-source Grok App is a desktop workbench for the local Grok Build CLI. Get the current release from GitHub Releases, install it for your OS, then finish local CLI sign-in. People also search Grok Desktop, Grok GUI, or desktop client.",
+  "install.toc.download": "Choose OS / download",
+  "install.toc.mac": "macOS",
+  "install.toc.win": "Windows",
+  "install.toc.linux": "Linux",
+  "install.toc.first": "First launch",
+  "install.toc.verify": "Verify",
+  "install.toc.fix": "Troubleshoot",
+  "install.toc.next": "Next",
+  "install.download.title": "Choose your OS and download",
+  "install.download.body":
+    "Installers live only on GitHub Releases. The buttons below use stable latest/download filenames. The version label comes from the build-time manifest. This site does not host or proxy installer files. Prebuilt packages do not need Node.js, pnpm, or Rust. The app bundle name is Grok.",
+  "install.mac.title": "Install on macOS",
+  "install.mac.body":
+    "Apple Silicon (M1–M4) uses the aarch64 DMG. Intel Macs use the x64 DMG. Do not default ARM machines to the Intel package.",
+  "install.mac.s1":
+    "Download the DMG for your chip (stable names Grok_mac_aarch64.dmg or Grok_mac_x64.dmg).",
+  "install.mac.s2": "Open the DMG and drag Grok into Applications.",
+  "install.mac.s3":
+    "Open Grok from Applications. Official Releases since v0.2.19 are Apple Developer ID signed and notarized.",
+  "install.win.title": "Install on Windows",
+  "install.win.body":
+    "Windows 10/11 64-bit installer and portable zip. There is no Windows ARM package.",
+  "install.win.s1": "The main button downloads the installer Grok_windows_x64-setup.exe. Run it.",
+  "install.win.s2":
+    "Prefer no installer? Use the portable zip Grok_windows_x64-portable.zip, then unzip and run.",
+  "install.win.s3":
+    "WebView2 Runtime is required. Windows 11 usually has it. If it is missing, the installer bootstraps it.",
+  "install.linux.title": "Install on Linux",
+  "install.linux.body":
+    "x64 AppImage (generic / Arch), DEB (Debian / Ubuntu / Mint / Pop!_OS), and RPM (Fedora / RHEL / openSUSE). No Linux aarch64, AUR, Flatpak, or Snap packages.",
+  "install.linux.s1":
+    "Generic / Arch: download Grok_linux_x64.AppImage, chmod +x, then run it.",
+  "install.linux.s2": "Debian-family: install Grok_linux_x64.deb.",
+  "install.linux.s3": "Fedora / RHEL-family: install Grok_linux_x64.rpm.",
+  "install.linux.libs":
+    "The official AppImage does not bundle host EGL / WebKit / tray libraries. On a clean Debian / Ubuntu install it can exit immediately with a missing libEGL.so.1. Install the runtime libraries first, then chmod +x and run.",
+  "install.first.title": "First launch and local CLI",
+  "install.first.body":
+    "Full agent capability needs a local Grok Build CLI that is installed and signed in. The app does not replace the CLI. The first-run wizard can detect and help install it.",
+  "install.first.s1":
+    "Open the app. The wizard checks whether the Grok Build CLI is already on this machine (including a multi-mirror fast install).",
+  "install.first.s2":
+    "Sign in with an official account, add an API key, or set a custom relay. If your local grok CLI is already signed in, choose Use existing CLI sign-in.",
+  "install.first.s3": "Pick and trust a project working directory.",
+  "install.first.s4": "Connect the agent. Choose Ask or YOLO permission mode, then start.",
+  "install.first.req":
+    "You need Grok Build CLI (grok) 0.2.112 or newer. Run grok update in a terminal. On a restricted network, open Settings → Runtime → Network, set an HTTP/SOCKS proxy, and use Test connection.",
+  "install.verify.title": "How to tell it worked",
+  "install.verify.body":
+    "The app named Grok opens. The wizard says the CLI is ready, or you chose Use existing CLI sign-in. You trusted a project folder. You can send a first message (Ask mode shows a permission prompt).",
+  "install.hash.title": "Verify the download",
+  "install.hash.body":
+    "Each release ships SHA256SUMS. Check the file after download. Do not treat SHA256SUMS as “download the app”.",
+  "install.hash.unix": "macOS / Linux",
+  "install.hash.win": "Windows (PowerShell)",
+  "install.fix.title": "If it will not start",
+  "install.fix.mac":
+    "macOS says it cannot open the app or that it is damaged: allow it in System Settings → Privacy & Security, or Control-click the icon and choose Open. You can also clear the quarantine flag, then open it. Only download from GitHub Releases.",
+  "install.fix.win":
+    "Windows SmartScreen flags an unknown publisher: More info → Run anyway. Check the hash against SHA256SUMS. Confirm WebView2 is installed.",
+  "install.fix.linux":
+    "AppImage exits with missing libEGL.so.1: install the host runtime libraries first. On some Wayland setups (Hyprland + AMD), prefer .deb / .rpm, or run the AppImage with WEBKIT_DISABLE_DMABUF_RENDERER=1.",
+  "install.fix.sandbox":
+    "On Ubuntu 24.04+, the agent sandbox may fail to start. Enable unprivileged user namespaces, or turn the sandbox off in Settings → Runtime → Sandbox.",
+  "install.next.title": "Next",
+  "install.next.body":
+    "After install, read the FAQ, the release notes, the source, or try a community skin.",
+  "install.next.faq": "FAQ",
+  "install.next.releases": "GitHub Releases",
+  "install.next.github": "Source repo",
+  "install.next.skins": "Community skins",
 };

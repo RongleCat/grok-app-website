@@ -12,13 +12,14 @@ const html = readFileSync(join(root, "index.html"), "utf8");
 const ossHtml = readFileSync(join(root, "opensource/index.html"), "utf8");
 const faqHtml = readFileSync(join(root, "faq/index.html"), "utf8");
 const skinsHtml = readFileSync(join(root, "skins/index.html"), "utf8");
+const installHtml = readFileSync(join(root, "install/index.html"), "utf8");
 const sitemap = readFileSync(join(root, "public/sitemap.xml"), "utf8");
 const redirects = readFileSync(join(root, "public/_redirects"), "utf8");
 const llms = readFileSync(join(root, "public/llms.txt"), "utf8");
 const meta = JSON.parse(
   readFileSync(join(root, "src/generated/downloads-meta.json"), "utf8"),
 ) as { tag: string | null; fallback: boolean };
-const publicPages = [html, ossHtml, faqHtml, skinsHtml];
+const publicPages = [html, ossHtml, faqHtml, skinsHtml, installHtml];
 const FORBIDDEN = ["官方桌面端", "Grok 桌面版"];
 const THEME_GALLERY = "https://ronglecat.github.io/grok-app-skin/";
 const SKINS_ROUTE = "/skins/";
@@ -101,6 +102,8 @@ describe("community theme gallery", () => {
     for (const page of publicPages) {
       expect(page).toContain(`href="${SKINS_ROUTE}"`);
       expect(page).toContain('data-i18n="nav.themes"');
+      expect(page).toContain('href="/install/"');
+      expect(page).toContain('data-i18n="nav.install"');
       expect(page).not.toMatch(
         /href="https:\/\/ronglecat\.github\.io\/grok-app-skin\/"/,
       );
@@ -136,6 +139,33 @@ describe("skins/index.html", () => {
   });
 });
 
+describe("install/index.html", () => {
+  /* 2026-08-26 · add · 锁安装页可抓取正文、七个下载钩子与 HowTo，禁止假评分 */
+  it("ships crawlable install steps, download hooks, and HowTo JSON-LD", () => {
+    expect(installHtml).toContain('id="install-main"');
+    expect(installHtml).toContain('id="install-download"');
+    expect(installHtml).toContain('id="install-mac"');
+    expect(installHtml).toContain('id="install-win"');
+    expect(installHtml).toContain('id="install-linux"');
+    expect(installHtml).toContain('id="install-first"');
+    expect(installHtml).toContain('id="install-verify"');
+    expect(installHtml).toContain('id="install-fix"');
+    expect(installHtml).toContain(zh["install.hero.title"]);
+    expect(installHtml).toContain(zh["install.mac.title"]);
+    expect(installHtml).toContain(zh["install.first.title"]);
+    expect(installHtml).toContain('href="/install/"');
+    expect(installHtml).toContain('aria-current="page"');
+    expect(installHtml).toContain('"@type": "HowTo"');
+    expect(installHtml).not.toMatch(/aggregateRating|reviewCount|datePublished|dateModified/);
+    expect(installHtml).not.toContain("grok-desktop-latest");
+    for (const id of INSTALLER_IDS) {
+      expect(installHtml).toContain(`data-installer="${id}"`);
+    }
+    expect(zh).toHaveProperty("install.page.title");
+    expect(en).toHaveProperty("nav.install");
+  });
+});
+
 describe("faq/index.html", () => {
   it("ships six static FAQs and a nav current page", () => {
     expect(faqHtml).toContain('id="faq-main"');
@@ -163,6 +193,7 @@ describe("SEO / GEO foundation", () => {
     expect(redirects).toMatch(/\/opensource\s+\/opensource\/\s+301/);
     expect(redirects).toMatch(/\/faq\s+\/faq\/\s+301/);
     expect(redirects).toMatch(/\/skins\s+\/skins\/\s+301/);
+    expect(redirects).toMatch(/\/install\s+\/install\/\s+301/);
   });
 
   it("lists every public URL in sitemap.xml with lastmod", () => {
@@ -170,6 +201,7 @@ describe("SEO / GEO foundation", () => {
     expect(sitemap).toContain("<loc>https://grok-app.com/opensource/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/faq/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/skins/</loc>");
+    expect(sitemap).toContain("<loc>https://grok-app.com/install/</loc>");
     expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
     expect(sitemap).toContain("<changefreq>weekly</changefreq>");
     expect(sitemap).toContain("<priority>1.0</priority>");
@@ -182,6 +214,7 @@ describe("SEO / GEO foundation", () => {
     expect(llms).toContain("Grok GUI");
     expect(llms).toContain("https://grok-app.com/");
     expect(llms).toContain("https://grok-app.com/skins/");
+    expect(llms).toContain("https://grok-app.com/install/");
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
     expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
     expect(llms).toContain("MIT");

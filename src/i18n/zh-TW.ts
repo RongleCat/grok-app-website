@@ -12,6 +12,7 @@ export const zhTW: Record<MessageKey, string> = {
   "nav.opensource": "開源",
   "nav.themes": "主題",
   "nav.faq": "問答",
+  "nav.install": "安裝",
   "cta.download": "免費下載",
   "locale.zh": "簡體",
   "locale.zhTW": "繁體",
@@ -108,6 +109,7 @@ export const zhTW: Record<MessageKey, string> = {
   "dl.allReleases": "所有版本（GitHub Releases）",
   "dl.version": "目前版本 {tag}",
   "dl.versionFallback": "見 GitHub Releases",
+  "dl.installGuide": "安裝指南",
   "footer.copy": "© 2026 Grok App · 開源授權：MIT",
   "footer.privacy": "隱私權政策",
   "footer.terms": "使用條款",
@@ -177,4 +179,79 @@ export const zhTW: Record<MessageKey, string> = {
   "gallery.skin": "皮膚 {id}",
   "gallery.wallpaper": "含壁紙",
   "gallery.video": "影片壁紙",
+  "install.page.title": "安裝 · 開源 Grok App",
+  "install.page.desc":
+    "macOS、Windows、Linux 下載與安裝。首次啟動與本機 Grok Build CLI 登入。",
+  "install.hero.kicker": "安裝指南",
+  "install.hero.title": "下載、安裝、第一次打開",
+  "install.hero.body":
+    "開源 Grok App 是本機 Grok Build CLI 的桌面工作臺。從 GitHub Releases 取目前發行包，依系統裝好，再完成本機 CLI 登入。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。",
+  "install.toc.download": "選系統 / 下載",
+  "install.toc.mac": "macOS",
+  "install.toc.win": "Windows",
+  "install.toc.linux": "Linux",
+  "install.toc.first": "首次啟動",
+  "install.toc.verify": "驗收",
+  "install.toc.fix": "排查",
+  "install.toc.next": "下一步",
+  "install.download.title": "選擇系統並下載",
+  "install.download.body":
+    "安裝包只在 GitHub Releases。下面按鈕指向 latest/download 穩定檔名；版本號來自建置時清單。本站不託管、也不反代安裝包。預編譯包不需要 Node.js、pnpm 或 Rust。應用包名是 Grok。",
+  "install.mac.title": "在 macOS 上安裝",
+  "install.mac.body":
+    "Apple Silicon（M1–M4）用 aarch64 DMG，Intel Mac 用 x64 DMG。不要把 ARM 機預設導向 Intel 包。",
+  "install.mac.s1":
+    "下載對應架構的 DMG（穩定名 Grok_mac_aarch64.dmg 或 Grok_mac_x64.dmg）。",
+  "install.mac.s2": "打開 DMG，把 Grok 拖進「應用程式」。",
+  "install.mac.s3":
+    "從「應用程式」打開 Grok。自 v0.2.19 起，正式 Release 已 Apple Developer ID 簽名並完成公證。",
+  "install.win.title": "在 Windows 上安裝",
+  "install.win.body":
+    "提供 Windows 10/11 的 64 位元安裝版與免安裝版。沒有 Windows ARM 包。",
+  "install.win.s1": "主按鈕下載安裝版 Grok_windows_x64-setup.exe 並執行。",
+  "install.win.s2": "不想寫入系統可用免安裝版 Grok_windows_x64-portable.zip，解壓後執行。",
+  "install.win.s3":
+    "需要 WebView2 Runtime。Windows 11 通常已有；若缺失，安裝包會引導安裝。",
+  "install.linux.title": "在 Linux 上安裝",
+  "install.linux.body":
+    "x64 提供 AppImage（通用 / Arch）、DEB（Debian / Ubuntu / Mint / Pop!_OS）和 RPM（Fedora / RHEL / openSUSE）。沒有 Linux aarch64、AUR、Flatpak 或 Snap。",
+  "install.linux.s1":
+    "通用 / Arch：下載 Grok_linux_x64.AppImage，chmod +x 後執行。",
+  "install.linux.s2": "Debian 系：安裝 Grok_linux_x64.deb。",
+  "install.linux.s3": "Fedora / RHEL 系：安裝 Grok_linux_x64.rpm。",
+  "install.linux.libs":
+    "官方 AppImage 不打包宿主 EGL / WebKit / 托盤庫。乾淨的 Debian / Ubuntu 上可能一啟動就因缺少 libEGL.so.1 退出。先裝執行時庫，再 chmod +x 執行。",
+  "install.first.title": "首次啟動與本機 CLI",
+  "install.first.body":
+    "完整能力需要本機已安裝並登入的 Grok Build CLI。應用不會替代 CLI。首次精靈可協助偵測和安裝 CLI。",
+  "install.first.s1": "打開應用。精靈會檢查本機是否已有 Grok Build CLI（支援多源快速安裝）。",
+  "install.first.s2":
+    "登入官方帳號、填寫 API Key，或設定自訂中轉。若本機 grok 已登入，選「使用現有 CLI 登入」。",
+  "install.first.s3": "選擇並信任一個專案工作目錄。",
+  "install.first.s4": "連接 Agent，選擇 Ask 或 YOLO 權限模式，開始工作。",
+  "install.first.req":
+    "需要 Grok Build CLI（grok）0.2.112 或更高。可在終端執行 grok update。網路受限時，到「設定 → 執行環境 → 網路」設定 HTTP/SOCKS 代理並點「測試連線」。",
+  "install.verify.title": "怎麼確認裝好了",
+  "install.verify.body":
+    "能打開名為 Grok 的應用；精靈確認 CLI 可用，或已選「使用現有 CLI 登入」；已信任一個專案目錄；能發出第一則訊息（Ask 模式下會跳出權限確認）。",
+  "install.hash.title": "校驗安裝包",
+  "install.hash.body":
+    "每個 Release 帶 SHA256SUMS。下載後可依下面命令核對，不要把 SHA256SUMS 當成「下載 App」。",
+  "install.hash.unix": "macOS / Linux",
+  "install.hash.win": "Windows（PowerShell）",
+  "install.fix.title": "常見卡住",
+  "install.fix.mac":
+    "macOS 提示無法打開或「已損壞」：到「系統設定 → 隱私權與安全性」允許打開，或按住 Control 點按圖示選「打開」。也可清除隔離屬性後再打開。只從 GitHub Releases 取包。",
+  "install.fix.win":
+    "Windows SmartScreen 提示未知發行者：點「更多資訊 → 仍要執行」。可用 SHA256SUMS 核對雜湊。確認已有 WebView2。",
+  "install.fix.linux":
+    "AppImage 報缺 libEGL.so.1：先裝宿主執行時庫。Wayland（如 Hyprland + AMD）顯示異常時，優先用 .deb / .rpm；或加 WEBKIT_DISABLE_DMABUF_RENDERER=1 再執行 AppImage。",
+  "install.fix.sandbox":
+    "Ubuntu 24.04+ 上 Agent 沙箱起不來：可啟用非特權使用者命名空間，或在「設定 → 執行環境 → 沙箱」關掉沙箱。",
+  "install.next.title": "接下來",
+  "install.next.body": "裝好之後可以看問答、Release 說明、原始碼，或給工作臺換皮膚。",
+  "install.next.faq": "常見問題",
+  "install.next.releases": "GitHub Releases",
+  "install.next.github": "原始碼倉庫",
+  "install.next.skins": "社群皮膚",
 };

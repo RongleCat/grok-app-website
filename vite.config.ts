@@ -21,6 +21,7 @@ export default defineConfig({
         opensource: "opensource/index.html",
         faq: "faq/index.html",
         skins: "skins/index.html",
+        install: "install/index.html",
       },
       output: {
         entryFileNames: "assets/app.[hash].js",

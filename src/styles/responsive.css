@@ -3,7 +3,8 @@
   .hero,
   .site-footer,
   .header-inner,
-  .faq-page {
+  .faq-page,
+  .install-page {
     width: min(var(--max), calc(100% - 56px));
   }
 
@@ -140,7 +141,8 @@
   .hero,
   .site-footer,
   .header-inner,
-  .faq-page {
+  .faq-page,
+  .install-page {
     width: calc(100% - 32px);
   }
 

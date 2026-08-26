@@ -100,13 +100,25 @@
   text-underline-offset: 4px;
 }
 
+.dl-more {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin-top: 22px;
+}
+
 .dl-fallback {
   display: inline-flex;
-  margin-top: 22px;
   color: var(--text-muted);
   font-size: 13px;
   letter-spacing: 0.01em;
   text-decoration: none;
+}
+
+/* 2026-08-26 · add · 首页 Releases 旁再放安装指南，避免挤进胶囊导航 */
+.dl-fallback + .dl-fallback {
+  margin-left: 18px;
 }
 
 .dl-fallback:hover {
@@ -114,4 +126,8 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+}
+
+.download .dl-fallback + .dl-fallback {
+  margin-left: 18px;
 }

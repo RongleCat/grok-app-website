@@ -14,14 +14,14 @@
 
 | 顺序 | Section | 效果图上的内容 |
 |------|---------|----------------|
-| 1 | `header` | 内容限宽左右分布：左为产品仓 Grok 标 + 「Grok App」+ 文字 `简 / 繁 / EN`；中胶囊导航（产品 / 功能 / 下载 / 开源 / 皮肤 / 问答）；右月亮/太阳主题图标 + 「免费下载」 |
+| 1 | `header` | 内容限宽左右分布：左为产品仓 Grok 标 + 「Grok App」+ 文字 `简 / 繁 / EN`；中胶囊导航（产品 / 功能 / 下载 / 安装 / 开源 / 皮肤 / 问答）；右月亮/太阳主题图标 + 「免费下载」 |
 | 2 | `hero` `#product` | 主标题、副标题、双 CTA、三枚浮动能力胶囊、工作台窗口截图 |
 | 3 | `value` | 胶囊标题「不只是聊天，更是完整的工作台」+ 三张大卡 |
 | 4 | `capabilities` `#features` | 胶囊标题「更强大的能力，更自由的生产力」+ 六张能力卡 |
 | 5 | `skins` | 胶囊标题「换一种主题，工作台也换一种状态」+ 四枚皮肤预览（当前选中带勾）+ 社区画廊 CTA |
 | 6 | `opensource` | 落地页只留短横条，链到独立页 `/opensource/` |
 | 7 | `download` `#download` | 收尾标题 + macOS / Windows / Linux 三主按钮 |
-| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、问答、皮肤、Grok Bot 友情链接 |
+| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、安装、问答、皮肤、Grok Bot 友情链接 |
 
 效果图导航第四项「开源」滚到 `opensource` 或外链 GitHub。不要做成独立长页。
 
@@ -64,6 +64,7 @@
 | 使用条款 | 尚未实现；可先链 README 说明或占内部路由并在 status 标明 |
 | 文档 | 产品仓 README_ZH |
 | 更新日志 | 产品仓 CHANGELOG 或 Releases |
+| 安装 | 本站 `/install/` |
 | 问答 | 本站 `/faq/` |
 | 皮肤 | 本站 `/skins/` |
 | Grok Bot | `https://usegrokbot.com/`（友情链接，只在页脚；`rel="noopener noreferrer"`，不加 `nofollow`） |
