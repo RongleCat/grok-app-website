@@ -1,5 +1,5 @@
 import { catalogs } from "./i18n/catalog";
-import { htmlLang, t, type Locale } from "./i18n/index";
+import { htmlLang, isLocale, t, type Locale } from "./i18n/index";
 import { GITHUB_REPO } from "./downloads";
 import baked from "./generated/stars-meta.json";
 
@@ -56,6 +56,12 @@ export function formatExactStarCount(count: number, locale: Locale): string {
 
 export function bakedStarCount(): number | null {
   return parseStarCount(baked.count);
+}
+
+function localeAfterAsync(fallback: Locale): Locale {
+  if (typeof document === "undefined") return fallback;
+  const raw = document.documentElement.getAttribute("data-locale");
+  return isLocale(raw) ? raw : fallback;
 }
 
 export function readStarsCache(
@@ -222,7 +228,8 @@ export async function refreshGithubStars(
   const live = await fetchStarCount(fetchFn);
   if (live === null) return paintedCount;
   writeStarsCache(live, now, storage);
-  paintGithubStars(live, locale);
+  /* 请求返回后读 data-locale，避免刷新完成时用户已切语言 */
+  paintGithubStars(live, localeAfterAsync(locale));
   return live;
 }
 
