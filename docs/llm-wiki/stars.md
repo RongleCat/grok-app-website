@@ -16,7 +16,7 @@
 
 仓库：`RongleCat/grok-app`（与 [downloads.md](./downloads.md) 同一产品仓，不是本官网仓）。
 
-1. **构建期** `scripts/fetch-stars.mjs` 拉 `https://api.github.com/repos/RongleCat/grok-app`，写入 `src/generated/stars-meta.json`：`{ "count": 1104 }`。失败则保留上次提交的有效 `count`；从未成功则 `{ "count": null }`。
+1. **构建期** `scripts/fetch-stars.mjs` 拉 `https://api.github.com/repos/RongleCat/grok-app`，写入 `src/generated/stars-meta.json`：`{ "count": <整数> }`（当前提交为 `1105`）。失败则保留上次提交的有效 `count`；从未成功则 `{ "count": null }`。
 2. **运行时** `src/stars.ts` 先画构建回退或 `localStorage["grok-app-site.stars"]`（`{ count, fetchedAt }`，TTL 1 小时），再请求同一公开 API。失败保持已画出的真实数字；若从未有数字则隐藏槽位。
 
 不要用 shields iframe、`github-buttons.js` 或其它第三方 badge。不要浏览器拉 `downloads.json`（无 CORS；那是下载契约）。
