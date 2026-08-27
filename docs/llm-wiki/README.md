@@ -18,6 +18,7 @@ Agent 维护本官网的**可执行知识库**。改页面、下载、部署或�
 | [skins.md](./skins.md) | 社区皮肤画廊 `/skins/`：目录 fetch、Apply 深链、卡片视觉 |
 | [i18n.md](./i18n.md) | 三语、系统语言探测、手动切换持久化 |
 | [downloads.md](./downloads.md) | 与 GitHub Release 的下载契约 |
+| [stars.md](./stars.md) | Hero / 开源页 GitHub 按钮的 star 数：缩写、tooltip、构建回退与运行时刷新 |
 | [../plans/GOAL-official-site.md](../plans/GOAL-official-site.md) | 多 Agent 同步落地的 Goal 合同 |
 | [deploy.md](./deploy.md) | 域名、Cloudflare Pages、发版上线 |
 | [seo.md](./seo.md) | 抓取 / GEO：www 301、sitemap、llms.txt、JSON-LD、meta；`/install/` 安装指南 |

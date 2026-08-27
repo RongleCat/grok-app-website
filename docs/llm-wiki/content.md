@@ -60,6 +60,7 @@
 | `hero.subtitle` | 为 Grok Build CLI 打造的开源桌面 GUI | 為 Grok Build CLI 打造的開源桌面 GUI | An open-source desktop GUI for the Grok Build CLI |
 | `hero.ctaPrimary` | 免费下载 | 免費下載 | Download Free |
 | `hero.ctaGithub` | GitHub 开源 | GitHub 開源 | GitHub |
+| `github.stars` | {count} 颗星 | {count} 顆星 | {count} stars |
 | `pill.models.title` | 多模型支持 | 多模型支援 | Multi-model |
 | `pill.models.desc` | Grok 4.6 及更多模型 | Grok 4.6 及更多模型 | Grok 4.6 and more |
 | `pill.speed.title` | 快速响应 | 快速回應 | Fast response |
@@ -68,6 +69,8 @@
 | `pill.privacy.desc` | 本地优先，隐私可控 | 本機優先，隱私可控 | Local-first. You're in control. |
 
 主标题里的 `Grok` 可做字重对比，三语都保留该专名。
+
+`github.stars` 只进按钮 `aria-label` 与读屏，不替换 `hero.ctaGithub` / `oss.repo.cta`。可见数字是缩写，精确数在 tooltip。契约见 [stars.md](./stars.md)。
 
 ## value
 

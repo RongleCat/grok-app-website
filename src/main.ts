@@ -45,6 +45,7 @@ import "./styles/gallery.css";
 import "./styles/install.css";
 import contributors from "./generated/contributors.json";
 import { bindGallery, syncGalleryLocale } from "./skins";
+import { bindGithubStars, syncGithubStars } from "./stars";
 
 const HTML_KEYS = new Set(["hero.title", "dl.title"]);
 
@@ -119,6 +120,8 @@ function applyI18n(locale: Locale): void {
   syncLocaleControls(locale);
   syncOpenQrDialog();
   syncGalleryLocale(locale);
+  /* 2026-08-27 · add · 切语言后重写 star 精确数与 aria-label，不重新请求 */
+  syncGithubStars(locale);
 }
 
 function readVars(el: HTMLElement): Record<string, string> | undefined {
@@ -358,6 +361,7 @@ function boot(): void {
   bindContributors();
   bindQrDialog();
   bindGallery(currentLocale());
+  bindGithubStars(currentLocale());
   document.documentElement.setAttribute("data-ready", "true");
 }
 

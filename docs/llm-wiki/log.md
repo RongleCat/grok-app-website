@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-08-27 · Hero / 开源页 GitHub 按钮加 star 数
+
+- **操作者**：agent
+- **触发**：用户要求官网 GitHub 按钮显示 RongleCat/grok-app 的 live star 数（缩写默认、悬停精确、失败降级）
+- **改动**：
+  - `src/stars.ts` + `src/stars.test.ts`：缩写（1094→1.1k）、locale 精确数、localStorage 1h、公开 API 刷新
+  - `scripts/fetch-stars.mjs` 写入 `src/generated/stars-meta.json`（当前回退 1104）；`prebuild` 先拉 star 再拉 downloads
+  - 首页 Hero `data-github-stars` 与 `/opensource/` 仓库钮同一钩子；失败隐藏槽位，保留原 label
+  - 三语 `github.stars`；`base.css` tooltip 走站点 token
+- **Wiki**：stars（新）/ content / design / product / sources / i18n / status / README / AGENTS / 本条
+- **结果**：按钮默认缩写、悬停/聚焦精确数；无数字不造假
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-26 · 新增 `/install/` 三端安装指南
 
 - **操作者**：agent

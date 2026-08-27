@@ -28,6 +28,8 @@ export const en: Record<MessageKey, string> = {
   "hero.subtitle": "An open-source desktop GUI for the Grok Build CLI",
   "hero.ctaPrimary": "Download Free",
   "hero.ctaGithub": "GitHub",
+  /* 2026-08-27 · add · star 精确数读屏短语，与 zh / zh-TW 同 key */
+  "github.stars": "{count} stars",
   "pill.models.title": "Multi-model",
   "pill.models.desc": "Grok 4.6 and more",
   "pill.speed.title": "Fast response",

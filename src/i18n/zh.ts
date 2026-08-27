@@ -24,6 +24,8 @@ export const zh = {
   "hero.subtitle": "为 Grok Build CLI 打造的开源桌面 GUI",
   "hero.ctaPrimary": "免费下载",
   "hero.ctaGithub": "GitHub 开源",
+  /* 2026-08-27 · add · star 精确数的无障碍短语，可见数字仍是缩写 */
+  "github.stars": "{count} 颗星",
   "pill.models.title": "多模型支持",
   "pill.models.desc": "Grok 4.6 及更多模型",
   "pill.speed.title": "快速响应",

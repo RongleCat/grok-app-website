@@ -26,6 +26,8 @@ export const zhTW: Record<MessageKey, string> = {
   "hero.subtitle": "為 Grok Build CLI 打造的開源桌面 GUI",
   "hero.ctaPrimary": "免費下載",
   "hero.ctaGithub": "GitHub 開源",
+  /* 2026-08-27 · add · star 精確數讀屏短語，與 zh / en 同 key */
+  "github.stars": "{count} 顆星",
   "pill.models.title": "多模型支援",
   "pill.models.desc": "Grok 4.6 及更多模型",
   "pill.speed.title": "快速回應",
