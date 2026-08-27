@@ -28,7 +28,7 @@
 ## Hero
 
 - 居中排版。主标题里 **Grok** 用衬线/对比字重，其余无衬线。
-- 双 CTA：实心浅色「免费下载」（带下载图标）；描边「GitHub 开源」。
+- 双 CTA：实心浅色「免费下载」（带下载图标）；描边「GitHub 开源」，旁边是仓库 star 缩写（悬停 / 键盘聚焦出精确数）。契约见 [stars.md](./stars.md)。
 - 工作台预览是一张 **macOS 窗口框**（红黄绿灯 + 侧栏 + SuperGrok HEAVY 空状态）。
 - 暗色站点主题用 [workbench-dark.png](./assets/workbench-dark.png)；亮色站点主题用 [workbench-light.png](./assets/workbench-light.png)。
 - 三枚浮动胶囊贴在窗口周围，不要嵌进截图像素里：
@@ -137,7 +137,7 @@
 
 验收宽度至少拍：`1440`、`1280`、`1024`、`768`、`390`。`390` 与 `768` 不得出现重叠、裁字、横溢、胶囊压在 SuperGrok 标题上。
 
-独立开源页：`/opensource/`。含仓库地址与介绍、作者铁柱 AGI（X + 公众号 / 添加微信好友二维码弹窗）、以及 Issues 投稿的贡献者墙（当前 8 人，数据 `src/generated/contributors.json`，名单见 [contributors.md](./contributors.md)）。`oss.wall.body` 与卡片网格之间有 28px 间隔。卡片链到投稿留下的主页。明暗主题与落地页共用 token。
+独立开源页：`/opensource/`。含仓库地址与介绍、作者铁柱 AGI（X + 公众号 / 添加微信好友二维码弹窗）、以及 Issues 投稿的贡献者墙（当前 8 人，数据 `src/generated/contributors.json`，名单见 [contributors.md](./contributors.md)）。Hero「打开 GitHub 仓库」与首页同一套 `data-github-stars`。`oss.wall.body` 与卡片网格之间有 28px 间隔。卡片链到投稿留下的主页。明暗主题与落地页共用 token。
 
 独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」进 `/skins/`。SEO 契约见 [seo.md](./seo.md)。
 
@@ -157,5 +157,6 @@
 4. 主标题里的 **Grok** 与全站英文用非衬线，不用衬线对比字。
 5. 顶栏 Logo 用产品仓 `IconGrokMark` 路径（`public/logo.svg`），不是效果图上的简化 G。
 6. 顶栏内容包在 `--max` 内左右分布，不再贴视口左右边。
+7. Hero / 开源页 GitHub 按钮旁有 star 缩写（效果图没有）。
 
 其它：皮肤绿/琥珀两张是同一张暗色工作台加滤镜示意，不是产品仓独立截图。隐私 / 条款链到 GitHub，本站尚无独立法律页。

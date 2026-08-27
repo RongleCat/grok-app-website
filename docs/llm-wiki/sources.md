@@ -47,6 +47,7 @@
 | 贡献者投稿 | 产品仓 Issues（标题含「贡献者信息」及同期投稿）；整理规则见 [contributors.md](./contributors.md) |
 | 最新下载前缀 | `https://github.com/RongleCat/grok-app/releases/latest/download/` |
 | Releases 列表 | `https://github.com/RongleCat/grok-app/releases` |
+| 产品仓公开 API（star 数） | `https://api.github.com/repos/RongleCat/grok-app` |
 | 清单（下一枚正式 tag 后） | `…/latest/download/downloads.json` |
 
 ## 会话里已发生、但不要当长期权威的东西

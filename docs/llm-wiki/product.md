@@ -23,7 +23,7 @@
 | 落地页 + `/opensource/` + `/faq/` + `/install/` + 明暗主题 | 桌面端功能、Tauri、Agent 运行时 |
 | 简体 / 繁體 / English，跟系统或记住手动选择 | 只做一种语言、或用浏览器翻译凑数 |
 | 下载按钮 / 可选短链 302 | 托管或反代安装包 |
-| 构建时拉 `downloads.json` | 浏览器直拉 GitHub API / JSON |
+| 构建时拉 `downloads.json`；star 数构建期写入 `stars-meta.json`，运行时可刷新公开 `stargazers_count`（localStorage 1h） | 浏览器直拉 `downloads.json`（无 CORS）；第三方 star badge |
 | 工作台明暗截图展示；`/skins/` 运行时画廊 + Apply 深链 | 皮肤编辑器、`.grokskin` 解析、桌面端逻辑 |
 | Cloudflare Pages 静态站 | 应用内自动更新（`grok-desktop-latest`） |
 
