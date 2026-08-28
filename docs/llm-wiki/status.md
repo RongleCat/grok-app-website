@@ -1,6 +1,6 @@
 # 当前状态
 
-最后更新：2026-08-27。本页必须与仓库事实一致。
+最后更新：2026-08-28。本页必须与仓库事实一致。
 
 ## 一句话
 
@@ -43,7 +43,7 @@
 | GitHub Actions 发版 | 推 `main` / `workflow_dispatch` 构建并部署 Pages | `.github/workflows/deploy-pages.yml` |
 | CF 部署权限 | 仓库 Secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`；聊天令牌视为已暴露 | 见 [deploy.md](./deploy.md)；令牌不入库 |
 | 站点明暗主题 | 已实现 | 月亮/太阳图标；Hero/皮肤主图换 `workbench-*.webp` |
-| Hero / 开源页 GitHub star | 已实现 | 首页 `hero.ctaGithub` 与 `/opensource/` `oss.repo.cta` 旁显示缩写；悬停/聚焦精确数；构建回退 `src/generated/stars-meta.json` + 运行时公开 API（`grok-app-site.stars` 1h）；失败只留原按钮。契约 [stars.md](./stars.md) |
+| Hero / 开源页 GitHub star | 已实现 | 首页 `hero.ctaGithub` 与 `/opensource/` `oss.repo.cta` 旁显示缩写；悬停/聚焦精确数；首屏画 `src/generated/stars-meta.json`；每次进页拉公开 API；失败藏数字只留原按钮。无 `grok-app-site.stars` / 1h TTL。契约 [stars.md](./stars.md) |
 | 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/`；皮肤进 `/skins/`；安装进 `/install/` |
 | 页脚友情链接 | 已落地 | 五页页脚链 `https://usegrokbot.com/`，文案 `footer.grokbot` = Grok Bot；`rel="noopener noreferrer"`，无 `nofollow`；不进正文 / `llms.txt` |
 | 社区皮肤画廊 | 已落地 `/skins/` | 等大网格（宽 4 / 中 3 / ≤640 最少 2）；精选不跨列；无 HUD 角标；`.g-chrome` `inset: 0` 铺满卡；`pack.scrim` → `wallpaperFromScrim` 写 `--wallpaper-*`（侧栏 mix 58%、主区 70%、blur 22px @100）；左重 105deg scrim；桌面 hover / 键盘才露出铺满整卡的 dock（精选一枚 chip + 短 Apply）；`hover: none` 露出底部紧凑条且不缩小 chrome；桌面 `grok://skin/import?url=`，手机 `gallery.applyMobile` toast；投稿外链 CONTRIBUTING |

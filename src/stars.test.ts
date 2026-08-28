@@ -1,24 +1,22 @@
 /**
- * 2026-08-27 · add · star 缩写与缓存单测
- * Timestamp: 2026-08-27
- * Change type: add
- * What: 锁 1094→1.1k / 999 / 10k，以及非法输入不造假数
- * Why: 可见数字规则是用户验收条件，避免回归成四位原样或假 0
+ * 2026-08-28 · fix · 去掉 star 本地缓存单测，锁每次刷新都请求
+ * Timestamp: 2026-08-28
+ * Change type: fix
+ * What: 保留缩写规则；refresh 必打 API；失败返回 null
+ * Why: 用户要求刷新即拉 stargazers_count，禁止 TTL 短路
  * Params & return: 无
- * Impact scope: src/stars.ts 纯函数
+ * Impact scope: src/stars.ts 纯函数与 refreshGithubStars
  * Risk: 无已知风险
  */
 import { describe, expect, it } from "vitest";
 import {
   abbreviateStarCount,
-  cacheIsFresh,
+  bakedStarCount,
   formatExactStarCount,
   parseStarCount,
   readStargazersCount,
-  readStarsCache,
-  STARS_STORAGE_KEY,
-  STARS_TTL_MS,
-  writeStarsCache,
+  refreshGithubStars,
+  STARS_API_URL,
 } from "./stars";
 
 describe("abbreviateStarCount", () => {
@@ -64,20 +62,22 @@ describe("parseStarCount / readStargazersCount", () => {
   });
 });
 
-describe("stars cache", () => {
-  it("round-trips a valid count and expires after the TTL", () => {
-    const store = new Map<string, string>();
-    const storage = {
-      getItem: (key: string) => store.get(key) ?? null,
-      setItem: (key: string, value: string) => {
-        store.set(key, value);
-      },
-    };
-    writeStarsCache(1104, 1_000, storage);
-    expect(store.has(STARS_STORAGE_KEY)).toBe(true);
-    const cached = readStarsCache(storage);
-    expect(cached).toEqual({ count: 1104, fetchedAt: 1_000 });
-    expect(cacheIsFresh(cached!, 1_000 + STARS_TTL_MS - 1)).toBe(true);
-    expect(cacheIsFresh(cached!, 1_000 + STARS_TTL_MS)).toBe(false);
+describe("refreshGithubStars", () => {
+  it("always fetches the public API and returns the live count", async () => {
+    const urls: string[] = [];
+    const fetchFn = (async (input: RequestInfo | URL) => {
+      urls.push(String(input));
+      return new Response(JSON.stringify({ stargazers_count: 1200 }), { status: 200 });
+    }) as typeof fetch;
+    const live = await refreshGithubStars("en", fetchFn);
+    expect(urls).toEqual([STARS_API_URL]);
+    expect(live).toBe(1200);
+    expect(bakedStarCount()).not.toBe(1200);
+  });
+
+  it("hides the count when the fetch fails", async () => {
+    const fetchFn = (async () => new Response("rate limited", { status: 403 })) as typeof fetch;
+    const live = await refreshGithubStars("zh", fetchFn);
+    expect(live).toBeNull();
   });
 });

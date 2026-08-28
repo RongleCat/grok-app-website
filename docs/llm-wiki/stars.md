@@ -16,8 +16,8 @@
 
 仓库：`RongleCat/grok-app`（与 [downloads.md](./downloads.md) 同一产品仓，不是本官网仓）。
 
-1. **构建期** `scripts/fetch-stars.mjs` 拉 `https://api.github.com/repos/RongleCat/grok-app`，写入 `src/generated/stars-meta.json`：`{ "count": <整数> }`（当前提交为 `1105`）。失败则保留上次提交的有效 `count`；从未成功则 `{ "count": null }`。
-2. **运行时** `src/stars.ts` 先画构建回退或 `localStorage["grok-app-site.stars"]`（`{ count, fetchedAt }`，TTL 1 小时），再请求同一公开 API。失败保持已画出的真实数字；若从未有数字则隐藏槽位。
+1. **构建期** `scripts/fetch-stars.mjs` 拉 `https://api.github.com/repos/RongleCat/grok-app`，写入 `src/generated/stars-meta.json`：`{ "count": <整数> }`（当前提交为 `1105`）。失败则保留上次提交的有效 `count`；从未成功则 `{ "count": null }`。首屏先画这个数字，避免请求返回前按钮空着。
+2. **运行时** 每次进页 / 刷新都请求同一公开 API。成功则换成现网 `stargazers_count`。失败藏数字、只留原按钮文案，不把构建回退当现网结果留下。不写 `localStorage`，没有 TTL 短路。
 
 不要用 shields iframe、`github-buttons.js` 或其它第三方 badge。不要浏览器拉 `downloads.json`（无 CORS；那是下载契约）。
 
@@ -25,8 +25,8 @@
 
 | 文件 | 职责 |
 |------|------|
-| `src/stars.ts` | `abbreviateStarCount` / `formatExactStarCount` / 缓存 / fetch / `paintGithubStars` |
-| `src/stars.test.ts` | 缩写规则与缓存 |
+| `src/stars.ts` | `abbreviateStarCount` / `formatExactStarCount` / fetch / `paintGithubStars` |
+| `src/stars.test.ts` | 缩写规则；`refreshGithubStars` 必请求、失败返回 null |
 | `src/generated/stars-meta.json` | 提交进仓的构建回退 |
 | `src/main.ts` | `bindGithubStars`；`applyI18n` 里 `syncGithubStars` |
 | `src/styles/base.css` | `.github-stars` / `.github-stars-tip` |
