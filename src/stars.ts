@@ -4,24 +4,17 @@ import { GITHUB_REPO } from "./downloads";
 import baked from "./generated/stars-meta.json";
 
 /**
- * 2026-08-27 · add · GitHub 按钮 star 数
- * Timestamp: 2026-08-27
- * Change type: add
- * What: 缩写 / 精确格式化 / 构建回退 + 运行时刷新 + 本地缓存
- * Why: 按钮默认显示 1.1k，悬停/聚焦给精确数；失败不造假数
- * Params & return: bindGithubStars(locale) 无返回；纯函数返回字符串或 null
+ * 2026-08-28 · fix · 每次进页都拉公开 API，去掉 localStorage 缓存
+ * Timestamp: 2026-08-28
+ * Change type: fix
+ * What: 首屏画构建回退；refresh 必发网络请求；失败藏数字
+ * Why: 用户要求刷新即更新 star，禁止 1 小时 TTL 短路
+ * Params & return: bindGithubStars(locale) 无返回；fetch 失败返回 null
  * Impact scope: 首页 Hero 与 /opensource/ 的 data-github-stars 按钮
- * Risk: 未认证 GitHub API 每 IP 约 60 次/小时；靠 1 小时 localStorage 节流
+ * Risk: 未认证 GitHub API 每 IP 约 60 次/小时；刷新频繁时可能 403，此时藏数字
  */
 
 export const STARS_API_URL = `https://api.github.com/repos/${GITHUB_REPO}`;
-export const STARS_STORAGE_KEY = "grok-app-site.stars";
-export const STARS_TTL_MS = 60 * 60 * 1000;
-
-export type StarsCache = {
-  count: number;
-  fetchedAt: number;
-};
 
 let paintedCount: number | null = null;
 
@@ -62,57 +55,6 @@ function localeAfterAsync(fallback: Locale): Locale {
   if (typeof document === "undefined") return fallback;
   const raw = document.documentElement.getAttribute("data-locale");
   return isLocale(raw) ? raw : fallback;
-}
-
-export function readStarsCache(
-  storage: Pick<Storage, "getItem"> | null = defaultStorage(),
-): StarsCache | null {
-  if (!storage) return null;
-  try {
-    const raw = storage.getItem(STARS_STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as Partial<StarsCache>;
-    const count = parseStarCount(parsed.count);
-    if (count === null || typeof parsed.fetchedAt !== "number" || !Number.isFinite(parsed.fetchedAt)) {
-      return null;
-    }
-    return { count, fetchedAt: parsed.fetchedAt };
-  } catch {
-    return null;
-  }
-}
-
-export function writeStarsCache(
-  count: number,
-  fetchedAt: number = Date.now(),
-  storage: Pick<Storage, "setItem"> | null = defaultStorage(),
-): void {
-  const n = parseStarCount(count);
-  if (n === null || !storage) return;
-  try {
-    storage.setItem(STARS_STORAGE_KEY, JSON.stringify({ count: n, fetchedAt }));
-  } catch {
-    /* 隐私模式或配额满 */
-  }
-}
-
-export function cacheIsFresh(cache: StarsCache, now: number = Date.now()): boolean {
-  return now - cache.fetchedAt < STARS_TTL_MS;
-}
-
-function defaultStorage(): Storage | null {
-  try {
-    if (typeof localStorage === "undefined") return null;
-    return localStorage;
-  } catch {
-    return null;
-  }
-}
-
-export function initialStarCount(
-  storage: Pick<Storage, "getItem"> | null = defaultStorage(),
-): number | null {
-  return readStarsCache(storage)?.count ?? bakedStarCount();
 }
 
 export async function fetchStarCount(
@@ -216,24 +158,19 @@ export function syncGithubStars(locale: Locale): void {
 export async function refreshGithubStars(
   locale: Locale,
   fetchFn: typeof fetch = fetch,
-  storage: (Pick<Storage, "getItem" | "setItem">) | null = defaultStorage(),
-  now: number = Date.now(),
 ): Promise<number | null> {
-  const cached = readStarsCache(storage);
-  if (cached) {
-    paintGithubStars(cached.count, locale);
-    if (cacheIsFresh(cached, now)) return cached.count;
-  }
-
   const live = await fetchStarCount(fetchFn);
-  if (live === null) return paintedCount;
-  writeStarsCache(live, now, storage);
-  /* 请求返回后读 data-locale，避免刷新完成时用户已切语言 */
-  paintGithubStars(live, localeAfterAsync(locale));
+  const nextLocale = localeAfterAsync(locale);
+  /* 失败闭合：请求失败就藏数字，不把构建回退当现网结果留下 */
+  if (live === null) {
+    paintGithubStars(null, nextLocale);
+    return null;
+  }
+  paintGithubStars(live, nextLocale);
   return live;
 }
 
 export function bindGithubStars(locale: Locale): void {
-  paintGithubStars(initialStarCount(), locale);
+  paintGithubStars(bakedStarCount(), locale);
   void refreshGithubStars(locale);
 }

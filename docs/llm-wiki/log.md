@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-08-28 · GitHub star 每次刷新都拉 API
+
+- **操作者**：agent
+- **触发**：用户要求去掉 1 小时 localStorage 缓存，每次进页 / 刷新自动拉 `stargazers_count`
+- **改动**：
+  - 删除 `src/stars.ts` 的 `grok-app-site.stars` 读写、`STARS_TTL_MS`、`cacheIsFresh` 短路
+  - `bindGithubStars` 仍先画 `stars-meta.json`；`refreshGithubStars` 每次必请求；失败 `paint(null)` 藏数字
+  - `src/stars.test.ts` 改为锁「必请求 + 失败返回 null」，去掉缓存 round-trip
+- **Wiki**：stars / product / status / 本条
+- **结果**：刷新必打公开 API；失败只留原 GitHub 文案
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-27 · Hero / 开源页 GitHub 按钮加 star 数
 
 - **操作者**：agent
