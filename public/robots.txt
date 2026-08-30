@@ -1,4 +1,6 @@
+# /api/* 是 Pages Function JSON（star 数），不是内容页
 User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: https://grok-app.com/sitemap.xml

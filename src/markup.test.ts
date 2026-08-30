@@ -1,3 +1,13 @@
+/**
+ * 2026-08-30 · add · 锁 /api/stars 不得当内容页收录
+ * Timestamp: 2026-08-30
+ * Change type: add
+ * What: sitemap / llms 不含 /api/stars；robots Disallow /api/；_headers noindex；_redirects 不吞 /api
+ * Why: star 接口是 JSON，不是可抓取页面
+ * Params & return: 无
+ * Impact scope: SEO 静态契约测试
+ * Risk: 无已知风险
+ */
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,6 +25,8 @@ const skinsHtml = readFileSync(join(root, "skins/index.html"), "utf8");
 const installHtml = readFileSync(join(root, "install/index.html"), "utf8");
 const sitemap = readFileSync(join(root, "public/sitemap.xml"), "utf8");
 const redirects = readFileSync(join(root, "public/_redirects"), "utf8");
+const headers = readFileSync(join(root, "public/_headers"), "utf8");
+const robots = readFileSync(join(root, "public/robots.txt"), "utf8");
 const llms = readFileSync(join(root, "public/llms.txt"), "utf8");
 const meta = JSON.parse(
   readFileSync(join(root, "src/generated/downloads-meta.json"), "utf8"),
@@ -194,6 +206,14 @@ describe("SEO / GEO foundation", () => {
     expect(redirects).toMatch(/\/faq\s+\/faq\/\s+301/);
     expect(redirects).toMatch(/\/skins\s+\/skins\/\s+301/);
     expect(redirects).toMatch(/\/install\s+\/install\/\s+301/);
+    expect(redirects).not.toMatch(/\/api\//);
+  });
+
+  it("does not index /api/stars as a content page", () => {
+    expect(sitemap).not.toContain("/api/stars");
+    expect(llms).not.toContain("/api/stars");
+    expect(robots).toContain("Disallow: /api/");
+    expect(headers).toMatch(/\/api\/\*[\s\S]*X-Robots-Tag:\s*noindex/);
   });
 
   it("lists every public URL in sitemap.xml with lastmod", () => {

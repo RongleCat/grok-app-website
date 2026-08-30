@@ -25,7 +25,7 @@
 
 `public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，安装 `0.8` weekly，皮肤 `0.7` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
 
-`public/robots.txt` 指向 `https://grok-app.com/sitemap.xml`。
+`public/robots.txt` 指向 `https://grok-app.com/sitemap.xml`，并 `Disallow: /api/`。`/api/stars` 是 Pages Function JSON，不是内容页：不进 sitemap / `llms.txt`；`public/_headers` 与 Function 响应写 `X-Robots-Tag: noindex`。
 
 ## www 规范化
 

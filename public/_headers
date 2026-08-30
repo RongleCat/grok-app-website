@@ -22,3 +22,15 @@
 
 /sitemap.xml
   Cache-Control: public, max-age=86400
+
+# 2026-08-30 · add · /api/* 不是内容页，禁止收录
+# Timestamp: 2026-08-30
+# Change type: add
+# What: X-Robots-Tag noindex；短缓存由 Function 自己写，这里只挡爬虫
+# Why: /api/stars 是 JSON 接口，不得进 sitemap / 搜索结果
+# Params & return: 无
+# Impact scope: Cloudflare Pages 静态头；Function 响应头会覆盖同名项
+# Risk: 无已知风险
+/api/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=90
