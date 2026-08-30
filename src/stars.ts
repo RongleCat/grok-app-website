@@ -1,26 +1,31 @@
 import { catalogs } from "./i18n/catalog";
 import { htmlLang, isLocale, t, type Locale } from "./i18n/index";
-import { GITHUB_REPO } from "./downloads";
 import baked from "./generated/stars-meta.json";
 
 /**
- * 2026-08-28 · fix · 每次进页都拉公开 API，去掉 localStorage 缓存
- * Timestamp: 2026-08-28
+ * 2026-08-30 · fix · 浏览器改为同源 /api/stars，失败保留构建回退
+ * Timestamp: 2026-08-30
  * Change type: fix
- * What: 首屏画构建回退；refresh 必发网络请求；失败藏数字
- * Why: 用户要求刷新即更新 star，禁止 1 小时 TTL 短路
- * Params & return: bindGithubStars(locale) 无返回；fetch 失败返回 null
+ * What: 首屏画 stars-meta.json；refresh 只打相对路径 /api/stars；失败不 paint(null)
+ * Why: 访客直打 api.github.com 会 403，控制台红字且 fail-closed 把数字藏掉
+ * Params & return: fetchStarCount 读 { count }；失败返回 null 但 paintedCount 不变
  * Impact scope: 首页 Hero 与 /opensource/ 的 data-github-stars 按钮
- * Risk: 未认证 GitHub API 每 IP 约 60 次/小时；刷新频繁时可能 403，此时藏数字
+ * Risk: 本地 vite preview 没有 Function，live 失败时留下构建回退，无已知风险
  */
 
-export const STARS_API_URL = `https://api.github.com/repos/${GITHUB_REPO}`;
+export const STARS_API_URL = "/api/stars";
 
 let paintedCount: number | null = null;
 
 export function parseStarCount(value: unknown): number | null {
   if (typeof value !== "number" || !Number.isFinite(value) || value < 0) return null;
   return Math.floor(value);
+}
+
+/** 同源 Function 契约：{ count: <integer> } */
+export function readLiveStarCount(payload: unknown): number | null {
+  if (!payload || typeof payload !== "object") return null;
+  return parseStarCount((payload as { count?: unknown }).count);
 }
 
 export function readStargazersCount(payload: unknown): number | null {
@@ -51,6 +56,10 @@ export function bakedStarCount(): number | null {
   return parseStarCount(baked.count);
 }
 
+export function paintedStarCount(): number | null {
+  return paintedCount;
+}
+
 function localeAfterAsync(fallback: Locale): Locale {
   if (typeof document === "undefined") return fallback;
   const raw = document.documentElement.getAttribute("data-locale");
@@ -62,11 +71,11 @@ export async function fetchStarCount(
 ): Promise<number | null> {
   try {
     const res = await fetchFn(STARS_API_URL, {
-      headers: { Accept: "application/vnd.github+json" },
+      headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return null;
-    return readStargazersCount(await res.json());
+    return readLiveStarCount(await res.json());
   } catch {
     return null;
   }
@@ -161,11 +170,8 @@ export async function refreshGithubStars(
 ): Promise<number | null> {
   const live = await fetchStarCount(fetchFn);
   const nextLocale = localeAfterAsync(locale);
-  /* 失败闭合：请求失败就藏数字，不把构建回退当现网结果留下 */
-  if (live === null) {
-    paintGithubStars(null, nextLocale);
-    return null;
-  }
+  /* 失败保留已画数字（通常是构建回退），不再 paint(null) 把按钮掏空 */
+  if (live === null) return null;
   paintGithubStars(live, nextLocale);
   return live;
 }

@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-08-30 · star 数改走同源 /api/stars，去掉浏览器 api.github.com
+
+- **操作者**：agent
+- **触发**：访客控制台 `api.github.com/repos/RongleCat/grok-app` 403，数字常被 fail-closed 藏掉
+- **改动**：
+  - 新增仓库根 `functions/api/stars.ts`：`GET /api/stars` → `{ count }`；`User-Agent: grok-app.com-stars`；成功 90s 边缘缓存；失败 502 `no-store`；可选 `GITHUB_TOKEN` / `GH_TOKEN`
+  - `public/_routes.json` 只 `include` `/api/*`；`_redirects` 无通配不吞该路径
+  - `src/stars.ts` 只打相对路径 `/api/stars`；失败保留 `stars-meta.json` 已画数字
+  - `robots.txt` `Disallow: /api/`；`_headers` `/api/*` `X-Robots-Tag: noindex`；sitemap / llms 不加该路径
+  - `src/stars.test.ts` 锁同源 URL 与失败不擦 baked
+- **Wiki**：stars / product / sources / deploy / seo / status / 本条
+- **结果**：浏览器不再请求 `api.github.com`；刷新仍走 live；失败至少留下构建回退
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-28 · GitHub star 每次刷新都拉 API
 
 - **操作者**：agent

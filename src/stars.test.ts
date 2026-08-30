@@ -1,9 +1,9 @@
 /**
- * 2026-08-28 · fix · 去掉 star 本地缓存单测，锁每次刷新都请求
- * Timestamp: 2026-08-28
+ * 2026-08-30 · fix · refresh 改打同源 /api/stars，失败不擦掉构建回退
+ * Timestamp: 2026-08-30
  * Change type: fix
- * What: 保留缩写规则；refresh 必打 API；失败返回 null
- * Why: 用户要求刷新即拉 stargazers_count，禁止 TTL 短路
+ * What: 锁相对路径 /api/stars；失败返回 null 且 paintedCount 仍是 baked
+ * Why: 浏览器不得再请求 api.github.com；403 时数字必须留下
  * Params & return: 无
  * Impact scope: src/stars.ts 纯函数与 refreshGithubStars
  * Risk: 无已知风险
@@ -13,7 +13,10 @@ import {
   abbreviateStarCount,
   bakedStarCount,
   formatExactStarCount,
+  paintGithubStars,
+  paintedStarCount,
   parseStarCount,
+  readLiveStarCount,
   readStargazersCount,
   refreshGithubStars,
   STARS_API_URL,
@@ -51,11 +54,14 @@ describe("formatExactStarCount", () => {
   });
 });
 
-describe("parseStarCount / readStargazersCount", () => {
+describe("parseStarCount / live and GitHub payloads", () => {
   it("accepts finite non-negative API values and rejects the rest", () => {
     expect(parseStarCount(1104)).toBe(1104);
     expect(parseStarCount(1104.9)).toBe(1104);
     expect(parseStarCount(-3)).toBeNull();
+    expect(readLiveStarCount({ count: 1104 })).toBe(1104);
+    expect(readLiveStarCount({ count: "1104" })).toBeNull();
+    expect(readLiveStarCount({})).toBeNull();
     expect(readStargazersCount({ stargazers_count: 1104 })).toBe(1104);
     expect(readStargazersCount({ stargazers_count: "1104" })).toBeNull();
     expect(readStargazersCount({})).toBeNull();
@@ -63,21 +69,30 @@ describe("parseStarCount / readStargazersCount", () => {
 });
 
 describe("refreshGithubStars", () => {
-  it("always fetches the public API and returns the live count", async () => {
+  it("fetches same-origin /api/stars and never api.github.com", async () => {
     const urls: string[] = [];
     const fetchFn = (async (input: RequestInfo | URL) => {
       urls.push(String(input));
-      return new Response(JSON.stringify({ stargazers_count: 1200 }), { status: 200 });
+      return new Response(JSON.stringify({ count: 1200 }), { status: 200 });
     }) as typeof fetch;
     const live = await refreshGithubStars("en", fetchFn);
-    expect(urls).toEqual([STARS_API_URL]);
+    expect(STARS_API_URL).toBe("/api/stars");
+    expect(STARS_API_URL).not.toContain("api.github.com");
+    expect(urls).toEqual(["/api/stars"]);
+    expect(urls.some((url) => url.includes("api.github.com"))).toBe(false);
     expect(live).toBe(1200);
     expect(bakedStarCount()).not.toBe(1200);
   });
 
-  it("hides the count when the fetch fails", async () => {
-    const fetchFn = (async () => new Response("rate limited", { status: 403 })) as typeof fetch;
+  it("keeps the baked count when the live fetch fails", async () => {
+    const baked = bakedStarCount();
+    expect(baked).not.toBeNull();
+    paintGithubStars(baked, "zh");
+    expect(paintedStarCount()).toBe(baked);
+
+    const fetchFn = (async () => new Response(null, { status: 502 })) as typeof fetch;
     const live = await refreshGithubStars("zh", fetchFn);
     expect(live).toBeNull();
+    expect(paintedStarCount()).toBe(baked);
   });
 });
