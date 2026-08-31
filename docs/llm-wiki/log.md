@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-08-31 · 下载 / JSON-LD 版本对齐 v0.2.29
+
+- **操作者**：agent
+- **触发**：最新非 draft Release 已是 v0.2.29（2026-08-30）；现网 JSON-LD 仍写 v0.2.26
+- **改动**：
+  - `node scripts/fetch-downloads.mjs` 拉现网 `downloads.json`，`src/generated/downloads-meta.json` tag → `v0.2.29`
+  - 脚本同步首页 JSON-LD `SoftwareApplication.softwareVersion` → `v0.2.29`（不再只手改 HTML）
+  - `public/sitemap.xml` 首页与 `/install/` `lastmod` → 2026-08-31（版本文案变了）
+  - 未改 star 数代码，未发明 Search Console 数据
+- **Wiki**：downloads / seo / status / 本条
+- **结果**：下载旁注、安装页 `data-version`、JSON-LD 与产品仓 latest Release 同为 `v0.2.29`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-08-30 · star 数改走同源 /api/stars，去掉浏览器 api.github.com
 
 - **操作者**：agent

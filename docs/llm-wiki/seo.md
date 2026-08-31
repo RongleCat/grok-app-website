@@ -104,7 +104,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - `name`: Grok App
 - `alternateName`: Grok Desktop, Grok GUI, Grok Build GUI, Grok Build Desktop, Grok 桌面客户端
 - `sameAs` 只放真实 URL：`https://github.com/RongleCat/grok-app`、`https://x.com/cgnot996`
-- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.26`）。`fallback: true` 时不要写版本
+- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.29`）。`fallback: true` 时不要写版本
 - `description` 与 `meta.description` 同向，不要写 unofficial
 - **禁止**编造 `aggregateRating` / `reviewCount`
 - 开源页：`Organization` + `WebSite` + `WebPage`
@@ -112,7 +112,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - 皮肤页：`Organization` + `WebSite` + `CollectionPage`
 - 安装页：`Organization` + `WebSite` + `HowTo`（步骤与静态简体正文一致；**禁止** `aggregateRating` / 假日期）
 
-`downloads-meta.json` 的 tag 变了，同步改首页 JSON-LD 的 `softwareVersion`（`src/markup.test.ts` 会核对）。
+`downloads-meta.json` 的 tag 变了，`scripts/fetch-downloads.mjs` 会同步首页 JSON-LD 的 `softwareVersion`（`src/markup.test.ts` 会核对）。
 
 ## 文案禁区
 
