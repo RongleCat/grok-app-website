@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-09-02 · GEO 新增 `/changelog/` 近版稳定摘要
+
+- **操作者**：agent
+- **触发**：FAQ → install 之后的下一张可抓取内容页；用户要求落地 `/changelog/` 并推 main
+- **改动**：
+  - 新增 `changelog/index.html`：三语首屏简体、hreflang、canonical `/changelog/`、`WebPage` + `ItemList` JSON-LD（无评分 / 无 `softwareVersion`）
+  - 近版 newest-first：v0.2.30–v0.2.26，tag 链 GitHub Release；页脚 CTA 链 Releases、产品仓 `CHANGELOG.md`、`/install/`、`/faq/`
+  - `src/styles/changelog.css`；`src/i18n/{zh,zh-TW,en}.ts` 同套 `changelog.*` 键；`src/main.ts` `pageKind` 认 changelog；页脚不再把 `data-footer="changelog"` 覆写成 GitHub
+  - Vite 多页入口加 `changelog`；`public/sitemap.xml` 第 6 条 lastmod 2026-09-02 weekly 0.7；`_redirects` `/changelog`→`/changelog/` 301；`llms.txt` Canonical + Facts
+  - 全站页脚 changelog → `/changelog/`；changelog 页该链 `aria-current="page"`
+- **Wiki**：seo / content / design / i18n / product / sources / README / status / 本条
+- **结果**：可抓取更新日志页；搜索「changelog / 更新日志 / 版本」有站内 URL
+- **未做 / 下一步**：短链 `/download/*` 或现有页 llms / JSON-LD 强化
+
+---
+
 ## 2026-09-02 · 下载 / JSON-LD 版本对齐 v0.2.30
 
 - **操作者**：agent

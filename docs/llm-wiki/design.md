@@ -63,7 +63,7 @@
 | 隐私政策 | 本站页或 GitHub SECURITY / 简短隐私页（尚未实现） |
 | 使用条款 | 尚未实现；可先链 README 说明或占内部路由并在 status 标明 |
 | 文档 | 产品仓 README_ZH |
-| 更新日志 | 产品仓 CHANGELOG 或 Releases |
+| 更新日志 | 本站 `/changelog/`；完整历史仍链 GitHub Releases / 产品仓 `CHANGELOG.md` |
 | 安装 | 本站 `/install/` |
 | 问答 | 本站 `/faq/` |
 | 皮肤 | 本站 `/skins/` |
@@ -140,6 +140,8 @@
 独立开源页：`/opensource/`。含仓库地址与介绍、作者铁柱 AGI（X + 公众号 / 添加微信好友二维码弹窗）、以及 Issues 投稿的贡献者墙（当前 8 人，数据 `src/generated/contributors.json`，名单见 [contributors.md](./contributors.md)）。Hero「打开 GitHub 仓库」与首页同一套 `data-github-stars`。`oss.wall.body` 与卡片网格之间有 28px 间隔。卡片链到投稿留下的主页。明暗主题与落地页共用 token。
 
 独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」进 `/skins/`。SEO 契约见 [seo.md](./seo.md)。
+
+独立更新日志：`/changelog/`。近几版稳定摘要（当前 v0.2.30–v0.2.26），样式 `src/styles/changelog.css`（FAQ / install 同族卡片）。不进胶囊导航，只走页脚 `footer.changelog`。完整历史仍链 GitHub Releases / 产品仓 `CHANGELOG.md`。
 
 独立皮肤画廊：`/skins/`。16:9 卡 + 运行时目录 + Apply 深链。样式 `src/styles/gallery.css`，契约 [skins.md](./skins.md)。
 

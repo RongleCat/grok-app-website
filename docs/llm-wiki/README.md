@@ -21,7 +21,7 @@ Agent 维护本官网的**可执行知识库**。改页面、下载、部署或�
 | [stars.md](./stars.md) | Hero / 开源页 GitHub 按钮的 star 数：缩写、tooltip、构建回退与运行时刷新 |
 | [../plans/GOAL-official-site.md](../plans/GOAL-official-site.md) | 多 Agent 同步落地的 Goal 合同 |
 | [deploy.md](./deploy.md) | 域名、Cloudflare Pages、发版上线 |
-| [seo.md](./seo.md) | 抓取 / GEO：www 301、sitemap、llms.txt、JSON-LD、meta；`/install/` 安装指南 |
+| [seo.md](./seo.md) | 抓取 / GEO：www 301、sitemap、llms.txt、JSON-LD、meta；`/install/` 安装指南；`/changelog/` 更新日志 |
 | [sources.md](./sources.md) | 外部权威源与本机路径 |
 
 ## 原则

@@ -267,4 +267,59 @@ export const en: Record<MessageKey, string> = {
   "install.next.releases": "GitHub Releases",
   "install.next.github": "Source repo",
   "install.next.skins": "Community skins",
+  "changelog.page.title": "Changelog · Open-source Grok App",
+  "changelog.page.desc":
+    "Recent stable releases of Open-source Grok App, a desktop GUI for the local Grok Build CLI.",
+  "changelog.hero.kicker": "Changelog",
+  "changelog.hero.title": "Recent stable releases",
+  "changelog.hero.body":
+    "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  "changelog.v0230.highlight":
+    "Install plugins from a local folder, and add X API from Recommended.",
+  "changelog.v0230.b1":
+    "Settings can install a plugin from a local folder or git URL. Installed MCP plugins show up under Extensions.",
+  "changelog.v0230.b2": "X API is a recommended plugin. You can authorize it from the MCP list.",
+  "changelog.v0230.b3":
+    "More UI languages fill in remaining strings. Background git and worktree work no longer stalls other commands.",
+  "changelog.v0230.b4":
+    "Thinking no longer stays on screen as the final reply. The answer paints in place.",
+  "changelog.v0229.highlight":
+    "One-click CLI install, complete translations, and smoother long chats.",
+  "changelog.v0229.b1":
+    "When the Grok Build CLI is missing, Runtime settings offers a one-click install.",
+  "changelog.v0229.b2": "Missing translations are filled in for SSH, permissions, Doctor, and more.",
+  "changelog.v0229.b3":
+    "Long chats scroll more smoothly. Full-journal scans no longer run on every render.",
+  "changelog.v0229.b4":
+    "Rewind puts the discarded prompt back in the composer. Chat no longer jumps while the agent is streaming.",
+  "changelog.v0228.highlight":
+    "SSH remote hosts, a combined model chip, and chat that stays with the stream.",
+  "changelog.v0228.b1":
+    "Settings can watch SSH remote hosts and start remote chats over OpenSSH.",
+  "changelog.v0228.b2": "The composer model chip is one control for model and effort.",
+  "changelog.v0228.b3": "Chat stays with the stream. The last lines stay above the composer.",
+  "changelog.v0228.b4": "The Windows taskbar keeps the Grok mark after an update.",
+  "changelog.v0227.highlight":
+    "Settings opacity, plugin packs, LaTeX, and a less blocking ask bar.",
+  "changelog.v0227.b1": "Settings overlay opacity can be adjusted in Appearance → Theme.",
+  "changelog.v0227.b2":
+    "The slash menu can pick a whole plugin pack, or a single skill from it.",
+  "changelog.v0227.b3": "Chat can render LaTeX, matching Grok Build CLI $…$ / $$…$$.",
+  "changelog.v0227.b4": "Plan cards and agent questions no longer cover the transcript.",
+  "changelog.v0226.highlight":
+    "Import CLI sessions, same-Wi-Fi phone mirror, Windows click fixes, and long-chat scroll.",
+  "changelog.v0226.b1":
+    "CLI sessions can be imported. Auto-add uses home-relative depth so home folders are not treated as projects.",
+  "changelog.v0226.b2":
+    "Phone mirror can allow same-Wi-Fi access after an in-app confirm.",
+  "changelog.v0226.b3":
+    "Windows permission-bar clicks and rewind confirm overlays work again.",
+  "changelog.v0226.b4": "Browsing long-chat history no longer freezes on a fling.",
+  "changelog.next.title": "Full history",
+  "changelog.next.body":
+    "This page lists recent stable releases. Full notes live on GitHub Releases and the product CHANGELOG.md.",
+  "changelog.next.releases": "GitHub Releases",
+  "changelog.next.file": "Product CHANGELOG.md",
+  "changelog.next.install": "Install guide",
+  "changelog.next.faq": "FAQ",
 };

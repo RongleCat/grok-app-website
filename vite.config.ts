@@ -22,6 +22,8 @@ export default defineConfig({
         faq: "faq/index.html",
         skins: "skins/index.html",
         install: "install/index.html",
+        /* 2026-09-02 · add · 多页入口纳入 /changelog/，否则 Vite 不打包该 HTML */
+        changelog: "changelog/index.html",
       },
       output: {
         entryFileNames: "assets/app.[hash].js",

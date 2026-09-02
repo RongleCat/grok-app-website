@@ -20,7 +20,7 @@
 
 | 做 | 不做 |
 |----|------|
-| 落地页 + `/opensource/` + `/faq/` + `/install/` + 明暗主题 | 桌面端功能、Tauri、Agent 运行时 |
+| 落地页 + `/opensource/` + `/faq/` + `/install/` + `/changelog/` + 明暗主题 | 桌面端功能、Tauri、Agent 运行时 |
 | 简体 / 繁體 / English，跟系统或记住手动选择 | 只做一种语言、或用浏览器翻译凑数 |
 | 下载按钮 / 可选短链 302 | 托管或反代安装包 |
 | 构建时拉 `downloads.json`；star 数构建期写入 `stars-meta.json`，运行时浏览器只打同源 `/api/stars` | 浏览器直拉 `downloads.json` 或 `api.github.com`；第三方 star badge；star 数不写 localStorage |

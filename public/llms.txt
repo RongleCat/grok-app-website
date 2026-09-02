@@ -19,6 +19,7 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 - Open source page: https://grok-app.com/opensource/
 - FAQ: https://grok-app.com/faq/
 - Install guide: https://grok-app.com/install/
+- Changelog: https://grok-app.com/changelog/
 - Community theme gallery: https://grok-app.com/skins/
 
 ## Facts
@@ -29,6 +30,7 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 - Author / contact: 铁柱AGI — https://x.com/cgnot996
 - Requires the local Grok Build CLI. This app does not replace the CLI.
 - Install help (macOS / Windows / Linux, first-run CLI sign-in, common blockers): https://grok-app.com/install/
+- Release notes live on-site at https://grok-app.com/changelog/. Full history is on GitHub Releases.
 
 ## Key features
 

@@ -40,6 +40,7 @@
 | 目标站点 | `https://grok-app.com` |
 | 开源页 | `https://grok-app.com/opensource/` |
 | 安装指南 | `https://grok-app.com/install/` |
+| 更新日志 | `https://grok-app.com/changelog/` |
 | 社区皮肤画廊 | `https://grok-app.com/skins/` |
 | 皮肤目录（主源） | `https://cdn.jsdelivr.net/gh/RongleCat/grok-app-skin@main/docs/catalog.json` |
 | 皮肤目录（回退 / 给 App 复制） | `https://ronglecat.github.io/grok-app-skin/catalog.json` |

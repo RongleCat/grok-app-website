@@ -14,7 +14,6 @@ import {
 } from "./i18n/index";
 import {
   allInstallerUrls,
-  CHANGELOG_URL,
   LICENSE_URL,
   README_URL,
   README_ZH_URL,
@@ -43,6 +42,7 @@ import "./styles/opensource.css";
 import "./styles/faq.css";
 import "./styles/gallery.css";
 import "./styles/install.css";
+import "./styles/changelog.css";
 import contributors from "./generated/contributors.json";
 import { bindGallery, syncGalleryLocale } from "./skins";
 import { bindGithubStars, syncGithubStars } from "./stars";
@@ -58,7 +58,7 @@ function applyI18n(locale: Locale): void {
   document.documentElement.lang = htmlLang(locale);
   document.documentElement.setAttribute("data-locale", locale);
   const kind = pageKind(location.pathname);
-  /* 2026-08-26 · add · 安装页用独立 title/description，避免套首页 meta */
+  /* 2026-09-02 · add · changelog 用独立 title/description，避免套首页 meta */
   const titleKey =
     kind === "oss"
       ? "oss.page.title"
@@ -68,7 +68,9 @@ function applyI18n(locale: Locale): void {
           ? "gallery.page.title"
           : kind === "install"
             ? "install.page.title"
-            : "meta.title";
+            : kind === "changelog"
+              ? "changelog.page.title"
+              : "meta.title";
   const descKey =
     kind === "oss"
       ? "oss.page.desc"
@@ -78,7 +80,9 @@ function applyI18n(locale: Locale): void {
           ? "gallery.page.desc"
           : kind === "install"
             ? "install.page.desc"
-            : "meta.description";
+            : kind === "changelog"
+              ? "changelog.page.desc"
+              : "meta.description";
   document.title = t(table, titleKey);
 
   const desc = t(table, descKey);
@@ -134,11 +138,12 @@ function readVars(el: HTMLElement): Record<string, string> | undefined {
   }
 }
 
-function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" | "install" {
+function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" | "install" | "changelog" {
   if (pathname.includes("opensource")) return "oss";
   if (pathname.includes("faq")) return "faq";
   if (pathname.includes("skins")) return "skins";
   if (pathname.includes("install")) return "install";
+  if (pathname.includes("changelog")) return "changelog";
   return "home";
 }
 
@@ -244,12 +249,17 @@ function bindNav(): void {
 const GROK_BOT_URL = "https://usegrokbot.com/";
 
 function bindFooterLinks(): void {
+  /* 2026-09-02 · fix · 页脚 changelog 改走本站 /changelog/，不再被 JS 覆写成 GitHub CHANGELOG.md
+   * Why: GEO 需要可抓取站内页；完整历史仍由 changelog 页 CTA 链到 Releases
+   * Params/return: 无；changelog 的 href 以 HTML 为准
+   * Impact: 全站页脚；downloads.CHANGELOG_URL 仍给产品仓全文用
+   * Risk: 无已知风险
+   */
   const map: Record<string, string> = {
     license: LICENSE_URL,
     privacy: SECURITY_URL,
     terms: README_URL,
     docs: README_ZH_URL,
-    changelog: CHANGELOG_URL,
     grokbot: GROK_BOT_URL,
   };
   for (const [key, href] of Object.entries(map)) {

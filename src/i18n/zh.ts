@@ -255,6 +255,48 @@ export const zh = {
   "install.next.releases": "GitHub Releases",
   "install.next.github": "源码仓库",
   "install.next.skins": "社区皮肤",
+  /* 2026-09-02 · add · `/changelog/` 近版摘要；日期与 tag 写在 HTML，不进目录 */
+  "changelog.page.title": "更新日志 · 开源 Grok App",
+  "changelog.page.desc":
+    "开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。",
+  "changelog.hero.kicker": "更新日志",
+  "changelog.hero.title": "近几版稳定更新",
+  "changelog.hero.body":
+    "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  "changelog.v0230.highlight": "设置里可从本地装插件，推荐里可一键加 X API。",
+  "changelog.v0230.b1":
+    "设置 → 插件可从本地文件夹或 git 安装；带 MCP 的会出现在扩展。",
+  "changelog.v0230.b2": "推荐插件新增 X API，可在 MCP 列表授权。",
+  "changelog.v0230.b3": "更多界面语言补上文案；后台 git / worktree 不再堵其它命令。",
+  "changelog.v0230.b4": "思考结束后会画出正文，不用切走再切回来。",
+  "changelog.v0229.highlight": "一键装 CLI、翻译补全、长对话更顺。",
+  "changelog.v0229.b1": "找不到 Grok Build CLI 时，运行时设置可一键安装。",
+  "changelog.v0229.b2": "补上缺的翻译（SSH、权限、Doctor 等）。",
+  "changelog.v0229.b3": "长会话滚动更顺，每帧少做全量扫描。",
+  "changelog.v0229.b4": "回退后用户那句会回到输入框；流式输出时对话不再乱跳。",
+  "changelog.v0228.highlight": "SSH 远端主机、模型推理合一芯片，对话跟住输出。",
+  "changelog.v0228.b1": "设置里可 Watch SSH 远端主机，并在远端文件夹开新对话。",
+  "changelog.v0228.b2": "输入框改为一颗模型 + 推理芯片。",
+  "changelog.v0228.b3": "对话跟住流式输出；最后几行不再压在输入框上。",
+  "changelog.v0228.b4": "Windows 更新后任务栏保留 Grok 图标。",
+  "changelog.v0227.highlight": "设置页透明度、斜杠选插件、对话公式，提问不再挡住会话。",
+  "changelog.v0227.b1": "设置页可调节不透明度（外观 → 主题）。",
+  "changelog.v0227.b2": "斜杠菜单可以选整个插件包；仍可只选其中一条 skill。",
+  "changelog.v0227.b3": "对话支持 LaTeX 公式，与 Grok Build CLI 一致。",
+  "changelog.v0227.b4": "计划卡片和 Agent 提问不再挡住会话。",
+  "changelog.v0226.highlight":
+    "导入 CLI 会话、同一 Wi-Fi 手机镜像，Windows 点击与长对话滚动修复。",
+  "changelog.v0226.b1": "可导入 CLI 会话；自动加项目按相对 home 深度判断。",
+  "changelog.v0226.b2": "手机镜像可允许同一 Wi-Fi 访问（应用内确认后绑定局域网）。",
+  "changelog.v0226.b3": "修复 Windows 权限卡点击无响应、回退确认窗关不掉。",
+  "changelog.v0226.b4": "长会话上下浏览不再卡死。",
+  "changelog.next.title": "完整记录",
+  "changelog.next.body":
+    "本页只列最近几个稳定版。完整说明在 GitHub Releases 与产品仓 CHANGELOG.md。",
+  "changelog.next.releases": "GitHub Releases",
+  "changelog.next.file": "产品仓 CHANGELOG.md",
+  "changelog.next.install": "安装指南",
+  "changelog.next.faq": "常见问题",
 } as const;
 
 export type MessageKey = keyof typeof zh;

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>皮肤 · 开源 Grok App</title>
+    <title>更新日志 · 开源 Grok App</title>
     <meta
       name="description"
-      content="社区外观包。先看见工作台上的样子，再套用到开源 Grok App。"
+      content="开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。"
     />
     <meta
       name="keywords"
@@ -15,20 +15,20 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#070708" />
     <meta name="color-scheme" content="dark light" />
-    <link rel="canonical" href="https://grok-app.com/skins/" />
+    <link rel="canonical" href="https://grok-app.com/changelog/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/skins/" />
-    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/skins/" />
-    <link rel="alternate" hreflang="en" href="https://grok-app.com/skins/" />
-    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/skins/" />
-    <meta property="og:type" content="website" />
+    <link rel="alternate" hreflang="zh-CN" href="https://grok-app.com/changelog/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://grok-app.com/changelog/" />
+    <link rel="alternate" hreflang="en" href="https://grok-app.com/changelog/" />
+    <link rel="alternate" hreflang="x-default" href="https://grok-app.com/changelog/" />
+    <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Grok App" />
-    <meta property="og:url" content="https://grok-app.com/skins/" />
-    <meta property="og:title" content="皮肤 · 开源 Grok App" />
+    <meta property="og:url" content="https://grok-app.com/changelog/" />
+    <meta property="og:title" content="更新日志 · 开源 Grok App" />
     <meta
       property="og:description"
-      content="社区外观包。先看见工作台上的样子，再套用到开源 Grok App。"
+      content="开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。"
     />
     <meta property="og:image" content="https://grok-app.com/images/og.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -37,12 +37,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@cgnot996" />
     <meta name="twitter:creator" content="@cgnot996" />
-    <meta name="twitter:title" content="皮肤 · 开源 Grok App" />
+    <meta name="twitter:title" content="更新日志 · 开源 Grok App" />
     <meta
       name="twitter:description"
-      content="社区外观包。先看见工作台上的样子，再套用到开源 Grok App。"
+      content="开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。"
     />
     <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
+    <!-- 2026-09-02 · add · Organization + WebSite + WebPage + 近版 ItemList；不写评分/softwareVersion -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -65,13 +66,53 @@
             "publisher": { "@id": "https://grok-app.com/#organization" }
           },
           {
-            "@type": "CollectionPage",
-            "@id": "https://grok-app.com/skins/#webpage",
-            "url": "https://grok-app.com/skins/",
-            "name": "皮肤 · 开源 Grok App",
-            "description": "社区外观包。先看见工作台上的样子，再套用到开源 Grok App。",
+            "@type": "WebPage",
+            "@id": "https://grok-app.com/changelog/#webpage",
+            "url": "https://grok-app.com/changelog/",
+            "name": "更新日志 · 开源 Grok App",
+            "description": "开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。",
+            "inLanguage": ["zh-CN", "zh-TW", "en"],
             "isPartOf": { "@id": "https://grok-app.com/#website" },
             "about": { "@id": "https://grok-app.com/#organization" }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://grok-app.com/changelog/#releases",
+            "name": "Recent stable releases",
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
+            "numberOfItems": 5,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "v0.2.30",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "v0.2.29",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "v0.2.28",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "v0.2.27",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "v0.2.26",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
+              }
+            ]
           }
         ]
       }
@@ -82,20 +123,20 @@
         var KEY_T = "grok-app-site.theme";
         var META = {
           zh: {
-            title: "皮肤 · 开源 Grok App",
-            desc: "社区外观包。先看见工作台上的样子，再套用到开源 Grok App。",
+            title: "更新日志 · 开源 Grok App",
+            desc: "开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。",
             lang: "zh-CN",
             og: "zh_CN",
           },
           "zh-TW": {
-            title: "皮膚 · 開源 Grok App",
-            desc: "社群外觀包。先看見工作臺上的樣子，再套用到開源 Grok App。",
+            title: "更新紀錄 · 開源 Grok App",
+            desc: "開源 Grok App 近幾版穩定更新。本機 Grok Build CLI 的桌面 GUI。",
             lang: "zh-TW",
             og: "zh_TW",
           },
           en: {
-            title: "Skins · Open-source Grok App",
-            desc: "Community appearance packs. See them on the workbench, then apply in Open-source Grok App.",
+            title: "Changelog · Open-source Grok App",
+            desc: "Recent stable releases of Open-source Grok App, a desktop GUI for the local Grok Build CLI.",
             lang: "en",
             og: "en_US",
           },
@@ -154,12 +195,8 @@
       })();
     </script>
   </head>
-  <body class="gallery-page">
-    <div class="gallery-space" aria-hidden="true">
-      <div class="gallery-space-glow"></div>
-      <div class="gallery-space-grid"></div>
-    </div>
-    <a class="skip-link" href="#gallery-main">Skip to content</a>
+  <body>
+    <a class="skip-link" href="#changelog-main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <div class="header-start">
@@ -191,7 +228,7 @@
             <a href="/#download" data-i18n="nav.download">下载</a>
             <a href="/install/" data-i18n="nav.install">安装</a>
             <a href="/opensource/" data-i18n="nav.opensource">开源</a>
-            <a href="/skins/" data-i18n="nav.themes" aria-current="page">皮肤</a>
+            <a href="/skins/" data-i18n="nav.themes">皮肤</a>
             <a href="/faq/" data-i18n="nav.faq">问答</a>
           </nav>
           <button
@@ -233,73 +270,150 @@
       </div>
     </header>
 
-    <main id="gallery-main" class="gallery-main">
-      <section class="gallery-hero">
-        <p class="section-kicker gallery-kicker" data-i18n="gallery.kicker">皮肤仓库</p>
-        <h1 data-i18n="gallery.hero.title">先看见工作台上的样子</h1>
-        <p class="gallery-lead" data-i18n="gallery.hero.body">
-          每张卡片是 16:9 主题预览：壁纸铺满，上面叠一层开源 Grok App 的侧栏和对话。点应用只打开确认，不会改你现在的样子。
-        </p>
-        <div class="gallery-actions">
-          <button type="button" class="g-btn g-btn-accent" id="gallery-copy" data-i18n="gallery.copy">
-            复制目录地址
-          </button>
-          <a
-            class="g-btn g-btn-ghost"
-            href="https://github.com/RongleCat/grok-app-skin/blob/main/CONTRIBUTING.md"
-            rel="noopener noreferrer"
-            data-i18n="gallery.submit"
-          >提交一套</a>
-        </div>
-        <p class="gallery-hint">
-          <span data-i18n="gallery.catalogHow">在 App 里：设置 → 外观 → 皮肤源，加上这条 HTTPS。</span>
-          <code id="gallery-catalog-url">https://ronglecat.github.io/grok-app-skin/catalog.json</code>
-        </p>
-      </section>
+    <main id="changelog-main" class="changelog-page">
+      <p class="section-kicker" data-i18n="changelog.hero.kicker">更新日志</p>
+      <h1 data-i18n="changelog.hero.title">近几版稳定更新</h1>
+      <p class="changelog-lead" data-i18n="changelog.hero.body">
+        开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。
+      </p>
 
-      <section class="gallery-board" aria-live="polite">
-        <div class="gallery-toolbar">
-          <h2 data-i18n="gallery.all">全部皮肤</h2>
-          <div class="gallery-tools">
-            <p class="gallery-count" id="gallery-count"></p>
-            <label class="gallery-search">
-              <span class="visually-hidden" data-i18n="gallery.search">搜索皮肤</span>
-              <input
-                id="gallery-filter"
-                type="search"
-                data-i18n-placeholder="gallery.searchPh"
-                placeholder="搜索名字、作者、标签"
-              />
-            </label>
-          </div>
-        </div>
-        <p class="gallery-status" id="gallery-status" data-i18n="gallery.loading">正在读取皮肤目录…</p>
-        <button
-          type="button"
-          class="g-btn g-btn-ghost g-btn-tiny gallery-retry"
-          id="gallery-retry"
-          hidden
-          data-i18n="gallery.retry"
-        >
-          重试
-        </button>
-        <ul class="gallery-grid" id="gallery-grid"></ul>
+      <ol class="changelog-list">
+        <li class="changelog-item" id="v0.2.30">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
+              rel="noopener noreferrer"
+              >v0.2.30</a
+            >
+          </h2>
+          <time datetime="2026-09-01">2026-09-01</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0230.highlight">
+            设置里可从本地装插件，推荐里可一键加 X API。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0230.b1">
+              设置 → 插件可从本地文件夹或 git 安装；带 MCP 的会出现在扩展。
+            </li>
+            <li data-i18n="changelog.v0230.b2">推荐插件新增 X API，可在 MCP 列表授权。</li>
+            <li data-i18n="changelog.v0230.b3">
+              更多界面语言补上文案；后台 git / worktree 不再堵其它命令。
+            </li>
+            <li data-i18n="changelog.v0230.b4">思考结束后会画出正文，不用切走再切回来。</li>
+          </ul>
+        </li>
+        <li class="changelog-item" id="v0.2.29">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
+              rel="noopener noreferrer"
+              >v0.2.29</a
+            >
+          </h2>
+          <time datetime="2026-08-30">2026-08-30</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0229.highlight">
+            一键装 CLI、翻译补全、长对话更顺。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0229.b1">找不到 Grok Build CLI 时，运行时设置可一键安装。</li>
+            <li data-i18n="changelog.v0229.b2">补上缺的翻译（SSH、权限、Doctor 等）。</li>
+            <li data-i18n="changelog.v0229.b3">长会话滚动更顺，每帧少做全量扫描。</li>
+            <li data-i18n="changelog.v0229.b4">
+              回退后用户那句会回到输入框；流式输出时对话不再乱跳。
+            </li>
+          </ul>
+        </li>
+        <li class="changelog-item" id="v0.2.28">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
+              rel="noopener noreferrer"
+              >v0.2.28</a
+            >
+          </h2>
+          <time datetime="2026-08-28">2026-08-28</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0228.highlight">
+            SSH 远端主机、模型推理合一芯片，对话跟住输出。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0228.b1">
+              设置里可 Watch SSH 远端主机，并在远端文件夹开新对话。
+            </li>
+            <li data-i18n="changelog.v0228.b2">输入框改为一颗模型 + 推理芯片。</li>
+            <li data-i18n="changelog.v0228.b3">对话跟住流式输出；最后几行不再压在输入框上。</li>
+            <li data-i18n="changelog.v0228.b4">Windows 更新后任务栏保留 Grok 图标。</li>
+          </ul>
+        </li>
+        <li class="changelog-item" id="v0.2.27">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
+              rel="noopener noreferrer"
+              >v0.2.27</a
+            >
+          </h2>
+          <time datetime="2026-08-27">2026-08-27</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0227.highlight">
+            设置页透明度、斜杠选插件、对话公式，提问不再挡住会话。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0227.b1">设置页可调节不透明度（外观 → 主题）。</li>
+            <li data-i18n="changelog.v0227.b2">
+              斜杠菜单可以选整个插件包；仍可只选其中一条 skill。
+            </li>
+            <li data-i18n="changelog.v0227.b3">对话支持 LaTeX 公式，与 Grok Build CLI 一致。</li>
+            <li data-i18n="changelog.v0227.b4">计划卡片和 Agent 提问不再挡住会话。</li>
+          </ul>
+        </li>
+        <li class="changelog-item" id="v0.2.26">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
+              rel="noopener noreferrer"
+              >v0.2.26</a
+            >
+          </h2>
+          <time datetime="2026-08-24">2026-08-24</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0226.highlight">
+            导入 CLI 会话、同一 Wi-Fi 手机镜像，Windows 点击与长对话滚动修复。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0226.b1">
+              可导入 CLI 会话；自动加项目按相对 home 深度判断。
+            </li>
+            <li data-i18n="changelog.v0226.b2">
+              手机镜像可允许同一 Wi-Fi 访问（应用内确认后绑定局域网）。
+            </li>
+            <li data-i18n="changelog.v0226.b3">
+              修复 Windows 权限卡点击无响应、回退确认窗关不掉。
+            </li>
+            <li data-i18n="changelog.v0226.b4">长会话上下浏览不再卡死。</li>
+          </ul>
+        </li>
+      </ol>
+
+      <section class="changelog-next">
+        <h2 data-i18n="changelog.next.title">完整记录</h2>
+        <p data-i18n="changelog.next.body">
+          本页只列最近几个稳定版。完整说明在 GitHub Releases 与产品仓 CHANGELOG.md。
+        </p>
+        <p class="changelog-cta">
+          <a
+            href="https://github.com/RongleCat/grok-app/releases"
+            rel="noopener noreferrer"
+            data-i18n="changelog.next.releases"
+            >GitHub Releases</a
+          >
+          <a
+            href="https://github.com/RongleCat/grok-app/blob/main/CHANGELOG.md"
+            rel="noopener noreferrer"
+            data-i18n="changelog.next.file"
+            >产品仓 CHANGELOG.md</a
+          >
+          <a href="/install/" data-i18n="changelog.next.install">安装指南</a>
+          <a href="/faq/" data-i18n="changelog.next.faq">常见问题</a>
+        </p>
       </section>
     </main>
-
-    <p class="gallery-note">
-      <span data-i18n="gallery.footer">社区皮肤仓库。需要桌面版才能唤起套用。</span>
-      <span class="footer-sep">·</span>
-      <a href="/">开源 Grok App</a>
-      <span class="footer-sep">·</span>
-      <a href="https://github.com/RongleCat/grok-app-skin" rel="noopener noreferrer">GitHub</a>
-      <span class="footer-sep">·</span>
-      <a
-        href="https://github.com/RongleCat/grok-app-skin/blob/main/CONTRIBUTING.md"
-        rel="noopener noreferrer"
-        data-i18n="gallery.submit"
-      >提交一套</a>
-    </p>
 
     <footer class="site-footer">
       <p>
@@ -313,7 +427,7 @@
         <span class="footer-sep">·</span>
         <a data-footer="docs" data-i18n="footer.docs" href="https://github.com/RongleCat/grok-app/blob/main/README_ZH.md">文档</a>
         <span class="footer-sep">·</span>
-        <a data-footer="changelog" data-i18n="footer.changelog" href="/changelog/">更新日志</a>
+        <a data-footer="changelog" data-i18n="footer.changelog" href="/changelog/" aria-current="page">更新日志</a>
         <span class="footer-sep">·</span>
         <a href="/install/" data-i18n="nav.install">安装</a>
         <span class="footer-sep">·</span>
@@ -327,7 +441,6 @@
         开源 Grok App 是本机 Grok Build CLI 的桌面工作台。
       </p>
     </footer>
-    <p class="gallery-toast" id="gallery-toast" hidden></p>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -23,6 +23,7 @@ const ossHtml = readFileSync(join(root, "opensource/index.html"), "utf8");
 const faqHtml = readFileSync(join(root, "faq/index.html"), "utf8");
 const skinsHtml = readFileSync(join(root, "skins/index.html"), "utf8");
 const installHtml = readFileSync(join(root, "install/index.html"), "utf8");
+const changelogHtml = readFileSync(join(root, "changelog/index.html"), "utf8");
 const sitemap = readFileSync(join(root, "public/sitemap.xml"), "utf8");
 const redirects = readFileSync(join(root, "public/_redirects"), "utf8");
 const headers = readFileSync(join(root, "public/_headers"), "utf8");
@@ -31,7 +32,7 @@ const llms = readFileSync(join(root, "public/llms.txt"), "utf8");
 const meta = JSON.parse(
   readFileSync(join(root, "src/generated/downloads-meta.json"), "utf8"),
 ) as { tag: string | null; fallback: boolean };
-const publicPages = [html, ossHtml, faqHtml, skinsHtml, installHtml];
+const publicPages = [html, ossHtml, faqHtml, skinsHtml, installHtml, changelogHtml];
 const FORBIDDEN = ["官方桌面端", "Grok 桌面版"];
 const THEME_GALLERY = "https://ronglecat.github.io/grok-app-skin/";
 const SKINS_ROUTE = "/skins/";
@@ -89,6 +90,17 @@ describe("opensource/index.html", () => {
 });
 
 describe("site footer", () => {
+  it("points changelog on every public page to the on-site /changelog/ route", () => {
+    for (const page of publicPages) {
+      expect(page).toMatch(
+        /<a data-footer="changelog"[^>]*href="\/changelog\/"/,
+      );
+      expect(page).not.toMatch(
+        /<a data-footer="changelog"[^>]*CHANGELOG\.md/,
+      );
+    }
+  });
+
   it("puts the Grok Bot friend link on every public page", () => {
     for (const page of publicPages) {
       expect(page).toContain('href="https://usegrokbot.com/"');
@@ -178,6 +190,29 @@ describe("install/index.html", () => {
   });
 });
 
+describe("changelog/index.html", () => {
+  /* 2026-09-02 · add · 锁更新日志可抓取正文、版本锚、WebPage JSON-LD，禁止假评分 */
+  it("ships crawlable stable-release notes and WebPage JSON-LD", () => {
+    expect(changelogHtml).toContain('id="changelog-main"');
+    expect(changelogHtml).toContain(zh["changelog.hero.title"]);
+    expect(changelogHtml).toContain(zh["changelog.page.title"]);
+    expect(changelogHtml).toContain('href="/changelog/"');
+    expect(changelogHtml).toContain('aria-current="page"');
+    expect(changelogHtml).toContain('"@type": "WebPage"');
+    expect(changelogHtml).toContain("https://grok-app.com/changelog/");
+    expect(changelogHtml).not.toMatch(/aggregateRating|reviewCount/);
+    expect(changelogHtml).not.toContain("softwareVersion");
+    for (const tag of ["v0.2.30", "v0.2.29", "v0.2.28", "v0.2.27", "v0.2.26"]) {
+      expect(changelogHtml).toContain(`id="${tag}"`);
+      expect(changelogHtml).toContain(
+        `https://github.com/RongleCat/grok-app/releases/tag/${tag}`,
+      );
+    }
+    expect(zh).toHaveProperty("changelog.page.title");
+    expect(en).toHaveProperty("changelog.hero.body");
+  });
+});
+
 describe("faq/index.html", () => {
   it("ships six static FAQs and a nav current page", () => {
     expect(faqHtml).toContain('id="faq-main"');
@@ -206,6 +241,7 @@ describe("SEO / GEO foundation", () => {
     expect(redirects).toMatch(/\/faq\s+\/faq\/\s+301/);
     expect(redirects).toMatch(/\/skins\s+\/skins\/\s+301/);
     expect(redirects).toMatch(/\/install\s+\/install\/\s+301/);
+    expect(redirects).toMatch(/\/changelog\s+\/changelog\/\s+301/);
     expect(redirects).not.toMatch(/\/api\//);
   });
 
@@ -222,6 +258,10 @@ describe("SEO / GEO foundation", () => {
     expect(sitemap).toContain("<loc>https://grok-app.com/faq/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/skins/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/install/</loc>");
+    expect(sitemap).toContain("<loc>https://grok-app.com/changelog/</loc>");
+    expect(sitemap).toMatch(
+      /<loc>https:\/\/grok-app\.com\/changelog\/<\/loc>\s*<lastmod>2026-09-02<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
+    );
     expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
     expect(sitemap).toContain("<changefreq>weekly</changefreq>");
     expect(sitemap).toContain("<priority>1.0</priority>");
@@ -235,6 +275,8 @@ describe("SEO / GEO foundation", () => {
     expect(llms).toContain("https://grok-app.com/");
     expect(llms).toContain("https://grok-app.com/skins/");
     expect(llms).toContain("https://grok-app.com/install/");
+    expect(llms).toContain("https://grok-app.com/changelog/");
+    expect(llms).toMatch(/Release notes live on-site at https:\/\/grok-app\.com\/changelog\//);
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
     expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
     expect(llms).toContain("MIT");

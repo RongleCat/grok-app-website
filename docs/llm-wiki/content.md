@@ -205,6 +205,20 @@
 
 其余 `install.*` 键（目录、三端步骤、首次启动、验收、校验、排查、下一步）与 `src/i18n/{zh,zh-TW,en}.ts` 同步。命令原文（`xattr`、`shasum`、`Get-FileHash`、`apt-get`、`WEBKIT_DISABLE_DMABUF_RENDERER`、`sysctl`）写在 HTML `<pre>` 里，不进 i18n。页脚另有 `nav.install`。
 
+## changelog
+
+`/changelog/` 静态近版摘要。JSON-LD `WebPage` + `ItemList` 用简体默认句与 GitHub tag URL，与 HTML 首屏一致。搜索别名只在导语轻提一次。本页只列最近稳定版，不整页粘贴 GitHub notes。日期与 tag 写在 HTML，不进 i18n。完整历史仍链产品仓 Releases / `CHANGELOG.md`。
+
+| key | zh | zh-TW | en |
+|-----|----|-------|-----|
+| `changelog.page.title` | 更新日志 · 开源 Grok App | 更新紀錄 · 開源 Grok App | Changelog · Open-source Grok App |
+| `changelog.page.desc` | 开源 Grok App 近几版稳定更新。本机 Grok Build CLI 的桌面 GUI。 | 開源 Grok App 近幾版穩定更新。本機 Grok Build CLI 的桌面 GUI。 | Recent stable releases of Open-source Grok App, a desktop GUI for the local Grok Build CLI. |
+| `changelog.hero.kicker` | 更新日志 | 更新紀錄 | Changelog |
+| `changelog.hero.title` | 近几版稳定更新 | 近幾版穩定更新 | Recent stable releases |
+| `changelog.hero.body` | 开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。 | 開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是最近幾個穩定版。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。 | Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client. |
+
+其余 `changelog.v02*` 亮点 / 短 bullet 与 `changelog.next.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。当前条目：v0.2.30（2026-09-01）到 v0.2.26（2026-08-24）。页脚 `footer.changelog` 全站指向本站 `/changelog/`。
+
 ## download
 
 | key | zh | zh-TW | en |
@@ -240,4 +254,4 @@
 | `footer.changelog` | 更新日志 | 更新紀錄 | Changelog |
 | `footer.grokbot` | Grok Bot | Grok Bot | Grok Bot |
 
-页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。`footer.grokbot` 是友情链接，三语同一专名，只出现在页脚链接行，不进 Hero / FAQ / `llms.txt` / JSON-LD。`href` 固定 `https://usegrokbot.com/`，`rel="noopener noreferrer"`，不加 `nofollow`。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
+页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。`footer.changelog` 进本站 `/changelog/`，不直接出站到产品仓 `CHANGELOG.md`。`footer.grokbot` 是友情链接，三语同一专名，只出现在页脚链接行，不进 Hero / FAQ / `llms.txt` / JSON-LD。`href` 固定 `https://usegrokbot.com/`，`rel="noopener noreferrer"`，不加 `nofollow`。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
