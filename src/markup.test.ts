@@ -200,8 +200,13 @@ describe("changelog/index.html", () => {
     expect(changelogHtml).toContain('aria-current="page"');
     expect(changelogHtml).toContain('"@type": "WebPage"');
     expect(changelogHtml).toContain("https://grok-app.com/changelog/");
-    expect(changelogHtml).not.toMatch(/aggregateRating|reviewCount/);
-    expect(changelogHtml).not.toContain("softwareVersion");
+    /* 只核 JSON-LD 本体，避免 HTML 注释里的说明字被当成 schema 字段 */
+    const ldMatch = changelogHtml.match(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+    );
+    expect(ldMatch).not.toBeNull();
+    const ldBlob = ldMatch![1];
+    expect(ldBlob).not.toMatch(/aggregateRating|reviewCount|softwareVersion/);
     for (const tag of ["v0.2.30", "v0.2.29", "v0.2.28", "v0.2.27", "v0.2.26"]) {
       expect(changelogHtml).toContain(`id="${tag}"`);
       expect(changelogHtml).toContain(
