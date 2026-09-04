@@ -1,6 +1,6 @@
 # 当前状态
 
-最后更新：2026-09-02。本页必须与仓库事实一致。
+最后更新：2026-09-04。本页必须与仓库事实一致。
 
 ## 一句话
 
@@ -43,7 +43,7 @@
 | GitHub Actions 发版 | 推 `main` / `workflow_dispatch` 构建并部署 Pages | `.github/workflows/deploy-pages.yml` |
 | CF 部署权限 | 仓库 Secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`；聊天令牌视为已暴露 | 见 [deploy.md](./deploy.md)；令牌不入库 |
 | 站点明暗主题 | 已实现 | 月亮/太阳图标；Hero/皮肤主图换 `workbench-*.webp` |
-| Hero / 开源页 GitHub star | 已实现 | 首页 `hero.ctaGithub` 与 `/opensource/` `oss.repo.cta` 旁显示缩写；悬停/聚焦精确数；首屏画 `src/generated/stars-meta.json`；运行时浏览器只打同源 `/api/stars`（`functions/api/stars.ts` 服务端拉 GitHub）；失败保留构建回退，不藏数字。无 `grok-app-site.stars` / 1h TTL；不打 `api.github.com`。契约 [stars.md](./stars.md) |
+| Hero / 开源页 GitHub star | 已实现 | 首页 `hero.ctaGithub` 与 `/opensource/` `oss.repo.cta` 旁显示缩写；悬停/聚焦精确数；首屏画 `src/generated/stars-meta.json`；运行时浏览器只打同源 `/api/stars`（`cache: "no-store"`）。Function：`caches.default` 约 1h last-good → GitHub REST → `ungh.cc` `repo.stars`；成功 `max-age=60, s-maxage=600`；失败 502 `no-store`，客户端保留构建回退。浏览器不打 `api.github.com` / `ungh.cc`。契约 [stars.md](./stars.md) |
 | 落地页 | 已实现 | 对照 [design.md](./design.md)；开源导航进 `/opensource/`；问答进 `/faq/`；皮肤进 `/skins/`；安装进 `/install/`；更新日志进 `/changelog/` |
 | 页脚友情链接 | 已落地 | 五页页脚链 `https://usegrokbot.com/`，文案 `footer.grokbot` = Grok Bot；`rel="noopener noreferrer"`，无 `nofollow`；不进正文 / `llms.txt` |
 | 社区皮肤画廊 | 已落地 `/skins/` | 等大网格（宽 4 / 中 3 / ≤640 最少 2）；精选不跨列；无 HUD 角标；`.g-chrome` `inset: 0` 铺满卡；`pack.scrim` → `wallpaperFromScrim` 写 `--wallpaper-*`（侧栏 mix 58%、主区 70%、blur 22px @100）；左重 105deg scrim；桌面 hover / 键盘才露出铺满整卡的 dock（精选一枚 chip + 短 Apply）；`hover: none` 露出底部紧凑条且不缩小 chrome；桌面 `grok://skin/import?url=`，手机 `gallery.applyMobile` toast；投稿外链 CONTRIBUTING |
@@ -71,4 +71,4 @@
 
 ## 下一步（给下一任 Agent）
 
-下一任可做短链 `/download/*`（[downloads.md](./downloads.md) §5），或给现有页补 llms / JSON-LD 强化。有新稳定 Release 时按产品仓 notes 浓缩进 `/changelog/`（保持 2–5 条、newest-first），并改 sitemap `lastmod`。有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 README 改了安装步骤，先对 [downloads.md](./downloads.md) 再改 `/install/`。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。皮肤目录或卡片字段变了，先对 [skins.md](./skins.md) 再改 `src/skins.ts`。画廊网格 / 剪影 / `scrim` 透明度 / hover dock / 手机 Apply 以 [skins.md](./skins.md) 为准。GitHub 按钮 star 数以 [stars.md](./stars.md) 为准：浏览器只打 `/api/stars`，不要给页脚链加数字。
+下一任可做短链 `/download/*`（[downloads.md](./downloads.md) §5），或给现有页补 llms / JSON-LD 强化。有新稳定 Release 时按产品仓 notes 浓缩进 `/changelog/`（保持 2–5 条、newest-first），并改 sitemap `lastmod`。有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 README 改了安装步骤，先对 [downloads.md](./downloads.md) 再改 `/install/`。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。皮肤目录或卡片字段变了，先对 [skins.md](./skins.md) 再改 `src/skins.ts`。画廊网格 / 剪影 / `scrim` 透明度 / hover dock / 手机 Apply 以 [skins.md](./skins.md) 为准。GitHub 按钮 star 数以 [stars.md](./stars.md) 为准：浏览器只打 `/api/stars`（`no-store`），边缘 GitHub 失败走 ungh / last-good，不要给页脚链加数字。

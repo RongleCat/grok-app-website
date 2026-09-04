@@ -17,11 +17,11 @@
 
 仓库：`RongleCat/grok-app`（与 [downloads.md](./downloads.md) 同一产品仓，不是本官网仓）。
 
-1. **构建期** `scripts/fetch-stars.mjs` 拉 `https://api.github.com/repos/RongleCat/grok-app`，写入 `src/generated/stars-meta.json`：`{ "count": <整数> }`（当前提交为 `1105`）。失败则保留上次提交的有效 `count`；从未成功则 `{ "count": null }`。首屏先画这个数字，避免请求返回前按钮空着。
-2. **运行时** 浏览器只请求同源 **`/api/stars`**（相对路径）。`functions/api/stars.ts` 在边缘用 `User-Agent: grok-app.com-stars` 拉同一 GitHub REST，返回 `{ "count": <整数> }`。成功则换成现网数字。失败保留已画的构建回退，不 `paint(null)`。不写 `localStorage`，没有 1 小时 TTL 短路。边缘 `Cache-Control: public, max-age=90`（成功响应）；失败 `502` + `no-store`。
+1. **构建期** `scripts/fetch-stars.mjs` 先拉 `https://api.github.com/repos/RongleCat/grok-app`（`User-Agent: grok-app.com-stars`），失败再拉 `https://ungh.cc/repos/RongleCat/grok-app` 的 `repo.stars`，写入 `src/generated/stars-meta.json`：`{ "count": <整数> }`（当前提交为 `1175`）。两边都失败则保留上次提交的有效 `count`；从未成功则 `{ "count": null }`。首屏先画这个数字，避免请求返回前按钮空着。
+2. **运行时** 浏览器只请求同源 **`/api/stars`**（相对路径，`cache: "no-store"`）。`functions/api/stars.ts` 在边缘：先读 Workers `caches.default` 里上次成功的 `{ count }`（约 1 小时，避免共用 CF 出口打爆 GitHub 未认证 60 req/h）；未命中再打同一 GitHub REST（`User-Agent: grok-app.com-stars`）；GitHub 非 OK / 超时 / 坏 payload 则读 ungh `repo.stars`。返回 `{ "count": <整数> }`。成功则换成现网数字。失败保留已画的构建回退，不 `paint(null)`。不写 `localStorage`。成功响应 `Cache-Control: public, max-age=60, s-maxage=600`（浏览器 1 分钟、CDN 10 分钟）；失败 `502` + `no-store`。
 3. **禁止**浏览器请求 `api.github.com`。未认证 REST 从访客 IP 会 403，控制台红字且数字消失。
 
-可选：若 Pages Function 环境已有 `GITHUB_TOKEN` 或 `GH_TOKEN`，Function 带 `Authorization`。v1 不要求、不发明密钥。
+可选：若 Pages Function 环境已有 `GITHUB_TOKEN` 或 `GH_TOKEN`，Function 带 `Authorization`。v1 不要求、不发明密钥。ungh 是公开镜像，不替代 token，只在 GitHub 限额/故障时顶住数字。
 
 不要用 shields iframe、`github-buttons.js` 或其它第三方 badge。不要浏览器拉 `downloads.json`（无 CORS；那是下载契约）。
 
@@ -29,10 +29,10 @@
 
 | 文件 | 职责 |
 |------|------|
-| `functions/api/stars.ts` | `GET /api/stars` → `{ count }`；服务端打 GitHub；90s 边缘缓存 |
+| `functions/api/stars.ts` | `GET /api/stars` → `{ count }`；GitHub → ungh；`caches.default` 约 1h last-good；成功 `max-age=60, s-maxage=600` |
 | `public/_routes.json` | 只对 `/api/*` 调用 Function，静态页不进 Functions 计费 |
-| `src/stars.ts` | `abbreviateStarCount` / `formatExactStarCount` / 同源 fetch / `paintGithubStars` |
-| `src/stars.test.ts` | 缩写规则；`refreshGithubStars` 打 `/api/stars`；失败保留 baked |
+| `src/stars.ts` | `abbreviateStarCount` / `formatExactStarCount` / 同源 `cache:"no-store"` fetch / `paintGithubStars` |
+| `src/stars.test.ts` | 缩写规则；`refreshGithubStars` 打 `/api/stars` + `no-store`；失败保留 baked；Function 403→ungh / last-good |
 | `src/generated/stars-meta.json` | 提交进仓的构建回退 |
 | `src/main.ts` | `bindGithubStars`；`applyI18n` 里 `syncGithubStars` |
 | `src/styles/base.css` | `.github-stars` / `.github-stars-tip` |
