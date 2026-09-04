@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-09-04 · star 数 GitHub 限额回退 ungh + Cache API last-good
+
+- **操作者**：agent
+- **触发**：官网 star 数无法正常更新；共用 CF 出口打爆 GitHub 未认证 60 req/h，Function 502，访客卡在构建回退缩写（1149→1.1k，现网 1175→1.2k）
+- **改动**：
+  - `functions/api/stars.ts`：先读 `caches.default` 约 1h last-good；未命中打 GitHub REST（可选 token）；失败读 `https://ungh.cc/repos/RongleCat/grok-app` 的 `repo.stars`；成功 `Cache-Control: public, max-age=60, s-maxage=600`；全失败 502 `no-store`
+  - `src/stars.ts`：同源 `/api/stars` 加 `cache: "no-store"`；失败仍不 `paint(null)`
+  - `scripts/fetch-stars.mjs`：GitHub 失败走 ungh；带 `User-Agent: grok-app.com-stars`
+  - `src/generated/stars-meta.json`：重建为 `1175`
+  - `src/stars.test.ts`：锁 `no-store`、403→ungh、last-good 不再打 GitHub
+- **Wiki**：stars / deploy / sources / product / status / 本条
+- **结果**：GitHub 403 时 Function 仍能吐 ungh 或缓存 count；浏览器从不打 `api.github.com`
+- **未做 / 下一步**：短链 `/download/*` 或现有页 llms / JSON-LD 强化
+
+---
+
 ## 2026-09-02 · GEO 新增 `/changelog/` 近版稳定摘要
 
 - **操作者**：agent

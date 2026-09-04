@@ -56,7 +56,7 @@
 
 `public/_redirects`：`www.grok-app.com/*` 301 到 `https://grok-app.com/:splat`；`/opensource` → `/opensource/`；`/faq` → `/faq/`。规范域是 apex。细则见 [seo.md](./seo.md)。
 
-仓库根 `functions/api/stars.ts` 是 Pages Function：`GET /api/stars` 服务端拉 GitHub `stargazers_count`。`wrangler pages deploy dist` 从 **cwd 的 `functions/`** 拾取，不要把 Function 放进 `dist/`。`public/_routes.json` 只 `include` `/api/*`，静态页不走 Functions 计费。`_redirects` 没有会吞 `/api/*` 的通配。浏览器契约见 [stars.md](./stars.md)。
+仓库根 `functions/api/stars.ts` 是 Pages Function：`GET /api/stars` 服务端先读 `caches.default` last-good（约 1h），未命中再拉 GitHub `stargazers_count`，失败读 `ungh.cc` `repo.stars`。成功 `Cache-Control: public, max-age=60, s-maxage=600`。`wrangler pages deploy dist` 从 **cwd 的 `functions/`** 拾取，不要把 Function 放进 `dist/`。`public/_routes.json` 只 `include` `/api/*`，静态页不走 Functions 计费。`_redirects` 没有会吞 `/api/*` 的通配。浏览器契约见 [stars.md](./stars.md)。
 
 ### 本机兜底（CI 不可用时）
 

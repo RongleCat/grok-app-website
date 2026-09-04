@@ -3,11 +3,11 @@ import { htmlLang, isLocale, t, type Locale } from "./i18n/index";
 import baked from "./generated/stars-meta.json";
 
 /**
- * 2026-08-30 · fix · 浏览器改为同源 /api/stars，失败保留构建回退
- * Timestamp: 2026-08-30
+ * 2026-09-04 · fix · 同源 /api/stars 用 cache:no-store，失败仍保留构建回退
+ * Timestamp: 2026-09-04
  * Change type: fix
- * What: 首屏画 stars-meta.json；refresh 只打相对路径 /api/stars；失败不 paint(null)
- * Why: 访客直打 api.github.com 会 403，控制台红字且 fail-closed 把数字藏掉
+ * What: 首屏画 stars-meta.json；refresh 只打相对路径 /api/stars 且 cache:"no-store"；失败不 paint(null)
+ * Why: 浏览器 HTTP 缓存会把旧 90s 响应冻住；边缘刷新失败时必须留下已画数字
  * Params & return: fetchStarCount 读 { count }；失败返回 null 但 paintedCount 不变
  * Impact scope: 首页 Hero 与 /opensource/ 的 data-github-stars 按钮
  * Risk: 本地 vite preview 没有 Function，live 失败时留下构建回退，无已知风险
@@ -72,6 +72,7 @@ export async function fetchStarCount(
   try {
     const res = await fetchFn(STARS_API_URL, {
       headers: { Accept: "application/json" },
+      cache: "no-store",
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return null;

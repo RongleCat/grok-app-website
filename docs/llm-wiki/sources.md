@@ -49,6 +49,7 @@
 | 最新下载前缀 | `https://github.com/RongleCat/grok-app/releases/latest/download/` |
 | Releases 列表 | `https://github.com/RongleCat/grok-app/releases` |
 | 产品仓公开 API（star 数，仅构建脚本与 Pages Function） | `https://api.github.com/repos/RongleCat/grok-app` |
+| star 数回退镜像（仅构建脚本与 Pages Function；读 `repo.stars`） | `https://ungh.cc/repos/RongleCat/grok-app` |
 | 官网 star 同源接口（浏览器只打这个） | `https://grok-app.com/api/stars` |
 | 清单（下一枚正式 tag 后） | `…/latest/download/downloads.json` |
 
