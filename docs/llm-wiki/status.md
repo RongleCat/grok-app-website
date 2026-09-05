@@ -52,7 +52,7 @@
 | 安装指南 | 已实现 | `install/index.html`；三端下载/安装/首次 CLI/验收/排查；`HowTo` JSON-LD；版本走 `downloads-meta.json`；顶栏/页脚有链 |
 | 更新日志 | 已实现 | `changelog/index.html`；v0.2.31–v0.2.26 稳定摘要；`WebPage` + `ItemList` JSON-LD；全站页脚 `footer.changelog` → `/changelog/` |
 | www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex；`/skins` 301 → `/skins/`；`/install` 301 → `/install/`；`/changelog` 301 → `/changelog/` |
-| sitemap | 已实现 | `public/sitemap.xml` 6 条：`/` `/opensource/` `/faq/` `/skins/` `/install/` `/changelog/`；首页、安装页、changelog `lastmod` 2026-09-05（版本文案随 `v0.2.31`） |
+| sitemap | 已实现 | `public/sitemap.xml` 6 条：`/` `/opensource/` `/faq/` `/skins/` `/install/` `/changelog/`；首页与安装页 `lastmod` 2026-09-05（版本文案随 `v0.2.31`）；changelog `lastmod` 2026-09-02（`markup.test.ts` 锁该日） |
 | llms.txt | 已实现 | `public/llms.txt`；Also known as + 产品名 Grok App；画廊 URL 为本站 `/skins/`；安装指南 `/install/`；更新日志 `/changelog/` |
 | JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite；皮肤页 CollectionPage；安装页 HowTo；更新日志 WebPage + ItemList；`alternateName`；`softwareVersion` 跟 `downloads-meta.json`（`v0.2.31`）；短 title；`twitter:site` `@cgnot996` |
 | 站点语气 | 短称开源 Grok App | 无「非官方 / unofficial」；[product.md](./product.md) [content.md](./content.md) [seo.md](./seo.md) |

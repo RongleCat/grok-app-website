@@ -12,7 +12,7 @@
   - `node scripts/fetch-downloads.mjs` 拉现网 `downloads.json`，`src/generated/downloads-meta.json` tag → `v0.2.31`
   - 脚本同步首页 JSON-LD `SoftwareApplication.softwareVersion` → `v0.2.31`
   - `/changelog/` 置顶 v0.2.31（三语摘要取自产品仓 Release notes：文件改动卡片 / Review diff、OrcaRouter 预设、CLI 升级提醒、设置页重试与自定义模型不换档）；ItemList `numberOfItems` 6
-  - `public/sitemap.xml` `/` `/install/` `/changelog/` `lastmod` → 2026-09-05
+  - `public/sitemap.xml` `/` `/install/` `lastmod` → 2026-09-05；`/changelog/` 仍为 2026-09-02（现有测试锁该日）
   - 未改 star 数代码，未发明 Search Console 数据
 - **Wiki**：downloads / seo / content / design / status / 本条
 - **结果**：下载旁注、安装页 `data-version`、JSON-LD 与 changelog 顶条同为 `v0.2.31`
