@@ -263,6 +263,16 @@ export const zh = {
   "changelog.hero.title": "近几版稳定更新",
   "changelog.hero.body":
     "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  /* 2026-09-05 · add · v0.2.31 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0231.highlight":
+    "回合结束后能看到改了哪些文件，并在对话里展开高亮 diff。",
+  "changelog.v0231.b1":
+    "助手改完文件后，对话里会出现可展开的改动卡片；也可打开 Review 看聚焦 diff。",
+  "changelog.v0231.b2": "自定义供应商画廊增加 OrcaRouter 一键预设。",
+  "changelog.v0231.b3":
+    "应用内升级 CLI 时，若已有新版 App 会先提醒；确认后仍可继续。",
+  "changelog.v0231.b4":
+    "设置页出错不再整窗空白；自定义模型不会在两轮之间悄悄换模型。",
   "changelog.v0230.highlight": "设置里可从本地装插件，推荐里可一键加 X API。",
   "changelog.v0230.b1":
     "设置 → 插件可从本地文件夹或 git 安装；带 MCP 的会出现在扩展。",

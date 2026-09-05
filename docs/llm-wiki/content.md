@@ -217,7 +217,7 @@
 | `changelog.hero.title` | 近几版稳定更新 | 近幾版穩定更新 | Recent stable releases |
 | `changelog.hero.body` | 开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。 | 開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是最近幾個穩定版。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。 | Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client. |
 
-其余 `changelog.v02*` 亮点 / 短 bullet 与 `changelog.next.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。当前条目：v0.2.30（2026-09-01）到 v0.2.26（2026-08-24）。页脚 `footer.changelog` 全站指向本站 `/changelog/`。
+其余 `changelog.v02*` 亮点 / 短 bullet 与 `changelog.next.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。当前条目：v0.2.31（2026-09-04）到 v0.2.26（2026-08-24）。页脚 `footer.changelog` 全站指向本站 `/changelog/`。
 
 ## download
 

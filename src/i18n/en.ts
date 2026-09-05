@@ -274,6 +274,16 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-05 · add · v0.2.31 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0231.highlight":
+    "See which files the agent edited, then expand a highlighted diff in chat.",
+  "changelog.v0231.b1":
+    "Chat shows expandable cards for files the agent edited. Open Review from a card for the focused diff.",
+  "changelog.v0231.b2": "OrcaRouter is available as a custom-provider preset.",
+  "changelog.v0231.b3":
+    "In-app CLI upgrades warn when a newer App is available. You can still continue after confirming.",
+  "changelog.v0231.b4":
+    "Settings render errors no longer blank the window. Custom-model chats no longer switch models between turns.",
   "changelog.v0230.highlight":
     "Install plugins from a local folder, and add X API from Recommended.",
   "changelog.v0230.b1":

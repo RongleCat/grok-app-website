@@ -80,35 +80,41 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 5,
+            "numberOfItems": 6,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.31",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -278,6 +284,41 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-05 · add · 置顶 v0.2.31 稳定摘要
+          Timestamp: 2026-09-05
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0231.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.31">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
+              rel="noopener noreferrer"
+              >v0.2.31</a
+            >
+          </h2>
+          <time datetime="2026-09-04">2026-09-04</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0231.highlight">
+            回合结束后能看到改了哪些文件，并在对话里展开高亮 diff。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0231.b1">
+              助手改完文件后，对话里会出现可展开的改动卡片；也可打开 Review 看聚焦 diff。
+            </li>
+            <li data-i18n="changelog.v0231.b2">自定义供应商画廊增加 OrcaRouter 一键预设。</li>
+            <li data-i18n="changelog.v0231.b3">
+              应用内升级 CLI 时，若已有新版 App 会先提醒；确认后仍可继续。
+            </li>
+            <li data-i18n="changelog.v0231.b4">
+              设置页出错不再整窗空白；自定义模型不会在两轮之间悄悄换模型。
+            </li>
+          </ul>
+        </li>
         <li class="changelog-item" id="v0.2.30">
           <h2>
             <a
