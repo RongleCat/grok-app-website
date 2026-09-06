@@ -263,6 +263,14 @@ export const zh = {
   "changelog.hero.title": "近几版稳定更新",
   "changelog.hero.body":
     "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  /* 2026-09-06 · add · v0.2.32 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0232.highlight":
+    "Windows 拖放与 Mac 豆包语音恢复可用，工具内存也更省。",
+  "changelog.v0232.b1": "Windows 资源管理器拖放项目和附件恢复可用。",
+  "changelog.v0232.b2": "Mac 上豆包输入法按 Fn / Globe 可唤起语音。",
+  "changelog.v0232.b3": "工具运行中默认折叠，结束后占用更少内存。",
+  "changelog.v0232.b4":
+    "对话划词结束后再显示引用工具栏；Mac 上 Control+Return 又能引导当前回合。",
   /* 2026-09-05 · add · v0.2.31 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0231.highlight":
     "回合结束后能看到改了哪些文件，并在对话里展开高亮 diff。",

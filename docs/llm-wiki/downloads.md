@@ -16,7 +16,7 @@
 | 按钮怎么写 | `href` 指向 GitHub；或本站短链 **302** 到 GitHub。禁止反代、禁止把包装进 Pages |
 | 怎么永远最新 | 稳定文件名 + `/releases/latest/download/…` |
 | 版本号从哪来 | 构建时拉 `downloads.json`，不要浏览器现拉（CORS） |
-| 现网（2026-09-05 核对） | 构建已拉到 `downloads.json` tag `v0.2.31`（产品仓正式 Release，2026-09-04）。若下次 404，按钮仍走写死的稳定 URL |
+| 现网（2026-09-06 核对） | `v0.2.32` 资产尚未挂 `downloads.json`（`latest/download` 404）。脚本改走 GitHub latest Release tag，写入 `v0.2.32`。按钮仍走写死的稳定 URL |
 
 不要链到：
 
@@ -81,7 +81,7 @@ curl -fsSL -L -o downloads.json \
 4. 旁注版本：`tag` 或 `v` + `version`
 5. 可选展示 `size`、`sha256`、`releaseUrl`
 
-构建失败（404 / JSON 坏）：**不要发布空按钮**。保留上一份成功清单，或回退到第 2 节写死的稳定 URL，版本号写「见 GitHub Releases」。
+构建失败（404 / JSON 坏）：**不要发布空按钮**。按钮回退到第 2 节写死的稳定 URL。版本号先试 GitHub latest Release 的 `tag_name`；再失败才保留上一份成功清单，或写「见 GitHub Releases」。
 
 字段形状以产品仓 `website-downloads.md` §4 为准。`label` 是英文短标签，UI 用 [content.md](./content.md) 做中文。
 
@@ -127,7 +127,7 @@ https://github.com/RongleCat/grok-app/releases
 6. 把某个历史版本号写进按钮路径。
 7. 把 Linux 三种格式说成三个发行版官方源。
 
-实现：`src/downloads.ts` 写死七个稳定 URL；`scripts/fetch-downloads.mjs` 构建时拉清单，写入 `src/generated/downloads-meta.json`（下载区 / 安装页 `data-version` 旁注），并同步首页 JSON-LD `softwareVersion`。按钮 `href` 不依赖 JSON 是否存在。
+实现：`src/downloads.ts` 写死七个稳定 URL；`scripts/fetch-downloads.mjs` 构建时先拉 `downloads.json`，写入 `src/generated/downloads-meta.json`（下载区 / 安装页 `data-version` 旁注），并同步首页 JSON-LD `softwareVersion`。清单 404 时改读 GitHub latest Release 的 `tag_name`（仍写 `fallback: false`，因为 tag 已核实）。再失败才保留上一份成功清单。按钮 `href` 不依赖 JSON 是否存在。
 
 ## 7. 验收（上线前）
 
@@ -135,6 +135,6 @@ https://github.com/RongleCat/grok-app/releases
 - [x] Mac 两个架构都在，默认不明显导向 Intel
 - [x] Windows 主按钮是 setup.exe，绿色版是次入口
 - [x] Linux 能看到 AppImage + deb + rpm
-- [x] 若构建时拉了清单，页面版本号与 `downloads.json` 的 `tag` 一致（本机构建见 `v0.2.31`）
+- [x] 若构建时拉了清单或 latest Release tag，页面版本号与现网正式 tag 一致（本机构建见 `v0.2.32`）
 - [x] 国内访问失败时仍有 GitHub Releases 兜底
 - [x] 没有链到 `grok-desktop-latest`

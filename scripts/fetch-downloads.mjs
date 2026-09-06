@@ -13,8 +13,36 @@ const OUT = join(ROOT, "src/generated/downloads-meta.json");
 const INDEX_HTML = join(ROOT, "index.html");
 const URL =
   "https://github.com/RongleCat/grok-app/releases/latest/download/downloads.json";
+const RELEASE_API =
+  "https://api.github.com/repos/RongleCat/grok-app/releases/latest";
 
 const FALLBACK = { tag: null, fallback: true };
+
+/**
+ * 2026-09-06 · add · downloads.json 404 时改走 latest Release tag
+ * Timestamp: 2026-09-06
+ * Change type: add
+ * What: 清单缺失时读 GitHub latest Release 的 tag_name
+ * Why: v0.2.32 资产尚未挂 downloads.json，latest/download 会 404；版本仍须对齐已发布 tag
+ * Params & return: 成功返回 { tag, fallback: false }；draft / prerelease / 无 tag 返回 null
+ * Impact scope: downloads-meta.json 与首页 JSON-LD softwareVersion
+ * Risk: 未校验 installers 形状；按钮仍走写死的稳定 URL
+ */
+async function tagFromLatestRelease() {
+  const res = await fetch(RELEASE_API, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      "User-Agent": "grok-app.com-downloads",
+    },
+    redirect: "follow",
+    signal: AbortSignal.timeout(8000),
+  });
+  if (!res.ok) return null;
+  const data = await res.json();
+  if (!data || data.draft || data.prerelease) return null;
+  if (typeof data.tag_name !== "string" || !data.tag_name) return null;
+  return { tag: data.tag_name, fallback: false };
+}
 
 /**
  * 2026-08-31 · add · 构建拉到 tag 后同步首页 JSON-LD softwareVersion
@@ -66,6 +94,15 @@ async function main() {
     }
   } catch {
     /* keep fallback */
+  }
+
+  if (next.fallback) {
+    try {
+      const fromRelease = await tagFromLatestRelease();
+      if (fromRelease) next = fromRelease;
+    } catch {
+      /* keep fallback */
+    }
   }
 
   if (next.fallback) {

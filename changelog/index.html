@@ -80,41 +80,47 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 6,
+            "numberOfItems": 7,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.32",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.31",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 6,
+                "position": 7,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -284,6 +290,43 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-06 · add · 置顶 v0.2.32 稳定摘要
+          Timestamp: 2026-09-06
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0232.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.32">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
+              rel="noopener noreferrer"
+              >v0.2.32</a
+            >
+          </h2>
+          <time datetime="2026-09-06">2026-09-06</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0232.highlight">
+            Windows 拖放与 Mac 豆包语音恢复可用，工具内存也更省。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0232.b1">
+              Windows 资源管理器拖放项目和附件恢复可用。
+            </li>
+            <li data-i18n="changelog.v0232.b2">
+              Mac 上豆包输入法按 Fn / Globe 可唤起语音。
+            </li>
+            <li data-i18n="changelog.v0232.b3">
+              工具运行中默认折叠，结束后占用更少内存。
+            </li>
+            <li data-i18n="changelog.v0232.b4">
+              对话划词结束后再显示引用工具栏；Mac 上 Control+Return 又能引导当前回合。
+            </li>
+          </ul>
+        </li>
         <!--
           2026-09-05 · add · 置顶 v0.2.31 稳定摘要
           Timestamp: 2026-09-05
