@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-09-06 · 下载 / JSON-LD 版本对齐 v0.2.32，changelog 置顶
+
+- **操作者**：agent
+- **触发**：最新非 draft Release 已是 v0.2.32（2026-09-06）；现网 JSON-LD / downloads-meta / changelog 顶条仍写 v0.2.31
+- **改动**：
+  - `v0.2.32` 资产无 `downloads.json`（`latest/download` 404）。`scripts/fetch-downloads.mjs` 增加 latest Release `tag_name` 回退，写入 `v0.2.32` 并同步首页 JSON-LD
+  - `/changelog/` 置顶 v0.2.32（三语摘要取自产品仓 Release notes：Windows 拖放、Mac 豆包语音、工具内存、划词工具栏 / Control+Return）；旧条目保留
+  - `public/sitemap.xml` `/` `/install/` `lastmod` → 2026-09-06；`/changelog/` 仍为 2026-09-02（测试锁该日）
+  - 未改 star 数代码，未发明 Search Console 数据
+- **Wiki**：downloads / seo / content / design / status / 本条
+- **结果**：下载旁注、安装页 `data-version`、JSON-LD 与 changelog 顶条同为 `v0.2.32`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做；等 v0.2.32 挂上 `downloads.json` 后构建可再走清单
+
+---
+
 ## 2026-09-05 · 下载 / JSON-LD 版本对齐 v0.2.31，changelog 置顶
 
 - **操作者**：agent

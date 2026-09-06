@@ -274,6 +274,17 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-06 · add · v0.2.32 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0232.highlight":
+    "Windows drag-drop and Mac Doubao voice work again, with leaner tool memory.",
+  "changelog.v0232.b1":
+    "Windows Explorer drag-drop works again for projects and chat attachments.",
+  "changelog.v0232.b2":
+    "Mac Doubao IME Fn / Globe voice works in the chat composer again.",
+  "changelog.v0232.b3":
+    "Running tool steps stay collapsed by default. Completed tool output uses less memory in long turns.",
+  "changelog.v0232.b4":
+    "The quote toolbar appears after text selection settles. Mac Control+Return steers a live turn again.",
   /* 2026-09-05 · add · v0.2.31 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0231.highlight":
     "See which files the agent edited, then expand a highlighted diff in chat.",
