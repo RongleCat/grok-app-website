@@ -274,6 +274,17 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-07 · add · v0.2.33 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0233.highlight":
+    "Windows installers are back, with composer shortcuts and worktree GC fixes.",
+  "changelog.v0233.b1":
+    "Windows setup and portable packages publish again after the 0.2.32 build break.",
+  "changelog.v0233.b2":
+    "New chat and Settings shortcuts work while the message box is focused.",
+  "changelog.v0233.b3":
+    "Worktree GC confirm actually runs prune instead of only closing the dialog.",
+  "changelog.v0233.b4":
+    "Release CI fails the gate unless every macOS, Windows, and Linux installer is on the tag.",
   /* 2026-09-06 · add · v0.2.32 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0232.highlight":
     "Windows drag-drop and Mac Doubao voice work again, with leaner tool memory.",

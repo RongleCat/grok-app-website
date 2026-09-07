@@ -263,6 +263,15 @@ export const zh = {
   "changelog.hero.title": "近几版稳定更新",
   "changelog.hero.body":
     "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  /* 2026-09-07 · add · v0.2.33 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0233.highlight":
+    "Windows 安装包恢复上架，输入框快捷键与 worktree 清理也修好了。",
+  "changelog.v0233.b1": "Windows 安装版与绿色版重新随 Release 发布。",
+  "changelog.v0233.b2": "光标在消息输入框时，新建对话和设置快捷键也能用。",
+  "changelog.v0233.b3":
+    "Worktree 清理点确认会真正执行 prune，而不只是关掉对话框。",
+  "changelog.v0233.b4":
+    "发版门禁要求 macOS / Windows / Linux 安装包齐全，缺任一平台会失败。",
   /* 2026-09-06 · add · v0.2.32 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0232.highlight":
     "Windows 拖放与 Mac 豆包语音恢复可用，工具内存也更省。",
