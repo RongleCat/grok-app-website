@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-09-07 · sitemap `/changelog/` lastmod 跟上 v0.2.33
+
+- **操作者**：agent
+- **触发**：周检发现现网 sitemap `/changelog/` 仍为 2026-09-02，而 6803d95 已把 changelog 正文与 `/` `/install/` lastmod 改到 2026-09-07
+- **改动**：
+  - `public/sitemap.xml` `/changelog/` lastmod → 2026-09-07
+  - `scripts/fetch-downloads.mjs`：tag 相对上次 `downloads-meta.json` 变化时，同步 `/` `/install/` `/changelog/` lastmod 为当天 UTC（不再只手改前两页）
+  - `src/markup.test.ts` 不再锁 2026-09-02；改为核对 changelog lastmod = 正文最新 `YYYY-MM-DD · add` 戳
+- **Wiki**：seo / status / 本条
+- **结果**：changelog lastmod 与本次内容日一致；下次发版 bump 跑 fetch-downloads 会带上 `/changelog/`
+- **未做 / 下一步**：产品仓 `repository_dispatch` 仍未做
+
+---
+
 ## 2026-09-07 · 下载 / JSON-LD 版本对齐 v0.2.33，changelog 置顶
 
 - **操作者**：agent

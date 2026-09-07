@@ -26,6 +26,8 @@
 
 `public/sitemap.xml` 必须列出上表全部 URL，每条带 `<lastmod>`（`YYYY-MM-DD`，内容变更日）、`changefreq`、`priority`。首页 `1.0` weekly，开源 `0.8` weekly，安装 `0.8` weekly，皮肤 `0.7` weekly，更新日志 `0.7` weekly，FAQ `0.6` monthly。改这些页面时同步改 lastmod。
 
+版本 bump 跑 `scripts/fetch-downloads.mjs` 时，`downloads-meta.json` 的 tag 若变了，脚本会把 `/`、`/install/`、`/changelog/` 的 lastmod 写成当天 UTC。`/changelog/` 只要这次 bump 改了更新日志正文，就必须跟走，不能只改首页和安装页。`src/markup.test.ts` 要求 `/changelog/` lastmod 等于 `changelog/index.html` 里最新的 `YYYY-MM-DD · add` 戳，禁止再锁死某一天。
+
 `public/robots.txt` 指向 `https://grok-app.com/sitemap.xml`，并 `Disallow: /api/`。`/api/stars` 是 Pages Function JSON，不是内容页：不进 sitemap / `llms.txt`；`public/_headers` 与 Function 响应写 `X-Robots-Tag: noindex`。
 
 ## www 规范化
@@ -117,7 +119,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - 安装页：`Organization` + `WebSite` + `HowTo`（步骤与静态简体正文一致；**禁止** `aggregateRating` / 假日期）
 - 更新日志页：`Organization` + `WebSite` + `WebPage`（`url` `/changelog/`）+ 近版 `ItemList`（链到各 tag 的 GitHub Release）。**禁止** `aggregateRating` / `reviewCount`。不要写 `softwareVersion`（版本号仍只跟 `downloads-meta.json` 写在首页）
 
-`downloads-meta.json` 的 tag 变了，`scripts/fetch-downloads.mjs` 会同步首页 JSON-LD 的 `softwareVersion`（`src/markup.test.ts` 会核对）。
+`downloads-meta.json` 的 tag 变了，`scripts/fetch-downloads.mjs` 会同步首页 JSON-LD 的 `softwareVersion`，并刷新 `/` `/install/` `/changelog/` 的 sitemap lastmod（`src/markup.test.ts` 会核对 version 与 changelog lastmod）。
 
 ## 文案禁区
 
