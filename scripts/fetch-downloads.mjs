@@ -11,6 +11,12 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(ROOT, "src/generated/downloads-meta.json");
 const INDEX_HTML = join(ROOT, "index.html");
+const SITEMAP = join(ROOT, "public/sitemap.xml");
+const VERSION_SITEMAP_LOCS = [
+  "https://grok-app.com/",
+  "https://grok-app.com/install/",
+  "https://grok-app.com/changelog/",
+];
 const URL =
   "https://github.com/RongleCat/grok-app/releases/latest/download/downloads.json";
 const RELEASE_API =
@@ -65,6 +71,34 @@ async function syncSoftwareVersion(tag, fallback) {
   if (next !== html) await writeFile(INDEX_HTML, next);
 }
 
+/**
+ * 2026-09-07 · add · tag 变化时同步版本相关页 sitemap lastmod
+ * Timestamp: 2026-09-07
+ * Change type: add
+ * What: `/` `/install/` `/changelog/` lastmod 写成当天 UTC
+ * Why: 发版 bump 会改这三页正文；原先只手改前两页，测试又锁死 changelog 于 2026-09-02
+ * Params & return: tag 与上次 downloads-meta 不同且非 fallback 才写；无返回值
+ * Impact scope: public/sitemap.xml
+ * Risk: 只替换已有 <loc> 后的 <lastmod>；CI 同 tag 重建不改日期
+ */
+function setLocLastmod(xml, loc, date) {
+  const escaped = loc.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return xml.replace(
+    new RegExp(`(<loc>${escaped}</loc>\\s*<lastmod>)[^<]+(</lastmod>)`),
+    `$1${date}$2`,
+  );
+}
+
+async function syncSitemapLastmod(tag, fallback, prevTag) {
+  if (fallback || !tag || tag === prevTag) return;
+  const today = new Date().toISOString().slice(0, 10);
+  let xml = await readFile(SITEMAP, "utf8");
+  for (const loc of VERSION_SITEMAP_LOCS) {
+    xml = setLocLastmod(xml, loc, today);
+  }
+  await writeFile(SITEMAP, xml);
+}
+
 function validate(data) {
   if (!data || typeof data !== "object") return null;
   if (data.schemaVersion !== 1) return null;
@@ -105,17 +139,18 @@ async function main() {
     }
   }
 
-  if (next.fallback) {
-    try {
-      const prev = JSON.parse(await readFile(OUT, "utf8"));
-      if (prev && prev.tag && prev.fallback === false) next = prev;
-    } catch {
-      /* first run */
-    }
+  let prevTag = null;
+  try {
+    const prev = JSON.parse(await readFile(OUT, "utf8"));
+    if (prev && typeof prev.tag === "string") prevTag = prev.tag;
+    if (next.fallback && prev && prev.tag && prev.fallback === false) next = prev;
+  } catch {
+    /* first run */
   }
 
   await writeFile(OUT, `${JSON.stringify(next, null, 2)}\n`);
   await syncSoftwareVersion(next.tag, next.fallback);
+  await syncSitemapLastmod(next.tag, next.fallback, prevTag);
   console.log(
     next.fallback
       ? "downloads.json unavailable — using stable URL fallback"

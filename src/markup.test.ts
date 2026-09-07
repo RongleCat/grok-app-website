@@ -265,8 +265,17 @@ describe("SEO / GEO foundation", () => {
     expect(sitemap).toContain("<loc>https://grok-app.com/install/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/changelog/</loc>");
     expect(sitemap).toMatch(
-      /<loc>https:\/\/grok-app\.com\/changelog\/<\/loc>\s*<lastmod>2026-09-02<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
+      /<loc>https:\/\/grok-app\.com\/changelog\/<\/loc>\s*<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
     );
+    /* lastmod 必须跟 changelog 正文最新「YYYY-MM-DD · add」戳走，禁止再锁死旧日 */
+    const changelogLastmod = sitemap.match(
+      /<loc>https:\/\/grok-app\.com\/changelog\/<\/loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/,
+    )?.[1];
+    const newestStamp = [...changelogHtml.matchAll(/(\d{4}-\d{2}-\d{2}) · add/g)]
+      .map((m) => m[1])
+      .sort()
+      .at(-1);
+    expect(changelogLastmod).toBe(newestStamp);
     expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/);
     expect(sitemap).toContain("<changefreq>weekly</changefreq>");
     expect(sitemap).toContain("<priority>1.0</priority>");
