@@ -80,47 +80,53 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 7,
+            "numberOfItems": 8,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.33",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.33"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.32",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.31",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 6,
+                "position": 7,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 7,
+                "position": 8,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -290,6 +296,43 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-07 · add · 置顶 v0.2.33 稳定摘要
+          Timestamp: 2026-09-07
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0233.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.33">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.33"
+              rel="noopener noreferrer"
+              >v0.2.33</a
+            >
+          </h2>
+          <time datetime="2026-09-06">2026-09-06</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0233.highlight">
+            Windows 安装包恢复上架，输入框快捷键与 worktree 清理也修好了。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0233.b1">
+              Windows 安装版与绿色版重新随 Release 发布。
+            </li>
+            <li data-i18n="changelog.v0233.b2">
+              光标在消息输入框时，新建对话和设置快捷键也能用。
+            </li>
+            <li data-i18n="changelog.v0233.b3">
+              Worktree 清理点确认会真正执行 prune，而不只是关掉对话框。
+            </li>
+            <li data-i18n="changelog.v0233.b4">
+              发版门禁要求 macOS / Windows / Linux 安装包齐全，缺任一平台会失败。
+            </li>
+          </ul>
+        </li>
         <!--
           2026-09-06 · add · 置顶 v0.2.32 稳定摘要
           Timestamp: 2026-09-06
