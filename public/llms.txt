@@ -1,8 +1,10 @@
-# Grok App
+# Open-source Grok App
 
-> Open-source Grok App is a desktop workbench (GUI) for the local Grok Build CLI.
+> Open-source Grok App (开源 Grok App) is a desktop workbench (GUI) for the local Grok Build CLI.
 
-The product name is **Grok App**.
+The product name is **Grok App**. The short brand is **open-source Grok App** / **开源 Grok App**.
+
+Current stable release: **v0.2.33**. Release notes: https://grok-app.com/changelog/
 
 ## Also known as
 
@@ -31,6 +33,33 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 - Requires the local Grok Build CLI. This app does not replace the CLI.
 - Install help (macOS / Windows / Linux, first-run CLI sign-in, common blockers): https://grok-app.com/install/
 - Release notes live on-site at https://grok-app.com/changelog/. Full history is on GitHub Releases.
+
+## FAQ
+
+### What is open-source Grok App?
+
+A community desktop workbench for the local Grok Build CLI. The product name is Grok App. People also search Grok Desktop, Grok GUI, or Grok Build desktop client.
+
+### Does it need the local Grok Build CLI?
+
+Yes. The app does not replace the CLI. Install Grok Build on your machine first.
+
+### Is this a grok.com chat wrapper?
+
+No. It is for the local Grok Build CLI (the coding agent), not grok.com chat or a PWA.
+
+### Which platforms are supported?
+
+macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM).
+
+### Where is the source, and what is the license?
+
+https://github.com/RongleCat/grok-app — MIT.
+
+## Install
+
+- macOS / Windows / Linux steps, first-run CLI sign-in, and common blockers: https://grok-app.com/install/
+- Installers live on GitHub Releases only. This website does not host or proxy installer binaries.
 
 ## Key features
 

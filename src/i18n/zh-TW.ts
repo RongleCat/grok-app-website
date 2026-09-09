@@ -127,6 +127,10 @@ export const zhTW: Record<MessageKey, string> = {
   "faq.hero.title": "下載、安裝與定位",
   "faq.hero.body":
     "開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是下載、安裝和常見搜尋。",
+  /* 2026-09-09 · add · 品牌意圖首問，與 zh / en 同 key */
+  "faq.q9": "開源 Grok App 是什麼？",
+  "faq.a9":
+    "開源 Grok App 是本機 Grok Build CLI 的桌面工作臺。產品名是 Grok App。它把本機 CLI 收成多專案、多會話、帶權限與媒體預覽的 GUI。",
   "faq.q1": "Grok App 支援哪些系統？",
   "faq.a1":
     "提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）和 Linux（AppImage / DEB / RPM）安裝包。在首頁下載區選擇對應平台，或到 GitHub Releases 取包。",

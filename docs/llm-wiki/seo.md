@@ -19,7 +19,7 @@
 |------|------|------|
 | `/` | `index.html` | 落地页 |
 | `/opensource/` | `opensource/index.html` | 开源 / 作者 / 贡献者墙 |
-| `/faq/` | `faq/index.html` | 8 条 FAQ + `FAQPage` JSON-LD |
+| `/faq/` | `faq/index.html` | 9 条 FAQ + `@graph`（Organization / WebSite / FAQPage / BreadcrumbList） |
 | `/skins/` | `skins/index.html` | 社区皮肤画廊 + `CollectionPage` JSON-LD |
 | `/install/` | `install/index.html` | 三端安装指南 + `HowTo` JSON-LD |
 | `/changelog/` | `changelog/index.html` | 近几版稳定更新 + `WebPage` / `ItemList` JSON-LD |
@@ -49,7 +49,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 
 | 簇 | 写法 | 落点 |
 |----|------|------|
-| 品牌 | Grok App · 开源 Grok App | 全站 title、Hero、页脚、JSON-LD `name` |
+| 品牌 | Grok App · 开源 Grok App | 全站 title、Hero、页脚、JSON-LD `name` / `alternateName`、FAQ q9、`llms.txt` 开篇 |
 | Desktop | Grok Desktop, Grok Build Desktop | `meta.keywords`、FAQ q4、JSON-LD `alternateName`、`llms.txt` Also known as |
 | GUI | Grok GUI, Grok Build GUI, Grok CLI GUI, GUI for Grok Build | Hero 副标题、meta description、FAQ q7、`alternateName`、`llms.txt` |
 | 客户端 | Grok 桌面、Grok 客户端、Grok 桌面客户端、不用终端 | FAQ q4 / q7、`meta.keywords`、`llms.txt` |
@@ -91,15 +91,18 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 
 `public/llms.txt` 给 AI 爬虫的短简报，英文为主。必须写清：
 
-- 是什么：open-source Grok App，desktop workbench / GUI for the local Grok Build CLI
-- 产品名是 Grok App
+- 开篇短称：**open-source Grok App** / **开源 Grok App**；产品名是 Grok App
+- 当前稳定版与 `downloads-meta.json` 的 `tag` 一致（现为 `v0.2.33`），并指向 `https://grok-app.com/changelog/`
 - Also known as：Grok Desktop、Grok GUI、Grok Build desktop client 等
 - 不是什么：不是 grok.com 聊天套壳或 PWA；不能替代本机 Grok Build CLI
 - 平台、MIT、规范站 `https://grok-app.com/`、产品仓、Releases、作者 铁柱AGI `https://x.com/cgnot996`
 - 社区皮肤画廊：`https://grok-app.com/skins/`（桌面 Apply 发 `grok://skin/import`；手机 toast）
-- 安装指南：`https://grok-app.com/install/`（三端下载、首次启动、本机 CLI、常见卡住）
+- 安装指南：`https://grok-app.com/install/`（三端下载、首次启动、本机 CLI、常见卡住）；Install 节再写一条三端 + Releases-only
 - 更新日志：`https://grok-app.com/changelog/`（近几版稳定摘要；完整历史在 GitHub Releases）
+- FAQ 节 4–6 条短问答，蒸馏自 `/faq/`：短称/Desktop·GUI 别名、必须本机 Grok Build CLI、不是 grok.com 套壳、平台、MIT
 - 5–8 条真实能力，不编评分
+- 不写 Grok Bot / usegrokbot.com（页脚友情链接除外）
+- 不另做 `llms-full.txt`；加长就加在本文件
 
 禁止其它 Grok 产品名、禁止「官方桌面端」「Grok 桌面版」、禁止写 unofficial。
 
@@ -108,16 +111,20 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 首页 `@graph`：`Organization` + `WebSite`（`url` 都是 `https://grok-app.com/`）+ `SoftwareApplication`。
 
 - `name`: Grok App
-- `alternateName`: Grok Desktop, Grok GUI, Grok Build GUI, Grok Build Desktop, Grok 桌面客户端
+- `alternateName`：必须含短称「开源 Grok App」「open-source Grok App」，以及 Grok Desktop, Grok GUI, Grok Build GUI, Grok Build Desktop, Grok 桌面客户端
+- `releaseNotes`: `https://grok-app.com/changelog/`
+- `softwareHelp`: `WebPage`，`url` `https://grok-app.com/install/`
+- `featureList`: 5–7 条，与 `llms.txt` Key features 同向（多项目、并行会话、权限、媒体预览、皮肤、自动化、本机 CLI）
 - `sameAs` 只放真实 URL：`https://github.com/RongleCat/grok-app`、`https://x.com/cgnot996`
 - `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.33`）。`fallback: true` 时不要写版本
 - `description` 与 `meta.description` 同向，不要写 unofficial
 - **禁止**编造 `aggregateRating` / `reviewCount`
-- 开源页：`Organization` + `WebSite` + `WebPage`
-- FAQ 页：`FAQPage`（与静态 HTML 简体问答一致，含 Desktop / GUI / 套壳三题）
-- 皮肤页：`Organization` + `WebSite` + `CollectionPage`
-- 安装页：`Organization` + `WebSite` + `HowTo`（步骤与静态简体正文一致；**禁止** `aggregateRating` / 假日期）
-- 更新日志页：`Organization` + `WebSite` + `WebPage`（`url` `/changelog/`）+ 近版 `ItemList`（链到各 tag 的 GitHub Release）。**禁止** `aggregateRating` / `reviewCount`。不要写 `softwareVersion`（版本号仍只跟 `downloads-meta.json` 写在首页）
+- 开源页：`Organization` + `WebSite` + `WebPage` + `BreadcrumbList`（Home → 开源 · Grok App）
+- FAQ 页：`@graph` 含 `Organization` + `WebSite` + `FAQPage` + `BreadcrumbList`（Home → 常见问题 · 开源 Grok App）。`mainEntity` 与静态 HTML 简体问答一致（9 问，首条「开源 Grok App 是什么？」；含 Desktop / GUI / 套壳）
+- 皮肤页：`Organization` + `WebSite` + `CollectionPage` + `BreadcrumbList`（Home → 皮肤 · 开源 Grok App）
+- 安装页：`Organization` + `WebSite` + `HowTo` + `BreadcrumbList`（Home → 安装 · 开源 Grok App；步骤与静态简体正文一致；**禁止** `aggregateRating` / 假日期）
+- 更新日志页：`Organization` + `WebSite` + `WebPage`（`url` `/changelog/`）+ `BreadcrumbList`（Home → 更新日志 · 开源 Grok App）+ 近版 `ItemList`（链到各 tag 的 GitHub Release）。**禁止** `aggregateRating` / `reviewCount`。不要写 `softwareVersion`（版本号仍只跟 `downloads-meta.json` 写在首页）
+- 子页 `BreadcrumbList` 第一项是首页 title「开源 Grok App · 桌面工作台」→ `https://grok-app.com/`；第二项是该页 title
 
 `downloads-meta.json` 的 tag 变了，`scripts/fetch-downloads.mjs` 会同步首页 JSON-LD 的 `softwareVersion`，并刷新 `/` `/install/` `/changelog/` 的 sitemap lastmod（`src/markup.test.ts` 会核对 version 与 changelog lastmod）。
 

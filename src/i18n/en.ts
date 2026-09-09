@@ -132,6 +132,10 @@ export const en: Record<MessageKey, string> = {
   "faq.hero.title": "Download, install, and what this is",
   "faq.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. Downloads, install, and common searches.",
+  /* 2026-09-09 · add · 品牌意图首问，与 zh / zh-TW 同 key */
+  "faq.q9": "What is open-source Grok App?",
+  "faq.a9":
+    "Open-source Grok App is a desktop workbench for the local Grok Build CLI. The product name is Grok App. It turns the local CLI into a GUI with projects, sessions, permissions, and media preview.",
   "faq.q1": "Which platforms does Grok App support?",
   "faq.a1":
     "Installers are available for macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). Pick your platform on the homepage download section, or get the files from GitHub Releases.",

@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-09-09 · GEO：强化 llms.txt 与 JSON-LD
+
+- **操作者**：agent
+- **触发**：周更 GEO；FAQ / install / changelog 已上线，本周做 citation + 结构化数据
+- **改动**：
+  - `public/llms.txt`：开篇短称 open-source Grok App / 开源 Grok App；`v0.2.33` → `/changelog/`；FAQ 5 问摘要；Install 节 → `/install/`；保留 Also known as / Canonical URLs / Key features / What it is not；不写 Grok Bot；不加 `llms-full.txt`
+  - 首页 JSON-LD：`alternateName` 加短称；`releaseNotes` `/changelog/`；`softwareHelp` `/install/`；`featureList` 7 条；`softwareVersion` 仍为 `v0.2.33`
+  - `/faq/`：新增三语 `faq.q9`「开源 Grok App 是什么？」；JSON-LD 升为 `@graph`（Organization + WebSite + FAQPage + BreadcrumbList）
+  - `/opensource/` `/skins/` `/install/` `/changelog/` 补 Home → 本页 `BreadcrumbList`；HowTo / CollectionPage 字段未编造日期或评分
+  - `public/sitemap.xml` 六页 lastmod → 2026-09-09
+  - `src/markup.test.ts` 锁新短语、`alternateName`、FAQ `@graph`、各页 BreadcrumbList
+- **Wiki**：seo / content / status / 本条
+- **结果**：AI 爬虫简报与各页 schema 能引用短称、版本、安装与更新日志；changelog 仍无 `softwareVersion`
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-07 · sitemap `/changelog/` lastmod 跟上 v0.2.33
 
 - **操作者**：agent

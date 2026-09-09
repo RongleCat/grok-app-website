@@ -163,7 +163,7 @@
 
 ## faq
 
-`/faq/` 静态页。JSON-LD `FAQPage` 用简体默认句，与 HTML 首屏一致。搜索别名放在问答正文，不要叠进 title。
+`/faq/` 静态页。JSON-LD `FAQPage` 用简体默认句，与 HTML 首屏一致。搜索别名放在问答正文，不要叠进 title。现为 9 问，品牌意图 `faq.q9` 放在列表最前。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
@@ -172,6 +172,8 @@
 | `faq.hero.kicker` | 常见问题 | 常見問題 | FAQ |
 | `faq.hero.title` | 下载、安装与定位 | 下載、安裝與定位 | Download, install, and what this is |
 | `faq.hero.body` | 开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是下载、安装和常见搜索。 | 開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是下載、安裝和常見搜尋。 | Open-source Grok App is a desktop GUI for the local Grok Build CLI. Downloads, install, and common searches. |
+| `faq.q9` | 开源 Grok App 是什么？ | 開源 Grok App 是什麼？ | What is open-source Grok App? |
+| `faq.a9` | 开源 Grok App 是本机 Grok Build CLI 的桌面工作台。产品名是 Grok App。它把本机 CLI 收成多项目、多会话、带权限与媒体预览的 GUI。 | 開源 Grok App 是本機 Grok Build CLI 的桌面工作臺。產品名是 Grok App。它把本機 CLI 收成多專案、多會話、帶權限與媒體預覽的 GUI。 | Open-source Grok App is a desktop workbench for the local Grok Build CLI. The product name is Grok App. It turns the local CLI into a GUI with projects, sessions, permissions, and media preview. |
 | `faq.q1` | Grok App 支持哪些系统？ | Grok App 支援哪些系統？ | Which platforms does Grok App support? |
 | `faq.a1` | 提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）安装包。在首页下载区选择对应平台，或到 GitHub Releases 取包。 | 提供 macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）和 Linux（AppImage / DEB / RPM）安裝包。在首頁下載區選擇對應平台，或到 GitHub Releases 取包。 | Installers are available for macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). Pick your platform on the homepage download section, or get the files from GitHub Releases. |
 | `faq.q2` | macOS 提示无法打开或来自身份不明的开发者怎么办？ | macOS 提示無法打開或來自身分不明的開發者怎麼辦？ | macOS says the app can’t be opened or is from an unidentified developer. What now? |
