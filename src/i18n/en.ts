@@ -278,6 +278,17 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-10 · add · v0.2.34 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0234.highlight":
+    "Bigger wallpaper sources, stronger Windows freeze fixes, safer chat thumbs.",
+  "changelog.v0234.b1":
+    "Wallpaper sources add Openverse, Pexels, Web search, and Grok Saved after sign-in.",
+  "changelog.v0234.b2":
+    "Windows no longer freezes when stream IPC or tool journals ran under session locks.",
+  "changelog.v0234.b3":
+    "Chat remote image thumbs block private and loopback targets like wallpaper media.",
+  "changelog.v0234.b4":
+    "Hold Ctrl+Tab for a recent-chat list. Chat markdown can render Mermaid diagrams.",
   /* 2026-09-07 · add · v0.2.33 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0233.highlight":
     "Windows installers are back, with composer shortcuts and worktree GC fixes.",
