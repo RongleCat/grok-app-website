@@ -267,6 +267,17 @@ export const zhTW: Record<MessageKey, string> = {
   "changelog.hero.title": "近幾版穩定更新",
   "changelog.hero.body":
     "開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是最近幾個穩定版。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。",
+  /* 2026-09-10 · add · v0.2.34 摘要取自產品倉 Release notes，不編造功能 */
+  "changelog.v0234.highlight":
+    "壁紙來源大擴展，Windows 卡死修復更完整，聊天縮略圖也擋住內網拉取。",
+  "changelog.v0234.b1":
+    "壁紙來源新增 Openverse、Pexels、Web 搜尋，登入後可瀏覽 Grok Saved。",
+  "changelog.v0234.b2":
+    "Windows 上不再因會話鎖內發串流事件或寫工具日誌而整窗卡死。",
+  "changelog.v0234.b3":
+    "聊天遠端縮略圖與壁紙一樣攔截內網與回環位址。",
+  "changelog.v0234.b4":
+    "按住 Ctrl+Tab 可切換最近對話；聊天 Markdown 會渲染 Mermaid。",
   /* 2026-09-07 · add · v0.2.33 摘要取自產品倉 Release notes，不編造功能 */
   "changelog.v0233.highlight":
     "Windows 安裝包恢復上架，輸入框快捷鍵與 worktree 清理也修好了。",

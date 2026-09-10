@@ -4,7 +4,7 @@
 
 The product name is **Grok App**. The short brand is **open-source Grok App** / **开源 Grok App**.
 
-Current stable release: **v0.2.33**. Release notes: https://grok-app.com/changelog/
+Current stable release: **v0.2.34**. Release notes: https://grok-app.com/changelog/
 
 ## Also known as
 
