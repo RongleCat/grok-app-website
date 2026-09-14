@@ -267,6 +267,17 @@ export const zh = {
   "changelog.hero.title": "近几版稳定更新",
   "changelog.hero.body":
     "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  /* 2026-09-14 · add · v0.2.35 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0235.highlight":
+    "多根工作区、共享 Cookie 的 Google 登录，以及更稳的聊天贴底跟随。",
+  "changelog.v0235.b1":
+    "多根工作区可为会话声明附加文件夹，独立模式可开写。",
+  "changelog.v0235.b2":
+    "Google 登录改用共享 Cookie 窗口，关闭后刷新内嵌页。",
+  "changelog.v0235.b3":
+    "思考流式增高时短暂停顿后仍贴底跟随；从底部慢慢上滑不再弹回。",
+  "changelog.v0235.b4":
+    "Windows 本地 PNG 不再误报损坏；输入 @/goal 不再变成失效文件 chip。",
   /* 2026-09-10 · add · v0.2.34 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0234.highlight":
     "壁纸来源大扩展，Windows 卡死修复更完整，聊天缩略图也挡住内网拉取。",

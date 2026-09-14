@@ -100,59 +100,65 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 9,
+            "numberOfItems": 10,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.35",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.35"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.34",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.34"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.33",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.33"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.32",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.31",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 6,
+                "position": 7,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 7,
+                "position": 8,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 8,
+                "position": 9,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 9,
+                "position": 10,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -322,6 +328,43 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-14 · add · 置顶 v0.2.35 稳定摘要
+          Timestamp: 2026-09-14
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0235.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.35">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.35"
+              rel="noopener noreferrer"
+              >v0.2.35</a
+            >
+          </h2>
+          <time datetime="2026-09-13">2026-09-13</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0235.highlight">
+            多根工作区、共享 Cookie 的 Google 登录，以及更稳的聊天贴底跟随。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0235.b1">
+              多根工作区可为会话声明附加文件夹，独立模式可开写。
+            </li>
+            <li data-i18n="changelog.v0235.b2">
+              Google 登录改用共享 Cookie 窗口，关闭后刷新内嵌页。
+            </li>
+            <li data-i18n="changelog.v0235.b3">
+              思考流式增高时短暂停顿后仍贴底跟随；从底部慢慢上滑不再弹回。
+            </li>
+            <li data-i18n="changelog.v0235.b4">
+              Windows 本地 PNG 不再误报损坏；输入 @/goal 不再变成失效文件 chip。
+            </li>
+          </ul>
+        </li>
         <!--
           2026-09-10 · add · 置顶 v0.2.34 稳定摘要
           Timestamp: 2026-09-10
