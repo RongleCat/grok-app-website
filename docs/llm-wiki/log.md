@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-09-14 · 下载 / JSON-LD 版本对齐 v0.2.35，changelog 置顶
+
+- **操作者**：agent
+- **触发**：最新非 draft Release 已是 v0.2.35（2026-09-13）；现网 JSON-LD / downloads-meta / changelog 顶条仍写 v0.2.34
+- **改动**：
+  - `node scripts/fetch-downloads.mjs` 拉现网 `downloads.json`，`src/generated/downloads-meta.json` tag → `v0.2.35`，同步首页 JSON-LD `softwareVersion`
+  - `/changelog/` 置顶 v0.2.35（三语摘要取自产品仓 Release notes：多根工作区、共享 Cookie 的 Google 登录、更稳的聊天贴底跟随、Windows PNG / `@/goal`）；旧条目保留；ItemList `numberOfItems` 10
+  - `public/llms.txt` 当前稳定版 → `v0.2.35`
+  - `public/sitemap.xml` `/` `/install/` `/changelog/` lastmod → 2026-09-14
+  - 未改 star 数代码，未发明 Search Console 数据
+- **Wiki**：downloads / seo / content / design / status / 本条
+- **结果**：下载旁注、安装页 `data-version`、JSON-LD、`llms.txt` 与 changelog 顶条同为 `v0.2.35`
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-10 · 下载 / JSON-LD 版本对齐 v0.2.34，changelog 置顶
 
 - **操作者**：agent

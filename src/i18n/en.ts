@@ -278,6 +278,17 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-14 · add · v0.2.35 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0235.highlight":
+    "Multi-root workspaces, shared-cookie Google login, and steadier chat follow.",
+  "changelog.v0235.b1":
+    "Multi-root workspaces let a chat declare extra folders, with optional Independent write.",
+  "changelog.v0235.b2":
+    "Google sign-in uses a shared-cookie window and reloads the embedded browser.",
+  "changelog.v0235.b3":
+    "Thinking streams keep following after a brief pause. Slow scroll up from the tail no longer snaps back.",
+  "changelog.v0235.b4":
+    "Windows PNG previews no longer claim a good file is corrupt. Typing @/goal stays as text.",
   /* 2026-09-10 · add · v0.2.34 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0234.highlight":
     "Bigger wallpaper sources, stronger Windows freeze fixes, safer chat thumbs.",
