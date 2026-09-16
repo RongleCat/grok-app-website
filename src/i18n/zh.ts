@@ -115,6 +115,7 @@ export const zh = {
   "footer.terms": "使用条款",
   "footer.docs": "文档",
   "footer.changelog": "更新日志",
+  "footer.desktop": "Grok Desktop",
   "footer.grokbot": "Grok Bot",
   "menu.open": "打开菜单",
   "menu.close": "关闭菜单",
@@ -141,6 +142,7 @@ export const zh = {
   "faq.q4": "在找 Grok Desktop 或 Grok GUI？",
   "faq.a4":
     "产品名是 Grok App。它是社区开源的桌面工作台，给本机 Grok Build CLI 用的 GUI / 客户端。搜索 Grok Desktop、Grok Build Desktop、Grok CLI GUI、Grok 桌面、Grok 客户端的人，通常是在找这个。我们是其中一种社区工作台，仓库 RongleCat/grok-app。",
+  "faq.desktopLink": "Grok Desktop / GUI 说明页",
   "faq.q5": "安装包在哪里下载？",
   "faq.a5":
     "安装包只托管在 GitHub Releases。官网按钮指向这些发布资产，本站不托管、也不反代安装包文件。",
@@ -350,6 +352,30 @@ export const zh = {
   "changelog.next.file": "产品仓 CHANGELOG.md",
   "changelog.next.install": "安装指南",
   "changelog.next.faq": "常见问题",
+  /* 2026-09-16 · add · `/desktop/` 搜索别名页；产品名仍是 Grok App */
+  "desktop.page.title": "Grok Desktop · 开源 Grok App",
+  "desktop.page.desc":
+    "搜 Grok Desktop、Grok GUI 或 Grok 桌面客户端？产品名是开源 Grok App，本机 Grok Build CLI 的桌面工作台。",
+  "desktop.hero.kicker": "搜索别名",
+  "desktop.hero.title": "在找 Grok Desktop？",
+  "desktop.hero.body":
+    "Grok Desktop、Grok GUI、Grok 桌面客户端是搜索说法。产品名仍是 Grok App，短称开源 Grok App。",
+  "desktop.aliases.title": "这些是搜索别名",
+  "desktop.aliases.body":
+    "有人搜 Grok Desktop、Grok Build Desktop、Grok GUI、Grok CLI GUI、Grok 桌面、Grok 客户端。它们指向同一件事：开源 Grok App。我们是其中一种社区工作台，仓库 RongleCat/grok-app。",
+  "desktop.what.title": "开源 Grok App 是什么",
+  "desktop.what.body":
+    "开源 Grok App 是本机 Grok Build CLI 的桌面工作台。多项目、多会话、权限与媒体预览。不是 grok.com 网页聊天或 PWA。",
+  "desktop.cli.title": "需要本机 Grok Build CLI",
+  "desktop.cli.body": "先在本机装好 Grok Build。本应用是 GUI，不会替代 CLI。",
+  "desktop.platforms.title": "支持哪些系统",
+  "desktop.platforms.body":
+    "macOS（Apple Silicon / Intel）、Windows 10/11（64 位）、Linux（AppImage / DEB / RPM）。安装包只在 GitHub Releases。",
+  "desktop.cta.title": "下一步",
+  "desktop.cta.install": "安装指南",
+  "desktop.cta.download": "免费下载",
+  "desktop.cta.releases": "GitHub Releases",
+  "desktop.cta.faq": "Desktop / GUI 问答",
 } as const;
 
 export type MessageKey = keyof typeof zh;

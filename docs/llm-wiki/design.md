@@ -21,7 +21,7 @@
 | 5 | `skins` | 胶囊标题「换一种主题，工作台也换一种状态」+ 四枚皮肤预览（当前选中带勾）+ 社区画廊 CTA |
 | 6 | `opensource` | 落地页只留短横条，链到独立页 `/opensource/` |
 | 7 | `download` `#download` | 收尾标题 + macOS / Windows / Linux 三主按钮 |
-| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、安装、问答、皮肤、Grok Bot 友情链接 |
+| 8 | `footer` | 版权、MIT、隐私、条款、文档、更新日志、Grok Desktop、安装、问答、皮肤、Grok Bot 友情链接 |
 
 效果图导航第四项「开源」滚到 `opensource` 或外链 GitHub。不要做成独立长页。
 
@@ -64,6 +64,7 @@
 | 使用条款 | 尚未实现；可先链 README 说明或占内部路由并在 status 标明 |
 | 文档 | 产品仓 README_ZH |
 | 更新日志 | 本站 `/changelog/`；完整历史仍链 GitHub Releases / 产品仓 `CHANGELOG.md` |
+| Grok Desktop | 本站 `/desktop/`（搜索别名页；不进胶囊导航） |
 | 安装 | 本站 `/install/` |
 | 问答 | 本站 `/faq/` |
 | 皮肤 | 本站 `/skins/` |
@@ -142,6 +143,8 @@
 独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」进 `/skins/`。SEO 契约见 [seo.md](./seo.md)。
 
 独立更新日志：`/changelog/`。近几版稳定摘要（当前 v0.2.35–v0.2.26），样式 `src/styles/changelog.css`（FAQ / install 同族卡片）。不进胶囊导航，只走页脚 `footer.changelog`。完整历史仍链 GitHub Releases / 产品仓 `CHANGELOG.md`。
+
+独立桌面别名页：`/desktop/`。Grok Desktop / Grok GUI / 桌面客户端搜索落地，样式 `src/styles/desktop.css`（FAQ / changelog 同族卡片）。不进胶囊导航，只走页脚 `footer.desktop`；FAQ Desktop 答下有 `faq.desktopLink`。产品名仍是 Grok App。
 
 独立皮肤画廊：`/skins/`。16:9 卡 + 运行时目录 + Apply 深链。样式 `src/styles/gallery.css`，契约 [skins.md](./skins.md)。
 

@@ -12,6 +12,11 @@ People also search for: Grok Desktop, Grok Build Desktop, Grok GUI, Grok Build G
 
 These are aliases. The product name stays Grok App. It is one community workbench: https://github.com/RongleCat/grok-app
 
+## Desktop / GUI aliases
+
+People searching Grok Desktop, Grok GUI, or Grok 桌面客户端 land here: https://grok-app.com/desktop/
+These are search aliases only. The product name stays Grok App.
+
 ## Canonical URLs
 
 - Site: https://grok-app.com/
@@ -22,6 +27,7 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 - FAQ: https://grok-app.com/faq/
 - Install guide: https://grok-app.com/install/
 - Changelog: https://grok-app.com/changelog/
+- Desktop / GUI aliases: https://grok-app.com/desktop/
 - Community theme gallery: https://grok-app.com/skins/
 
 ## Facts

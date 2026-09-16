@@ -24,6 +24,7 @@ const faqHtml = readFileSync(join(root, "faq/index.html"), "utf8");
 const skinsHtml = readFileSync(join(root, "skins/index.html"), "utf8");
 const installHtml = readFileSync(join(root, "install/index.html"), "utf8");
 const changelogHtml = readFileSync(join(root, "changelog/index.html"), "utf8");
+const desktopHtml = readFileSync(join(root, "desktop/index.html"), "utf8");
 const sitemap = readFileSync(join(root, "public/sitemap.xml"), "utf8");
 const redirects = readFileSync(join(root, "public/_redirects"), "utf8");
 const headers = readFileSync(join(root, "public/_headers"), "utf8");
@@ -32,7 +33,15 @@ const llms = readFileSync(join(root, "public/llms.txt"), "utf8");
 const meta = JSON.parse(
   readFileSync(join(root, "src/generated/downloads-meta.json"), "utf8"),
 ) as { tag: string | null; fallback: boolean };
-const publicPages = [html, ossHtml, faqHtml, skinsHtml, installHtml, changelogHtml];
+const publicPages = [
+  html,
+  ossHtml,
+  faqHtml,
+  skinsHtml,
+  installHtml,
+  changelogHtml,
+  desktopHtml,
+];
 const FORBIDDEN = ["官方桌面端", "Grok 桌面版"];
 const THEME_GALLERY = "https://ronglecat.github.io/grok-app-skin/";
 const SKINS_ROUTE = "/skins/";
@@ -90,6 +99,15 @@ describe("opensource/index.html", () => {
 });
 
 describe("site footer", () => {
+  it("points desktop on every public page to the on-site /desktop/ route", () => {
+    for (const page of publicPages) {
+      expect(page).toContain('href="/desktop/"');
+      expect(page).toContain('data-i18n="footer.desktop"');
+    }
+    expect(zh["footer.desktop"]).toBe("Grok Desktop");
+    expect(en["footer.desktop"]).toBe("Grok Desktop");
+  });
+
   it("points changelog on every public page to the on-site /changelog/ route", () => {
     for (const page of publicPages) {
       expect(page).toMatch(
@@ -218,6 +236,33 @@ describe("changelog/index.html", () => {
   });
 });
 
+describe("desktop/index.html", () => {
+  /* 2026-09-16 · add · 锁 /desktop/ 可抓取别名正文、canonical、WebPage JSON-LD，禁止假评分 */
+  it("ships crawlable Desktop/GUI alias copy and WebPage JSON-LD", () => {
+    expect(desktopHtml).toContain('id="desktop-main"');
+    expect(desktopHtml).toContain(zh["desktop.hero.title"]);
+    expect(desktopHtml).toContain(zh["desktop.page.title"]);
+    expect(desktopHtml).toContain(zh["desktop.aliases.body"]);
+    expect(desktopHtml).toContain('href="/desktop/"');
+    expect(desktopHtml).toContain('rel="canonical" href="https://grok-app.com/desktop/"');
+    expect(desktopHtml).toContain('aria-current="page"');
+    expect(desktopHtml).toContain('"@type": "WebPage"');
+    expect(desktopHtml).toContain("https://grok-app.com/desktop/");
+    expect(desktopHtml).toContain('href="/install/"');
+    expect(desktopHtml).toContain('href="/#download"');
+    expect(desktopHtml).toContain('href="/faq/"');
+    const ldMatch = desktopHtml.match(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+    );
+    expect(ldMatch).not.toBeNull();
+    const ldBlob = ldMatch![1];
+    expect(ldBlob).not.toMatch(/aggregateRating|reviewCount|softwareVersion/);
+    expect(zh).toHaveProperty("desktop.page.title");
+    expect(en).toHaveProperty("desktop.hero.body");
+    expect(zhTW).toHaveProperty("desktop.aliases.title");
+  });
+});
+
 describe("faq/index.html", () => {
   it("ships nine static FAQs and a nav current page", () => {
     expect(faqHtml).toContain('id="faq-main"');
@@ -225,6 +270,8 @@ describe("faq/index.html", () => {
     expect(faqHtml).toContain('data-i18n="faq.q1"');
     expect(faqHtml).toContain('data-i18n="faq.q6"');
     expect(faqHtml).toContain('data-i18n="faq.q4"');
+    expect(faqHtml).toContain('href="/desktop/"');
+    expect(faqHtml).toContain('data-i18n="faq.desktopLink"');
     expect(faqHtml).toContain('data-i18n="faq.q7"');
     expect(faqHtml).toContain('data-i18n="faq.q8"');
     expect(faqHtml).toContain(zh["faq.q9"]);
@@ -253,6 +300,7 @@ describe("SEO / GEO foundation", () => {
     expect(redirects).toMatch(/\/skins\s+\/skins\/\s+301/);
     expect(redirects).toMatch(/\/install\s+\/install\/\s+301/);
     expect(redirects).toMatch(/\/changelog\s+\/changelog\/\s+301/);
+    expect(redirects).toMatch(/\/desktop\s+\/desktop\/\s+301/);
     expect(redirects).not.toMatch(/\/api\//);
   });
 
@@ -270,6 +318,9 @@ describe("SEO / GEO foundation", () => {
     expect(sitemap).toContain("<loc>https://grok-app.com/skins/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/install/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/changelog/</loc>");
+    expect(sitemap).toMatch(
+      /<loc>https:\/\/grok-app\.com\/desktop\/<\/loc>\s*<lastmod>2026-09-16<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
+    );
     expect(sitemap).toMatch(
       /<loc>https:\/\/grok-app\.com\/changelog\/<\/loc>\s*<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
     );
@@ -304,6 +355,8 @@ describe("SEO / GEO foundation", () => {
     expect(llms).toContain("https://grok-app.com/skins/");
     expect(llms).toContain("https://grok-app.com/install/");
     expect(llms).toContain("https://grok-app.com/changelog/");
+    expect(llms).toMatch(/^## Desktop \/ GUI aliases$/m);
+    expect(llms).toContain("https://grok-app.com/desktop/");
     expect(llms).toMatch(/Release notes live on-site at https:\/\/grok-app\.com\/changelog\//);
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
     expect(llms).toContain("https://github.com/RongleCat/grok-app/releases");
@@ -395,6 +448,7 @@ describe("SEO / GEO foundation", () => {
       [installHtml, "安装 · 开源 Grok App", "https://grok-app.com/install/"],
       [changelogHtml, "更新日志 · 开源 Grok App", "https://grok-app.com/changelog/"],
       [faqHtml, "常见问题 · 开源 Grok App", "https://grok-app.com/faq/"],
+      [desktopHtml, "Grok Desktop · 开源 Grok App", "https://grok-app.com/desktop/"],
     ] as const;
     for (const [page, title, url] of crumbs) {
       const data = parseLd(page);

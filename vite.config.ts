@@ -24,6 +24,8 @@ export default defineConfig({
         install: "install/index.html",
         /* 2026-09-02 · add · 多页入口纳入 /changelog/，否则 Vite 不打包该 HTML */
         changelog: "changelog/index.html",
+        /* 2026-09-16 · add · 多页入口纳入 /desktop/ 搜索别名页 */
+        desktop: "desktop/index.html",
       },
       output: {
         entryFileNames: "assets/app.[hash].js",

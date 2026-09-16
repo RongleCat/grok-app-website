@@ -254,6 +254,22 @@
 | `footer.terms` | 使用条款 | 使用條款 | Terms |
 | `footer.docs` | 文档 | 文件 | Docs |
 | `footer.changelog` | 更新日志 | 更新紀錄 | Changelog |
+| `footer.desktop` | Grok Desktop | Grok Desktop | Grok Desktop |
 | `footer.grokbot` | Grok Bot | Grok Bot | Grok Bot |
 
-页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。`footer.changelog` 进本站 `/changelog/`，不直接出站到产品仓 `CHANGELOG.md`。`footer.grokbot` 是友情链接，三语同一专名，只出现在页脚链接行，不进 Hero / FAQ / `llms.txt` / JSON-LD。`href` 固定 `https://usegrokbot.com/`，`rel="noopener noreferrer"`，不加 `nofollow`。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
+页脚另有 `nav.faq`（问答）与 `nav.themes`（皮肤 / 主題 / Themes，进 `/skins/`）。`footer.changelog` 进本站 `/changelog/`，不直接出站到产品仓 `CHANGELOG.md`。`footer.desktop` 三语均为 `Grok Desktop`，进本站 `/desktop/`。`footer.grokbot` 是友情链接，三语同一专名，只出现在页脚链接行，不进 Hero / FAQ / `llms.txt` / JSON-LD。`href` 固定 `https://usegrokbot.com/`，`rel="noopener noreferrer"`，不加 `nofollow`。链接目标见 [design.md](./design.md)。隐私 / 条款页尚未实现时可先链产品仓 README / SECURITY，并在 status 标明。
+
+## desktop
+
+`/desktop/` 静态搜索别名页。JSON-LD `WebPage` 用简体默认句，与 HTML 首屏一致。产品名仍是 Grok App；Grok Desktop / Grok GUI / 桌面客户端只当搜索别名。不要写 `softwareVersion`。FAQ `faq.q4` 下另有 `faq.desktopLink` 链到本页。
+
+| key | zh | zh-TW | en |
+|-----|----|-------|-----|
+| `desktop.page.title` | Grok Desktop · 开源 Grok App | Grok Desktop · 開源 Grok App | Grok Desktop · Open-source Grok App |
+| `desktop.page.desc` | 搜 Grok Desktop、Grok GUI 或 Grok 桌面客户端？产品名是开源 Grok App，本机 Grok Build CLI 的桌面工作台。 | 搜 Grok Desktop、Grok GUI 或 Grok 桌面客戶端？產品名是開源 Grok App，本機 Grok Build CLI 的桌面工作臺。 | Searching Grok Desktop, Grok GUI, or a Grok desktop client? The product is Open-source Grok App, a workbench for the local Grok Build CLI. |
+| `desktop.hero.kicker` | 搜索别名 | 搜尋別名 | Search aliases |
+| `desktop.hero.title` | 在找 Grok Desktop？ | 在找 Grok Desktop？ | Looking for Grok Desktop? |
+| `desktop.hero.body` | Grok Desktop、Grok GUI、Grok 桌面客户端是搜索说法。产品名仍是 Grok App，短称开源 Grok App。 | Grok Desktop、Grok GUI、Grok 桌面客戶端是搜尋說法。產品名仍是 Grok App，簡稱開源 Grok App。 | Grok Desktop, Grok GUI, and Grok desktop client are search aliases. The product name stays Grok App. Short brand: open-source Grok App. |
+| `faq.desktopLink` | Grok Desktop / GUI 说明页 | Grok Desktop / GUI 說明頁 | Grok Desktop / GUI explainer |
+
+其余 `desktop.aliases.*` / `desktop.what.*` / `desktop.cli.*` / `desktop.platforms.*` / `desktop.cta.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。页脚 `footer.desktop` 全站指向 `/desktop/`。

@@ -4,6 +4,25 @@
 
 ---
 
+## 2026-09-16 · GEO：新增 `/desktop/` 搜索别名页
+
+- **操作者**：agent
+- **触发**：本周 GEO 内容面；FAQ / install / changelog / llms / JSON-LD 已上线，加一条可抓取搜索别名落地
+- **改动**：
+  - 新增 `desktop/index.html` + `src/styles/desktop.css`；Vite 多页入口 `desktop`
+  - 三语 `desktop.*` / `footer.desktop` / `faq.desktopLink`；静态首屏 zh-CN
+  - 全站页脚链 `/desktop/`；FAQ Desktop 答下加说明页链；不进胶囊导航
+  - JSON-LD `@graph`：Organization + WebSite + WebPage + BreadcrumbList；无 `softwareVersion` / 评分
+  - `public/sitemap.xml` 第 7 条 `https://grok-app.com/desktop/` lastmod 2026-09-16 weekly 0.7
+  - `public/_redirects`：`/desktop` 301 → `/desktop/`
+  - `public/llms.txt` Canonical URL + Desktop / GUI aliases 节
+  - `src/markup.test.ts` 锁页面、canonical、禁语、BreadcrumbList、sitemap、redirects、llms
+- **Wiki**：seo / content / design / i18n / product / status / README / 本条
+- **结果**：搜 Grok Desktop / Grok GUI / Grok 桌面客户端可落到开源 Grok App，产品名未改名
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-14 · 下载 / JSON-LD 版本对齐 v0.2.35，changelog 置顶
 
 - **操作者**：agent

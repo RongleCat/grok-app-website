@@ -117,6 +117,7 @@ export const zhTW: Record<MessageKey, string> = {
   "footer.terms": "使用條款",
   "footer.docs": "文件",
   "footer.changelog": "更新紀錄",
+  "footer.desktop": "Grok Desktop",
   "footer.grokbot": "Grok Bot",
   "menu.open": "開啟選單",
   "menu.close": "關閉選單",
@@ -143,6 +144,7 @@ export const zhTW: Record<MessageKey, string> = {
   "faq.q4": "在找 Grok Desktop 或 Grok GUI？",
   "faq.a4":
     "產品名是 Grok App。它是社群開源的桌面工作臺，給本機 Grok Build CLI 用的 GUI / 客戶端。搜尋 Grok Desktop、Grok Build Desktop、Grok CLI GUI、Grok 桌面、Grok 客戶端的人，通常是在找這個。我們是其中一種社群工作臺，倉庫 RongleCat/grok-app。",
+  "faq.desktopLink": "Grok Desktop / GUI 說明頁",
   "faq.q5": "安裝包在哪裡下載？",
   "faq.a5":
     "安裝包只託管在 GitHub Releases。官網按鈕指向這些發布資產，本站不託管、也不反代安裝包檔案。",
@@ -350,4 +352,28 @@ export const zhTW: Record<MessageKey, string> = {
   "changelog.next.file": "產品倉 CHANGELOG.md",
   "changelog.next.install": "安裝指南",
   "changelog.next.faq": "常見問題",
+  /* 2026-09-16 · add · `/desktop/` 搜尋別名頁；產品名仍是 Grok App */
+  "desktop.page.title": "Grok Desktop · 開源 Grok App",
+  "desktop.page.desc":
+    "搜 Grok Desktop、Grok GUI 或 Grok 桌面客戶端？產品名是開源 Grok App，本機 Grok Build CLI 的桌面工作臺。",
+  "desktop.hero.kicker": "搜尋別名",
+  "desktop.hero.title": "在找 Grok Desktop？",
+  "desktop.hero.body":
+    "Grok Desktop、Grok GUI、Grok 桌面客戶端是搜尋說法。產品名仍是 Grok App，簡稱開源 Grok App。",
+  "desktop.aliases.title": "這些是搜尋別名",
+  "desktop.aliases.body":
+    "有人搜 Grok Desktop、Grok Build Desktop、Grok GUI、Grok CLI GUI、Grok 桌面、Grok 客戶端。它們指向同一件事：開源 Grok App。我們是其中一種社群工作臺，倉庫 RongleCat/grok-app。",
+  "desktop.what.title": "開源 Grok App 是什麼",
+  "desktop.what.body":
+    "開源 Grok App 是本機 Grok Build CLI 的桌面工作臺。多專案、多會話、權限與媒體預覽。不是 grok.com 網頁聊天或 PWA。",
+  "desktop.cli.title": "需要本機 Grok Build CLI",
+  "desktop.cli.body": "先在本機裝好 Grok Build。本應用是 GUI，不會替代 CLI。",
+  "desktop.platforms.title": "支援哪些系統",
+  "desktop.platforms.body":
+    "macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）、Linux（AppImage / DEB / RPM）。安裝包只在 GitHub Releases。",
+  "desktop.cta.title": "下一步",
+  "desktop.cta.install": "安裝指南",
+  "desktop.cta.download": "免費下載",
+  "desktop.cta.releases": "GitHub Releases",
+  "desktop.cta.faq": "Desktop / GUI 問答",
 };

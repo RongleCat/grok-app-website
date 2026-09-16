@@ -122,6 +122,7 @@ export const en: Record<MessageKey, string> = {
   "footer.terms": "Terms",
   "footer.docs": "Docs",
   "footer.changelog": "Changelog",
+  "footer.desktop": "Grok Desktop",
   "footer.grokbot": "Grok Bot",
   "menu.open": "Open menu",
   "menu.close": "Close menu",
@@ -148,6 +149,7 @@ export const en: Record<MessageKey, string> = {
   "faq.q4": "Looking for Grok Desktop or Grok GUI?",
   "faq.a4":
     "The product name is Grok App. It is a community open-source desktop workbench — a GUI / desktop client for the local Grok Build CLI. People also search for Grok Desktop, Grok Build Desktop, Grok CLI GUI, or GUI for Grok Build. We are one community workbench: RongleCat/grok-app.",
+  "faq.desktopLink": "Grok Desktop / GUI explainer",
   "faq.q5": "Where do I download the installers?",
   "faq.a5":
     "Installers live only on GitHub Releases. The website buttons point at those release assets. This site does not host or proxy installer files.",
@@ -380,4 +382,29 @@ export const en: Record<MessageKey, string> = {
   "changelog.next.file": "Product CHANGELOG.md",
   "changelog.next.install": "Install guide",
   "changelog.next.faq": "FAQ",
+  /* 2026-09-16 · add · `/desktop/` search-alias page; product name stays Grok App */
+  "desktop.page.title": "Grok Desktop · Open-source Grok App",
+  "desktop.page.desc":
+    "Searching Grok Desktop, Grok GUI, or a Grok desktop client? The product is Open-source Grok App, a workbench for the local Grok Build CLI.",
+  "desktop.hero.kicker": "Search aliases",
+  "desktop.hero.title": "Looking for Grok Desktop?",
+  "desktop.hero.body":
+    "Grok Desktop, Grok GUI, and Grok desktop client are search aliases. The product name stays Grok App. Short brand: open-source Grok App.",
+  "desktop.aliases.title": "These are search aliases",
+  "desktop.aliases.body":
+    "People search Grok Desktop, Grok Build Desktop, Grok GUI, Grok CLI GUI, or GUI for Grok Build. They usually mean Open-source Grok App. We are one community workbench: RongleCat/grok-app.",
+  "desktop.what.title": "What Open-source Grok App is",
+  "desktop.what.body":
+    "Open-source Grok App is a community desktop workbench for the local Grok Build CLI. Projects, sessions, permissions, and media preview. Not grok.com chat or a PWA.",
+  "desktop.cli.title": "Needs the local Grok Build CLI",
+  "desktop.cli.body":
+    "Install Grok Build on your machine first. This app is a GUI. It does not replace the CLI.",
+  "desktop.platforms.title": "Platforms",
+  "desktop.platforms.body":
+    "macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). Installers live on GitHub Releases only.",
+  "desktop.cta.title": "Next",
+  "desktop.cta.install": "Install guide",
+  "desktop.cta.download": "Download free",
+  "desktop.cta.releases": "GitHub Releases",
+  "desktop.cta.faq": "Desktop / GUI FAQ",
 };

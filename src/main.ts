@@ -43,6 +43,7 @@ import "./styles/faq.css";
 import "./styles/gallery.css";
 import "./styles/install.css";
 import "./styles/changelog.css";
+import "./styles/desktop.css";
 import contributors from "./generated/contributors.json";
 import { bindGallery, syncGalleryLocale } from "./skins";
 import { bindGithubStars, syncGithubStars } from "./stars";
@@ -70,7 +71,9 @@ function applyI18n(locale: Locale): void {
             ? "install.page.title"
             : kind === "changelog"
               ? "changelog.page.title"
-              : "meta.title";
+              : kind === "desktop"
+                ? "desktop.page.title"
+                : "meta.title";
   const descKey =
     kind === "oss"
       ? "oss.page.desc"
@@ -82,7 +85,9 @@ function applyI18n(locale: Locale): void {
             ? "install.page.desc"
             : kind === "changelog"
               ? "changelog.page.desc"
-              : "meta.description";
+              : kind === "desktop"
+                ? "desktop.page.desc"
+                : "meta.description";
   document.title = t(table, titleKey);
 
   const desc = t(table, descKey);
@@ -138,12 +143,14 @@ function readVars(el: HTMLElement): Record<string, string> | undefined {
   }
 }
 
-function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" | "install" | "changelog" {
+function pageKind(pathname: string): "home" | "oss" | "faq" | "skins" | "install" | "changelog" | "desktop" {
   if (pathname.includes("opensource")) return "oss";
   if (pathname.includes("faq")) return "faq";
   if (pathname.includes("skins")) return "skins";
   if (pathname.includes("install")) return "install";
   if (pathname.includes("changelog")) return "changelog";
+  /* 2026-09-16 · add · /desktop/ 用独立 title/description */
+  if (pathname.includes("desktop")) return "desktop";
   return "home";
 }
 

@@ -3,4 +3,5 @@
 /skins  /skins/  301
 /install  /install/  301
 /changelog  /changelog/  301
+/desktop  /desktop/  301
 https://www.grok-app.com/*  https://grok-app.com/:splat  301
