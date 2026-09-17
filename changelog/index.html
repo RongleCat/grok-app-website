@@ -100,65 +100,71 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 10,
+            "numberOfItems": 11,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.36",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.36"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.35",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.35"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.34",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.34"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.33",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.33"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.32",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.31",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
               },
               {
                 "@type": "ListItem",
-                "position": 6,
+                "position": 7,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 7,
+                "position": 8,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 8,
+                "position": 9,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 9,
+                "position": 10,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 10,
+                "position": 11,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -328,6 +334,43 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-17 · add · 置顶 v0.2.36 稳定摘要
+          Timestamp: 2026-09-17
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0236.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.36">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.36"
+              rel="noopener noreferrer"
+              >v0.2.36</a
+            >
+          </h2>
+          <time datetime="2026-09-16">2026-09-16</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0236.highlight">
+            置顶对话到列表最上，可复制命令和 diff，共享会话数据会记住。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0236.b1">
+              生成中仍可置顶，置顶对话会出现在列表最上方。
+            </li>
+            <li data-i18n="changelog.v0236.b2">
+              终端命令会显示完整命令，并可一键复制命令和输出。
+            </li>
+            <li data-i18n="changelog.v0236.b3">
+              回合变更和 Review 里的文件 diff 可一键复制。
+            </li>
+            <li data-i18n="changelog.v0236.b4">
+              选共享后会记住；只有自定义渠道必须独立时才保持独立。
+            </li>
+          </ul>
+        </li>
         <!--
           2026-09-14 · add · 置顶 v0.2.35 稳定摘要
           Timestamp: 2026-09-14
