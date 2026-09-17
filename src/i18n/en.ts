@@ -280,6 +280,17 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-17 · add · v0.2.36 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0236.highlight":
+    "Pin chats globally, copy commands and diffs, and keep Shared session data.",
+  "changelog.v0236.b1":
+    "You can pin a generating chat, and pinned chats sit at the top of the list.",
+  "changelog.v0236.b2":
+    "Shell commands show the full command, with one-click copy of command and output.",
+  "changelog.v0236.b3":
+    "File diffs on a turn and in Review can be copied in one click.",
+  "changelog.v0236.b4":
+    "Shared session data mode is remembered, unless a custom provider needs independent.",
   /* 2026-09-14 · add · v0.2.35 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0235.highlight":
     "Multi-root workspaces, shared-cookie Google login, and steadier chat follow.",

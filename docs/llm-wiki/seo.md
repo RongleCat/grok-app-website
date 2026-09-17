@@ -95,7 +95,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 `public/llms.txt` 给 AI 爬虫的短简报，英文为主。必须写清：
 
 - 开篇短称：**open-source Grok App** / **开源 Grok App**；产品名是 Grok App
-- 当前稳定版与 `downloads-meta.json` 的 `tag` 一致（现为 `v0.2.35`），并指向 `https://grok-app.com/changelog/`
+- 当前稳定版与 `downloads-meta.json` 的 `tag` 一致（现为 `v0.2.36`），并指向 `https://grok-app.com/changelog/`
 - Also known as：Grok Desktop、Grok GUI、Grok Build desktop client 等
 - Desktop / GUI aliases 节指向 `https://grok-app.com/desktop/`；Canonical URLs 含同一条
 - 不是什么：不是 grok.com 聊天套壳或 PWA；不能替代本机 Grok Build CLI
@@ -120,7 +120,7 @@ https://www.grok-app.com/*  https://grok-app.com/:splat  301
 - `softwareHelp`: `WebPage`，`url` `https://grok-app.com/install/`
 - `featureList`: 5–7 条，与 `llms.txt` Key features 同向（多项目、并行会话、权限、媒体预览、皮肤、自动化、本机 CLI）
 - `sameAs` 只放真实 URL：`https://github.com/RongleCat/grok-app`、`https://x.com/cgnot996`
-- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.35`）。`fallback: true` 时不要写版本
+- `softwareVersion` 必须等于 `src/generated/downloads-meta.json` 的 `tag`（当前 `v0.2.36`）。`fallback: true` 时不要写版本
 - `description` 与 `meta.description` 同向，不要写 unofficial
 - **禁止**编造 `aggregateRating` / `reviewCount`
 - 开源页：`Organization` + `WebSite` + `WebPage` + `BreadcrumbList`（Home → 开源 · Grok App）

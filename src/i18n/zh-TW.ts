@@ -269,6 +269,17 @@ export const zhTW: Record<MessageKey, string> = {
   "changelog.hero.title": "近幾版穩定更新",
   "changelog.hero.body":
     "開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是最近幾個穩定版。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。",
+  /* 2026-09-17 · add · v0.2.36 摘要取自產品倉 Release notes，不編造功能 */
+  "changelog.v0236.highlight":
+    "置頂對話到列表最上，可複製命令和 diff，共用會話資料會記住。",
+  "changelog.v0236.b1":
+    "產生中仍可置頂，置頂對話會出現在列表最上方。",
+  "changelog.v0236.b2":
+    "終端命令會顯示完整命令，並可一鍵複製命令和輸出。",
+  "changelog.v0236.b3":
+    "回合變更和 Review 裡的檔案 diff 可一鍵複製。",
+  "changelog.v0236.b4":
+    "選共用後會記住；只有自訂渠道必須獨立時才保持獨立。",
   /* 2026-09-14 · add · v0.2.35 摘要取自產品倉 Release notes，不編造功能 */
   "changelog.v0235.highlight":
     "多根工作區、共享 Cookie 的 Google 登入，以及更穩的聊天貼底跟隨。",

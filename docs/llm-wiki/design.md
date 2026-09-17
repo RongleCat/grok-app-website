@@ -142,7 +142,7 @@
 
 独立 FAQ 页：`/faq/`。8 条问答（平台、Gatekeeper、本机 CLI、Grok Desktop / GUI、是不是 grok.com 套壳、安装包在 Releases、源码 MIT）。样式走现有 token + `src/styles/faq.css`，不另做视觉体系。顶栏「问答」链到此页，页脚也有同链。顶栏「皮肤」进 `/skins/`。SEO 契约见 [seo.md](./seo.md)。
 
-独立更新日志：`/changelog/`。近几版稳定摘要（当前 v0.2.35–v0.2.26），样式 `src/styles/changelog.css`（FAQ / install 同族卡片）。不进胶囊导航，只走页脚 `footer.changelog`。完整历史仍链 GitHub Releases / 产品仓 `CHANGELOG.md`。
+独立更新日志：`/changelog/`。近几版稳定摘要（当前 v0.2.36–v0.2.26），样式 `src/styles/changelog.css`（FAQ / install 同族卡片）。不进胶囊导航，只走页脚 `footer.changelog`。完整历史仍链 GitHub Releases / 产品仓 `CHANGELOG.md`。
 
 独立桌面别名页：`/desktop/`。Grok Desktop / Grok GUI / 桌面客户端搜索落地，样式 `src/styles/desktop.css`（FAQ / changelog 同族卡片）。不进胶囊导航，只走页脚 `footer.desktop`；FAQ Desktop 答下有 `faq.desktopLink`。产品名仍是 Grok App。
 

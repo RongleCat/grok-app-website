@@ -269,6 +269,17 @@ export const zh = {
   "changelog.hero.title": "近几版稳定更新",
   "changelog.hero.body":
     "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  /* 2026-09-17 · add · v0.2.36 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0236.highlight":
+    "置顶对话到列表最上，可复制命令和 diff，共享会话数据会记住。",
+  "changelog.v0236.b1":
+    "生成中仍可置顶，置顶对话会出现在列表最上方。",
+  "changelog.v0236.b2":
+    "终端命令会显示完整命令，并可一键复制命令和输出。",
+  "changelog.v0236.b3":
+    "回合变更和 Review 里的文件 diff 可一键复制。",
+  "changelog.v0236.b4":
+    "选共享后会记住；只有自定义渠道必须独立时才保持独立。",
   /* 2026-09-14 · add · v0.2.35 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0235.highlight":
     "多根工作区、共享 Cookie 的 Google 登录，以及更稳的聊天贴底跟随。",
