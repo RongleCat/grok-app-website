@@ -100,71 +100,77 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 11,
+            "numberOfItems": 12,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.37",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.37"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.36",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.36"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.35",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.35"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.34",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.34"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.33",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.33"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.32",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
               },
               {
                 "@type": "ListItem",
-                "position": 6,
+                "position": 7,
                 "name": "v0.2.31",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
               },
               {
                 "@type": "ListItem",
-                "position": 7,
+                "position": 8,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 8,
+                "position": 9,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 9,
+                "position": 10,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 10,
+                "position": 11,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 11,
+                "position": 12,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -334,6 +340,43 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-22 · add · 置顶 v0.2.37 稳定摘要
+          Timestamp: 2026-09-22
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0237.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.37">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.37"
+              rel="noopener noreferrer"
+              >v0.2.37</a
+            >
+          </h2>
+          <time datetime="2026-09-21">2026-09-21</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0237.highlight">
+            新对话可用 Grok 4.7，生成中的回复会继续贴底。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0237.b1">
+              模型菜单可选 Grok 4.7 和 Grok 4.7 Fast。CLI 列出 4.7 后，新对话默认用它。Fast 的 token 价格是两倍。
+            </li>
+            <li data-i18n="changelog.v0237.b2">
+              同一项目的新对话会带上已添加的附加文件夹；从本场移除后，重连不会再加回去。
+            </li>
+            <li data-i18n="changelog.v0237.b3">
+              删除对话也会删掉对应的 CLI 会话；归档只是在侧栏里隐藏这场对话。
+            </li>
+            <li data-i18n="changelog.v0237.b4">
+              数学公式会再渲染。在 Mac 上滚到最新消息后会停在那里，思考块折叠后仍跟着最新回复。
+            </li>
+          </ul>
+        </li>
         <!--
           2026-09-17 · add · 置顶 v0.2.36 稳定摘要
           Timestamp: 2026-09-17

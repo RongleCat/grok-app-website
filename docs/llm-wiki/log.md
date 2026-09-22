@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-09-22 · 下载 / JSON-LD 版本对齐 v0.2.37，changelog 置顶
+
+- **操作者**：agent
+- **触发**：产品仓正式 Release v0.2.37（2026-09-21）；现网 JSON-LD / downloads-meta / changelog 顶条仍写 v0.2.36
+- **改动**：
+  - `node scripts/fetch-downloads.mjs` 拉现网 `downloads.json`，`src/generated/downloads-meta.json` tag → `v0.2.37`，同步首页 JSON-LD `softwareVersion`
+  - `/changelog/` 置顶 v0.2.37（三语摘要取自产品仓 Release notes：新对话可用 Grok 4.7，生成中的回复继续贴底）；旧条目保留；ItemList `numberOfItems` 12
+  - `public/llms.txt` 当前稳定版 → `v0.2.37`
+  - `public/sitemap.xml` `/` `/install/` `/changelog/` lastmod → 2026-09-22
+  - 未改 star 数代码，未发明 Search Console 数据
+- **Wiki**：downloads / seo / content / design / status / 本条
+- **结果**：下载旁注、安装页 `data-version`、JSON-LD、`llms.txt` 与 changelog 顶条同为 `v0.2.37`
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-17 · 下载 / JSON-LD 版本对齐 v0.2.36，changelog 置顶
 
 - **操作者**：agent

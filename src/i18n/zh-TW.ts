@@ -269,6 +269,17 @@ export const zhTW: Record<MessageKey, string> = {
   "changelog.hero.title": "近幾版穩定更新",
   "changelog.hero.body":
     "開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。下面是最近幾個穩定版。也有人搜 Grok Desktop、Grok GUI 或桌面客戶端。",
+  /* 2026-09-22 · add · v0.2.37 摘要取自產品倉 Release notes，不編造功能 */
+  "changelog.v0237.highlight":
+    "新對話可用 Grok 4.7，生成中的回覆會繼續貼底。",
+  "changelog.v0237.b1":
+    "模型選單可選 Grok 4.7 和 Grok 4.7 Fast。CLI 列出 4.7 後，新對話預設用它。Fast 的 token 價格是兩倍。",
+  "changelog.v0237.b2":
+    "同一專案的新對話會帶上已新增的附加資料夾；從本場移除後，重連不會再加回去。",
+  "changelog.v0237.b3":
+    "刪除對話也會刪掉對應的 CLI 會話；封存只是在側欄裡隱藏這場對話。",
+  "changelog.v0237.b4":
+    "數學公式會再渲染。在 Mac 上滾到最新訊息後會停在那裡，思考塊摺疊後仍跟著最新回覆。",
   /* 2026-09-17 · add · v0.2.36 摘要取自產品倉 Release notes，不編造功能 */
   "changelog.v0236.highlight":
     "置頂對話到列表最上，可複製命令和 diff，共用會話資料會記住。",
