@@ -280,6 +280,17 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-22 · add · v0.2.37 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0237.highlight":
+    "New chats can use Grok 4.7, and the live reply stays pinned.",
+  "changelog.v0237.b1":
+    "The model menu lists Grok 4.7 and Grok 4.7 Fast. New chats start on 4.7 once the CLI lists it. Fast costs twice the token price.",
+  "changelog.v0237.b2":
+    "New chats in a project keep its extra folders. Removing them from a chat stays removed after reconnect.",
+  "changelog.v0237.b3":
+    "Deleting a chat also removes its CLI session. Archive only hides the chat in the sidebar.",
+  "changelog.v0237.b4":
+    "Math formulas render again. On macOS, scrolling to the latest message stays there, and collapsing thinking still follows.",
   /* 2026-09-17 · add · v0.2.36 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0236.highlight":
     "Pin chats globally, copy commands and diffs, and keep Shared session data.",
