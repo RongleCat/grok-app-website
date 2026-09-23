@@ -157,6 +157,13 @@ export const zhTW: Record<MessageKey, string> = {
   "faq.q8": "這是 grok.com 網頁聊天的套殼嗎？",
   "faq.a8":
     "不是。Grok App 面向 Grok Build（編碼 Agent）的本機 CLI，不是 grok.com 聊天頁或 PWA 的包裝。網頁聊天請去 grok.com。",
+  /* 2026-09-23 · add · FAQ q10/q11，與 zh / en 同 key */
+  "faq.q10": "開源 Grok App 和終端裡的 grok 有什麼區別？",
+  "faq.a10":
+    "開源 Grok App 是桌面 GUI / 工作臺。終端裡的 grok（Grok Build CLI）仍是本機 Agent 執行環境。本應用不會替代 CLI。請先在本機安裝並登入 Grok Build，再開啟本應用。安裝步驟見 /install/。",
+  "faq.q11": "怎麼更新開源 Grok App？",
+  "faq.a11":
+    "新的穩定版從 GitHub Releases 取得，渠道與第一次安裝相同。近幾版說明在本站 /changelog/。完整歷史在 GitHub Releases。",
   "gallery.page.title": "皮膚 · 開源 Grok App",
   "gallery.page.desc": "社群外觀包。先看見工作臺上的樣子，再套用到開源 Grok App。",
   "gallery.kicker": "皮膚倉庫",
@@ -393,6 +400,16 @@ export const zhTW: Record<MessageKey, string> = {
   "desktop.platforms.title": "支援哪些系統",
   "desktop.platforms.body":
     "macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）、Linux（AppImage / DEB / RPM）。安裝包只在 GitHub Releases。",
+  /* 2026-09-23 · add · /desktop/ 加深三節，與 zh / en 同 key */
+  "desktop.relation.title": "和本機 CLI 的關係",
+  "desktop.relation.body":
+    "開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。終端裡的 grok 仍是本機 Agent 執行環境。本應用不會替代 CLI，也不是 grok.com 網頁聊天的套殼。",
+  "desktop.download.title": "從哪裡下載",
+  "desktop.download.body":
+    "安裝包只在 GitHub Releases。平台涵蓋 macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）和 Linux（AppImage / DEB / RPM）。本站不託管、也不反代安裝包。",
+  "desktop.updates.title": "更新與版本",
+  "desktop.updates.body":
+    "新的穩定版從 GitHub Releases 取得，渠道與第一次安裝相同。近幾版說明在本站 /changelog/，完整歷史在 GitHub Releases。",
   "desktop.cta.title": "下一步",
   "desktop.cta.install": "安裝指南",
   "desktop.cta.download": "免費下載",

@@ -14,8 +14,10 @@ These are aliases. The product name stays Grok App. It is one community workbenc
 
 ## Desktop / GUI aliases
 
-People searching Grok Desktop, Grok GUI, or Grok 桌面客户端 land here: https://grok-app.com/desktop/
-These are search aliases only. The product name stays Grok App.
+People searching Grok Desktop, Grok GUI, Grok Build Desktop, or Grok 桌面客户端 land here: https://grok-app.com/desktop/
+These are search aliases only. The product name stays Grok App. It is a desktop GUI for the local Grok Build CLI, not a grok.com chat wrapper.
+Install and sign in on the machine first: https://grok-app.com/install/
+Recent stable notes: https://grok-app.com/changelog/
 
 ## Canonical URLs
 
@@ -50,6 +52,10 @@ A community desktop workbench for the local Grok Build CLI. The product name is 
 
 Yes. The app does not replace the CLI. Install Grok Build on your machine first.
 
+### How is open-source Grok App different from grok in the terminal?
+
+The app is the desktop GUI / workbench. The grok command (Grok Build CLI) stays the local agent runtime. The app does not replace the CLI. Install and sign in to Grok Build on the machine first. Steps: https://grok-app.com/install/
+
 ### Is this a grok.com chat wrapper?
 
 No. It is for the local Grok Build CLI (the coding agent), not grok.com chat or a PWA.
@@ -57,6 +63,10 @@ No. It is for the local Grok Build CLI (the coding agent), not grok.com chat or 
 ### Which platforms are supported?
 
 macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM).
+
+### How do I update open-source Grok App?
+
+Get new stable builds from GitHub Releases, the same channels as the first install. Recent stable notes: https://grok-app.com/changelog/. Full history: https://github.com/RongleCat/grok-app/releases
 
 ### Where is the source, and what is the license?
 

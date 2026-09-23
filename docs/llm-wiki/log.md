@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-09-23 · GEO：FAQ 11 问、加深 `/desktop/`、llms 与 JSON-LD
+
+- **操作者**：agent
+- **触发**：本周 GEO；FAQ / install / changelog / `/desktop/` / 上一轮 llms+JSON-LD 已在，加深可引用面
+- **改动**：
+  - `/faq/` 增 q10（开源 Grok App 与终端 grok）与 q11（怎么更新）；q9 仍为首条；静态简体、三语、FAQPage `mainEntity` 均为 11 条
+  - q4 下保留 `/desktop/` 链；q10 链 `/install/`；q11 链 `/changelog/`
+  - `/desktop/` 增「和本机 CLI 的关系」「从哪里下载」「更新与版本」；WebPage 加 `keywords` 与 `about`；无 `softwareVersion` / 评分
+  - `public/llms.txt` 稳定版仍 `v0.2.37`；FAQ 摘要 7 问；Desktop 节补 install 与 changelog URL
+  - `public/sitemap.xml` `/faq/` 与 `/desktop/` lastmod → 2026-09-23
+  - 首页 `softwareVersion` 未改，仍跟 `downloads-meta.json` 的 `v0.2.37`
+- **Wiki**：content / seo / design / README / status / 本条
+- **结果**：FAQ 与桌面别名页可引用面变密；别名仍指向 Grok App，不另开对比页
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-22 · 下载 / JSON-LD 版本对齐 v0.2.37，changelog 置顶
 
 - **操作者**：agent

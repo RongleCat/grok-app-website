@@ -76,6 +76,30 @@ describe("catalogs", () => {
     expect(en["pill.speed.desc"]).not.toMatch(/1\.2/);
   });
 
+  it("locks CLI-vs-GUI and update FAQ copy in all locales", () => {
+    expect(zh["faq.q10"]).toBe("开源 Grok App 和终端里的 grok 有什么区别？");
+    expect(zh["faq.q11"]).toBe("怎么更新开源 Grok App？");
+    expect(zh["faq.a10"]).toContain("/install/");
+    expect(zh["faq.a10"]).toContain("不会替代 CLI");
+    expect(zh["faq.a11"]).toContain("/changelog/");
+    expect(zh["faq.a11"]).toContain("GitHub Releases");
+    expect(zhTW["faq.q10"]).toContain("終端裡的 grok");
+    expect(zhTW["faq.a10"]).toContain("/install/");
+    expect(zhTW["faq.a11"]).toContain("/changelog/");
+    expect(en["faq.q10"]).toMatch(/grok in the terminal/);
+    expect(en["faq.a10"]).toMatch(/does not replace the CLI/);
+    expect(en["faq.a10"]).toContain("/install/");
+    expect(en["faq.q11"]).toMatch(/update open-source Grok App/i);
+    expect(en["faq.a11"]).toContain("GitHub Releases");
+    expect(en["faq.a11"]).toContain("/changelog/");
+    expect(zh["desktop.relation.title"]).toBe("和本机 CLI 的关系");
+    expect(zh["desktop.download.title"]).toBe("从哪里下载");
+    expect(zh["desktop.updates.title"]).toBe("更新与版本");
+    expect(zhTW["desktop.relation.body"]).toContain("不會替代 CLI");
+    expect(en["desktop.download.body"]).toContain("GitHub Releases");
+    expect(en["desktop.updates.body"]).toContain("/changelog/");
+  });
+
   it("catalogs do not use unofficial disclaimers", () => {
     const blob = `${Object.values(zh).join("\n")}\n${Object.values(zhTW).join("\n")}\n${Object.values(en).join("\n")}`;
     expect(blob).not.toMatch(/非官方|unofficial|not an official|不是 xAI 官方|並非 xAI 官方/i);

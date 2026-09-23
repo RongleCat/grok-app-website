@@ -73,7 +73,13 @@
             "description": "搜 Grok Desktop、Grok GUI 或 Grok 桌面客户端？产品名是开源 Grok App，本机 Grok Build CLI 的桌面工作台。",
             "inLanguage": ["zh-CN", "zh-TW", "en"],
             "isPartOf": { "@id": "https://grok-app.com/#website" },
-            "about": { "@id": "https://grok-app.com/#organization" },
+            "keywords": "Grok Desktop, Grok GUI, Grok Build Desktop, Grok CLI GUI, open-source Grok App, 开源 Grok App",
+            "about": [
+              { "@id": "https://grok-app.com/#organization" },
+              { "@type": "Thing", "name": "Grok Desktop" },
+              { "@type": "Thing", "name": "Grok GUI" },
+              { "@type": "Thing", "name": "open-source Grok App" }
+            ],
             "breadcrumb": { "@id": "https://grok-app.com/desktop/#breadcrumb" }
           },
           {
@@ -282,6 +288,37 @@
         <h2 data-i18n="desktop.platforms.title">支持哪些系统</h2>
         <p data-i18n="desktop.platforms.body">
           macOS（Apple Silicon / Intel）、Windows 10/11（64 位）、Linux（AppImage / DEB / RPM）。安装包只在 GitHub Releases。
+        </p>
+      </section>
+
+      <section class="desktop-section" id="desktop-relation">
+        <h2 data-i18n="desktop.relation.title">和本机 CLI 的关系</h2>
+        <p data-i18n="desktop.relation.body">
+          开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。终端里的 grok 仍是本机 Agent 运行时。本应用不会替代 CLI，也不是 grok.com 网页聊天的套壳。
+        </p>
+        <p class="desktop-links">
+          <a href="/install/" data-i18n="desktop.cta.install">安装指南</a>
+        </p>
+      </section>
+
+      <section class="desktop-section" id="desktop-download">
+        <h2 data-i18n="desktop.download.title">从哪里下载</h2>
+        <p data-i18n="desktop.download.body">
+          安装包只在 GitHub Releases。平台覆盖 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）。本站不托管、也不反代安装包。
+        </p>
+        <p class="desktop-links">
+          <a href="/#download" data-i18n="desktop.cta.download">免费下载</a>
+          <a href="/install/" data-i18n="desktop.cta.install">安装指南</a>
+        </p>
+      </section>
+
+      <section class="desktop-section" id="desktop-updates">
+        <h2 data-i18n="desktop.updates.title">更新与版本</h2>
+        <p data-i18n="desktop.updates.body">
+          新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/，完整历史在 GitHub Releases。
+        </p>
+        <p class="desktop-links">
+          <a href="/changelog/" data-i18n="footer.changelog">更新日志</a>
         </p>
       </section>
 

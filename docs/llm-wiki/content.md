@@ -163,7 +163,7 @@
 
 ## faq
 
-`/faq/` 静态页。JSON-LD `FAQPage` 用简体默认句，与 HTML 首屏一致。搜索别名放在问答正文，不要叠进 title。现为 9 问，品牌意图 `faq.q9` 放在列表最前。
+`/faq/` 静态页。JSON-LD `FAQPage` 用简体默认句，与 HTML 首屏一致。搜索别名放在问答正文，不要叠进 title。现为 11 问，品牌意图 `faq.q9` 放在列表最前。`faq.q4` 下有 `faq.desktopLink` → `/desktop/`。`faq.q10` 指向 `/install/`。`faq.q11` 指向 `/changelog/`。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
@@ -190,6 +190,10 @@
 | `faq.a7` | 是。开源 Grok App 把本机 Grok Build CLI 收成桌面 GUI：多项目、多会话、权限与媒体预览，不用一直盯着终端。先在本机装好 Grok Build，再打开本应用。 | 是。開源 Grok App 把本機 Grok Build CLI 收成桌面 GUI：多專案、多會話、權限與媒體預覽，不用一直盯著終端。先在本機裝好 Grok Build，再打開本應用。 | Yes. Open-source Grok App turns the local Grok Build CLI into a desktop GUI: projects, sessions, permissions, and media preview, so you are not stuck in the terminal. Install Grok Build on your machine first. |
 | `faq.q8` | 这是 grok.com 网页聊天的套壳吗？ | 這是 grok.com 網頁聊天的套殼嗎？ | Is this a grok.com chat wrapper? |
 | `faq.a8` | 不是。Grok App 面向 Grok Build（编码 Agent）的本机 CLI，不是 grok.com 聊天页或 PWA 的包装。网页聊天请去 grok.com。 | 不是。Grok App 面向 Grok Build（編碼 Agent）的本機 CLI，不是 grok.com 聊天頁或 PWA 的包裝。網頁聊天請去 grok.com。 | No. Grok App is for the local Grok Build CLI (the coding agent), not a wrapper around grok.com chat or a PWA. For web chat, go to grok.com. |
+| `faq.q10` | 开源 Grok App 和终端里的 grok 有什么区别？ | 開源 Grok App 和終端裡的 grok 有什麼區別？ | How is open-source Grok App different from grok in the terminal? |
+| `faq.a10` | 开源 Grok App 是桌面 GUI / 工作台。终端里的 grok（Grok Build CLI）仍是本机 Agent 运行时。本应用不会替代 CLI。请先在本机安装并登录 Grok Build，再打开本应用。安装步骤见 /install/。 | 開源 Grok App 是桌面 GUI / 工作臺。終端裡的 grok（Grok Build CLI）仍是本機 Agent 執行環境。本應用不會替代 CLI。請先在本機安裝並登入 Grok Build，再開啟本應用。安裝步驟見 /install/。 | Open-source Grok App is the desktop GUI / workbench. The grok command (Grok Build CLI) stays the local agent runtime. The app does not replace the CLI. Install Grok Build on the machine and sign in first, then open the app. Install steps: /install/. |
+| `faq.q11` | 怎么更新开源 Grok App？ | 怎麼更新開源 Grok App？ | How do I update open-source Grok App? |
+| `faq.a11` | 新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/。完整历史在 GitHub Releases。 | 新的穩定版從 GitHub Releases 取得，渠道與第一次安裝相同。近幾版說明在本站 /changelog/。完整歷史在 GitHub Releases。 | Get new stable builds from GitHub Releases, the same channels as the first install. Recent stable notes are on this site at /changelog/. Full history is on GitHub Releases. |
 
 站点文案、meta、`llms.txt`、FAQ、schema **禁止**写「官方桌面端」「Grok 桌面版」，也不提其它 Grok 产品名做对比。不要写「非官方 / unofficial」。
 
@@ -261,7 +265,7 @@
 
 ## desktop
 
-`/desktop/` 静态搜索别名页。JSON-LD `WebPage` 用简体默认句，与 HTML 首屏一致。产品名仍是 Grok App；Grok Desktop / Grok GUI / 桌面客户端只当搜索别名。不要写 `softwareVersion`。FAQ `faq.q4` 下另有 `faq.desktopLink` 链到本页。
+`/desktop/` 静态搜索别名页。JSON-LD `WebPage` 用简体默认句，与 HTML 首屏一致。产品名仍是 Grok App；Grok Desktop / Grok GUI / 桌面客户端只当搜索别名。`WebPage` 带 `keywords` 与 `about`（Grok Desktop、Grok GUI、open-source Grok App），不写 `softwareVersion`，不编 `aggregateRating`。FAQ `faq.q4` 下另有 `faq.desktopLink` 链到本页。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
@@ -271,5 +275,11 @@
 | `desktop.hero.title` | 在找 Grok Desktop？ | 在找 Grok Desktop？ | Looking for Grok Desktop? |
 | `desktop.hero.body` | Grok Desktop、Grok GUI、Grok 桌面客户端是搜索说法。产品名仍是 Grok App，短称开源 Grok App。 | Grok Desktop、Grok GUI、Grok 桌面客戶端是搜尋說法。產品名仍是 Grok App，簡稱開源 Grok App。 | Grok Desktop, Grok GUI, and Grok desktop client are search aliases. The product name stays Grok App. Short brand: open-source Grok App. |
 | `faq.desktopLink` | Grok Desktop / GUI 说明页 | Grok Desktop / GUI 說明頁 | Grok Desktop / GUI explainer |
+| `desktop.relation.title` | 和本机 CLI 的关系 | 和本機 CLI 的關係 | How this relates to the local CLI |
+| `desktop.relation.body` | 开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。终端里的 grok 仍是本机 Agent 运行时。本应用不会替代 CLI，也不是 grok.com 网页聊天的套壳。 | 開源 Grok App 是本機 Grok Build CLI 的桌面 GUI。終端裡的 grok 仍是本機 Agent 執行環境。本應用不會替代 CLI，也不是 grok.com 網頁聊天的套殼。 | Open-source Grok App is a desktop GUI for the local Grok Build CLI. The grok command stays the local agent runtime. This app does not replace the CLI, and it is not a grok.com chat wrapper. |
+| `desktop.download.title` | 从哪里下载 | 從哪裡下載 | Where to download |
+| `desktop.download.body` | 安装包只在 GitHub Releases。平台覆盖 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）。本站不托管、也不反代安装包。 | 安裝包只在 GitHub Releases。平台涵蓋 macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）和 Linux（AppImage / DEB / RPM）。本站不託管、也不反代安裝包。 | Installers live on GitHub Releases only. Platforms are macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). This site does not host or proxy installer files. |
+| `desktop.updates.title` | 更新与版本 | 更新與版本 | Updates and versions |
+| `desktop.updates.body` | 新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/，完整历史在 GitHub Releases。 | 新的穩定版從 GitHub Releases 取得，渠道與第一次安裝相同。近幾版說明在本站 /changelog/，完整歷史在 GitHub Releases。 | New stable builds come from GitHub Releases, the same channels as the first install. Recent notes are on this site at /changelog/. Full history stays on GitHub Releases. |
 
-其余 `desktop.aliases.*` / `desktop.what.*` / `desktop.cli.*` / `desktop.platforms.*` / `desktop.cta.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。页脚 `footer.desktop` 全站指向 `/desktop/`。
+其余 `desktop.aliases.*` / `desktop.what.*` / `desktop.cli.*` / `desktop.platforms.*` / `desktop.cta.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。`desktop.relation` 的 CTA 是 `/install/`；`desktop.download` 的 CTA 是首页 `/#download` 与 `/install/`；`desktop.updates` 的 CTA 是 `/changelog/`。页脚 `footer.desktop` 全站指向 `/desktop/`。

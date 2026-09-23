@@ -162,6 +162,13 @@ export const en: Record<MessageKey, string> = {
   "faq.q8": "Is this a grok.com chat wrapper?",
   "faq.a8":
     "No. Grok App is for the local Grok Build CLI (the coding agent), not a wrapper around grok.com chat or a PWA. For web chat, go to grok.com.",
+  /* 2026-09-23 · add · FAQ q10/q11, same keys as zh / zh-TW */
+  "faq.q10": "How is open-source Grok App different from grok in the terminal?",
+  "faq.a10":
+    "Open-source Grok App is the desktop GUI / workbench. The grok command (Grok Build CLI) stays the local agent runtime. The app does not replace the CLI. Install Grok Build on the machine and sign in first, then open the app. Install steps: /install/.",
+  "faq.q11": "How do I update open-source Grok App?",
+  "faq.a11":
+    "Get new stable builds from GitHub Releases, the same channels as the first install. Recent stable notes are on this site at /changelog/. Full history is on GitHub Releases.",
   "gallery.page.title": "Skins · Open-source Grok App",
   "gallery.page.desc":
     "Community appearance packs. See them on the workbench, then apply in Open-source Grok App.",
@@ -424,6 +431,16 @@ export const en: Record<MessageKey, string> = {
   "desktop.platforms.title": "Platforms",
   "desktop.platforms.body":
     "macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). Installers live on GitHub Releases only.",
+  /* 2026-09-23 · add · /desktop/ CLI, download, and update sections */
+  "desktop.relation.title": "How this relates to the local CLI",
+  "desktop.relation.body":
+    "Open-source Grok App is a desktop GUI for the local Grok Build CLI. The grok command stays the local agent runtime. This app does not replace the CLI, and it is not a grok.com chat wrapper.",
+  "desktop.download.title": "Where to download",
+  "desktop.download.body":
+    "Installers live on GitHub Releases only. Platforms are macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). This site does not host or proxy installer files.",
+  "desktop.updates.title": "Updates and versions",
+  "desktop.updates.body":
+    "New stable builds come from GitHub Releases, the same channels as the first install. Recent notes are on this site at /changelog/. Full history stays on GitHub Releases.",
   "desktop.cta.title": "Next",
   "desktop.cta.install": "Install guide",
   "desktop.cta.download": "Download free",

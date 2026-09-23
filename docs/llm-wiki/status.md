@@ -1,10 +1,10 @@
 # 当前状态
 
-最后更新：2026-09-22。本页必须与仓库事实一致。
+最后更新：2026-09-23。本页必须与仓库事实一致。
 
 ## 一句话
 
-官网已上线。推 `main` 走 GitHub Actions 构建并部署 Cloudflare Pages。搜索意图覆盖 Grok Desktop / Grok GUI / 桌面客户端，品牌短称「开源 Grok App」。站点不再写非官方免责声明。SEO/GEO：www→apex 301、sitemap 7 URL（含 `/desktop/`）、`llms.txt`（短称 / `v0.2.37` / FAQ 摘要 / 安装节 / Desktop 别名节）、各页 JSON-LD（首页 `alternateName` 含短称 + `releaseNotes`；FAQ `@graph`；子页 `BreadcrumbList`）、`/faq/` 9 问、`/install/`、`/changelog/`、`/desktop/` 搜索别名落地。社区皮肤画廊在 `/skins/`：等大 3–4 列（手机 2 列）、剪影跟 `html[data-theme]` 走、桌面 Apply 发 `grok://`、手机 toast。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
+官网已上线。推 `main` 走 GitHub Actions 构建并部署 Cloudflare Pages。搜索意图覆盖 Grok Desktop / Grok GUI / 桌面客户端，品牌短称「开源 Grok App」。站点不再写非官方免责声明。SEO/GEO：www→apex 301、sitemap 7 URL（含 `/desktop/`）、`llms.txt`（短称 / `v0.2.37` / FAQ 7 问摘要 / 安装节 / Desktop 别名节含 install 与 changelog）、各页 JSON-LD（首页 `alternateName` 含短称 + `releaseNotes`；FAQ `@graph` 11 问；`/desktop/` `keywords` + `about`；子页 `BreadcrumbList`）、`/faq/` 11 问、`/install/`、`/changelog/`、`/desktop/` 搜索别名落地（含 CLI 关系、下载、更新）。社区皮肤画廊在 `/skins/`：等大 3–4 列（手机 2 列）、剪影跟 `html[data-theme]` 走、桌面 Apply 发 `grok://`、手机 toast。`/opensource/` 贡献者墙现为 8 人。聊天里出现过的 CF token 视为已暴露，建议 Dashboard 轮换。
 
 ## Goal 航道表
 
@@ -48,14 +48,14 @@
 | 页脚友情链接 | 已落地 | 五页页脚链 `https://usegrokbot.com/`，文案 `footer.grokbot` = Grok Bot；`rel="noopener noreferrer"`，无 `nofollow`；不进正文 / `llms.txt` |
 | 社区皮肤画廊 | 已落地 `/skins/` | 等大网格（宽 4 / 中 3 / ≤640 最少 2）；精选不跨列；无 HUD 角标；`.g-chrome` `inset: 0` 铺满卡；`pack.scrim` → `wallpaperFromScrim` 写 `--wallpaper-*`（侧栏 mix 58%、主区 70%、blur 22px @100）；左重 105deg scrim；桌面 hover / 键盘才露出铺满整卡的 dock（精选一枚 chip + 短 Apply）；`hover: none` 露出底部紧凑条且不缩小 chrome；桌面 `grok://skin/import?url=`，手机 `gallery.applyMobile` toast；投稿外链 CONTRIBUTING |
 | 开源页 | 已实现 | `opensource/index.html`；墙 8 人见 [contributors.md](./contributors.md)；投稿 Issues 已关；公众号 / 微信好友点开 `#qr-dialog` |
-| FAQ 页 | 已实现 | `faq/index.html`；9 问三语（首条「开源 Grok App 是什么？」+ Desktop / GUI / 套壳）+ `@graph`（Organization / WebSite / FAQPage / BreadcrumbList）；顶栏/页脚有链 |
+| FAQ 页 | 已实现 | `faq/index.html`；11 问三语（首条「开源 Grok App 是什么？」+ Desktop / GUI / 套壳 + 终端 grok + 如何更新）+ `@graph`（Organization / WebSite / FAQPage 11 条 `mainEntity` / BreadcrumbList）；q4 下链 `/desktop/`；q10 指向 `/install/`；q11 指向 `/changelog/`；顶栏/页脚有链 |
 | 安装指南 | 已实现 | `install/index.html`；三端下载/安装/首次 CLI/验收/排查；`HowTo` JSON-LD；版本走 `downloads-meta.json`；顶栏/页脚有链 |
 | 更新日志 | 已实现 | `changelog/index.html`；v0.2.37–v0.2.26 稳定摘要；`WebPage` + `ItemList` JSON-LD；全站页脚 `footer.changelog` → `/changelog/` |
-| 桌面别名页 | 已实现 | `desktop/index.html`；Grok Desktop / Grok GUI / 桌面客户端搜索落地；产品名仍是 Grok App；`WebPage` + `BreadcrumbList`；全站页脚 `footer.desktop` → `/desktop/`；FAQ q4 下有说明页链 |
+| 桌面别名页 | 已实现 | `desktop/index.html`；Grok Desktop / Grok GUI / 桌面客户端搜索落地；另有和本机 CLI 的关系、从哪里下载、更新与版本；产品名仍是 Grok App；`WebPage` `keywords` + `about`（Grok Desktop / Grok GUI / open-source Grok App）+ `BreadcrumbList`；无 `softwareVersion` / 评分；全站页脚 `footer.desktop` → `/desktop/`；FAQ q4 下有说明页链 |
 | www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex；`/skins` 301 → `/skins/`；`/install` 301 → `/install/`；`/changelog` 301 → `/changelog/`；`/desktop` 301 → `/desktop/` |
-| sitemap | 已实现 | `public/sitemap.xml` 7 条：`/` `/opensource/` `/faq/` `/skins/` `/install/` `/changelog/` `/desktop/`；`/` `/install/` `/changelog/` lastmod 为 2026-09-22（v0.2.37 bump）；`/desktop/` lastmod 为 2026-09-16；开源 / FAQ / 皮肤仍为 2026-09-09。`scripts/fetch-downloads.mjs` 在 tag 变化时同步 `/` `/install/` `/changelog/` lastmod；`markup.test.ts` 按 changelog 最新 `YYYY-MM-DD · add` 戳核对，不再锁死某一天 |
-| llms.txt | 已实现 | `public/llms.txt`；开篇短称 open-source Grok App / 开源 Grok App；产品名 Grok App；当前稳定版 `v0.2.37` → `/changelog/`；Also known as；Desktop / GUI aliases 节 → `/desktop/`；FAQ 5 问摘要；Install 节 → `/install/`；Key features / What it is not；不写 Grok Bot；无 `llms-full.txt` |
-| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite：`alternateName` 含「开源 Grok App」「open-source Grok App」+ Desktop/GUI 别名；`releaseNotes` → `/changelog/`；`softwareHelp` → `/install/`；`featureList` 7 条；`softwareVersion` 跟 `downloads-meta.json`（`v0.2.37`）。FAQ `@graph`。开源 / 皮肤 / 安装 / 更新日志 / FAQ / 桌面别名均有 Home→本页 `BreadcrumbList`。`/desktop/` 无 `softwareVersion`。短 title；`twitter:site` `@cgnot996` |
+| sitemap | 已实现 | `public/sitemap.xml` 7 条：`/` `/opensource/` `/faq/` `/skins/` `/install/` `/changelog/` `/desktop/`；`/` `/install/` `/changelog/` lastmod 为 2026-09-22（v0.2.37 bump）；`/faq/` 与 `/desktop/` lastmod 为 2026-09-23；开源 / 皮肤仍为 2026-09-09。`scripts/fetch-downloads.mjs` 在 tag 变化时同步 `/` `/install/` `/changelog/` lastmod；`markup.test.ts` 按 changelog 最新 `YYYY-MM-DD · add` 戳核对，不再锁死某一天 |
+| llms.txt | 已实现 | `public/llms.txt`；开篇短称 open-source Grok App / 开源 Grok App；产品名 Grok App；当前稳定版 `v0.2.37` → `/changelog/`；Also known as；Desktop / GUI aliases 节 → `/desktop/`，并写 `/install/` 与 `/changelog/`；FAQ 7 问摘要（含 CLI 与终端 grok、如何更新）；Install 节 → `/install/`；Key features / What it is not；不写 Grok Bot；无 `llms-full.txt` |
+| JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite：`alternateName` 含「开源 Grok App」「open-source Grok App」+ Desktop/GUI 别名；`releaseNotes` → `/changelog/`；`softwareHelp` → `/install/`；`featureList` 7 条；`softwareVersion` 跟 `downloads-meta.json`（`v0.2.37`）。FAQ `@graph`，`mainEntity` 11 条与静态简体一致。开源 / 皮肤 / 安装 / 更新日志 / FAQ / 桌面别名均有 Home→本页 `BreadcrumbList`。`/desktop/` `WebPage` 有 `keywords` 与 `about`，无 `softwareVersion`。短 title；`twitter:site` `@cgnot996` |
 | 站点语气 | 短称开源 Grok App | 无「非官方 / unofficial」；[product.md](./product.md) [content.md](./content.md) [seo.md](./seo.md) |
 | SEO 契约 | 已写 | [seo.md](./seo.md) |
 | 三语 i18n | 已实现 | [i18n.md](./i18n.md) [content.md](./content.md)；键 `grok-app-site.locale` |
@@ -72,4 +72,4 @@
 
 ## 下一步（给下一任 Agent）
 
-下一任可做短链 `/download/*`（[downloads.md](./downloads.md) §5）。`/desktop/` 已上线，不要再发明对比页或评分。有新稳定 Release 时按产品仓 notes 浓缩进 `/changelog/`（保持 2–5 条、newest-first），并同步 `llms.txt` 里的当前稳定版号；跑 `node scripts/fetch-downloads.mjs` 会在 tag 变化时把 `/` `/install/` `/changelog/` lastmod 写成当天 UTC。禁止再把 changelog lastmod 锁死在测试里。有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 README 改了安装步骤，先对 [downloads.md](./downloads.md) 再改 `/install/`。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。皮肤目录或卡片字段变了，先对 [skins.md](./skins.md) 再改 `src/skins.ts`。画廊网格 / 剪影 / `scrim` 透明度 / hover dock / 手机 Apply 以 [skins.md](./skins.md) 为准。GitHub 按钮 star 数以 [stars.md](./stars.md) 为准：浏览器只打 `/api/stars`（`no-store`），边缘 GitHub 失败走 ungh / last-good，不要给页脚链加数字。
+下一任可做短链 `/download/*`（[downloads.md](./downloads.md) §5）。FAQ 已是 11 问，`/desktop/` 已含 CLI 关系、下载与更新，不要再发明对比页或评分。有新稳定 Release 时按产品仓 notes 浓缩进 `/changelog/`（保持 2–5 条、newest-first），并同步 `llms.txt` 里的当前稳定版号；跑 `node scripts/fetch-downloads.mjs` 会在 tag 变化时把 `/` `/install/` `/changelog/` lastmod 写成当天 UTC。禁止再把 changelog lastmod 锁死在测试里。有新 Issues 投稿时按 [contributors.md](./contributors.md) 更新 `src/generated/contributors.json`、压头像、推 `main` 让 Actions 发版，然后关 Issue。改搜索文案先改 [content.md](./content.md) 与 [seo.md](./seo.md)，三语一起改。产品仓 README 改了安装步骤，先对 [downloads.md](./downloads.md) 再改 `/install/`。产品仓 `repository_dispatch` 触发官网重建尚未做。不要发明 Search Console 验证码。聊天里出现过的 CF token 仍建议轮换。皮肤目录或卡片字段变了，先对 [skins.md](./skins.md) 再改 `src/skins.ts`。画廊网格 / 剪影 / `scrim` 透明度 / hover dock / 手机 Apply 以 [skins.md](./skins.md) 为准。GitHub 按钮 star 数以 [stars.md](./stars.md) 为准：浏览器只打 `/api/stars`（`no-store`），边缘 GitHub 失败走 ungh / last-good，不要给页脚链加数字。
