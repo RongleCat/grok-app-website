@@ -1,6 +1,6 @@
 # 当前状态
 
-最后更新：2026-09-23。本页必须与仓库事实一致。
+最后更新：2026-09-28。本页必须与仓库事实一致。
 
 ## 一句话
 
@@ -53,7 +53,7 @@
 | 更新日志 | 已实现 | `changelog/index.html`；v0.2.37–v0.2.26 稳定摘要；`WebPage` + `ItemList` JSON-LD；全站页脚 `footer.changelog` → `/changelog/` |
 | 桌面别名页 | 已实现 | `desktop/index.html`；Grok Desktop / Grok GUI / 桌面客户端搜索落地；另有和本机 CLI 的关系、从哪里下载、更新与版本；产品名仍是 Grok App；`WebPage` `keywords` + `about`（Grok Desktop / Grok GUI / open-source Grok App）+ `BreadcrumbList`；无 `softwareVersion` / 评分；全站页脚 `footer.desktop` → `/desktop/`；FAQ q4 下有说明页链 |
 | www 规范化 | 源码已写，随 Actions 发版 | `public/_redirects`：`www.grok-app.com/*` 301 → apex；`/skins` 301 → `/skins/`；`/install` 301 → `/install/`；`/changelog` 301 → `/changelog/`；`/desktop` 301 → `/desktop/` |
-| sitemap | 已实现 | `public/sitemap.xml` 7 条：`/` `/opensource/` `/faq/` `/skins/` `/install/` `/changelog/` `/desktop/`；`/` `/install/` `/changelog/` lastmod 为 2026-09-22（v0.2.37 bump）；`/faq/` 与 `/desktop/` lastmod 为 2026-09-23；开源 / 皮肤仍为 2026-09-09。`scripts/fetch-downloads.mjs` 在 tag 变化时同步 `/` `/install/` `/changelog/` lastmod；`markup.test.ts` 按 changelog 最新 `YYYY-MM-DD · add` 戳核对，不再锁死某一天 |
+| sitemap | 已实现 | `public/sitemap.xml` 7 条：`/` `/opensource/` `/faq/` `/skins/` `/install/` `/changelog/` `/desktop/`；`/` lastmod 为 2026-09-28（首页模型胶囊改为 Grok 4.7）；`/install/` `/changelog/` lastmod 仍为 2026-09-22（v0.2.37 bump）；`/faq/` 与 `/desktop/` lastmod 为 2026-09-23；开源 / 皮肤仍为 2026-09-09。`scripts/fetch-downloads.mjs` 在 tag 变化时同步 `/` `/install/` `/changelog/` lastmod；`markup.test.ts` 按 changelog 最新 `YYYY-MM-DD · add` 戳核对，不再锁死某一天 |
 | llms.txt | 已实现 | `public/llms.txt`；开篇短称 open-source Grok App / 开源 Grok App；产品名 Grok App；当前稳定版 `v0.2.37` → `/changelog/`；Also known as；Desktop / GUI aliases 节 → `/desktop/`，并写 `/install/` 与 `/changelog/`；FAQ 7 问摘要（含 CLI 与终端 grok、如何更新）；Install 节 → `/install/`；Key features / What it is not；不写 Grok Bot；无 `llms-full.txt` |
 | JSON-LD / meta | 已实现 | 首页 SoftwareApplication + Organization + WebSite：`alternateName` 含「开源 Grok App」「open-source Grok App」+ Desktop/GUI 别名；`releaseNotes` → `/changelog/`；`softwareHelp` → `/install/`；`featureList` 7 条；`softwareVersion` 跟 `downloads-meta.json`（`v0.2.37`）。FAQ `@graph`，`mainEntity` 11 条与静态简体一致。开源 / 皮肤 / 安装 / 更新日志 / FAQ / 桌面别名均有 Home→本页 `BreadcrumbList`。`/desktop/` `WebPage` 有 `keywords` 与 `about`，无 `softwareVersion`。短 title；`twitter:site` `@cgnot996` |
 | 站点语气 | 短称开源 Grok App | 无「非官方 / unofficial」；[product.md](./product.md) [content.md](./content.md) [seo.md](./seo.md) |

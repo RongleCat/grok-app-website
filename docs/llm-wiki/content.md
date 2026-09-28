@@ -62,7 +62,7 @@
 | `hero.ctaGithub` | GitHub 开源 | GitHub 開源 | GitHub |
 | `github.stars` | {count} 颗星 | {count} 顆星 | {count} stars |
 | `pill.models.title` | 多模型支持 | 多模型支援 | Multi-model |
-| `pill.models.desc` | Grok 4.6 及更多模型 | Grok 4.6 及更多模型 | Grok 4.6 and more |
+| `pill.models.desc` | Grok 4.7 及更多模型 | Grok 4.7 及更多模型 | Grok 4.7 and more |
 | `pill.speed.title` | 快速响应 | 快速回應 | Fast response |
 | `pill.speed.desc` | 本机直连 Grok Build | 本機直連 Grok Build | Talks to Grok Build on your machine |
 | `pill.privacy.title` | 数据安全 | 資料安全 | Private by default |

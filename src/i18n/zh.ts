@@ -27,7 +27,7 @@ export const zh = {
   /* 2026-08-27 · add · star 精确数的无障碍短语，可见数字仍是缩写 */
   "github.stars": "{count} 颗星",
   "pill.models.title": "多模型支持",
-  "pill.models.desc": "Grok 4.6 及更多模型",
+  "pill.models.desc": "Grok 4.7 及更多模型",
   "pill.speed.title": "快速响应",
   "pill.speed.desc": "本机直连 Grok Build",
   "pill.privacy.title": "数据安全",

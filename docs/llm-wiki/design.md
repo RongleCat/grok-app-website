@@ -32,7 +32,7 @@
 - 工作台预览是一张 **macOS 窗口框**（红黄绿灯 + 侧栏 + SuperGrok HEAVY 空状态）。
 - 暗色站点主题用 [workbench-dark.png](./assets/workbench-dark.png)；亮色站点主题用 [workbench-light.png](./assets/workbench-light.png)。
 - 三枚浮动胶囊贴在窗口周围，不要嵌进截图像素里：
-  - 左上：多模型支持 · Grok 4.6 及更多模型
+  - 左上：多模型支持 · Grok 4.7 及更多模型
   - 右上：快速响应 · 平均响应 1.2s（数字若无测量依据，实现时改为不写死毫秒，或放到 Wiki 后再改文案）
   - 左下：数据安全 · 本地优先，隐私可控
 

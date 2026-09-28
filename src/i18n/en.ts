@@ -31,7 +31,7 @@ export const en: Record<MessageKey, string> = {
   /* 2026-08-27 · add · star 精确数读屏短语，与 zh / zh-TW 同 key */
   "github.stars": "{count} stars",
   "pill.models.title": "Multi-model",
-  "pill.models.desc": "Grok 4.6 and more",
+  "pill.models.desc": "Grok 4.7 and more",
   "pill.speed.title": "Fast response",
   "pill.speed.desc": "Talks to Grok Build on your machine",
   "pill.privacy.title": "Private by default",

@@ -29,7 +29,7 @@ export const zhTW: Record<MessageKey, string> = {
   /* 2026-08-27 · add · star 精確數讀屏短語，與 zh / en 同 key */
   "github.stars": "{count} 顆星",
   "pill.models.title": "多模型支援",
-  "pill.models.desc": "Grok 4.6 及更多模型",
+  "pill.models.desc": "Grok 4.7 及更多模型",
   "pill.speed.title": "快速回應",
   "pill.speed.desc": "本機直連 Grok Build",
   "pill.privacy.title": "資料安全",

@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-09-28 · 首页模型胶囊改为 Grok 4.7
+
+- **操作者**：agent
+- **触发**：现网首页 `pill.models.desc` 仍写 Grok 4.6；v0.2.37 changelog 已写 Grok 4.7；JSON-LD `softwareVersion` 已是 v0.2.37
+- **改动**：
+  - `src/i18n/zh.ts`、`zh-TW.ts`、`en.ts` 的 `pill.models.desc` → Grok 4.7
+  - `index.html` 静态回退同步为「Grok 4.7 及更多模型」
+  - `public/sitemap.xml` 仅 `/` lastmod → 2026-09-28
+  - 未改 changelog、下载 meta、其他页面
+- **Wiki**：content / design / status / 本条
+- **结果**：三语与首页回退都写 Grok 4.7
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-23 · GEO：FAQ 11 问、加深 `/desktop/`、llms 与 JSON-LD
 
 - **操作者**：agent
