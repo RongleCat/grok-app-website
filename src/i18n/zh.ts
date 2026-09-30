@@ -276,6 +276,16 @@ export const zh = {
   "changelog.hero.title": "近几版稳定更新",
   "changelog.hero.body":
     "开源 Grok App 是本机 Grok Build CLI 的桌面 GUI。下面是最近几个稳定版。也有人搜 Grok Desktop、Grok GUI 或桌面客户端。",
+  /* 2026-09-30 · add · v0.2.38 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0238.highlight":
+    "每条对话会记住自己的模型和服务商。",
+  "changelog.v0238.b1": "自定义供应商画廊增加 Requesty 一键预设。",
+  "changelog.v0238.b2":
+    "侧栏分组过长时先列出五条对话，再点「显示更多」。置顶仍全部列出，当前对话会自动露出，收起后从第一页开始。",
+  "changelog.v0238.b3":
+    "重新打开一条对话时，仍用它上次选的模型和服务商。自定义服务商会保留该模型和努力档。",
+  "changelog.v0238.b4":
+    "在一条对话里换模型，不再停掉其他对话，也不会重新开始这一条。",
   /* 2026-09-22 · add · v0.2.37 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0237.highlight":
     "新对话可用 Grok 4.7，生成中的回复会继续贴底。",

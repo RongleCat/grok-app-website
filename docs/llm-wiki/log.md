@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-09-30 · 下载 / JSON-LD 版本对齐 v0.2.38，changelog 置顶
+
+- **操作者**：agent
+- **触发**：产品仓正式 Release v0.2.38（publishedAt 2026-09-29T18:34:56Z）；现网 JSON-LD / downloads-meta / changelog 顶条仍写 v0.2.37
+- **改动**：
+  - `node scripts/fetch-downloads.mjs` 拉现网 `downloads.json`，`src/generated/downloads-meta.json` tag → `v0.2.38`，同步首页 JSON-LD `softwareVersion`
+  - `/changelog/` 置顶 v0.2.38（三语摘要取自产品仓 Release notes：每条对话记住自己的模型和服务商，Requesty 一键预设）；旧条目保留；ItemList `numberOfItems` 13
+  - `public/llms.txt` 当前稳定版 → `v0.2.38`
+  - `public/sitemap.xml` `/` `/install/` `/changelog/` lastmod → 2026-09-30
+  - 首页模型胶囊仍是 Grok 4.7；未改 star 数代码，未发明 Search Console 数据
+- **Wiki**：downloads / seo / content / design / status / 本条
+- **结果**：下载旁注、安装页 `data-version`、JSON-LD、`llms.txt` 与 changelog 顶条同为 `v0.2.38`
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-28 · 首页模型胶囊改为 Grok 4.7
 
 - **操作者**：agent

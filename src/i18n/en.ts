@@ -287,6 +287,16 @@ export const en: Record<MessageKey, string> = {
   "changelog.hero.title": "Recent stable releases",
   "changelog.hero.body":
     "Open-source Grok App is a desktop GUI for the local Grok Build CLI. These are the latest stable cuts. People also search Grok Desktop, Grok GUI, or desktop client.",
+  /* 2026-09-30 · add · v0.2.38 摘要取自产品仓 Release notes，不编造功能 */
+  "changelog.v0238.highlight":
+    "Each chat keeps its own model and provider.",
+  "changelog.v0238.b1": "Requesty is available as a custom-provider preset.",
+  "changelog.v0238.b2":
+    "Long sidebar groups list five chats, then Show more. Pinned chats stay fully listed, the open chat is revealed, and collapsing a group starts over.",
+  "changelog.v0238.b3":
+    "Reopening a chat uses the model and provider it last chose. Custom providers keep that model and its effort.",
+  "changelog.v0238.b4":
+    "Changing one chat's model no longer stops the others or restarts this chat.",
   /* 2026-09-22 · add · v0.2.37 摘要取自产品仓 Release notes，不编造功能 */
   "changelog.v0237.highlight":
     "New chats can use Grok 4.7, and the live reply stays pinned.",

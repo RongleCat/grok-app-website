@@ -100,77 +100,83 @@
             "@id": "https://grok-app.com/changelog/#releases",
             "name": "Recent stable releases",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
-            "numberOfItems": 12,
+            "numberOfItems": 13,
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
+                "name": "v0.2.38",
+                "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.38"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
                 "name": "v0.2.37",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.37"
               },
               {
                 "@type": "ListItem",
-                "position": 2,
+                "position": 3,
                 "name": "v0.2.36",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.36"
               },
               {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "v0.2.35",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.35"
               },
               {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "v0.2.34",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.34"
               },
               {
                 "@type": "ListItem",
-                "position": 5,
+                "position": 6,
                 "name": "v0.2.33",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.33"
               },
               {
                 "@type": "ListItem",
-                "position": 6,
+                "position": 7,
                 "name": "v0.2.32",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.32"
               },
               {
                 "@type": "ListItem",
-                "position": 7,
+                "position": 8,
                 "name": "v0.2.31",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.31"
               },
               {
                 "@type": "ListItem",
-                "position": 8,
+                "position": 9,
                 "name": "v0.2.30",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.30"
               },
               {
                 "@type": "ListItem",
-                "position": 9,
+                "position": 10,
                 "name": "v0.2.29",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.29"
               },
               {
                 "@type": "ListItem",
-                "position": 10,
+                "position": 11,
                 "name": "v0.2.28",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.28"
               },
               {
                 "@type": "ListItem",
-                "position": 11,
+                "position": 12,
                 "name": "v0.2.27",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.27"
               },
               {
                 "@type": "ListItem",
-                "position": 12,
+                "position": 13,
                 "name": "v0.2.26",
                 "url": "https://github.com/RongleCat/grok-app/releases/tag/v0.2.26"
               }
@@ -340,6 +346,43 @@
       </p>
 
       <ol class="changelog-list">
+        <!--
+          2026-09-30 · add · 置顶 v0.2.38 稳定摘要
+          Timestamp: 2026-09-30
+          Change type: add
+          What: 从产品仓 GitHub Release notes 浓缩亮点与四条短 bullet
+          Why: 页面写死近版，新 Release 必须置顶；禁止编造功能
+          Params & return: 无；日期与 tag 写在 HTML，文案走 changelog.v0238.*
+          Impact scope: /changelog/ 首屏与 ItemList JSON-LD
+          Risk: 无已知风险
+        -->
+        <li class="changelog-item" id="v0.2.38">
+          <h2>
+            <a
+              href="https://github.com/RongleCat/grok-app/releases/tag/v0.2.38"
+              rel="noopener noreferrer"
+              >v0.2.38</a
+            >
+          </h2>
+          <time datetime="2026-09-29">2026-09-29</time>
+          <p class="changelog-highlight" data-i18n="changelog.v0238.highlight">
+            每条对话会记住自己的模型和服务商。
+          </p>
+          <ul>
+            <li data-i18n="changelog.v0238.b1">
+              自定义供应商画廊增加 Requesty 一键预设。
+            </li>
+            <li data-i18n="changelog.v0238.b2">
+              侧栏分组过长时先列出五条对话，再点「显示更多」。置顶仍全部列出，当前对话会自动露出，收起后从第一页开始。
+            </li>
+            <li data-i18n="changelog.v0238.b3">
+              重新打开一条对话时，仍用它上次选的模型和服务商。自定义服务商会保留该模型和努力档。
+            </li>
+            <li data-i18n="changelog.v0238.b4">
+              在一条对话里换模型，不再停掉其他对话，也不会重新开始这一条。
+            </li>
+          </ul>
+        </li>
         <!--
           2026-09-22 · add · 置顶 v0.2.37 稳定摘要
           Timestamp: 2026-09-22
