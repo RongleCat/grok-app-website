@@ -277,17 +277,38 @@ describe("desktop/index.html", () => {
     expect(JSON.stringify(page?.about)).toContain("Grok Desktop");
     expect(JSON.stringify(page?.about)).toContain("Grok GUI");
     expect(JSON.stringify(page?.about)).toContain("open-source Grok App");
+    const faqPage = data["@graph"].find((node) => node["@type"] === "FAQPage");
+    const questions = faqPage?.mainEntity as
+      | Array<{ name?: string; acceptedAnswer?: { text?: string } }>
+      | undefined;
+    expect(questions?.map((q) => q.name)).toEqual([
+      zh["desktop.qa.q1"],
+      zh["desktop.qa.q2"],
+      zh["desktop.qa.q3"],
+      zh["desktop.qa.q4"],
+    ]);
+    expect(questions?.map((q) => q.acceptedAnswer?.text)).toEqual([
+      zh["desktop.qa.a1"],
+      zh["desktop.qa.a2"],
+      zh["desktop.qa.a3"],
+      zh["desktop.qa.a4"],
+    ]);
+    expect(desktopHtml).toContain('id="desktop-qa"');
+    expect(desktopHtml).toContain(zh["desktop.qa.q1"]);
+    expect(desktopHtml).toContain(zh["desktop.qa.a4"]);
     expect(zh).toHaveProperty("desktop.page.title");
     expect(en).toHaveProperty("desktop.hero.body");
     expect(en).toHaveProperty("desktop.relation.body");
+    expect(en).toHaveProperty("desktop.qa.q1");
     expect(zhTW).toHaveProperty("desktop.aliases.title");
     expect(zhTW).toHaveProperty("desktop.download.title");
     expect(zhTW).toHaveProperty("desktop.updates.body");
+    expect(zhTW).toHaveProperty("desktop.qa.a4");
   });
 });
 
 describe("faq/index.html", () => {
-  it("ships eleven static FAQs and a nav current page", () => {
+  it("ships thirteen static FAQs and a nav current page", () => {
     expect(faqHtml).toContain('id="faq-main"');
     expect(faqHtml).toContain('data-i18n="faq.q9"');
     expect(faqHtml).toContain('data-i18n="faq.q1"');
@@ -299,6 +320,8 @@ describe("faq/index.html", () => {
     expect(faqHtml).toContain('data-i18n="faq.q8"');
     expect(faqHtml).toContain('data-i18n="faq.q10"');
     expect(faqHtml).toContain('data-i18n="faq.q11"');
+    expect(faqHtml).toContain('data-i18n="faq.q12"');
+    expect(faqHtml).toContain('data-i18n="faq.q13"');
     expect(faqHtml).toContain(zh["faq.q9"]);
     expect(faqHtml).toContain(zh["faq.a9"]);
     expect(faqHtml).toContain(zh["faq.q4"]);
@@ -308,6 +331,10 @@ describe("faq/index.html", () => {
     expect(faqHtml).toContain(zh["faq.a10"]);
     expect(faqHtml).toContain(zh["faq.q11"]);
     expect(faqHtml).toContain(zh["faq.a11"]);
+    expect(faqHtml).toContain(zh["faq.q12"]);
+    expect(faqHtml).toContain(zh["faq.a12"]);
+    expect(faqHtml).toContain(zh["faq.q13"]);
+    expect(faqHtml).toContain(zh["faq.a13"]);
     expect(faqHtml).toContain('href="/install/"');
     expect(faqHtml).toContain('href="/changelog/"');
     expect(faqHtml).toContain('aria-current="page"');
@@ -321,6 +348,8 @@ describe("faq/index.html", () => {
     expect(zhTW).toHaveProperty("faq.q10");
     expect(en).toHaveProperty("faq.q9");
     expect(en).toHaveProperty("faq.q11");
+    expect(en).toHaveProperty("faq.q12");
+    expect(zhTW).toHaveProperty("faq.q13");
     expect(en["faq.a10"]).toMatch(/does not replace the CLI/);
     expect(en["faq.a11"]).toContain("/changelog/");
     expect(en).toHaveProperty("nav.faq");
@@ -356,10 +385,10 @@ describe("SEO / GEO foundation", () => {
     expect(sitemap).toContain("<loc>https://grok-app.com/install/</loc>");
     expect(sitemap).toContain("<loc>https://grok-app.com/changelog/</loc>");
     expect(sitemap).toMatch(
-      /<loc>https:\/\/grok-app\.com\/faq\/<\/loc>\s*<lastmod>2026-09-23<\/lastmod>\s*<changefreq>monthly<\/changefreq>\s*<priority>0\.6<\/priority>/,
+      /<loc>https:\/\/grok-app\.com\/faq\/<\/loc>\s*<lastmod>2026-09-30<\/lastmod>\s*<changefreq>monthly<\/changefreq>\s*<priority>0\.6<\/priority>/,
     );
     expect(sitemap).toMatch(
-      /<loc>https:\/\/grok-app\.com\/desktop\/<\/loc>\s*<lastmod>2026-09-23<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
+      /<loc>https:\/\/grok-app\.com\/desktop\/<\/loc>\s*<lastmod>2026-09-30<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
     );
     expect(sitemap).toMatch(
       /<loc>https:\/\/grok-app\.com\/changelog\/<\/loc>\s*<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>\s*<changefreq>weekly<\/changefreq>\s*<priority>0\.7<\/priority>/,
@@ -399,6 +428,12 @@ describe("SEO / GEO foundation", () => {
     expect(llms).toContain("Grok GUI");
     expect(llms).toContain("Grok Build desktop client");
     expect(llms).toMatch(/^## Install$/m);
+    const installBlock = llms.split(/^## Install\n/m)[1]?.split(/^## /m)[0] ?? "";
+    expect(installBlock).toContain("xattr");
+    expect(installBlock).toContain("SmartScreen");
+    expect(installBlock).toContain("WebView2");
+    expect(installBlock).toContain("libEGL");
+    expect(installBlock).toContain("https://grok-app.com/install/");
     expect(llms).toContain("https://grok-app.com/");
     expect(llms).toContain("https://grok-app.com/skins/");
     expect(llms).toContain("https://grok-app.com/install/");
@@ -408,6 +443,7 @@ describe("SEO / GEO foundation", () => {
     expect(desktopBlock).toContain("https://grok-app.com/desktop/");
     expect(desktopBlock).toContain("https://grok-app.com/install/");
     expect(desktopBlock).toContain("https://grok-app.com/changelog/");
+    expect(desktopBlock).toMatch(/On-page Q&A/);
     expect(llms).toContain("https://grok-app.com/desktop/");
     expect(llms).toMatch(/Release notes live on-site at https:\/\/grok-app\.com\/changelog\//);
     expect(llms).toContain("https://github.com/RongleCat/grok-app");
@@ -486,11 +522,13 @@ describe("SEO / GEO foundation", () => {
     const questions = faqPage?.mainEntity as
       | Array<{ name?: string; acceptedAnswer?: { text?: string } }>
       | undefined;
-    expect(questions).toHaveLength(11);
+    expect(questions).toHaveLength(13);
     expect(questions?.map((q) => q.name)).toEqual([
       zh["faq.q9"],
       zh["faq.q1"],
       zh["faq.q2"],
+      zh["faq.q12"],
+      zh["faq.q13"],
       zh["faq.q3"],
       zh["faq.q4"],
       zh["faq.q7"],
@@ -505,6 +543,12 @@ describe("SEO / GEO foundation", () => {
     );
     expect(questions?.find((q) => q.name === zh["faq.q11"])?.acceptedAnswer?.text).toBe(
       zh["faq.a11"],
+    );
+    expect(questions?.find((q) => q.name === zh["faq.q12"])?.acceptedAnswer?.text).toBe(
+      zh["faq.a12"],
+    );
+    expect(questions?.find((q) => q.name === zh["faq.q13"])?.acceptedAnswer?.text).toBe(
+      zh["faq.a13"],
     );
 
     const crumbs = [

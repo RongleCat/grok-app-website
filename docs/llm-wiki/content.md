@@ -163,7 +163,7 @@
 
 ## faq
 
-`/faq/` 静态页。JSON-LD `FAQPage` 用简体默认句，与 HTML 首屏一致。搜索别名放在问答正文，不要叠进 title。现为 11 问，品牌意图 `faq.q9` 放在列表最前。`faq.q4` 下有 `faq.desktopLink` → `/desktop/`。`faq.q10` 指向 `/install/`。`faq.q11` 指向 `/changelog/`。
+`/faq/` 静态页。JSON-LD `FAQPage` 用简体默认句，与 HTML 首屏一致。搜索别名放在问答正文，不要叠进 title。现为 13 问，品牌意图 `faq.q9` 放在列表最前。`faq.q4` 下有 `faq.desktopLink` → `/desktop/`。`faq.q10` 指向 `/install/`。`faq.q11` 指向 `/changelog/`。`faq.q12`（Windows SmartScreen）与 `faq.q13`（Linux AppImage libEGL）排在 macOS Gatekeeper（`faq.q2`）之后，答案与页内链都指向 `/install/#install-fix`。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
@@ -194,6 +194,10 @@
 | `faq.a10` | 开源 Grok App 是桌面 GUI / 工作台。终端里的 grok（Grok Build CLI）仍是本机 Agent 运行时。本应用不会替代 CLI。请先在本机安装并登录 Grok Build，再打开本应用。安装步骤见 /install/。 | 開源 Grok App 是桌面 GUI / 工作臺。終端裡的 grok（Grok Build CLI）仍是本機 Agent 執行環境。本應用不會替代 CLI。請先在本機安裝並登入 Grok Build，再開啟本應用。安裝步驟見 /install/。 | Open-source Grok App is the desktop GUI / workbench. The grok command (Grok Build CLI) stays the local agent runtime. The app does not replace the CLI. Install Grok Build on the machine and sign in first, then open the app. Install steps: /install/. |
 | `faq.q11` | 怎么更新开源 Grok App？ | 怎麼更新開源 Grok App？ | How do I update open-source Grok App? |
 | `faq.a11` | 新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/。完整历史在 GitHub Releases。 | 新的穩定版從 GitHub Releases 取得，渠道與第一次安裝相同。近幾版說明在本站 /changelog/。完整歷史在 GitHub Releases。 | Get new stable builds from GitHub Releases, the same channels as the first install. Recent stable notes are on this site at /changelog/. Full history is on GitHub Releases. |
+| `faq.q12` | Windows SmartScreen 提示未知发布者怎么办？ | Windows SmartScreen 提示未知發行者怎麼辦？ | Windows SmartScreen says the publisher is unknown. What now? |
+| `faq.a12` | 点「更多信息 → 仍要运行」。安装包只从 GitHub Releases 获取，可用 SHA256SUMS 核对哈希。若缺 WebView2，安装包会引导安装。排查步骤见 /install/。 | 點「更多資訊 → 仍要執行」。安裝包只從 GitHub Releases 取得，可用 SHA256SUMS 核對雜湊。若缺 WebView2，安裝包會引導安裝。排查步驟見 /install/。 | Choose More info → Run anyway. Only download installers from GitHub Releases, and check the hash against SHA256SUMS. If WebView2 is missing, the installer bootstraps it. Troubleshooting: /install/. |
+| `faq.q13` | Linux AppImage 提示缺少 libEGL 或宿主运行时库怎么办？ | Linux AppImage 提示缺少 libEGL 或宿主執行時庫怎麼辦？ | Linux AppImage says libEGL or a host runtime library is missing. What now? |
+| `faq.a13` | 官方 AppImage 不打包宿主 EGL / WebKit / 托盘库。先装运行时库，再运行。排查步骤见 /install/。 | 官方 AppImage 不打包宿主 EGL / WebKit / 托盤庫。先裝執行時庫，再執行。排查步驟見 /install/。 | The official AppImage does not bundle host libraries such as libEGL.so.1, WebKit, or tray libraries. Install the runtime libraries first, then run it. Troubleshooting: /install/. |
 
 站点文案、meta、`llms.txt`、FAQ、schema **禁止**写「官方桌面端」「Grok 桌面版」，也不提其它 Grok 产品名做对比。不要写「非官方 / unofficial」。
 
@@ -265,7 +269,7 @@
 
 ## desktop
 
-`/desktop/` 静态搜索别名页。JSON-LD `WebPage` 用简体默认句，与 HTML 首屏一致。产品名仍是 Grok App；Grok Desktop / Grok GUI / 桌面客户端只当搜索别名。`WebPage` 带 `keywords` 与 `about`（Grok Desktop、Grok GUI、open-source Grok App），不写 `softwareVersion`，不编 `aggregateRating`。FAQ `faq.q4` 下另有 `faq.desktopLink` 链到本页。
+`/desktop/` 静态搜索别名页。JSON-LD 含 `WebPage` 与 `FAQPage`，简体默认句与 HTML 首屏一致。产品名仍是 Grok App；Grok Desktop / Grok GUI / 桌面客户端只当搜索别名。`WebPage` 带 `keywords` 与 `about`（Grok Desktop、Grok GUI、open-source Grok App），不写 `softwareVersion`，不编 `aggregateRating`。`#desktop-qa` 四问与 `FAQPage.mainEntity` 逐字一致。FAQ `faq.q4` 下另有 `faq.desktopLink` 链到本页。
 
 | key | zh | zh-TW | en |
 |-----|----|-------|-----|
@@ -281,5 +285,14 @@
 | `desktop.download.body` | 安装包只在 GitHub Releases。平台覆盖 macOS（Apple Silicon / Intel）、Windows 10/11（64 位）和 Linux（AppImage / DEB / RPM）。本站不托管、也不反代安装包。 | 安裝包只在 GitHub Releases。平台涵蓋 macOS（Apple Silicon / Intel）、Windows 10/11（64 位元）和 Linux（AppImage / DEB / RPM）。本站不託管、也不反代安裝包。 | Installers live on GitHub Releases only. Platforms are macOS (Apple Silicon / Intel), Windows 10/11 (64-bit), and Linux (AppImage / DEB / RPM). This site does not host or proxy installer files. |
 | `desktop.updates.title` | 更新与版本 | 更新與版本 | Updates and versions |
 | `desktop.updates.body` | 新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/，完整历史在 GitHub Releases。 | 新的穩定版從 GitHub Releases 取得，渠道與第一次安裝相同。近幾版說明在本站 /changelog/，完整歷史在 GitHub Releases。 | New stable builds come from GitHub Releases, the same channels as the first install. Recent notes are on this site at /changelog/. Full history stays on GitHub Releases. |
+| `desktop.qa.title` | 常见问答 | 常見問答 | Questions |
+| `desktop.qa.q1` | 搜 Grok Desktop 或 Grok GUI 是在找什么？ | 搜 Grok Desktop 或 Grok GUI 是在找什麼？ | What do people mean by Grok Desktop or Grok GUI? |
+| `desktop.qa.a1` | 这些是搜索别名。产品名仍是 Grok App，短称开源 Grok App。它是本机 Grok Build CLI 的桌面工作台，仓库 RongleCat/grok-app。 | 這些是搜尋別名。產品名仍是 Grok App，簡稱開源 Grok App。它是本機 Grok Build CLI 的桌面工作臺，倉庫 RongleCat/grok-app。 | Those are search aliases. The product name stays Grok App. The short brand is open-source Grok App. It is a desktop workbench for the local Grok Build CLI: RongleCat/grok-app. |
+| `desktop.qa.q2` | 需要本机 Grok Build CLI 吗？ | 需要本機 Grok Build CLI 嗎？ | Does it need the local Grok Build CLI? |
+| `desktop.qa.a2` | 需要。开源 Grok App 是桌面 GUI，不会替代 CLI。请先在本机装好 Grok Build，再打开本应用。 | 需要。開源 Grok App 是桌面 GUI，不會替代 CLI。請先在本機裝好 Grok Build，再開啟本應用。 | Yes. Open-source Grok App is a desktop GUI and does not replace the CLI. Install Grok Build on your machine first, then open the app. |
+| `desktop.qa.q3` | 这是 grok.com 网页聊天的套壳吗？ | 這是 grok.com 網頁聊天的套殼嗎？ | Is this a grok.com chat wrapper? |
+| `desktop.qa.a3` | 不是。它面向本机 Grok Build CLI，不是 grok.com 聊天页或 PWA。 | 不是。它面向本機 Grok Build CLI，不是 grok.com 聊天頁或 PWA。 | No. It is for the local Grok Build CLI, not grok.com chat or a PWA. |
+| `desktop.qa.q4` | 从哪里安装和更新？ | 從哪裡安裝和更新？ | Where do I install and update? |
+| `desktop.qa.a4` | 安装步骤在 /install/。新的稳定版从 GitHub Releases 获取，近几版说明在 /changelog/。 | 安裝步驟在 /install/。新的穩定版從 GitHub Releases 取得，近幾版說明在 /changelog/。 | Install steps are at /install/. New stable builds come from GitHub Releases. Recent notes are at /changelog/. |
 
 其余 `desktop.aliases.*` / `desktop.what.*` / `desktop.cli.*` / `desktop.platforms.*` / `desktop.cta.*` 与 `src/i18n/{zh,zh-TW,en}.ts` 同步。`desktop.relation` 的 CTA 是 `/install/`；`desktop.download` 的 CTA 是首页 `/#download` 与 `/install/`；`desktop.updates` 的 CTA 是 `/changelog/`。页脚 `footer.desktop` 全站指向 `/desktop/`。

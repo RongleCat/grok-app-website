@@ -162,6 +162,12 @@ export const zh = {
   "faq.q11": "怎么更新开源 Grok App？",
   "faq.a11":
     "新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/。完整历史在 GitHub Releases。",
+  "faq.q12": "Windows SmartScreen 提示未知发布者怎么办？",
+  "faq.a12":
+    "点「更多信息 → 仍要运行」。安装包只从 GitHub Releases 获取，可用 SHA256SUMS 核对哈希。若缺 WebView2，安装包会引导安装。排查步骤见 /install/。",
+  "faq.q13": "Linux AppImage 提示缺少 libEGL 或宿主运行时库怎么办？",
+  "faq.a13":
+    "官方 AppImage 不打包宿主 EGL / WebKit / 托盘库。先装运行时库，再运行。排查步骤见 /install/。",
   "gallery.page.title": "皮肤 · 开源 Grok App",
   "gallery.page.desc": "社区外观包。先看见工作台上的样子，再套用到开源 Grok App。",
   "gallery.kicker": "皮肤仓库",
@@ -425,6 +431,18 @@ export const zh = {
   "desktop.cta.download": "免费下载",
   "desktop.cta.releases": "GitHub Releases",
   "desktop.cta.faq": "Desktop / GUI 问答",
+  "desktop.qa.title": "常见问答",
+  "desktop.qa.q1": "搜 Grok Desktop 或 Grok GUI 是在找什么？",
+  "desktop.qa.a1":
+    "这些是搜索别名。产品名仍是 Grok App，短称开源 Grok App。它是本机 Grok Build CLI 的桌面工作台，仓库 RongleCat/grok-app。",
+  "desktop.qa.q2": "需要本机 Grok Build CLI 吗？",
+  "desktop.qa.a2":
+    "需要。开源 Grok App 是桌面 GUI，不会替代 CLI。请先在本机装好 Grok Build，再打开本应用。",
+  "desktop.qa.q3": "这是 grok.com 网页聊天的套壳吗？",
+  "desktop.qa.a3": "不是。它面向本机 Grok Build CLI，不是 grok.com 聊天页或 PWA。",
+  "desktop.qa.q4": "从哪里安装和更新？",
+  "desktop.qa.a4":
+    "安装步骤在 /install/。新的稳定版从 GitHub Releases 获取，近几版说明在 /changelog/。",
 } as const;
 
 export type MessageKey = keyof typeof zh;

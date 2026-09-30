@@ -18,6 +18,7 @@ People searching Grok Desktop, Grok GUI, Grok Build Desktop, or Grok 桌面客�
 These are search aliases only. The product name stays Grok App. It is a desktop GUI for the local Grok Build CLI, not a grok.com chat wrapper.
 Install and sign in on the machine first: https://grok-app.com/install/
 Recent stable notes: https://grok-app.com/changelog/
+On-page Q&A (what Grok Desktop / Grok GUI means, the local Grok Build CLI, not a grok.com chat wrapper, where to install and update): https://grok-app.com/desktop/
 
 ## Canonical URLs
 
@@ -75,6 +76,9 @@ https://github.com/RongleCat/grok-app — MIT.
 ## Install
 
 - macOS / Windows / Linux steps, first-run CLI sign-in, and common blockers: https://grok-app.com/install/
+- macOS Gatekeeper or a damaged-app warning: allow it in Privacy & Security, or clear the quarantine attribute with xattr. Steps: https://grok-app.com/install/
+- Windows SmartScreen (unknown publisher) or missing WebView2: More info → Run anyway, then confirm WebView2. Steps: https://grok-app.com/install/
+- Linux AppImage missing libEGL or other host runtime libraries: install the host libraries first. Steps: https://grok-app.com/install/
 - Installers live on GitHub Releases only. This website does not host or proxy installer binaries.
 
 ## Key features

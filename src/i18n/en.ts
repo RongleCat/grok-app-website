@@ -169,6 +169,12 @@ export const en: Record<MessageKey, string> = {
   "faq.q11": "How do I update open-source Grok App?",
   "faq.a11":
     "Get new stable builds from GitHub Releases, the same channels as the first install. Recent stable notes are on this site at /changelog/. Full history is on GitHub Releases.",
+  "faq.q12": "Windows SmartScreen says the publisher is unknown. What now?",
+  "faq.a12":
+    "Choose More info → Run anyway. Only download installers from GitHub Releases, and check the hash against SHA256SUMS. If WebView2 is missing, the installer bootstraps it. Troubleshooting: /install/.",
+  "faq.q13": "Linux AppImage says libEGL or a host runtime library is missing. What now?",
+  "faq.a13":
+    "The official AppImage does not bundle host libraries such as libEGL.so.1, WebKit, or tray libraries. Install the runtime libraries first, then run it. Troubleshooting: /install/.",
   "gallery.page.title": "Skins · Open-source Grok App",
   "gallery.page.desc":
     "Community appearance packs. See them on the workbench, then apply in Open-source Grok App.",
@@ -456,4 +462,16 @@ export const en: Record<MessageKey, string> = {
   "desktop.cta.download": "Download free",
   "desktop.cta.releases": "GitHub Releases",
   "desktop.cta.faq": "Desktop / GUI FAQ",
+  "desktop.qa.title": "Questions",
+  "desktop.qa.q1": "What do people mean by Grok Desktop or Grok GUI?",
+  "desktop.qa.a1":
+    "Those are search aliases. The product name stays Grok App. The short brand is open-source Grok App. It is a desktop workbench for the local Grok Build CLI: RongleCat/grok-app.",
+  "desktop.qa.q2": "Does it need the local Grok Build CLI?",
+  "desktop.qa.a2":
+    "Yes. Open-source Grok App is a desktop GUI and does not replace the CLI. Install Grok Build on your machine first, then open the app.",
+  "desktop.qa.q3": "Is this a grok.com chat wrapper?",
+  "desktop.qa.a3": "No. It is for the local Grok Build CLI, not grok.com chat or a PWA.",
+  "desktop.qa.q4": "Where do I install and update?",
+  "desktop.qa.a4":
+    "Install steps are at /install/. New stable builds come from GitHub Releases. Recent notes are at /changelog/.",
 };

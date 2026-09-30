@@ -77,6 +77,14 @@
   color: var(--text-primary);
 }
 
+.desktop-qa h3 {
+  margin-top: 18px;
+  font-size: 16px;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
 @media (max-width: 719px) {
   .desktop-page {
     width: calc(100% - 32px);

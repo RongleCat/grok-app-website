@@ -43,7 +43,7 @@
       content="搜 Grok Desktop、Grok GUI 或 Grok 桌面客户端？产品名是开源 Grok App，本机 Grok Build CLI 的桌面工作台。"
     />
     <meta name="twitter:image" content="https://grok-app.com/images/og.jpg" />
-    <!-- 2026-09-16 · add · Organization + WebSite + WebPage + BreadcrumbList；不写 softwareVersion / 评分 -->
+    <!-- 2026-09-30 · add · Organization + WebSite + WebPage + FAQPage + BreadcrumbList；FAQ 与页内问答一致；不写 softwareVersion / 评分 -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -81,6 +81,46 @@
               { "@type": "Thing", "name": "open-source Grok App" }
             ],
             "breadcrumb": { "@id": "https://grok-app.com/desktop/#breadcrumb" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://grok-app.com/desktop/#faq",
+            "url": "https://grok-app.com/desktop/",
+            "isPartOf": { "@id": "https://grok-app.com/#website" },
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "搜 Grok Desktop 或 Grok GUI 是在找什么？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "这些是搜索别名。产品名仍是 Grok App，短称开源 Grok App。它是本机 Grok Build CLI 的桌面工作台，仓库 RongleCat/grok-app。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "需要本机 Grok Build CLI 吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "需要。开源 Grok App 是桌面 GUI，不会替代 CLI。请先在本机装好 Grok Build，再打开本应用。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "这是 grok.com 网页聊天的套壳吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不是。它面向本机 Grok Build CLI，不是 grok.com 聊天页或 PWA。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "从哪里安装和更新？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "安装步骤在 /install/。新的稳定版从 GitHub Releases 获取，近几版说明在 /changelog/。"
+                }
+              }
+            ]
           },
           {
             "@type": "BreadcrumbList",
@@ -318,6 +358,30 @@
           新的稳定版从 GitHub Releases 获取，渠道与第一次安装相同。近几版说明在本站 /changelog/，完整历史在 GitHub Releases。
         </p>
         <p class="desktop-links">
+          <a href="/changelog/" data-i18n="footer.changelog">更新日志</a>
+        </p>
+      </section>
+
+      <section class="desktop-section desktop-qa" id="desktop-qa">
+        <h2 data-i18n="desktop.qa.title">常见问答</h2>
+        <h3 data-i18n="desktop.qa.q1">搜 Grok Desktop 或 Grok GUI 是在找什么？</h3>
+        <p data-i18n="desktop.qa.a1">
+          这些是搜索别名。产品名仍是 Grok App，短称开源 Grok App。它是本机 Grok Build CLI 的桌面工作台，仓库 RongleCat/grok-app。
+        </p>
+        <h3 data-i18n="desktop.qa.q2">需要本机 Grok Build CLI 吗？</h3>
+        <p data-i18n="desktop.qa.a2">
+          需要。开源 Grok App 是桌面 GUI，不会替代 CLI。请先在本机装好 Grok Build，再打开本应用。
+        </p>
+        <h3 data-i18n="desktop.qa.q3">这是 grok.com 网页聊天的套壳吗？</h3>
+        <p data-i18n="desktop.qa.a3">
+          不是。它面向本机 Grok Build CLI，不是 grok.com 聊天页或 PWA。
+        </p>
+        <h3 data-i18n="desktop.qa.q4">从哪里安装和更新？</h3>
+        <p data-i18n="desktop.qa.a4">
+          安装步骤在 /install/。新的稳定版从 GitHub Releases 获取，近几版说明在 /changelog/。
+        </p>
+        <p class="desktop-links">
+          <a href="/install/" data-i18n="desktop.cta.install">安装指南</a>
           <a href="/changelog/" data-i18n="footer.changelog">更新日志</a>
         </p>
       </section>

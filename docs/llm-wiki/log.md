@@ -4,6 +4,21 @@
 
 ---
 
+## 2026-09-30 · GEO：加深 `/desktop/` 问答，FAQ 增至 13，llms 写安装卡住
+
+- **操作者**：agent
+- **触发**：Grok Desktop / Grok GUI 查询仍被竞品占位；`/desktop/` 未进前列。本周至少推进一个可索引内容面。版本号 v0.2.38 已落地，不重复 bump
+- **改动**：
+  - `/desktop/` 增加 `#desktop-qa` 四问（别名含义、需要本机 Grok Build CLI、不是 grok.com 套壳、安装与更新链 `/install/` 与 `/changelog/`）；JSON-LD 在 Organization / WebSite / WebPage / BreadcrumbList 上加 `FAQPage`，`mainEntity` 与静态简体逐字一致；仍无 `softwareVersion` / 评分
+  - `/faq/` 增 q12（Windows SmartScreen / 未知发布者）与 q13（Linux AppImage 缺 libEGL）；排在 macOS Gatekeeper 之后；首条仍是「开源 Grok App 是什么？」；静态简体、三语、`FAQPage.mainEntity` 均为 13 条；答案指向 `/install/#install-fix`
+  - `public/llms.txt` 稳定版仍为 `v0.2.38`；Install 节补 Gatekeeper/`xattr`、SmartScreen/WebView2、libEGL；Desktop 节补一条页内 Q&A。无 `llms-full.txt`，不写 Grok Bot
+  - `public/sitemap.xml` `/faq/` 与 `/desktop/` lastmod → 2026-09-30
+- **Wiki**：seo / content / design / README / status / 本条
+- **结果**：`pnpm test` 73 项通过。`/desktop/` 四问可被 FAQPage 引用；`/faq/` 13 问；`llms.txt` 写出三类安装卡住。推 `main`
+- **未做 / 下一步**：短链 `/download/*` 仍可选
+
+---
+
 ## 2026-09-30 · 下载 / JSON-LD 版本对齐 v0.2.38，changelog 置顶
 
 - **操作者**：agent

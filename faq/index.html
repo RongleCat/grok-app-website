@@ -100,6 +100,22 @@
               },
               {
                 "@type": "Question",
+                "name": "Windows SmartScreen 提示未知发布者怎么办？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "点「更多信息 → 仍要运行」。安装包只从 GitHub Releases 获取，可用 SHA256SUMS 核对哈希。若缺 WebView2，安装包会引导安装。排查步骤见 /install/。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Linux AppImage 提示缺少 libEGL 或宿主运行时库怎么办？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "官方 AppImage 不打包宿主 EGL / WebKit / 托盘库。先装运行时库，再运行。排查步骤见 /install/。"
+                }
+              },
+              {
+                "@type": "Question",
                 "name": "需要先安装本机 Grok Build CLI 吗？",
                 "acceptedAnswer": {
                   "@type": "Answer",
@@ -362,6 +378,20 @@
           <dd data-i18n="faq.a2">
             这是 macOS Gatekeeper 对非 App Store 应用的常见拦截。可在「系统设置 → 隐私与安全性」里允许打开，或按住 Control 点按应用图标后选择「打开」。只从 GitHub Releases 获取安装包。
           </dd>
+        </div>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q12">Windows SmartScreen 提示未知发布者怎么办？</h2></dt>
+          <dd data-i18n="faq.a12">
+            点「更多信息 → 仍要运行」。安装包只从 GitHub Releases 获取，可用 SHA256SUMS 核对哈希。若缺 WebView2，安装包会引导安装。排查步骤见 /install/。
+          </dd>
+          <p class="faq-more"><a href="/install/#install-fix" data-i18n="install.toc.fix">排查</a></p>
+        </div>
+        <div class="faq-item">
+          <dt><h2 data-i18n="faq.q13">Linux AppImage 提示缺少 libEGL 或宿主运行时库怎么办？</h2></dt>
+          <dd data-i18n="faq.a13">
+            官方 AppImage 不打包宿主 EGL / WebKit / 托盘库。先装运行时库，再运行。排查步骤见 /install/。
+          </dd>
+          <p class="faq-more"><a href="/install/#install-fix" data-i18n="install.toc.fix">排查</a></p>
         </div>
         <div class="faq-item">
           <dt><h2 data-i18n="faq.q3">需要先安装本机 Grok Build CLI 吗？</h2></dt>

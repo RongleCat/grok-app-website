@@ -98,6 +98,23 @@ describe("catalogs", () => {
     expect(zhTW["desktop.relation.body"]).toContain("不會替代 CLI");
     expect(en["desktop.download.body"]).toContain("GitHub Releases");
     expect(en["desktop.updates.body"]).toContain("/changelog/");
+    expect(zh["faq.q12"]).toContain("SmartScreen");
+    expect(zh["faq.a12"]).toContain("/install/");
+    expect(zh["faq.q13"]).toContain("libEGL");
+    expect(zh["faq.a13"]).toContain("/install/");
+    expect(zhTW["faq.q12"]).toContain("SmartScreen");
+    expect(zhTW["faq.a12"]).toContain("/install/");
+    expect(zhTW["faq.a13"]).toContain("/install/");
+    expect(en["faq.q12"]).toContain("SmartScreen");
+    expect(en["faq.a12"]).toContain("/install/");
+    expect(en["faq.a13"]).toContain("libEGL");
+    expect(en["faq.a13"]).toContain("/install/");
+    expect(zh["desktop.qa.q1"]).toContain("Grok Desktop");
+    expect(zh["desktop.qa.a2"]).toContain("Grok Build");
+    expect(zh["desktop.qa.a4"]).toContain("/install/");
+    expect(zh["desktop.qa.a4"]).toContain("/changelog/");
+    expect(en["desktop.qa.q3"]).toMatch(/grok\.com chat wrapper/);
+    expect(en["desktop.qa.a4"]).toContain("/changelog/");
   });
 
   it("catalogs do not use unofficial disclaimers", () => {
